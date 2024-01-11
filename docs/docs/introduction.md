@@ -2,15 +2,11 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Introduction
 
-Let's discover **Docusaurus in less than 5 minutes**.
+## Introduction to the FlowSynx
 
-## Getting Started
-
-Get started by **creating a new site**.
-
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+FlowSynx is a program to manage files on cloud storage and locally. It is a feature-rich alternative to cloud vendors' web storage interfaces. Over 70 cloud storage products support FlowSynx including S3 object stores, business & consumer file storage services, as well as standard transfer protocols.
 
 ### What you'll need
 

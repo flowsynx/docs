@@ -1,0 +1,43 @@
+---
+sidebar_position: 2
+---
+
+# Initialize FlowSynx
+
+Fetch the FlowSynx binaries and install them locally using `synx init`.  
+Now that you’ve installed the FlowSynx CLI, use the CLI to initialize FlowSynx on your local machine.
+
+## Step 1: Open terminal
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="operating-systems">
+  <TabItem value="linuxMacOs" label="Linux/MacOS">
+  You will need to use `sudo` for this quickstart if:
+
+  - You run your Docker commands with `sudo`, or
+  - The install path is `/usr/local/bin` (default install path).
+  </TabItem>
+  <TabItem value="windows" label="Windows">
+  Run Windows Terminal or command prompt as administrator.
+
+  - Right click on the Windows Terminal or command prompt icon.
+  - Select **Run as administrator**.
+  </TabItem>
+</Tabs>
+
+## Step 2: Run the init CLI command
+Install the latest FlowSynx binaries:
+```
+synx init
+```
+After executing this command, FlowSynx starts to be initialized.
+
+## Step 3: Verify FlowSynx version
+```
+synx version
+```
+
+#### Output:
+CLI version: 0.1.0  
+FlowSynx version: 0.1.0

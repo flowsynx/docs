@@ -1,2 +1,2 @@
 # Website
-Website for the FlowSync project
+Website for the FlowSynx project

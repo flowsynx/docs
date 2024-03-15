@@ -1,0 +1,56 @@
+---
+sidebar_position: 1
+---
+
+# Use the FlowSynx API
+
+In this guide, you’ll simulate and access an application by running and calling the FlowSynx API directly.
+
+## Step 1: Open terminal
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="operating-systems">
+  <TabItem value="linuxMacOs" label="Linux/MacOS">
+  You will need to use `sudo` for this quickstart if:
+
+  - You run your Docker commands with `sudo`, or
+  - The install path is `/usr/local/bin` (default install path).
+  </TabItem>
+  <TabItem value="windows" label="Windows">
+  Run Windows Terminal or command prompt as administrator.
+
+  - Right click on the Windows Terminal or command prompt icon.
+  - Select **Run as administrator**.
+  </TabItem>
+</Tabs>
+
+## Step 2: Run the FlowSynx
+```
+synx run
+```
+After executing this command, FlowSynx starts to be running and the logs like below will be displayed.
+
+```
+[time=2/1/2024 6:50:39 PM | level=INFO | machine=TEST-PC] message="Now listening on: http://[::]:5860"
+[time=2/1/2024 6:50:39 PM | level=INFO | machine=TEST-PC] message="Application started. Press Ctrl+C to shut down."
+[time=2/1/2024 6:50:39 PM | level=INFO | machine=TEST-PC] message="Hosting environment: Production"
+[time=2/1/2024 6:50:39 PM | level=INFO | machine=TEST-PC] message="Content root path: _____________"
+```
+
+## Step 3: Calling API
+Open a new terminal and enter the below command (in this example **`List`** command will be called to getting list from given path):
+<Tabs groupId="httpApi">
+  <TabItem value="bashHttpApi" label="HTTP API (Bash)">
+  ```
+  curl -X POST -H "Content-Type: application/json" -d '{ "path": "/", "full": true, "caseSensitive": false, "recurse": false, "sorting": "kind asc" }' http://localhost:5860/storage/list
+  ```
+  </TabItem>
+  <TabItem value="powershellHttpApi" label="HTTP API (PowerShell)">
+  ```
+  Invoke-RestMethod -Method Post -ContentType 'application/json' -Body '{ "path": "C:/", "full": true, "caseSensitive": false, "recurse": false, "sorting": "kind asc" }' -Uri 'http://localhost:5860/storage/list'
+  ```
+  </TabItem>
+</Tabs>
+
+After executing the command, the result will be returned to you in the form of `json` data.

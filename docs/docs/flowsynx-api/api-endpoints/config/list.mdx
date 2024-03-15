@@ -1,0 +1,117 @@
+---
+sidebar_position: 1
+---
+
+# Config List
+
+Manage configurations related to FlowSynx System. You can setup new remotes and manage existing ones.
+
+## Config list Api options
+The options available in this api are described below:
+
+<table>
+  <tr>
+    <th>Option name</th>
+    <th>Type</th>
+    <th>Default Value</th>
+    <th>Required</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>**type**</td>
+    <td class="centering">string</td>
+    <td></td>
+    <td></td>
+    <td>
+    This option indicates the type of config item in the list of configs. In other words, if this option has a value, the configs will be filtered based on this type and only the configs that are of this type will be returned as a result (if any).
+    
+    For example the value of this option should be in the following format: 
+    `FlowSynx.Storage/Azure.Blob`
+
+    This format indicates the type of plugin to be used.
+    </td>
+  </tr>
+</table>
+
+## Calling Config list Api
+For calling this api, the following details are required to apply:
+
+:::note
+The options and parameters introduced in the previous section must be included as json data in the request body part.
+:::
+
+<table class="table">
+  <tr>
+    <th>URL</th>
+    <th>Method</th>
+    <th>ContentType</th>
+    <th>Body</th>
+  </tr>
+  <tr>
+    <td>http://localhost:5860/config</td>
+    <td class="centering">POST</td>
+    <td class="centering">application/json</td>
+    <td>
+      ```json
+      {
+        "type": <STRING VALUE>
+      }
+      ```
+    </td>
+  </tr>
+</table>
+
+Now, if we want to have these details in the form of an http api call, open a new terminal and enter the following command:
+
+:::info
+First of all make sure flowsynx is running.
+:::
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="httpApi">
+  <TabItem value="bashHttpApi" label="HTTP API (Bash)">
+  ```
+  curl -X POST -H "Content-Type: application/json" -d '{ "type": "FlowSynx.Storage/Azure.Blob" }' http://localhost:5860/config
+  ```
+  </TabItem>
+  <TabItem value="powershellHttpApi" label="HTTP API (PowerShell)">
+  ```
+  Invoke-RestMethod -Method Post -ContentType 'application/json' -Body '{ "type": "FlowSynx.Storage/Azure.Blob" }' -Uri 'http://localhost:5860/config'
+  ```
+  </TabItem>
+</Tabs>
+
+Also you can use `Http Api test clients` to test this api. Anyway, after executing this api, a result like below will be obtained.
+```
+{
+  "data": [
+    {
+      "id": "18c91659-858b-4fd6-bd20-0125cac86c27",
+      "name": "azblob",
+      "type": "FlowSynx.Storage/Azure.Blob"
+    },
+    .
+    .
+    .
+  ],
+  "messages": [],
+  "succeeded": true
+}
+```
+
+The answer is divided into three `data`, `messages`, and `succeeded` parts. 
+`succeeded` indicates the status of the execution of this api which is boolean value and can be true or false. 
+`messages` also indicates the list of possible messages that are returned with the response. 
+`data` contains the data to be returned. 
+
+:::info
+`data` part will have a value only when `succeeded` is true. If `succeeded` is false, this field will be null.
+:::
+
+The information including in the result for this api is described as follows:
+
+> **id**: The guid-based identity for configuration item.  
+> **name**: The name of configuration item (this name is unique).  
+> **type**: The type of config item which represents the plugin type.

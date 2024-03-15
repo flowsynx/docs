@@ -16,7 +16,7 @@ const config: Config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'flowsynx', // Usually your GitHub org/user name.
-  projectName: 'Website', // Usually your repo name.
+  projectName: 'website', // Usually your repo name.
   
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -68,7 +68,7 @@ const config: Config = {
           position: 'left'
         },
         {
-          href: 'https://github.com/FlowSynx/FlowSynx',
+          href: 'https://github.com/flowsynx/flowsynx',
           label: 'GitHub',
           position: 'right',
         },
@@ -112,7 +112,7 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/FlowSynx/FlowSynx',
+              href: 'https://github.com/flowsynx/flowsynx',
             },
           ],
         },

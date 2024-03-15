@@ -1,6 +1,5 @@
 name: "Docusaurus 🦖 GitHub Pages"
 description: "Builds and syncs Docusaurus site to GitHub Pages"
-author: docuactions
 
 on:
   push:

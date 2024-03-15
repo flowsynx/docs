@@ -36,9 +36,6 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts'
         },
-        blog: {
-          showReadingTime: true
-        },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -63,11 +60,6 @@ const config: Config = {
           label: 'Docs',
         },
         {
-          to: '/blog', 
-          label: 'Blog', 
-          position: 'left'
-        },
-        {
           href: 'https://github.com/flowsynx/flowsynx',
           label: 'GitHub',
           position: 'right',
@@ -76,47 +68,6 @@ const config: Config = {
     },
     footer: {
       style: 'dark',
-      links: [
-        {
-          title: 'Docs',
-          items: [
-            {
-              label: 'Docs',
-              to: '/docs/introduction',
-            },
-          ],
-        },
-        {
-          title: 'Community',
-          items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/flowsynx/flowsynx',
-            },
-          ],
-        },
-      ],
       copyright: `Copyright © ${new Date().getFullYear()} FlowSynx.`,
     },
     algolia: {

@@ -72,10 +72,10 @@ const config: Config = {
     },
     algolia: {
       // The application ID provided by Algolia
-      appId: 'JGZNE0WZF8',
+      appId: 'F4MO7UJ6HX',
 
       // Public API key: it is safe to commit it
-      apiKey: '1b20018d4af6e02f58eb3c5a82f4af3a',
+      apiKey: '1f66a9549be4252c840a7b3e7ea61b00',
 
       indexName: 'flowsynx',
 

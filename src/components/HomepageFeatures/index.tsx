@@ -1,56 +1,59 @@
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
+import { Icon } from '@iconify/react';
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  icon: string;
   description: JSX.Element;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Robust CLI',
+    icon: 'clarity:command-line',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        An integrated, and robust CLI that allows you to manage the flowsynx system (e.g., initialize, run, stop, update, uninstall, etc.) 
+        and interact with it (e.g., execute commands related to storage and etc.).
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Various storage systems',
+    icon: 'eos-icons:cloud-computing-outlined',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        It will try to cover and support most of the cloud storage products including S3 object stores, business & consumer file storage services, 
+        as well as standard transfer protocols.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'SDK',
+    icon: 'material-symbols-light:sdk-outline-sharp',
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        In addition to the CLI and API to access and interact with the flowsynx system, 
+        the SDK is also designed to easily interact with flowsynx through different programming languages.
       </>
     ),
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({title, icon, description}: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
-      </div>
+        <div className="card feature-card">
+          <div className="card__header">
+            <Icon icon={icon} height="64" />
+            <Heading as="h3">{title}</Heading>
+          </div>
+          <div className="card__body">
+            <p>{description}</p>
+          </div>
+        </div>
     </div>
   );
 }
@@ -59,6 +62,7 @@ export default function HomepageFeatures(): JSX.Element {
   return (
     <section className={styles.features}>
       <div className="container">
+        <Heading as="h2">FlowSynx features</Heading>
         <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />

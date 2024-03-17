@@ -15,77 +15,77 @@ import TabItem from '@theme/TabItem';
     ### Install from Terminal
     Install the latest Linux FlowSynx CLI to `/usr/local/bin`:
     ```
-    wget -q https://raw.githubusercontent.com/FlowSynx/Cli/master/install/install.sh -O - | /bin/bash
+    wget -q https://raw.githubusercontent.com/flowsynx/cli/master/install/install.sh -O - | /bin/bash
     ```
 
     ### Installing a specific CLI version
     The following example shows how to install FlowSynx CLI version `0.1.0`.
     ```
-    wget -q https://raw.githubusercontent.com/FlowSynx/Cli/master/install/install.sh -O - | /bin/bash -s 0.1.0
+    wget -q https://raw.githubusercontent.com/flowsynx/cli/master/install/install.sh -O - | /bin/bash -s 0.1.0
     ```
 
     ### Install without sudo
     If you do not have access to the sudo command or your username is not in the sudoers file, you can install FlowSynx to an alternate directory via the `FLOWSYNX_INSTALL_DIR` environment variable. This directory must already exist and be accessible by the current user.
     ```
-    wget -q https://raw.githubusercontent.com/FlowSynx/Cli/master/install/install.sh -O - | FLOWSYNX_INSTALL_DIR="$HOME/flowsynx" /bin/bash
+    wget -q https://raw.githubusercontent.com/flowsynx/cli/master/install/install.sh -O - | FLOWSYNX_INSTALL_DIR="$HOME/flowsynx" /bin/bash
     ```
 
     ### Installing a specific FlowSynx version without sudo
     The following example shows how to install FlowSynx CLI version `0.1.0`.
     ```
-    wget -q https://raw.githubusercontent.com/FlowSynx/Cli/master/install/install.sh -O - | FLOWSYNX_INSTALL_DIR="$HOME/flowsynx" /bin/bash -s 0.1.0
+    wget -q https://raw.githubusercontent.com/flowsynx/cli/master/install/install.sh -O - | FLOWSYNX_INSTALL_DIR="$HOME/flowsynx" /bin/bash -s 0.1.0
     ```
   </TabItem>
   <TabItem value="windows" label="Windows">
     ### Install from Powershell
     Install the latest windows FlowSynx cli to $Env:SystemDrive\flowsynx and add this directory to the User PATH environment variable:
     ```
-    iwr -useb https://raw.githubusercontent.com/FlowSynx/Cli/master/install/install.ps1 | iex
+    iwr -useb https://raw.githubusercontent.com/flowsynx/cli/master/install/install.ps1 | iex
     ```
 
     ### Installing a specific CLI version
     The following example shows how to install CLI version `0.1.0`.
     ```
-    $script=iwr -useb https://raw.githubusercontent.com/FlowSynx/Cli/master/install/install.ps1; $block=[ScriptBlock]::Create($script); invoke-command -ScriptBlock $block -ArgumentList "0.1.0"
+    $script=iwr -useb https://raw.githubusercontent.com/flowsynx/cli/master/install/install.ps1; $block=[ScriptBlock]::Create($script); invoke-command -ScriptBlock $block -ArgumentList "0.1.0"
     ```
   
     ### Install without administrative rights
     If you do not have admin rights, you can install FlowSynx to an alternate directory via the `FLOWSYNX_INSTALL_DIR` environment variable. The script below creates the directory if it does not exist.
     ```
     $Env:FLOWSYNX_INSTALL_DIR = "<your_alt_install_dir_path>"
-    $script=iwr -useb https://raw.githubusercontent.com/FlowSynx/Cli/master/install/install.ps1; $block=[ScriptBlock]::Create($script); invoke-command -ScriptBlock $block -ArgumentList "", "$Env:FLOWSYNX_INSTALL_DIR"
+    $script=iwr -useb https://raw.githubusercontent.com/flowsynx/cli/master/install/install.ps1; $block=[ScriptBlock]::Create($script); invoke-command -ScriptBlock $block -ArgumentList "", "$Env:FLOWSYNX_INSTALL_DIR"
     ```
   
     ### Installing a specific CLI version without administrative rights
     The following example shows how to install CLI version `0.1.0`.
     ```
     $Env:FLOWSYNX_INSTALL_DIR = "<your_alt_install_dir_path>"
-    $script=iwr -useb https://raw.githubusercontent.com/FlowSynx/Cli/master/install/install.ps1; $block=[ScriptBlock]::Create($script); invoke-command -ScriptBlock $block -ArgumentList "0.1.0", "$Env:FLOWSYNX_INSTALL_DIR"
+    $script=iwr -useb https://raw.githubusercontent.com/flowsynx/cli/master/install/install.ps1; $block=[ScriptBlock]::Create($script); invoke-command -ScriptBlock $block -ArgumentList "0.1.0", "$Env:FLOWSYNX_INSTALL_DIR"
     ```
   </TabItem>
   <TabItem value="macos" label="MacOS">
     ### Install from Terminal
     Install the latest Darwin FlowSynx CLI to `/usr/local/bin`:
     ```
-    curl -fsSL https://raw.githubusercontent.com/FlowSynx/Cli/master/install/install.sh | /bin/bash
+    curl -fsSL https://raw.githubusercontent.com/flowsynx/cli/master/install/install.sh | /bin/bash
     ```
 
     ### Installing a specific CLI version
     The following example shows how to install CLI version `0.1.0`.
     ```
-    curl -fsSL https://raw.githubusercontent.com/FlowSynx/Cli/master/install/install.sh | /bin/bash -s 1.12.0
+    curl -fsSL https://raw.githubusercontent.com/FlowSynx/cli/master/install/install.sh | /bin/bash -s 1.12.0
     ```
 
     ### Install without sudo
     If you do not have access to the sudo command or your username is not in the sudoers file, you can install FlowSynx to an alternate directory via the FLOWSYNX_INSTALL_DIR environment variable. This directory must already exist and be accessible by the current user.
     ```
-    curl -fsSL https://raw.githubusercontent.com/FlowSynx/Cli/master/install/install.sh | FLOWSYNX_INSTALL_DIR="$HOME/flowsynx" /bin/bash
+    curl -fsSL https://raw.githubusercontent.com/flowsynx/cli/master/install/install.sh | FLOWSYNX_INSTALL_DIR="$HOME/flowsynx" /bin/bash
     ```
 
     ### Installing a specific CLI version without sudo
     The following example shows how to install CLI version `0.1.0`.
     ```
-    curl -fsSL https://raw.githubusercontent.com/FlowSynx/Cli/master/install/install.sh | FLOWSYNX_INSTALL_DIR="$HOME/flowsynx" /bin/bash -s 1.12.0
+    curl -fsSL https://raw.githubusercontent.com/flowsynx/cli/master/install/install.sh | FLOWSYNX_INSTALL_DIR="$HOME/flowsynx" /bin/bash -s 1.12.0
     ```
   </TabItem>
 </Tabs>

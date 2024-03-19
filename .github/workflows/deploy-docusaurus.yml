@@ -1,4 +1,4 @@
-name: "Docusaurus 🦖 GitHub Pages"
+name: "Deploy Docusaurus GitHub Pages"
 
 on:
   push:

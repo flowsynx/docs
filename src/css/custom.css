@@ -43,7 +43,8 @@
 }
 
 .feature-card:hover {
-  border: 1px solid var(--ifm-color-primary-darkest);
+  border: 1px solid var(--ifm-color-primary);
+  background-color: rgb(73, 191, 247, 0.05);
 }
 
 .heroBanner_src-pages-index-module {

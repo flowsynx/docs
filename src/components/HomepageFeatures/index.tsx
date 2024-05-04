@@ -40,12 +40,22 @@ const FeatureList: FeatureItem[] = [
       </>
     ),
   },
+  {
+    title: 'Dashboard',
+    icon: 'mage:dashboard-check',
+    description: (
+      <>
+        FlowSynx Dashboard is a single and easy-to-view interface tool that help you to manage, 
+        and view configurations, plugins sections, as well as checking health of running FlowSynx system.
+      </>
+    ),
+  },
 ];
 
 function Feature({title, icon, description}: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
-        <div className="card feature-card">
+        <div className="card feature-card margin-bottom--lg">
           <div className="card__header">
             <Icon icon={icon} height="64" />
             <Heading as="h3">{title}</Heading>

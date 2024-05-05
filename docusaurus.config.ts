@@ -55,20 +55,21 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'docSidebar',
           position: 'left',
           label: 'Docs',
         },
         {
           href: 'https://github.com/flowsynx/flowsynx',
-          label: 'GitHub',
           position: 'right',
+          label: 'GitHub'
         },
       ],
     },
     footer: {
       style: 'light',
-      copyright: `Copyright © ${new Date().getFullYear()} - FlowSynx - All rights reserved.`,
+      copyright: `Copyright © ${new Date().getFullYear()} - FlowSynx - All rights reserved.<br />
+      Built with <a href="https://docusaurus.io/" target="_blank">Docusaurus</a>. Hosted at <a href="https://pages.github.com/" target="_blank">Github Pages</a>.`
     },
     algolia: {
       // The application ID provided by Algolia

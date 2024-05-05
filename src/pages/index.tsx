@@ -40,7 +40,7 @@ function HomepageHeader() {
 
 function HomepageAboutFlowSynx() {
   return (
-    <section className='padding-vert--lg'>
+    <section className='padding-vert--lg about-section'>
       <div className="container">
         <Heading as="h2">What is the FlowSynx?</Heading>
         <div className="row">
@@ -59,8 +59,7 @@ function HomepageAboutFlowSynx() {
 export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <Layout
-      title={`Syncs and manage your files and streams to different storage`}
+    <Layout title={`Syncs and manage your files and streams to different storage`}
       description="Description will go into a meta tag in <head />">
       <HomepageHeader />
       <main>

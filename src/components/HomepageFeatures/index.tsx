@@ -11,6 +11,17 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
+    title: 'Cross-Platform',
+    icon: 'icomoon-free:display',
+    description: (
+      <>
+        FlowSynx system is designed to work in several computing platforms. It can work across 
+        multiple types of platforms or operating environments such as Windows, Linux, and MacOS.
+
+      </>
+    ),
+  },
+  {
     title: 'Robust CLI',
     icon: 'clarity:command-line',
     description: (
@@ -72,7 +83,7 @@ export default function HomepageFeatures(): JSX.Element {
   return (
     <section className={styles.features}>
       <div className="container">
-        <Heading as="h2">FlowSynx features</Heading>
+        <Heading as="h2">FlowSynx Capabilities</Heading>
         <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />

@@ -60,6 +60,11 @@ const config: Config = {
           label: 'Docs',
         },
         {
+          to: '/blog', 
+          label: 'Blog', 
+          position: 'left'
+        },
+        {
           href: 'https://github.com/flowsynx/flowsynx',
           position: 'right',
           label: 'GitHub'

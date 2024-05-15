@@ -35,7 +35,7 @@ The options available in this api are described below:
     This option indicates the type of config item.
     
     For example the value of this option should be in the following format: 
-    `FlowSynx.Storage/Azure.Blob`
+    `FlowSynx.Storage/Azure.Files`
 
     This format indicates the type of plugin to be used.
     </td>
@@ -72,8 +72,8 @@ The options and parameters introduced in the previous section must be included a
     <td>
       ```json
       {
-        "name": "azblob",
-        "type": "FlowSynx.Storage/Azure.Blob",
+        "name": "azfile",
+        "type": "FlowSynx.Storage/Azure.Files",
         "specifications": {}
       }
       ```
@@ -93,12 +93,12 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="httpApi">
   <TabItem value="bashHttpApi" label="HTTP API (Bash)">
   ```
-  curl -X POST -H "Content-Type: application/json" -d '{ "name": "azblob", "type": "FlowSynx.Storage/Azure.Blob", "specifications": {} }' http://localhost:5860/config/add
+  curl -X POST -H "Content-Type: application/json" -d '{ "name": "azfile", "type": "FlowSynx.Storage/Azure.Files", "specifications": {} }' http://localhost:5860/config/add
   ```
   </TabItem>
   <TabItem value="powershellHttpApi" label="HTTP API (PowerShell)">
   ```
-  Invoke-RestMethod -Method Post -ContentType 'application/json' -Body '{ "name": "azblob", "type": "FlowSynx.Storage/Azure.Blob", "specifications": {} }' -Uri 'http://localhost:5860/config/add'
+  Invoke-RestMethod -Method Post -ContentType 'application/json' -Body '{ "name": "azfile", "type": "FlowSynx.Storage/Azure.Files", "specifications": {} }' -Uri 'http://localhost:5860/config/add'
   ```
   </TabItem>
 </Tabs>
@@ -108,7 +108,7 @@ Also you can use `Http Api test clients` to test this api. Anyway, after executi
 {
   "data": {
     "id": "18c91659-858b-4fd6-bd20-0125cac86c27",
-    "name": "azblob"
+    "name": "azfile"
   },
   "messages": [
     "The configuration was added successfully."

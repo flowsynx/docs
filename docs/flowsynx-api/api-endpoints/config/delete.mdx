@@ -49,7 +49,7 @@ The options and parameters introduced in the previous section must be included a
     <td>
       ```json
       {
-        "name": "azblob"
+        "name": "azfile"
       }
       ```
     </td>
@@ -68,12 +68,12 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="httpApi">
   <TabItem value="bashHttpApi" label="HTTP API (Bash)">
   ```
-  curl -X DELETE -H "Content-Type: application/json" -d '{ "name": "azblob" }' http://localhost:5860/config/delete
+  curl -X DELETE -H "Content-Type: application/json" -d '{ "name": "azfile" }' http://localhost:5860/config/delete
   ```
   </TabItem>
   <TabItem value="powershellHttpApi" label="HTTP API (PowerShell)">
   ```
-  Invoke-RestMethod -Method Delete -ContentType 'application/json' -Body '{ "name": "azblob" }' -Uri 'http://localhost:5860/config/delete'
+  Invoke-RestMethod -Method Delete -ContentType 'application/json' -Body '{ "name": "azfile" }' -Uri 'http://localhost:5860/config/delete'
   ```
   </TabItem>
 </Tabs>

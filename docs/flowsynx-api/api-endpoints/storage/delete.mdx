@@ -1,0 +1,157 @@
+---
+sidebar_position: 3
+---
+
+# Delete
+
+This api will Delete entities from specific storage path.
+
+## Delete Api options
+The options available in this api are described below:
+
+<table>
+  <tr>
+    <th>Option name</th>
+    <th>Type</th>
+    <th>Default Value</th>
+    <th>Required</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>**Path**</td>
+    <td class="centering">string</td>
+    <td class="centering"></td>
+    <td class="centering greenIcon"><IIcon icon="mdi:check" height="32" /></td>
+    <td>The storage path from which the entities are to be deleted</td>
+  </tr>
+  <tr>
+    <td>**Include**</td>
+    <td class="centering">string</td>
+    <td class="centering"></td>
+    <td></td>
+    <td>Include entities matching pattern</td>
+  </tr>
+  <tr>
+    <td>**Exclude**</td>
+    <td class="centering">string</td>
+    <td class="centering"></td>
+    <td></td>
+    <td>Exclude entities matching pattern</td>
+  </tr>
+  <tr>
+    <td>**MinAge**</td>
+    <td class="centering">string</td>
+    <td class="centering"></td>
+    <td></td>
+    <td>Filter entities older than this in **second** or suffix<br />**ms** | **s** | **m** | **h** | **d** | **w** | **M** | **y**</td>
+  </tr>
+  <tr>
+    <td>**MaxAge**</td>
+    <td class="centering">string</td>
+    <td class="centering"></td>
+    <td></td>
+    <td>Filter entities younger than this in **second** or suffix<br />**ms** | **s** | **m** | **h** | **d** | **w** | **M** | **y**</td>
+  </tr>
+  <tr>
+    <td>**MinSize**</td>
+    <td class="centering">string</td>
+    <td class="centering"></td>
+    <td></td>
+    <td>Filter entities bigger than this in **KiB** or suffix<br />**B** | **K** | **M** | **G** | **T** | **P**</td>
+  </tr>
+  <tr>
+    <td>**MaxSize**</td>
+    <td class="centering">string</td>
+    <td class="centering"></td>
+    <td></td>
+    <td>Filter entities smaller than this in KiB or suffix<br />**B** | **K** | **M** | **G** | **T** | **P**</td>
+  </tr>
+  <tr>
+    <td>**CaseSensitive**</td>
+    <td class="centering">bool</td>
+    <td class="centering">false</td>
+    <td></td>
+    <td>Ignore or apply case sensitive in filters</td>
+  </tr>
+  <tr>
+    <td>**Recurse**</td>
+    <td class="centering">bool</td>
+    <td class="centering">false</td>
+    <td></td>
+    <td>Apply recursion on filtering entities in the specified path</td>
+  </tr>
+</table>
+
+## Calling Delete Api
+For calling this api, the following details are required to apply:
+
+:::note
+The options and parameters introduced in the previous section must be included as json data in the request body part.
+:::
+
+<table class="table">
+  <tr>
+    <th>URL</th>
+    <th>Method</th>
+    <th>ContentType</th>
+    <th>Body</th>
+  </tr>
+  <tr>
+    <td>http://localhost:5860/storage/delete</td>
+    <td class="centering">DELETE</td>
+    <td class="centering">application/json</td>
+    <td>
+      ```json
+      {
+        "path": <STRING VALUE>,
+        "include": <STRING VALUE>,
+        "exclude": <STRING VALUE>,
+        "minAge": <STRING VALUE>,
+        "maxAge": <STRING VALUE>,
+        "minSize": <STRING VALUE>,
+        "maxSize": <STRING VALUE>,
+        "caseSensitive": <BOOLEAN VALUE>,
+        "recurse": <BOOLEAN VALUE>
+      }
+      ```
+    </td>
+  </tr>
+</table>
+
+Now, if we want to have these details in the form of an http api call, open a new terminal and enter the following command:
+
+:::info
+First of all make sure flowsynx is running.
+:::
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="httpApi">
+  <TabItem value="bashHttpApi" label="HTTP API (Bash)">
+  ```
+  curl -X POST -H "Content-Type: application/json" -d '{ "path": "/path/", "include": "", "exclude": "", "minAge": "", "maxAge": "", "minSize": "", "maxSize": "", "caseSensitive": false, "recurse": true }' http://localhost:5860/storage/delete
+  ```
+  </TabItem>
+  <TabItem value="powershellHttpApi" label="HTTP API (PowerShell)">
+  ```
+  Invoke-RestMethod -Method Post -ContentType 'application/json' -Body '{ "path": "C:/path/", "include": "", "exclude": "", "minAge": "", "maxAge": "", "minSize": "", "maxSize": "", "caseSensitive": false, "recurse": true }' -Uri 'http://localhost:5860/storage/delete'
+  ```
+  </TabItem>
+</Tabs>
+
+Also you can use `Http Api test clients` to test this api. Anyway, after executing this api, a result like below will be obtained.
+```
+{
+  "data": null,
+  "messages": [
+    "The file(s) were deleted successfully."
+  ],
+  "succeeded": true
+}
+```
+
+The answer is divided into three `data`, `messages`, and `succeeded` parts. 
+`succeeded` indicates the status of the execution of this api which is boolean value and can be true or false. 
+`messages` also indicates the list of possible messages that are returned with the response. 
+`data` contains the data to be returned.

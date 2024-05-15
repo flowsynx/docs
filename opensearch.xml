@@ -4,8 +4,8 @@
   <ShortName>FlowSynx</ShortName>
   <Description>Search FlowSynx</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/x-icon">http://flowsynx.io/img/favicon.ico</Image>
-  <Url type="text/html" method="get" template="http://flowsynx.io/search?q={searchTerms}"/>
-  <Url type="application/opensearchdescription+xml" rel="self" template="http://flowsynx.io/opensearch.xml" />
-  <moz:SearchForm>http://flowsynx.io/</moz:SearchForm>
+  <Image width="16" height="16" type="image/x-icon">https://flowsynx.io/img/favicon.ico</Image>
+  <Url type="text/html" method="get" template="https://flowsynx.io/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://flowsynx.io/opensearch.xml" />
+  <moz:SearchForm>https://flowsynx.io/</moz:SearchForm>
 </OpenSearchDescription>

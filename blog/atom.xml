@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://flowsynx.io/blog</id>
+    <id>https://flowsynx.io/blog</id>
     <title>FlowSynx Blog</title>
     <updated>2024-05-11T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="http://flowsynx.io/blog"/>
+    <link rel="alternate" href="https://flowsynx.io/blog"/>
     <subtitle>FlowSynx Blog</subtitle>
-    <icon>http://flowsynx.io/img/favicon.ico</icon>
+    <icon>https://flowsynx.io/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[Introducing the FlowSynx blog]]></title>
-        <id>http://flowsynx.io/blog/introducing-the-flowsynx-blog</id>
-        <link href="http://flowsynx.io/blog/introducing-the-flowsynx-blog"/>
+        <id>https://flowsynx.io/blog/introducing-the-flowsynx-blog</id>
+        <link href="https://flowsynx.io/blog/introducing-the-flowsynx-blog"/>
         <updated>2024-05-11T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Welcome to the FlowSynx blog! We’ve created this blog to share FlowSynx news and a variety of content from and for the FlowSynx community. This content may include deep dives into specific technical topics, examples of how FlowSynx can be used in various scenarios and any other interesting content from the community.]]></summary>
         <content type="html"><![CDATA[<p>Welcome to the FlowSynx blog! We’ve created this blog to share FlowSynx news and a variety of content from and for the FlowSynx community. This content may include deep dives into specific technical topics, examples of how FlowSynx can be used in various scenarios and any other interesting content from the community.</p>]]></content>

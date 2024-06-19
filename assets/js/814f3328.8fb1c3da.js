@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkflowsynx=self.webpackChunkflowsynx||[]).push([[7472],{5513:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Introducing the FlowSynx blog","permalink":"/blog/introducing-the-flowsynx-blog","unlisted":false}]}')}}]);

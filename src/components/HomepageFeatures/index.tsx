@@ -61,6 +61,17 @@ const FeatureList: FeatureItem[] = [
       </>
     ),
   },
+  {
+    title: 'Support docker',
+    icon: 'cib:docker',
+    description: (
+      <>
+        FlowSynx is able to be launched on Docker in an independent and isolated environments. 
+        In addition to the dockerization, it, FlowSynx, can be executed standalone.
+
+      </>
+    ),
+  },
 ];
 
 function Feature({title, icon, description}: FeatureItem) {

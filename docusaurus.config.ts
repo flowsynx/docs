@@ -43,6 +43,16 @@ const config: Config = {
     ],
   ],
 
+  plugins: [
+    [
+      '@docusaurus/plugin-google-analytics',
+      {
+        trackingID: 'G-XD4R0EG3EP',
+        anonymizeIP: true,
+      },
+    ],
+  ],
+  
   themeConfig: {
     // Replace with your project's social card
     image: 'img/OpenGraph.jpg',

@@ -75,6 +75,12 @@ const config: Config = {
           position: 'left'
         },
         {
+          to: 'https://bit.ly/flowsynx-discord',
+          position: 'right',
+          label: 'Join our Discord',
+          className: 'button button--primary button--md join-discord-button'
+        },
+        {
           href: 'https://github.com/flowsynx/flowsynx',
           position: 'right',
           label: 'GitHub'

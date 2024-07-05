@@ -55,3 +55,11 @@
   background-color: var(--ifm-hero-background-color);
   color: var(--ifm-hero-text-color);
 }
+
+.join-discord-button {
+  color: var(--ifm-button-color);
+}
+
+.join-discord-button:hover {
+  color: var(--ifm-button-color);
+}

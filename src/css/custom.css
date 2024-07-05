@@ -57,11 +57,11 @@
 }
 
 .join-discord-button {
-  color: var(--ifm-button-color);
+  color: var(--ifm-button-color) !important;
 }
 
 .join-discord-button:hover {
-  color: var(--ifm-button-color);
+  color: var(--ifm-button-color) !important;
 }
 
 .header-github-link:hover {

@@ -83,7 +83,8 @@ const config: Config = {
         {
           href: 'https://github.com/flowsynx/flowsynx',
           position: 'right',
-          label: 'GitHub'
+          className: 'header-github-link',
+          'aria-label': 'GitHub repository',
         },
       ],
     },

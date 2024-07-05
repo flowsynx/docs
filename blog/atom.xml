@@ -2,11 +2,39 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://flowsynx.io/blog</id>
     <title>FlowSynx Blog</title>
-    <updated>2024-06-19T00:00:00.000Z</updated>
+    <updated>2024-07-05T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://flowsynx.io/blog"/>
     <subtitle>FlowSynx Blog</subtitle>
     <icon>https://flowsynx.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[FlowSynx v0.3.0 is now available]]></title>
+        <id>https://flowsynx.io/blog/flowsynx-v0.3.0-is-now-available</id>
+        <link href="https://flowsynx.io/blog/flowsynx-v0.3.0-is-now-available"/>
+        <updated>2024-07-05T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[We are super excited to announce the latest release of FlowSynx, v0.3.0! This post covers the highlights of the new features and enhancements in FlowSynx v0.3.0.]]></summary>
+        <content type="html"><![CDATA[<p>We are super excited to announce the latest release of FlowSynx, v0.3.0! This post covers the highlights of the new features and enhancements in FlowSynx v0.3.0.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="release-highlights">Release highlights<a href="https://flowsynx.io/blog/flowsynx-v0.3.0-is-now-available#release-highlights" class="hash-link" aria-label="Direct link to Release highlights" title="Direct link to Release highlights">​</a></h2>
+<p>If you’re new to FlowSynx, familiarize yourself by visiting the <a href="https://flowsynx.io/docs/category/getting-started">getting started</a> page.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="flowsynx">FlowSynx<a href="https://flowsynx.io/blog/flowsynx-v0.3.0-is-now-available#flowsynx" class="hash-link" aria-label="Direct link to FlowSynx" title="Direct link to FlowSynx">​</a></h3>
+<ul>
+<li>[ADDED] Add Google Cloud Storage plugin <a href="https://github.com/flowsynx/flowsynx/issues/21" target="_blank" rel="noopener noreferrer">#21</a></li>
+<li>[FIXED] Normalize in VersionHandler should return correct version value when the given version doesn't start with v <a href="https://github.com/flowsynx/flowsynx/issues/20" target="_blank" rel="noopener noreferrer">#20</a></li>
+<li>[FIXED] Change the StorageNormsParser Separator symbol <a href="https://github.com/flowsynx/flowsynx/issues/22" target="_blank" rel="noopener noreferrer">#22</a></li>
+<li>[FIXED] Change the AssemblyName from flowsynx to flowsynxe <a href="https://github.com/flowsynx/flowsynx/issues/24" target="_blank" rel="noopener noreferrer">#24</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="flowsynx-cli">FlowSynx CLI<a href="https://flowsynx.io/blog/flowsynx-v0.3.0-is-now-available#flowsynx-cli" class="hash-link" aria-label="Direct link to FlowSynx CLI" title="Direct link to FlowSynx CLI">​</a></h3>
+<ul>
+<li>[FIXED] Remove the self-destruction ability in uninstall functionality and let it to be done manually <a href="https://github.com/flowsynx/cli/issues/2" target="_blank" rel="noopener noreferrer">#2</a></li>
+<li>[FIXED] Change the AssemblyName from synx to flowsynx <a href="https://github.com/flowsynx/cli/issues/10" target="_blank" rel="noopener noreferrer">#10</a></li>
+<li>[FIXED] Rename all corresponding names regarding flowsynx engine to flowsynxe <a href="https://github.com/flowsynx/cli/issues/14" target="_blank" rel="noopener noreferrer">#14</a></li>
+<li>[FIXED] Delete full option from Cli Version command and display all version including engine and dashboard <a href="https://github.com/flowsynx/cli/issues/17" target="_blank" rel="noopener noreferrer">#17</a></li>
+</ul>]]></content>
+        <author>
+            <name>Maintainers</name>
+        </author>
+        <category label="Release" term="Release"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[FlowSynx v0.2.0 is now available]]></title>
         <id>https://flowsynx.io/blog/flowsynx-v0.2.0-is-now-available</id>
@@ -22,7 +50,7 @@
 <li>[ADDED] Add OpenAPI specifications to the flowsynx <a href="https://github.com/flowsynx/flowsynx/issues/4" target="_blank" rel="noopener noreferrer">4</a></li>
 <li>[ADDED] Pushing FlowSynx to the Docker hub</li>
 <li>[FIXED] Refactoring <strong>SpecificationsParser</strong> class in order to check require member's value <a href="https://github.com/flowsynx/flowsynx/issues/7" target="_blank" rel="noopener noreferrer">7</a></li>
-<li>[FIXED] Change throw exception to logging message for DeleteAsync method in plugins #11 <a href="https://github.com/flowsynx/flowsynx/issues/12" target="_blank" rel="noopener noreferrer">12</a></li>
+<li>[FIXED] Change throw exception to logging message for DeleteAsync method in plugins <a href="https://github.com/flowsynx/flowsynx/issues/12" target="_blank" rel="noopener noreferrer">12</a></li>
 <li>[FIXED] Add ContentType to the ReadAsync API endpoint <a href="https://github.com/flowsynx/flowsynx/issues/13" target="_blank" rel="noopener noreferrer">13</a></li>
 <li>[FIXED] Make CopyFile, CopyDirectory, MoveFile, and  MoveDirectory methods in EntityCopier and EntityMover as asynchronous <a href="https://github.com/flowsynx/flowsynx/issues/14" target="_blank" rel="noopener noreferrer">14</a>, <a href="https://github.com/flowsynx/flowsynx/issues/15" target="_blank" rel="noopener noreferrer">15</a></li>
 <li>[FIXED] Fix issue regarding FlowSynx build and publish workflow action <a href="https://github.com/flowsynx/flowsynx/issues/16" target="_blank" rel="noopener noreferrer">16</a></li>

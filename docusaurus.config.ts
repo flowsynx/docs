@@ -95,18 +95,18 @@ const config: Config = {
     },
     algolia: {
       // The application ID provided by Algolia
-      appId: 'WNP10INF3L',
+      appId: 'RPBB8MPKU9',
 
       // Public API key: it is safe to commit it
-      apiKey: 'be92c67aa5aa683a763160e6ce686cf9',
+      apiKey: 'bfa75134aabeff74b771bad3406ddc6a',
 
-      indexName: 'flowsynx-index',
+      indexName: 'flowsynx',
 
       // Optional: see doc section below
-      contextualSearch: false,
+      contextualSearch: true,
 
       // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
-      //externalUrlRegex: 'external\\.com|domain\\.com',
+      externalUrlRegex: 'external\\.com|domain\\.com',
 
       // Optional: Replace parts of the item URLs from Algolia. Useful when using the same search index for multiple deployments using a different baseUrl. You can use regexp or string in the `from` param. For example: localhost:3000 vs myCompany.com/docs
       replaceSearchResultPathname: {

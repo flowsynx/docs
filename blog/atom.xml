@@ -23,12 +23,12 @@
 <li>[FIXED] Change the StorageNormsParser Separator symbol <a href="https://github.com/flowsynx/flowsynx/issues/22" target="_blank" rel="noopener noreferrer">#22</a></li>
 <li>[FIXED] Change the AssemblyName from flowsynx to flowsynxe <a href="https://github.com/flowsynx/flowsynx/issues/24" target="_blank" rel="noopener noreferrer">#24</a></li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="flowsynx-cli">FlowSynx CLI<a href="https://flowsynx.io/blog/flowsynx-v0.3.0-is-now-available#flowsynx-cli" class="hash-link" aria-label="Direct link to FlowSynx CLI" title="Direct link to FlowSynx CLI">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="flowctl">FlowCtl<a href="https://flowsynx.io/blog/flowsynx-v0.3.0-is-now-available#flowctl" class="hash-link" aria-label="Direct link to FlowCtl" title="Direct link to FlowCtl">​</a></h3>
 <ul>
-<li>[FIXED] Remove the self-destruction ability in uninstall functionality and let it to be done manually <a href="https://github.com/flowsynx/cli/issues/2" target="_blank" rel="noopener noreferrer">#2</a></li>
-<li>[FIXED] Change the AssemblyName from synx to flowsynx <a href="https://github.com/flowsynx/cli/issues/10" target="_blank" rel="noopener noreferrer">#10</a></li>
-<li>[FIXED] Rename all corresponding names regarding flowsynx engine to flowsynxe <a href="https://github.com/flowsynx/cli/issues/14" target="_blank" rel="noopener noreferrer">#14</a></li>
-<li>[FIXED] Delete full option from Cli Version command and display all version including engine and dashboard <a href="https://github.com/flowsynx/cli/issues/17" target="_blank" rel="noopener noreferrer">#17</a></li>
+<li>[FIXED] Remove the self-destruction ability in uninstall functionality and let it to be done manually <a href="https://github.com/flowsynx/flowctl/issues/2" target="_blank" rel="noopener noreferrer">#2</a></li>
+<li>[FIXED] Change the AssemblyName from synx to flowsynx <a href="https://github.com/flowsynx/flowctl/issues/10" target="_blank" rel="noopener noreferrer">#10</a></li>
+<li>[FIXED] Rename all corresponding names regarding flowsynx engine to flowsynxe <a href="https://github.com/flowsynx/flowctl/issues/14" target="_blank" rel="noopener noreferrer">#14</a></li>
+<li>[FIXED] Delete full option from Cli Version command and display all version including engine and dashboard <a href="https://github.com/flowsynx/flowctl/issues/17" target="_blank" rel="noopener noreferrer">#17</a></li>
 </ul>]]></content>
         <author>
             <name>Maintainers</name>
@@ -56,9 +56,9 @@
 <li>[FIXED] Fix issue regarding FlowSynx build and publish workflow action <a href="https://github.com/flowsynx/flowsynx/issues/16" target="_blank" rel="noopener noreferrer">16</a></li>
 <li>[FIXED] Fix warning messages in FlowSynx.Plugin.Storage.Azure.Blobs plugin <a href="https://github.com/flowsynx/flowsynx/issues/18" target="_blank" rel="noopener noreferrer">18</a></li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="flowsynx-cli">FlowSynx CLI<a href="https://flowsynx.io/blog/flowsynx-v0.2.0-is-now-available#flowsynx-cli" class="hash-link" aria-label="Direct link to FlowSynx CLI" title="Direct link to FlowSynx CLI">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="flowctl">FlowCtl<a href="https://flowsynx.io/blog/flowsynx-v0.2.0-is-now-available#flowctl" class="hash-link" aria-label="Direct link to FlowCtl" title="Direct link to FlowCtl">​</a></h3>
 <ul>
-<li>[ADDED] Add OpenApi option to the run arguments for running FlowSynx <a href="https://github.com/flowsynx/cli/issues/3" target="_blank" rel="noopener noreferrer">3</a></li>
+<li>[ADDED] Add OpenApi option to the run arguments for running FlowSynx <a href="https://github.com/flowsynx/flowctl/issues/3" target="_blank" rel="noopener noreferrer">3</a></li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="flowsynx-dashboard">FlowSynx Dashboard<a href="https://flowsynx.io/blog/flowsynx-v0.2.0-is-now-available#flowsynx-dashboard" class="hash-link" aria-label="Direct link to FlowSynx Dashboard" title="Direct link to FlowSynx Dashboard">​</a></h3>
 <ul>

@@ -47,6 +47,15 @@
   background-color: rgb(73, 191, 247, 0.05);
 }
 
+.storage-card {
+  border: 1px solid transparent;
+}
+
+.storage-card:hover {
+  border: 1px solid var(--ifm-color-primary);
+  background-color: rgb(73, 191, 247, 0.05);
+}
+
 .heroBanner_src-pages-index-module {
   padding: 2rem 0 !important;
 }

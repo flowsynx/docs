@@ -1,0 +1,130 @@
+---
+sidebar_position: 1
+---
+
+# Install the FlowCtl
+
+Install the FlowCtl as the main tool for running FlowSynx-related tasks
+
+## Step 1: Install the FlowCtl
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="operating-systems">
+  <TabItem value="linux" label="Linux">
+    ### Install from Terminal
+    Install the latest Linux FlowCtl to `/usr/local/bin`:
+    ```
+    wget -q https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.sh -O - | /bin/bash
+    ```
+
+    ### Installing a specific FlowCtl version
+    The following example shows how to install FlowCtl version `0.1.0`.
+    ```
+    wget -q https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.sh -O - | /bin/bash -s 0.1.0
+    ```
+
+    ### Install without sudo
+    If you do not have access to the sudo command or your username is not in the sudoers file, you can install FlowCtl to an alternate directory via the `FLOWCTL_INSTALL_DIR` environment variable. This directory must already exist and be accessible by the current user.
+    ```
+    wget -q https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.sh -O - | FLOWCTL_INSTALL_DIR="$HOME/flowctl" /bin/bash
+    ```
+
+    ### Installing a specific FlowCtl version without sudo
+    The following example shows how to install FlowCtl version `0.1.0`.
+    ```
+    wget -q https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.sh -O - | FLOWCTL_INSTALL_DIR="$HOME/flowctl" /bin/bash -s 0.1.0
+    ```
+  </TabItem>
+  <TabItem value="windows" label="Windows">
+    ### Install from Powershell
+    Install the latest windows FlowCtl to $Env:SystemDrive\flowsynx and add this directory to the User PATH environment variable:
+    ```
+    iwr -useb https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.ps1 | iex
+    ```
+
+    ### Installing a specific FlowCtl version
+    The following example shows how to install flowCtl version `0.1.0`.
+    ```
+    $script=iwr -useb https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.ps1; $block=[ScriptBlock]::Create($script); invoke-command -ScriptBlock $block -ArgumentList "0.1.0"
+    ```
+  
+    ### Install without administrative rights
+    If you do not have admin rights, you can install FlowSynx to an alternate directory via the `FLOWCTL_INSTALL_DIR` environment variable. The script below creates the directory if it does not exist.
+    ```
+    $Env:FLOWCTL_INSTALL_DIR = "<your_alt_install_dir_path>"
+    $script=iwr -useb https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.ps1; $block=[ScriptBlock]::Create($script); invoke-command -ScriptBlock $block -ArgumentList "", "$Env:FLOWCTL_INSTALL_DIR"
+    ```
+  
+    ### Installing a specific CLI version without administrative rights
+    The following example shows how to install CLI version `0.1.0`.
+    ```
+    $Env:FLOWCTL_INSTALL_DIR = "<your_alt_install_dir_path>"
+    $script=iwr -useb https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.ps1; $block=[ScriptBlock]::Create($script); invoke-command -ScriptBlock $block -ArgumentList "0.1.0", "$Env:FLOWCTL_INSTALL_DIR"
+    ```
+  </TabItem>
+  <TabItem value="macos" label="MacOS">
+    ### Install from Terminal
+    Install the latest Darwin FlowSynx CLI to `/usr/local/bin`:
+    ```
+    curl -fsSL https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.sh | /bin/bash
+    ```
+
+    ### Installing a specific CLI version
+    The following example shows how to install CLI version `0.1.0`.
+    ```
+    curl -fsSL https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.sh | /bin/bash -s 1.12.0
+    ```
+
+    ### Install without sudo
+    If you do not have access to the sudo command or your username is not in the sudoers file, you can install FlowSynx to an alternate directory via the FLOWCTL_INSTALL_DIR environment variable. This directory must already exist and be accessible by the current user.
+    ```
+    curl -fsSL https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.sh | FLOWCTL_INSTALL_DIR="$HOME/flowctl" /bin/bash
+    ```
+
+    ### Installing a specific CLI version without sudo
+    The following example shows how to install CLI version `0.1.0`.
+    ```
+    curl -fsSL https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.sh | FLOWCTL_INSTALL_DIR="$HOME/flowctl" /bin/bash -s 1.12.0
+    ```
+  </TabItem>
+</Tabs>
+
+:::info[Register path to the OS Environment Varables]
+In linux-based operating system, if you use the **Install without sudo** option, you must register the **$HOME/flowctl** to the PATH of Environment Variables. To do this, you can use below command:
+
+```
+export PATH=$PATH:$HOME/flowctl
+```
+:::
+
+## Step 2: Verify the installation
+Verify the CLI is installed by restarting your terminal/command prompt and running the following:
+```
+flowctl -h
+```
+#### Output
+```
+Description:
+  flowctl controls the FlowSynx engine.
+  Find more information at: https://flowsynx.io/docs/getting-started/install-flowctl
+
+Usage:
+  flowctl [command] [options]
+
+Options:
+  -?, -h, --help  Show help and usage information
+
+Commands:
+  config     Manage configurations related to FlowSynx System
+  dashboard  Run and execute the FlowSynx dashboard
+  health     Display the health status of FlowSynx System
+  init       Install and initialize FlowSynx system and Dashboard on the current user profile
+  plugins    Display list and details of plugins supported by FlowSynx system
+  run        Run and execute the FlowSynx system on the current user profile
+  storage    Execute supportable commands on different storage supported by FlowSynx system
+  stop       Stop the FlowSynx system which running on the current user profile
+  uninstall  Uninstalling FlowSynx system, Dashboard, and Cli from the current user profile and machine
+  update     Update FlowSynx system, Dashboard, and Cli
+  version    Display the FlowSynx system, Dashboard, and Cli version
+```

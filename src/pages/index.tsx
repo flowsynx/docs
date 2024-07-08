@@ -20,7 +20,7 @@ function HomepageHeader() {
             <p className="hero__subtitle">{siteConfig.tagline}</p>
             <div className='{styles.buttons} text--left'>
               <Link className="button button--primary button--lg margin-right--md"
-                to="/docs/getting-started/install-flowsynx-cli">
+                to="/docs/getting-started/install-flowctl">
                 Get started
               </Link>
               <Link className="button button--outline button--primary button--lg"

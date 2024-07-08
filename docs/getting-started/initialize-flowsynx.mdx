@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Initialize FlowSynx
 
-Fetch the FlowSynx binaries and install them locally using `flowsynx init`.  
+Fetch the FlowSynx binaries and install them locally using `flowctl init`.  
 Now that you’ve installed the FlowSynx CLI, use the CLI to initialize FlowSynx on your local machine.
 
 ## Step 1: Open terminal
@@ -29,7 +29,7 @@ import TabItem from '@theme/TabItem';
 ## Step 2: Run the init CLI command
 Install the latest FlowSynx binaries:
 ```
-flowsynx init
+flowctl init
 ```
 
 After executing this command, FlowSynx starts to be initialized. Sometimes the downloading binary file will be corrupted and you will get this messages:
@@ -37,13 +37,18 @@ After executing this command, FlowSynx starts to be initialized. Sometimes the d
  > Validating download - Fail!  
  > The downloaded data may has been corrupted!
 
-In this case please run the `flowsynx init` command again.
+In this case please run the `flowctl init` command again.
 
 ## Step 3: Verify FlowSynx version
 ```
-flowsynx version
+flowctl version
 ```
 
 #### Output:
-CLI version: 0.1.0  
-FlowSynx version: 0.1.0
+```
+{
+  "FlowCtl": "0.3.3",
+  "FlowSynx": "0.3.1.0",
+  "Dashboard": "0.3.0.0"
+}
+```

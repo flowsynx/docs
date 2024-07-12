@@ -75,7 +75,7 @@ const config: Config = {
           position: 'left'
         },
         {
-          to: 'https://bit.ly/flowsynx-discord',
+          to: 'http://discord.flowsynx.io/',
           position: 'right',
           label: 'Join our Discord',
           className: 'button button--primary button--md join-discord-button'

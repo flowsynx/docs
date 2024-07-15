@@ -22,10 +22,10 @@
 <li>[FIXED] Correcting Md5 hash value for Google cloud storage plugin <a href="https://github.com/flowsynx/flowsynx/issues/34" target="_blank" rel="noopener noreferrer">#34</a></li>
 <li>[FIXED] Change Google cloud storage name and delete storage word from the end of the name <a href="https://github.com/flowsynx/flowsynx/issues/35" target="_blank" rel="noopener noreferrer">#35</a></li>
 <li>[FIXED] Move File and Directory filtering to the StorageFilter instead of the implementation in the plugin <a href="https://github.com/flowsynx/flowsynx/issues/37" target="_blank" rel="noopener noreferrer">#37</a> <a href="https://github.com/flowsynx/flowsynx/issues/38" target="_blank" rel="noopener noreferrer">#38</a> <a href="https://github.com/flowsynx/flowsynx/issues/39" target="_blank" rel="noopener noreferrer">#39</a> <a href="https://github.com/flowsynx/flowsynx/issues/40" target="_blank" rel="noopener noreferrer">#40</a> <a href="https://github.com/flowsynx/flowsynx/issues/41" target="_blank" rel="noopener noreferrer">#41</a></li>
-<li>Rename ShowMetadata property to the IncludeMetadata in the list request <a href="https://github.com/flowsynx/flowsynx/issues/42" target="_blank" rel="noopener noreferrer">#42</a></li>
-<li>Add additional condition to check both Container and Directory Exist in Azure Blob plugi <a href="https://github.com/flowsynx/flowsynx/issues/44" target="_blank" rel="noopener noreferrer">#44</a></li>
-<li>Add StorageMetadataOptions to the StorageService and refactoring some related code <a href="https://github.com/flowsynx/flowsynx/issues/45" target="_blank" rel="noopener noreferrer">#45</a></li>
-<li>Update FlowSynx packages to 0.9.1 for FlowSynx project as well as other plugins to adopt new changes regarding updated IStoragePlugin interface <a href="https://github.com/flowsynx/flowsynx/issues/46" target="_blank" rel="noopener noreferrer">#46</a> <a href="https://github.com/flowsynx/flowsynx/issues/47" target="_blank" rel="noopener noreferrer">#47</a> <a href="https://github.com/flowsynx/flowsynx/issues/48" target="_blank" rel="noopener noreferrer">#48</a> <a href="https://github.com/flowsynx/flowsynx/issues/49" target="_blank" rel="noopener noreferrer">#49</a> <a href="https://github.com/flowsynx/flowsynx/issues/50" target="_blank" rel="noopener noreferrer">#50</a> <a href="https://github.com/flowsynx/flowsynx/issues/51" target="_blank" rel="noopener noreferrer">#51</a></li>
+<li>[FIXED] Rename ShowMetadata property to the IncludeMetadata in the list request <a href="https://github.com/flowsynx/flowsynx/issues/42" target="_blank" rel="noopener noreferrer">#42</a></li>
+<li>[FIXED] Add additional condition to check both Container and Directory Exist in Azure Blob plugi <a href="https://github.com/flowsynx/flowsynx/issues/44" target="_blank" rel="noopener noreferrer">#44</a></li>
+<li>[FIXED] Add StorageMetadataOptions to the StorageService and refactoring some related code <a href="https://github.com/flowsynx/flowsynx/issues/45" target="_blank" rel="noopener noreferrer">#45</a></li>
+<li>[FIXED] Update FlowSynx packages to 0.9.1 for FlowSynx project as well as other plugins to adopt new changes regarding updated IStoragePlugin interface <a href="https://github.com/flowsynx/flowsynx/issues/46" target="_blank" rel="noopener noreferrer">#46</a> <a href="https://github.com/flowsynx/flowsynx/issues/47" target="_blank" rel="noopener noreferrer">#47</a> <a href="https://github.com/flowsynx/flowsynx/issues/48" target="_blank" rel="noopener noreferrer">#48</a> <a href="https://github.com/flowsynx/flowsynx/issues/49" target="_blank" rel="noopener noreferrer">#49</a> <a href="https://github.com/flowsynx/flowsynx/issues/50" target="_blank" rel="noopener noreferrer">#50</a> <a href="https://github.com/flowsynx/flowsynx/issues/51" target="_blank" rel="noopener noreferrer">#51</a></li>
 <li>[FIXED] Update README file <a href="https://github.com/flowsynx/flowsynx/issues/31" target="_blank" rel="noopener noreferrer">#31</a></li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="flowctl">FlowCtl<a href="https://flowsynx.io/blog/flowsynx-v0.3.2-is-now-available#flowctl" class="hash-link" aria-label="Direct link to FlowCtl" title="Direct link to FlowCtl">​</a></h3>
@@ -35,13 +35,15 @@
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="csharp-sdk">CSharp-Sdk<a href="https://flowsynx.io/blog/flowsynx-v0.3.2-is-now-available#csharp-sdk" class="hash-link" aria-label="Direct link to CSharp-Sdk" title="Direct link to CSharp-Sdk">​</a></h3>
 <ul>
-<li>Rename property ShowMetadata to the IncludeMetadata in the storage ListRequest <a href="https://github.com/flowsynx/csharp-sdk/issues/2" target="_blank" rel="noopener noreferrer">#2</a></li>
+<li>[FIXED] Rename property ShowMetadata to the IncludeMetadata in the storage ListRequest <a href="https://github.com/flowsynx/csharp-sdk/issues/2" target="_blank" rel="noopener noreferrer">#2</a></li>
+<li>[RELEASED] - New version 0.2.0 released</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="share-components">Share-Components<a href="https://flowsynx.io/blog/flowsynx-v0.3.2-is-now-available#share-components" class="hash-link" aria-label="Direct link to Share-Components" title="Direct link to Share-Components">​</a></h3>
 <ul>
-<li>Add StorageMetadataOptions to the FlowSynx.Plugin.Storage project in order to handle the IncludeMetadata property <a href="https://github.com/flowsynx/shared-components/issues/3" target="_blank" rel="noopener noreferrer">#3</a></li>
-<li>Add unit tests for FlowSynx.IO project <a href="https://github.com/flowsynx/shared-components/issues/3" target="_blank" rel="noopener noreferrer">#4</a></li>
-<li>Add unit tests for the FlowSynx.Plugin.Storage project <a href="https://github.com/flowsynx/shared-components/issues/5" target="_blank" rel="noopener noreferrer">#5</a></li>
+<li>[FIXED] Add StorageMetadataOptions to the FlowSynx.Plugin.Storage project in order to handle the IncludeMetadata property <a href="https://github.com/flowsynx/shared-components/issues/3" target="_blank" rel="noopener noreferrer">#3</a></li>
+<li>[FIXED] Add unit tests for FlowSynx.IO project <a href="https://github.com/flowsynx/shared-components/issues/3" target="_blank" rel="noopener noreferrer">#4</a></li>
+<li>[FIXED] Add unit tests for the FlowSynx.Plugin.Storage project <a href="https://github.com/flowsynx/shared-components/issues/5" target="_blank" rel="noopener noreferrer">#5</a></li>
+<li>[RELEASED] - New version 0.9.1 released</li>
 </ul>]]></content>
         <author>
             <name>Maintainers</name>

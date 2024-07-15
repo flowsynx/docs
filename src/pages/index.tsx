@@ -63,7 +63,7 @@ export default function Home(): JSX.Element {
   return (
     <Layout title={`Syncs and manage your files and streams to different storage`}
       description="Description will go into a meta tag in <head />">
-      <HomepageAnnouncement message={"FlowSynx 0.3.0 is now available!"} url={"/blog/flowsynx-v0.3.0-is-now-available"} />
+      <HomepageAnnouncement message={"FlowSynx 0.3.2 is now available!"} url={"/blog/flowsynx-v0.3.2-is-now-available"} />
       <HomepageHeader />
       <main>
         <HomepageAboutFlowSynx />

@@ -26,6 +26,10 @@ const StoragesList: StorageItem[] = [
     icon: 'mdi:google'
   },
   {
+    title: 'Google Drive',
+    icon: 'mdi:google'
+  },
+  {
     title: 'Amazon AWS S3 Storage',
     icon: 'devicon-plain:amazonwebservices-wordmark'
   }

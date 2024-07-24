@@ -2,11 +2,48 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://flowsynx.io/blog</id>
     <title>FlowSynx Blog</title>
-    <updated>2024-07-15T00:00:00.000Z</updated>
+    <updated>2024-07-24T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://flowsynx.io/blog"/>
     <subtitle>FlowSynx Blog</subtitle>
     <icon>https://flowsynx.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[FlowSynx v0.4.0 is now available]]></title>
+        <id>https://flowsynx.io/blog/flowsynx-v0.4.0-is-now-available</id>
+        <link href="https://flowsynx.io/blog/flowsynx-v0.4.0-is-now-available"/>
+        <updated>2024-07-24T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[We are super excited to announce the latest release of FlowSynx, v0.4.0! This post covers the highlights of the new features and enhancements in FlowSynx v0.4.0.]]></summary>
+        <content type="html"><![CDATA[<p>We are super excited to announce the latest release of FlowSynx, v0.4.0! This post covers the highlights of the new features and enhancements in FlowSynx v0.4.0.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="release-highlights">Release highlights<a href="https://flowsynx.io/blog/flowsynx-v0.4.0-is-now-available#release-highlights" class="hash-link" aria-label="Direct link to Release highlights" title="Direct link to Release highlights">​</a></h2>
+<p>If you’re new to FlowSynx, familiarize yourself by visiting the <a href="https://flowsynx.io/docs/category/getting-started">getting started</a> page.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="flowsynx">FlowSynx<a href="https://flowsynx.io/blog/flowsynx-v0.4.0-is-now-available#flowsynx" class="hash-link" aria-label="Direct link to FlowSynx" title="Direct link to FlowSynx">​</a></h3>
+<ul>
+<li>[ADDED] Add Google Drive storage plugin <a href="https://github.com/flowsynx/flowsynx/issues/53" target="_blank" rel="noopener noreferrer">#53</a></li>
+<li>[ADDED] Add Cache to the FlowSynx to load already defined and loaded plugins from Memory instead initialized each time <a href="https://github.com/flowsynx/flowsynx/issues/56" target="_blank" rel="noopener noreferrer">#56</a></li>
+<li>[FIXED] Rename showMetadata property to includeMetadata in the list request <a href="https://github.com/flowsynx/flowsynx/issues/42" target="_blank" rel="noopener noreferrer">#42</a></li>
+<li>[FIXED] Add additional condition to check both Container and Directory Exist in Azure Blob plugin <a href="https://github.com/flowsynx/flowsynx/issues/44" target="_blank" rel="noopener noreferrer">#44</a></li>
+<li>[FIXED] Move logic from Specifications to Initialize for AWS S3 storage plugin <a href="https://github.com/flowsynx/flowsynx/issues/58" target="_blank" rel="noopener noreferrer">#58</a></li>
+<li>[ADDED] Add Argument guard for ISerializer during contract object for AWS S3 plugin <a href="https://github.com/flowsynx/flowsynx/issues/59" target="_blank" rel="noopener noreferrer">#59</a></li>
+<li>[FIXED] Update FlowSynx packages version to 1.0.0 due to the release new version <a href="https://github.com/flowsynx/flowsynx/issues/64" target="_blank" rel="noopener noreferrer">#64</a></li>
+<li>[FIXED] Change access modifier for Path property in StorageNormsInfo <a href="https://github.com/flowsynx/flowsynx/issues/6" target="_blank" rel="noopener noreferrer">#66</a></li>
+<li>[FIXED] Move File and Directory filtering to the StorageFilter instead of the implementation in the plugin <a href="https://github.com/flowsynx/flowsynx/issues/37" target="_blank" rel="noopener noreferrer">#37</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="csharp-sdk">CSharp-Sdk<a href="https://flowsynx.io/blog/flowsynx-v0.4.0-is-now-available#csharp-sdk" class="hash-link" aria-label="Direct link to CSharp-Sdk" title="Direct link to CSharp-Sdk">​</a></h3>
+<ul>
+<li>[FIXED] Rename property ShowMetadata to the IncludeMetadata in the storage ListRequest <a href="https://github.com/flowsynx/csharp-sdk/issues/2" target="_blank" rel="noopener noreferrer">#2</a></li>
+<li>[RELEASED] - New version 0.2.0 released</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="share-components">Share-Components<a href="https://flowsynx.io/blog/flowsynx-v0.4.0-is-now-available#share-components" class="hash-link" aria-label="Direct link to Share-Components" title="Direct link to Share-Components">​</a></h3>
+<ul>
+<li>[ADDED] Add Initialize function to the IPlugin interface <a href="https://github.com/flowsynx/shared-components/issues/6" target="_blank" rel="noopener noreferrer">#6</a></li>
+<li>[ADDED] Add Cache in FlowSynx.IO and related UnitTests <a href="https://github.com/flowsynx/shared-components/issues/7" target="_blank" rel="noopener noreferrer">#7</a></li>
+<li>[RELEASED] - New version 1.0.0 released</li>
+</ul>]]></content>
+        <author>
+            <name>Maintainers</name>
+        </author>
+        <category label="Release" term="Release"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[FlowSynx v0.3.2 is now available]]></title>
         <id>https://flowsynx.io/blog/flowsynx-v0.3.2-is-now-available</id>

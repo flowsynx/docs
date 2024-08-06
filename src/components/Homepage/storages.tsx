@@ -14,6 +14,10 @@ const StoragesList: StorageItem[] = [
     icon: 'fluent-mdl2:file-system'
   },
   {
+    title: 'In-Memory Storage',
+    icon: 'fluent:memory-16-regular'
+  },
+  {
     title: 'Microsoft Azure Files Storage',
     icon: 'mdi:microsoft'
   },

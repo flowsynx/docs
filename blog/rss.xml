@@ -4,10 +4,65 @@
         <title>FlowSynx Blog</title>
         <link>https://flowsynx.io/blog</link>
         <description>FlowSynx Blog</description>
-        <lastBuildDate>Wed, 24 Jul 2024 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 08 Aug 2024 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[FlowSynx v0.4.1 is now available]]></title>
+            <link>https://flowsynx.io/blog/flowsynx-v0.4.1-is-now-available</link>
+            <guid>https://flowsynx.io/blog/flowsynx-v0.4.1-is-now-available</guid>
+            <pubDate>Thu, 08 Aug 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[We are super excited to announce the latest release of FlowSynx, v0.4.1! This post covers the highlights of the new features and enhancements in FlowSynx v0.4.1.]]></description>
+            <content:encoded><![CDATA[<p>We are super excited to announce the latest release of FlowSynx, v0.4.1! This post covers the highlights of the new features and enhancements in FlowSynx v0.4.1.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="release-highlights">Release highlights<a href="https://flowsynx.io/blog/flowsynx-v0.4.1-is-now-available#release-highlights" class="hash-link" aria-label="Direct link to Release highlights" title="Direct link to Release highlights">​</a></h2>
+<p>If you’re new to FlowSynx, familiarize yourself by visiting the <a href="https://flowsynx.io/docs/category/getting-started">getting started</a> page.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="flowsynx">FlowSynx<a href="https://flowsynx.io/blog/flowsynx-v0.4.1-is-now-available#flowsynx" class="hash-link" aria-label="Direct link to FlowSynx" title="Direct link to FlowSynx">​</a></h3>
+<ul>
+<li>[ADDED] Add In Memory Storage plugin <a href="https://github.com/flowsynx/flowsynx/issues/5" target="_blank" rel="noopener noreferrer">#5</a></li>
+<li>[ADDED] Add API endpoint to list logs <a href="https://github.com/flowsynx/flowsynx/issues/73" target="_blank" rel="noopener noreferrer">#73</a></li>
+<li>[FIXED] Change nullable string value to string in Specifications class of plugins <a href="https://github.com/flowsynx/flowsynx/issues/67" target="_blank" rel="noopener noreferrer">#67</a> <a href="https://github.com/flowsynx/flowsynx/issues/68" target="_blank" rel="noopener noreferrer">#68</a> <a href="https://github.com/flowsynx/flowsynx/issues/69" target="_blank" rel="noopener noreferrer">#69</a> <a href="https://github.com/flowsynx/flowsynx/issues/70" target="_blank" rel="noopener noreferrer">#70</a></li>
+<li>[FIXED] Change plugin details from get to post and change getting by id to getting plugin by type <a href="https://github.com/flowsynx/flowsynx/issues/76" target="_blank" rel="noopener noreferrer">#76</a></li>
+<li>[FIXED] Change Plugins list from Get to Post method in Api endpoint <a href="https://github.com/flowsynx/flowsynx/issues/79" target="_blank" rel="noopener noreferrer">#79</a></li>
+<li>[ADDED] Move Taking Max result from plugins to the StorageFilter <a href="https://github.com/flowsynx/flowsynx/issues/80" target="_blank" rel="noopener noreferrer">#80</a></li>
+<li>[FIXED] Add ability to return max result from percentage <a href="https://github.com/flowsynx/flowsynx/issues/77" target="_blank" rel="noopener noreferrer">#77</a></li>
+<li>[FIXED] Change Config Details http method from Get to Post <a href="https://github.com/flowsynx/flowsynx/issues/84" target="_blank" rel="noopener noreferrer">#84</a></li>
+<li>[FIXED] Add file and directory checkers for plugins <a href="https://github.com/flowsynx/flowsynx/issues/86" target="_blank" rel="noopener noreferrer">#86</a></li>
+<li>[FIXED] Update FlowSynx packages to the version 1.2.3 <a href="https://github.com/flowsynx/flowsynx/issues/87" target="_blank" rel="noopener noreferrer">#87</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="flowctl">Flowctl<a href="https://flowsynx.io/blog/flowsynx-v0.4.1-is-now-available#flowctl" class="hash-link" aria-label="Direct link to Flowctl" title="Direct link to Flowctl">​</a></h3>
+<ul>
+<li>[FIXED] Add EscapeMarkup() to the Witten string to avoid exception of Spectre.Console about brackets <a href="https://github.com/flowsynx/flowctl/issues/46" target="_blank" rel="noopener noreferrer">#46</a></li>
+<li>[FIXED] Add command to handle and adapt new API endpoint about Logs <a href="https://github.com/flowsynx/flowctl/issues/40" target="_blank" rel="noopener noreferrer">#40</a></li>
+<li>[FIXED] Move dashboard version from version command to the dashboard command <a href="https://github.com/flowsynx/flowctl/issues/42" target="_blank" rel="noopener noreferrer">#42</a></li>
+<li>[FIXED] Update FlowSynx packages to version 1.2.2 <a href="https://github.com/flowsynx/flowctl/issues/48" target="_blank" rel="noopener noreferrer">#48</a></li>
+<li>[FIXED] Update FlowSynx.Client to the version 0.2.7 <a href="https://github.com/flowsynx/flowctl/issues/49" target="_blank" rel="noopener noreferrer">#49</a></li>
+<li>[FIXED] Change PluginDetails Command option from Id to the Type and other related changes <a href="https://github.com/flowsynx/flowctl/issues/50" target="_blank" rel="noopener noreferrer">#50</a></li>
+<li>[FIXED] Correct the Formatter for table to display the list object properly <a href="https://github.com/flowsynx/flowctl/issues/51" target="_blank" rel="noopener noreferrer">#51</a></li>
+<li>[FIXED] Rename the launchSettings project name to the FlowCtl <a href="https://github.com/flowsynx/flowctl/issues/52" target="_blank" rel="noopener noreferrer">#52</a></li>
+<li>[FIXED] Add ability to stop dashboard to the Stop command <a href="https://github.com/flowsynx/flowctl/issues/53" target="_blank" rel="noopener noreferrer">#53</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="dashboard">Dashboard<a href="https://flowsynx.io/blog/flowsynx-v0.4.1-is-now-available#dashboard" class="hash-link" aria-label="Direct link to Dashboard" title="Direct link to Dashboard">​</a></h3>
+<ul>
+<li>[FIXED] Update FlowSynx.Client to the version 0.2.7 <a href="https://github.com/flowsynx/dashboard/issues/6" target="_blank" rel="noopener noreferrer">#6</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="c-sdk">C# Sdk<a href="https://flowsynx.io/blog/flowsynx-v0.4.1-is-now-available#c-sdk" class="hash-link" aria-label="Direct link to C# Sdk" title="Direct link to C# Sdk">​</a></h3>
+<ul>
+<li>[ADDED] Add Logs endpoint to the SDK <a href="https://github.com/flowsynx/csharp-sdk/issues/3" target="_blank" rel="noopener noreferrer">#3</a></li>
+<li>[FIXED] Change the Plugin Details and list from Get to Post method <a href="https://github.com/flowsynx/csharp-sdk/issues/5" target="_blank" rel="noopener noreferrer">#5</a></li>
+<li>[FIXED] Change PluginDetailsRequest Id property to the Type as well as data type to string <a href="https://github.com/flowsynx/csharp-sdk/issues/6" target="_blank" rel="noopener noreferrer">#6</a></li>
+<li>[FIXED] Change ConfigDetails http method from get to post <a href="https://github.com/flowsynx/csharp-sdk/issues/7" target="_blank" rel="noopener noreferrer">#7</a></li>
+<li>[FIXED] Add PluginDetailsSpecification to the PluginDetails response object <a href="https://github.com/flowsynx/csharp-sdk/issues/8" target="_blank" rel="noopener noreferrer">#8</a></li>
+<li>[FIXED] Change ConfigDetails http method from Get to Post <a href="https://github.com/flowsynx/csharp-sdk/issues/9" target="_blank" rel="noopener noreferrer">#9</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="share-components">Share-Components<a href="https://flowsynx.io/blog/flowsynx-v0.4.1-is-now-available#share-components" class="hash-link" aria-label="Direct link to Share-Components" title="Direct link to Share-Components">​</a></h3>
+<ul>
+<li>[ADDED] Add InMemory LogProvider <a href="https://github.com/flowsynx/shared-components/issues/8" target="_blank" rel="noopener noreferrer">#8</a></li>
+<li>[ADDED] Add percent parser <a href="https://github.com/flowsynx/shared-components/issues/10" target="_blank" rel="noopener noreferrer">#10</a></li>
+<li>[FIXED] Change MaxResult datatype from int to string in order to accept string <a href="https://github.com/flowsynx/shared-components/issues/9" target="_blank" rel="noopener noreferrer">#9</a></li>
+</ul>]]></content:encoded>
+            <category>Release</category>
+        </item>
         <item>
             <title><![CDATA[FlowSynx v0.4.0 is now available]]></title>
             <link>https://flowsynx.io/blog/flowsynx-v0.4.0-is-now-available</link>

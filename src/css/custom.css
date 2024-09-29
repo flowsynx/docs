@@ -39,7 +39,7 @@
 }
 
 .feature-card {
-  border: 2px solid var(--ifm-color-primary);
+  border: 2px solid rgb(from var(--ifm-color-primary) r g b / 0.3);
 }
 
 .feature-card:hover {
@@ -48,7 +48,7 @@
 }
 
 .storage-card {
-  border: 2px solid var(--ifm-color-primary);
+  border: 2px solid rgb(from var(--ifm-color-primary) r g b / 0.3);
 }
 
 .storage-card:hover {

@@ -12,7 +12,7 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     title: 'Cross-Platform',
-    icon: 'icomoon-free:display',
+    icon: 'material-symbols:tv-displays-outline',
     description: (
       <>
         FlowSynx system is designed to work in several computing platforms. It can work across 
@@ -32,12 +32,22 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: 'Various storage systems',
+    title: 'Various Storage Systems',
     icon: 'eos-icons:cloud-computing-outlined',
     description: (
       <>
         It will try to cover and support most of the cloud storage products including S3 object stores, business & consumer file storage services, 
         as well as standard transfer protocols.
+      </>
+    ),
+  },
+  {
+    title: 'REST-API Accessibility',
+    icon: 'dashicons:rest-api',
+    description: (
+      <>
+        FlowSynx provides a consistent REST-API interface. 
+        By the way, developers or users can directly communicate with it and consume FlowSynx REST-APIs.
       </>
     ),
   },
@@ -62,7 +72,7 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: 'Support docker',
+    title: 'Support Docker',
     icon: 'cib:docker',
     description: (
       <>
@@ -72,6 +82,16 @@ const FeatureList: FeatureItem[] = [
       </>
     ),
   },
+  {
+    title: 'Dynamic Filtering',
+    icon: 'ep:filter',
+    description: (
+      <>
+        FlowSynx is able to filtering data and retrieves specific records that meet certain criteria dynamically.
+        There is also the possibility that only required fields are sent to the output.
+      </>
+    ),
+  }
 ];
 
 function Feature({title, icon, description}: FeatureItem) {

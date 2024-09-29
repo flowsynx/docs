@@ -41,7 +41,7 @@ const StoragesList: StorageItem[] = [
 
 function Storage({title, icon}: StorageItem) {
   return (
-    <div className={clsx('col col--3')}>
+    <div className={clsx('col col--4')}>
         <div className="card storage-card margin-bottom--lg">
           <div className="card__header">
             <Icon icon={icon} height="64" />
@@ -54,7 +54,7 @@ function Storage({title, icon}: StorageItem) {
 
 export default function HomepageSupportedStorages() {
   return (
-    <section className="padding-vert--lg about-section">
+    <section className="padding-vert--lg storage-section">
       <div className="container">
         <Heading as="h2">FlowSynx supported storages</Heading>
         <div className="row">

@@ -6,26 +6,26 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #0aa3ec;
-  --ifm-color-primary-dark: #0993d4;
-  --ifm-color-primary-darker: #088bc9;
-  --ifm-color-primary-darkest: #0772a5;
-  --ifm-color-primary-light: #19aef5;
-  --ifm-color-primary-lighter: #25b2f6;
-  --ifm-color-primary-lightest: #49bff7;
+  --ifm-color-primary: #594ae2;
+  --ifm-color-primary-dark: #4130de;
+  --ifm-color-primary-darker: #3523dc;
+  --ifm-color-primary-darkest: #2c1db5;
+  --ifm-color-primary-light: #7164e6;
+  --ifm-color-primary-lighter: #7d71e8;
+  --ifm-color-primary-lightest: #a098ee;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #0aa3ec;
-  --ifm-color-primary-dark: #0993d4;
-  --ifm-color-primary-darker: #088bc9;
-  --ifm-color-primary-darkest: #0772a5;
-  --ifm-color-primary-light: #19aef5;
-  --ifm-color-primary-lighter: #25b2f6;
-  --ifm-color-primary-lightest: #49bff7;
+  --ifm-color-primary: #776be7;
+  --ifm-color-primary-dark: #5c4ee2;
+  --ifm-color-primary-darker: #4f3fe0;
+  --ifm-color-primary-darkest: #3221cc;
+  --ifm-color-primary-light: #9288ec;
+  --ifm-color-primary-lighter: #9f97ee;
+  --ifm-color-primary-lightest: #c7c2f5;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
@@ -39,30 +39,50 @@
 }
 
 .feature-card {
-  border: 1px solid transparent;
+  border: 2px solid var(--ifm-color-primary);
 }
 
 .feature-card:hover {
-  border: 1px solid var(--ifm-color-primary);
-  background-color: rgb(73, 191, 247, 0.05);
+  border: 2px solid var(--ifm-color-primary);
+  background-color: rgb(from var(--ifm-color-primary) r g b / 0.05);
 }
 
 .storage-card {
-  border: 1px solid transparent;
+  border: 2px solid var(--ifm-color-primary);
 }
 
 .storage-card:hover {
-  border: 1px solid var(--ifm-color-primary);
-  background-color: rgb(73, 191, 247, 0.05);
+  border: 2px solid var(--ifm-color-primary);
+  background-color: rgb(from var(--ifm-color-primary) r g b / 0.05);
 }
 
 .heroBanner_src-pages-index-module {
-  padding: 2rem 0 !important;
+  padding: 4rem 0 !important;
+}
+
+.hero--background {
+  background-image: url('/img/hero-img.jpg');
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-size: cover; /* Scales the image to cover the entire container */
+  background-position: center; /* Centers the image */
+  color: #fff;
 }
 
 .about-section{
   background-color: var(--ifm-hero-background-color);
   color: var(--ifm-hero-text-color);
+  border-radius: 0;
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+.storage-section{
+  border-radius: 0;
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+.stream-section{
+  border-radius: 0;
+  box-shadow: var(--ifm-global-shadow-lw);
 }
 
 .join-discord-button {
@@ -96,11 +116,11 @@
   display: flex;
   flex-direction: column;
   font-size: 20px;
-  padding: 30px 20px;
+  padding: 10px 20px;
   text-align: center;
-  background: var(--ifm-announcement-background-color);
-  border-bottom: 1px solid var(--ifm-announcement-border-color);
+  border: 1px solid var(--ifm-color-primary-lightest);
   color: var(--ifm-announcement-text-color);
+  border-radius: var(--ifm-button-border-radius);
 }
 
 .announcement-title {
@@ -115,7 +135,7 @@
 }
 
 .text-shine {
-  background: linear-gradient(to right, var(--ifm-announcement-text-color) 20%, #f62929 30%, #f62929 70%, var(--ifm-announcement-text-color) 80%);
+  background: linear-gradient(to right, var(--ifm-announcement-text-color) 20%, #ffa908 30%, #ffa908 70%, var(--ifm-announcement-text-color) 80%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -132,6 +152,6 @@
 
 .announcement-dark {
   --ifm-announcement-background-color: #303846;
-  --ifm-announcement-text-color: #ffa908;
+  --ifm-announcement-text-color: var(--ifm-color-primary-lightest);
   --ifm-announcement-border-color: #515f76;
 }

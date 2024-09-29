@@ -4,6 +4,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/Homepage/features';
 import HomepageSupportedStorages from '@site/src/components/Homepage/storages';
+import HomepageSupportedStreams from '@site/src/components/Homepage/streams';
 import HomepageAnnouncement from '@site/src/components/Homepage/announcement';
 import Heading from '@theme/Heading';
 
@@ -12,8 +13,13 @@ import styles from './index.module.css';
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--dark margin-vert--none', styles.heroBanner)}>
+    <header className={clsx('hero hero--background', styles.heroBanner)}>
       <div className="container">
+        <div className='row margin-bottom--xl'>
+          <div className="col col--12">
+            <HomepageAnnouncement message={"FlowSynx 0.4.1 is now available!"} url={"/blog/flowsynx-v0.4.1-is-now-available"} />
+          </div>
+        </div>
         <div className="row">
           <div className="col col--6 text--left">
             <Heading as="h3" className="hero__title">
@@ -30,9 +36,6 @@ function HomepageHeader() {
                 API Reference
               </Link>
             </div>
-          </div>
-          <div className="col col--6">
-            <img src="/img/hero-img.png" alt="" />
           </div>
         </div>
       </div>
@@ -63,12 +66,12 @@ export default function Home(): JSX.Element {
   return (
     <Layout title={`Syncs and manage your files and streams to different storage`}
       description="Description will go into a meta tag in <head />">
-      <HomepageAnnouncement message={"FlowSynx 0.4.1 is now available!"} url={"/blog/flowsynx-v0.4.1-is-now-available"} />
       <HomepageHeader />
       <main>
         <HomepageAboutFlowSynx />
         <HomepageFeatures />
         <HomepageSupportedStorages />
+        <HomepageSupportedStreams />
       </main>
     </Layout>
   );

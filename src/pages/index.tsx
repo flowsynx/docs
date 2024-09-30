@@ -32,7 +32,7 @@ function HomepageHeader() {
                 Get started
               </Link>
               <Link className="button button--outline button--primary button--lg"
-                to="docs/flowsynx-api/use-the-flowsynx-api">
+                to="docs/api/service-invocation-api">
                 API Reference
               </Link>
             </div>

@@ -1,0 +1,132 @@
+---
+sidebar_position: 2
+---
+
+# Add
+
+Add configuration section to configuration.
+
+## Add Config Api options
+The options available in this api are described below:
+
+<table>
+  <tr>
+    <th>Option name</th>
+    <th>Type</th>
+    <th>Default Value</th>
+    <th>Required</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>**name**</td>
+    <td class="centering">string</td>
+    <td></td>
+    <td class="centering greenIcon"><IIcon icon="mdi:check" height="32" /></td>
+    <td>
+    The unique configuration section name. This value is string type and is required.
+    </td>
+  </tr>
+  <tr>
+    <td>**type**</td>
+    <td class="centering">string</td>
+    <td></td>
+    <td class="centering greenIcon"><IIcon icon="mdi:check" height="32" /></td>
+    <td>
+    This option indicates the type of config item.
+    
+    For example the value of this option should be in the following format: 
+    `FlowSynx.Storage/Azure.Files`
+
+    This format indicates the type of plugin to be used.
+    </td>
+  </tr>
+  <tr>
+    <td>**specifications**</td>
+    <td class="centering">object (Key-Value)</td>
+    <td></td>
+    <td></td>
+    <td>
+    The specifications regarding configuration section. They should be passed in pairs of key value
+    </td>
+  </tr>
+</table>
+
+## Calling Add Config Api
+For calling this api, the following details are required to apply:
+
+:::note
+The options and parameters introduced in the previous section must be included as json data in the request body part.
+:::
+
+<table class="table">
+  <tr>
+    <th>URL</th>
+    <th>Method</th>
+    <th>ContentType</th>
+    <th>Body</th>
+  </tr>
+  <tr>
+    <td>http://localhost:5860/config/add</td>
+    <td class="centering">POST</td>
+    <td class="centering">application/json</td>
+    <td>
+      ```json
+      {
+        "name": "azfile",
+        "type": "FlowSynx.Storage/Azure.Files",
+        "specifications": {}
+      }
+      ```
+    </td>
+  </tr>
+</table>
+
+Now, if we want to have these details in the form of an http api call, open a new terminal and enter the following command:
+
+:::info
+First of all make sure flowsynx is running.
+:::
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="httpApi">
+  <TabItem value="bashHttpApi" label="HTTP API (Bash)">
+  ```
+  curl -X POST -H "Content-Type: application/json" -d '{ "name": "azfile", "type": "FlowSynx.Storage/Azure.Files", "specifications": {} }' http://localhost:5860/config/add
+  ```
+  </TabItem>
+  <TabItem value="powershellHttpApi" label="HTTP API (PowerShell)">
+  ```
+  Invoke-RestMethod -Method Post -ContentType 'application/json' -Body '{ "name": "azfile", "type": "FlowSynx.Storage/Azure.Files", "specifications": {} }' -Uri 'http://localhost:5860/config/add'
+  ```
+  </TabItem>
+</Tabs>
+
+Also you can use `Http Api test clients` to test this api. Anyway, after executing this api, a result like below will be obtained.
+```
+{
+  "data": {
+    "id": "18c91659-858b-4fd6-bd20-0125cac86c27",
+    "name": "azfile"
+  },
+  "messages": [
+    "The configuration was added successfully."
+  ],
+  "succeeded": true
+}
+```
+
+The answer is divided into three `data`, `messages`, and `succeeded` parts. 
+`succeeded` indicates the status of the execution of this api which is boolean value and can be true or false. 
+`messages` also indicates the list of possible messages that are returned with the response. 
+`data` contains the data to be returned. 
+
+:::info
+`data` part will have a value only when `succeeded` is true. If `succeeded` is false, this field will be null.
+:::
+
+The information including in the result for this api is described as follows:
+
+> **id**: The guid-based identity for configuration item.  
+> **name**: The name of configuration item (this name is unique).

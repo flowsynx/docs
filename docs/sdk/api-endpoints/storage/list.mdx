@@ -1,0 +1,218 @@
+---
+sidebar_position: 5
+---
+
+# List
+
+This api will list of entities regarding specific path.
+
+## List Api options
+The options available in this api are described below:
+
+<table>
+  <tr>
+    <th>Option name</th>
+    <th>Type</th>
+    <th>Default Value</th>
+    <th>Required</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>**Path**</td>
+    <td class="centering">string</td>
+    <td class="centering"></td>
+    <td class="centering greenIcon"><IIcon icon="mdi:check" height="32" /></td>
+    <td>The storage path from which the entities list are to be retrieved</td>
+  </tr>
+  <tr>
+    <td>**Kind**</td>
+    <td class="centering">string</td>
+    <td class="centering">FileAndDirectory</td>
+    <td class="centering greenIcon"></td>
+    <td>Kind of entity. Valid values are File, Directory, and FileAndDirectory</td>
+  </tr>
+  <tr>
+    <td>**Include**</td>
+    <td class="centering">string</td>
+    <td class="centering"></td>
+    <td></td>
+    <td>Include entities matching pattern</td>
+  </tr>
+  <tr>
+    <td>**Exclude**</td>
+    <td class="centering">string</td>
+    <td class="centering"></td>
+    <td></td>
+    <td>Exclude entities matching pattern</td>
+  </tr>
+  <tr>
+    <td>**MinAge**</td>
+    <td class="centering">string</td>
+    <td class="centering"></td>
+    <td></td>
+    <td>Filter entities older than this in **second** or suffix<br />**ms** | **s** | **m** | **h** | **d** | **w** | **M** | **y**</td>
+  </tr>
+  <tr>
+    <td>**MaxAge**</td>
+    <td class="centering">string</td>
+    <td class="centering"></td>
+    <td></td>
+    <td>Filter entities younger than this in **second** or suffix<br />**ms** | **s** | **m** | **h** | **d** | **w** | **M** | **y**</td>
+  </tr>
+  <tr>
+    <td>**MinSize**</td>
+    <td class="centering">string</td>
+    <td class="centering"></td>
+    <td></td>
+    <td>Filter entities bigger than this in **KiB** or suffix<br />**B** | **K** | **M** | **G** | **T** | **P**</td>
+  </tr>
+  <tr>
+    <td>**MaxSize**</td>
+    <td class="centering">string</td>
+    <td class="centering"></td>
+    <td></td>
+    <td>Filter entities smaller than this in KiB or suffix<br />**B** | **K** | **M** | **G** | **T** | **P**</td>
+  </tr>
+  <tr>
+    <td>**Full**</td>
+    <td class="centering">bool</td>
+    <td class="centering">false</td>
+    <td></td>
+    <td>Full numbers instead of human-readable</td>
+  </tr>
+  <tr>
+    <td>**Sorting**</td>
+    <td class="centering">string</td>
+    <td class="centering"></td>
+    <td></td>
+    <td>Sorting entities based on field name and ascending and descending. Like Property ASC, Property2 DESC</td>
+  </tr>
+  <tr>
+    <td>**CaseSensitive**</td>
+    <td class="centering">bool</td>
+    <td class="centering">false</td>
+    <td></td>
+    <td>Ignore or apply case sensitive in filters</td>
+  </tr>
+  <tr>
+    <td>**Recurse**</td>
+    <td class="centering">bool</td>
+    <td class="centering">false</td>
+    <td></td>
+    <td>Apply recursion on filtering entities in the specified path</td>
+  </tr>
+  <tr>
+    <td>**Hashing**</td>
+    <td class="centering">bool</td>
+    <td class="centering">false</td>
+    <td></td>
+    <td>Display hashing content in response data</td>
+  </tr>
+  <tr>
+    <td>**MaxResults**</td>
+    <td class="centering">long</td>
+    <td class="centering">0</td>
+    <td></td>
+    <td>The maximum number of results to return (0 meaning showing all entities)</td>
+  </tr>
+  <tr>
+    <td>**ShowMetadata**</td>
+    <td class="centering">bool</td>
+    <td class="centering">false</td>
+    <td></td>
+    <td>Display entities metadata in response data</td>
+  </tr>
+</table>
+
+## Calling List Api
+For calling this api, the following details are required to apply:
+
+:::note
+The options and parameters introduced in the previous section must be included as json data in the request body part.
+:::
+
+<table class="table">
+  <tr>
+    <th>URL</th>
+    <th>Method</th>
+    <th>ContentType</th>
+    <th>Body</th>
+  </tr>
+  <tr>
+    <td>http://localhost:5860/storage/list</td>
+    <td class="centering">POST</td>
+    <td class="centering">application/json</td>
+    <td>
+      ```json
+      {
+        "path": <STRING VALUE>,
+        "kind": <STRING VALUE>,
+        "include": <STRING VALUE>,
+        "exclude": <STRING VALUE>,
+        "minAge": <STRING VALUE>,
+        "maxAge": <STRING VALUE>,
+        "minSize": <STRING VALUE>,
+        "maxSize": <STRING VALUE>,
+        "full": <BOOLEAN VALUE>,
+        "caseSensitive": <BOOLEAN VALUE>,
+        "recurse": <BOOLEAN VALUE>,
+        "sorting": <STRING VALUE>,
+        "hashing": <BOOLEAN VALUE>,
+        "maxResults": <LONG VALUE>,
+        "showMetadata": <BOOLEAN VALUE>
+      }
+      ```
+    </td>
+  </tr>
+</table>
+
+Now, if we want to have these details in the form of an http api call, open a new terminal and enter the following command:
+
+:::info
+First of all make sure flowsynx is running.
+:::
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="httpApi">
+  <TabItem value="bashHttpApi" label="HTTP API (Bash)">
+  ```
+  curl -X POST -H "Content-Type: application/json" -d '{ "path": "/test/", "kind": "", "include": "", "exclude": "", "minAge": "", "maxAge": "", "minSize": "", "maxSize": "", "full": true, "caseSensitive": false, "recurse": true, "sorting": "kind asc", "hashing": false, "maxResults": 0, "showMetadata": false }' http://localhost:5860/storage/list
+  ```
+  </TabItem>
+  <TabItem value="powershellHttpApi" label="HTTP API (PowerShell)">
+  ```
+  Invoke-RestMethod -Method Post -ContentType 'application/json' -Body '{ "path": "C:/test/", "kind": "", "include": "", "exclude": "", "minAge": "", "maxAge": "", "minSize": "", "maxSize": "", "full": true, "caseSensitive": false, "recurse": true, "sorting": "kind asc", "hashing": false, "maxResults": 0, "showMetadata": false }' -Uri 'http://localhost:5860/storage/list'
+  ```
+  </TabItem>
+</Tabs>
+
+Also you can use `Http Api test clients` to test this api. Anyway, after executing this api, a result like below will be obtained.
+```
+{
+  "data": [
+    {
+      "id": "19C7DA5067E52CFB2B53D249ACC4B68F",
+      "kind": "file",
+      "name": "image01.jpg",
+      "path": "/test/image01.exe",
+      "size": "34304",
+      "contentType": "application/octet-stream",
+      "modifiedTime": "2024-05-15T20:45:06+00:00",
+      "md5": null,
+      "metadata": null
+    },
+    .
+    .
+    .
+  ],
+  "messages": [],
+  "succeeded": true
+}
+```
+
+The answer is divided into three `data`, `messages`, and `succeeded` parts. 
+`succeeded` indicates the status of the execution of this api which is boolean value and can be true or false. 
+`messages` also indicates the list of possible messages that are returned with the response. 
+`data` contains the data to be returned.

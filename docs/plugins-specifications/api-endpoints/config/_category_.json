@@ -1,0 +1,8 @@
+{
+  "label": "Config",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Manage configurations related to FlowSynx System"
+  }
+}

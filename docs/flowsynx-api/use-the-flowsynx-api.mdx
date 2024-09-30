@@ -42,12 +42,12 @@ Open a new terminal and enter the below command (in this example **`List`** comm
 <Tabs groupId="httpApi">
   <TabItem value="bashHttpApi" label="HTTP API (Bash)">
   ```
-  curl -X POST -H "Content-Type: application/json" -d '{ "path": "/", "full": true, "caseSensitive": false, "recurse": false, "sorting": "kind asc" }' http://localhost:5860/storage/list
+  curl -X POST -H "Content-Type: application/json" -d '{ "entity": "/", "options": { "fields": [], "filter": "", "caseSensitive": false, "recurse": false, "sort": "", "limit": "", "includeMetadata": false }}' http://localhost:5860/list
   ```
   </TabItem>
   <TabItem value="powershellHttpApi" label="HTTP API (PowerShell)">
   ```
-  Invoke-RestMethod -Method Post -ContentType 'application/json' -Body '{ "path": "C:/", "full": true, "caseSensitive": false, "recurse": false, "sorting": "kind asc" }' -Uri 'http://localhost:5860/storage/list'
+  Invoke-RestMethod -Method Post -ContentType 'application/json' -Body '{ "entity": "C:/", "options": { "fields": [], "filter": "", "caseSensitive": false, "recurse": false, "sort": "", "limit": "", "includeMetadata": false }}' -Uri 'http://localhost:5860/list'
   ```
   </TabItem>
 </Tabs>

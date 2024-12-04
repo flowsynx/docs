@@ -3,8 +3,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/Homepage/features';
-import HomepageSupportedStorages from '@site/src/components/Homepage/storages';
-import HomepageSupportedStreams from '@site/src/components/Homepage/streams';
+import HomepageSupportedConnectors from '@site/src/components/Homepage/connectors';
 import HomepageAnnouncement from '@site/src/components/Homepage/announcement';
 import Heading from '@theme/Heading';
 
@@ -72,8 +71,7 @@ export default function Home(): JSX.Element {
       <main>
         <HomepageAboutFlowSynx />
         <HomepageFeatures />
-        <HomepageSupportedStorages />
-        <HomepageSupportedStreams />
+        <HomepageSupportedConnectors />
       </main>
     </Layout>
   );

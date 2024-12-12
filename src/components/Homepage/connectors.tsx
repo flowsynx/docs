@@ -23,22 +23,22 @@ const ConnectorsList: ConnectorItem[] = [
   {
     title: 'Microsoft Azure Files Storage',
     type: 'Storage',
-    icon: 'mdi:microsoft'
+    icon: 'codicon:azure'
   },
   {
     title: 'Microsoft Azure Blobs Storage',
     type: 'Storage',
-    icon: 'mdi:microsoft'
+    icon: 'codicon:azure'
   },
   {
     title: 'Google Cloud Storage',
     type: 'Storage',
-    icon: 'mdi:google'
+    icon: 'cib:google-cloud'
   },
   {
     title: 'Google Drive',
     type: 'Storage',
-    icon: 'mdi:google'
+    icon: 'simple-icons:googledrive'
   },
   {
     title: 'Amazon AWS S3 Storage',
@@ -48,12 +48,17 @@ const ConnectorsList: ConnectorItem[] = [
   {
     title: 'CSV (Comma Separated Values)',
     type: 'Stream',
-    icon: 'grommet-icons:document-csv'
+    icon: 'iwwa:csv'
   },
   {
     title: 'JSON (JavaScript Object Notation)',
     type: 'Stream',
-    icon: 'file-icons:json-1'
+    icon: 'mdi:code-json'
+  },
+  {
+    title: 'MySQL',
+    type: 'Database',
+    icon: 'fontisto:mysql'
   }
 ];
 

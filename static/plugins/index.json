@@ -1,0 +1,13 @@
+[
+  {
+    "id": "b961131b-04cb-48df-9554-4252dc66c04c",
+    "name": "Amazon AWS S3 Storage",
+    "version": "1.0.0",
+    "description": "A FlowSynx plugin for managing Amazon Web Service S3 Storage system.",
+    "author": "FlowSynx",
+    "type": "FlowSynx.Connectors.Amazon.S3",
+    "url": "https://github.com/flowsynx/plugin-amazon-s3/releases/download/v1.0.0/release-1.0.0.zip",
+    "updatedAt": "2025-04-12",
+    "checksum": "3f506c590475bd97c1ab864c703148fa6b50051e5bc9769d80322d1072018699"
+  }
+]

@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'FlowSynx',
-  tagline: 'An system for managing and synchronizing data between different repositories, including cloud repositories, local repositories, and etc.',
+  tagline: 'Empowering you to design, control, and automate every step of your workflow by linking ideas, decisions, and actions into one seamless, smart execution engine without writing a single line of code.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -68,6 +68,11 @@ const config: Config = {
           sidebarId: 'docSidebar',
           position: 'left',
           label: 'Docs',
+        },
+        {
+          to: '/docs/plugins/list', 
+          label: 'Plugins', 
+          position: 'left'
         },
         {
           to: '/blog', 

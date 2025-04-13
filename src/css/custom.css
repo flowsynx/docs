@@ -154,3 +154,39 @@
   --ifm-announcement-text-color: var(--ifm-color-primary-lightest);
   --ifm-announcement-border-color: #515f76;
 }
+
+/* Apply the small-table class style */
+.small-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  background-color: transparent;
+}
+
+.small-table th, .small-table td {
+  padding: 0.25rem;
+  vertical-align: top;
+}
+
+.small-table th {
+  text-align: inherit;
+  font-weight: 500;
+}
+
+.small-table th, .small-table td {
+  padding: 0.3rem 0.75rem;
+}
+
+/* Apply small-input class styling */
+.small-input {
+  display: block;
+  width: 100%;
+  padding: 0.23rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.header-colorful {
+  color: var(--ifm-color-primary);
+}

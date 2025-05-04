@@ -9,5 +9,38 @@
     "url": "https://github.com/flowsynx/plugin-amazon-s3/releases/download/v1.0.0/release-1.0.0.zip",
     "updatedAt": "2025-04-12",
     "checksum": "3f506c590475bd97c1ab864c703148fa6b50051e5bc9769d80322d1072018699"
+  },
+  {
+    "id": "3274b80c-bc35-43cd-9098-3b3102e66b8e",
+    "name": "Amazon AWS S3 Storage",
+    "version": "1.1.0",
+    "description": "A FlowSynx plugin for managing Amazon Web Service S3 Storage system.",
+    "author": "FlowSynx",
+    "type": "FlowSynx.Connectors.Amazon.S3",
+    "url": "https://github.com/flowsynx/plugin-amazon-s3/releases/download/v1.1.0/release-1.1.0.zip",
+    "updatedAt": "2025-04-26",
+    "checksum": "7cb7cb3332a43c2f92220d9294179437502bd3a403982f7551e958e930257733"
+  },
+  {
+    "id": "c196c60e-fd8f-4281-bb91-162db3ea1be0",
+    "name": "Azure Blobs Storage",
+    "version": "1.0.0",
+    "description": "A FlowSynx plugin for managing Microsoft Azure Blobs storage system.",
+    "author": "FlowSynx",
+    "type": "FlowSynx.Connectors.Azure.Blobs",
+    "url": "https://github.com/flowsynx/plugin-azure-blobs/releases/download/v1.0.0/release-1.0.0.zip",
+    "updatedAt": "2025-04-26",
+    "checksum": "95b54954b6a04508cbf22e3b45bae582a44d7abaa0d5212c4348d773d2b1ad27"
+  },
+  {
+    "id": "9067fb10-f278-446d-ab26-392191f293ca",
+    "name": "Azure Files Storage",
+    "version": "1.0.0",
+    "description": "A FlowSynx plugin for managing Microsoft Azure Files storage system.",
+    "author": "FlowSynx",
+    "type": "FlowSynx.Connectors.Azure.Files",
+    "url": "https://github.com/flowsynx/plugin-azure-files/releases/download/v1.0.0/release-1.0.0.zip",
+    "updatedAt": "2025-04-27",
+    "checksum": "30a02be143edf3ef64d596fca155fdcd030e4d881e52e7ac3598bcfad7b8649f"
   }
 ]

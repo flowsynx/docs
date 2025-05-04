@@ -17,7 +17,7 @@ function HomepageHeader() {
         <div className="row">
           <div className="col col--8 text--left">
             <Heading as="h3" className="hero__title">
-              Orchestrate and Automate workflow automation system
+            Automate and orchestrate processes using FlowSynx automation system
             </Heading>
             <p className="hero__subtitle">{siteConfig.tagline}</p>
             <div className='{styles.buttons} text--left padding-top--lg'>
@@ -25,9 +25,13 @@ function HomepageHeader() {
                 to="/docs/getting-started/install-flowctl">
                 Get started
               </Link>
-              <Link className="button button--outline button--primary button--lg"
+              <Link className="button button--outline button--primary button--lg margin-right--md"
                 to="docs/api/service-invocation-api">
                 API Reference
+              </Link>
+              <Link className="button button--outline button--primary button--lg"
+                to="docs/plugins/list">
+                Plugins list
               </Link>
             </div>
           </div>
@@ -44,12 +48,21 @@ function HomepageAboutFlowSynx() {
         <Heading as="h2">What is the FlowSynx?</Heading>
         <div className="row">
           <div className="col">
-            FlowSynx is a cross-platform program to manage files and data on different repositories such as 
-            cloud storage, local file system, streams, and etc.
-            It is a feature-rich alternative to cloud vendors' web storage interfaces. 
-            It will try to cover and support most of the cloud storage products including Azure Files, Azure Blobs, 
-            business & consumer file storage services, as well as standard transfer protocols.
-            In addition, FlowSynx has the ability to filter and sort different data and then transfer or store them into different types.
+          In modern software ecosystems, automation, repeatability, and modular orchestration have become critical for 
+          scalability, maintainability, and operational efficiency. However, many existing workflow management systems 
+          are either too rigid, overly complex, or tightly coupled to specific platforms or technologies. FlowSynx was 
+          developed to address these limitations by providing a flexible, cross-platform workflow orchestration system 
+          that empowers developers and organizations to define, execute, and manage complex workflows with ease.<br />
+          
+          The core goal of FlowSynx is to offer a lightweight, extensible, and developer-friendly orchestration engine 
+          that can be adapted to diverse domains—from data engineering and DevOps to healthcare, finance, and enterprise 
+          integrations. It aims to bridge the gap between no-code simplicity and full-code flexibility, giving users the 
+          power to tailor workflows to their exact requirements using a modular and plugin-driven approach.<br />
+          
+          FlowSynx is built on a micro-kernel architecture, which serves as the lightweight, extensible core of the system. 
+          This architectural pattern decouples the core orchestration logic from functional extensions, allowing users to 
+          dynamically load, develop, or replace plugins without impacting system stability. This enables FlowSynx to be highly
+          customizable while still remaining easy to maintain and upgrade.
           </div>
         </div>
       </div>
@@ -66,7 +79,6 @@ export default function Home(): JSX.Element {
       <main>
         <HomepageAboutFlowSynx />
         <HomepageFeatures />
-        <HomepageSupportedConnectors />
       </main>
     </Layout>
   );

@@ -70,7 +70,7 @@ const config: Config = {
           label: 'Docs',
         },
         {
-          to: '/docs/plugins/list', 
+          to: 'https://plugins.flowsynx.io', 
           label: 'Plugins', 
           position: 'left'
         },

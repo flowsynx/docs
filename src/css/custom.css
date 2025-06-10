@@ -42,10 +42,12 @@
   border: 3px solid transparent;
   height: 425px;
   overflow: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 .feature-card:hover {
   border: 3px solid var(--ifm-color-primary);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 30px rgba(0, 0, 0, 0.1);
 }
 
 .feature-card-header {

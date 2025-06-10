@@ -29,9 +29,9 @@ function HomepageHeader() {
                 to="docs/api/service-invocation-api">
                 API Reference
               </Link>
-              <Link className="button button--outline button--primary button--lg"
-                to="docs/plugins/list">
-                Plugins list
+              <Link className="button button--outline button--primary button--lg" target='_blank'
+                to="https://plugins.flowsynx.io">
+                Plugins
               </Link>
             </div>
           </div>

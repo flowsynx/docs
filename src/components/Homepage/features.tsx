@@ -120,6 +120,31 @@ const FeatureList: FeatureItem[] = [
         instantly activating corresponding task flows, ensuring real-time, event-driven automation.
       </>
     ),
+  },
+  {
+    title: 'Human-in-the-Loop (HITL) Approval',
+    icon: 'pajamas:approval-solid',
+    description: (
+      <>
+      Integrate human decision points into automated workflows with Human-in-the-Loop Approval. This 
+      feature pauses execution until an authorized user manually approves or rejects a pending task. 
+      Ideal for scenarios requiring compliance checks, risk assessment, or business validation, it 
+      adds a layer of control and accountability within otherwise automated processes.
+      </>
+    ),
+  },
+  {
+    title: 'Flexible Error Handling',
+    icon: 'bxs:error',
+    description: (
+      <>
+      Ensure workflow resilience with configurable error-handling strategies that define how failures 
+      are managed during execution. Choose from Retry, Skip, or Abort behaviors to match the criticality 
+      of each task. Fine-tune retry behavior with customizable policies, including maximum retries, 
+      initial delay, and backoff strategies such as Fixed, Linear, Exponential, or Jitter, enabling 
+      intelligent recovery from transient failures without manual intervention.
+      </>
+    ),
   }
 ];
 

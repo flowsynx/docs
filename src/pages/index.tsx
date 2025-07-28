@@ -70,6 +70,46 @@ function HomepageAboutFlowSynx() {
   );
 }
 
+function HomepageFlowSynxArchitecture() {
+  return (
+    <section className='padding-vert--lg about-section'>
+      <div className="container">
+        <Heading as="h2">Architecture overview</Heading>
+        <div className="row">
+          <div className="col">
+          <img src="/img/architecture-diagram.jpg" />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col">
+            <h3>Intraction tools</h3>
+            <ul>
+              <li><b>CLI Interface</b>: Command-line tools for interacting with the FlowSynx system, enabling workflow management and execution from terminals.</li>
+              <li><b>REST API Gateway</b>: Provides secure, HTTP/HTTPS RESTful APIs to integrate with external systems, allowing remote workflow control and status querying.</li>
+              <li><b>SDK (Library)</b>: Developer-friendly libraries exposing FlowSynx functionalities programmatically, enabling custom applications to embed or automate workflow operations.</li>
+            </ul>
+
+            <h3>FlowSynx Core</h3>
+            <ul>
+              <li><b>Workflow Orchestrator</b>: Loads and executes workflows defined as JSON DAGs.</li>
+              <li><b>Plugin Manager</b>: Dynamically loads plugins and maintains a plugin marketplace/registry.</li>
+              <li><b>Security & Auth</b>: Handles authentication and authorization for both REST API and CLI access.</li>
+              <li><b>Logging & Auditing</b>: Tracks workflow execution, plugin activity, and audit trails.</li>
+              <li><b>Trigger Engine</b>: Listens for external events or schedules workflows to start based on timers, webhooks, or system signals.</li>
+              <li><b>Error handling</b>: Built-in support for task retries, timeouts, and fallbacks ensures reliable execution even in unstable environments. Custom retry strategies can be defined per task.</li>
+            </ul>
+
+            <h3>Execution environments</h3>
+            <ul>
+              <li><b>Deployment & Execution Environments</b>: Supports flexible deployment models from standalone desktop/server installs to cloud containerized orchestration, with cross-platform compatibility.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return (
@@ -79,6 +119,7 @@ export default function Home(): JSX.Element {
       <main>
         <HomepageAboutFlowSynx />
         <HomepageFeatures />
+        <HomepageFlowSynxArchitecture />
       </main>
     </Layout>
   );

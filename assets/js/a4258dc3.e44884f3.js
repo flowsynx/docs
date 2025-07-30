@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkflowsynx=self.webpackChunkflowsynx||[]).push([[8907],{3230:s=>{s.exports=JSON.parse('{"label":"NoCode","permalink":"/blog/tags/no-code","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

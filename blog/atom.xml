@@ -2,222 +2,47 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://flowsynx.io/blog</id>
     <title>FlowSynx Blog</title>
-    <updated>2024-08-08T00:00:00.000Z</updated>
+    <updated>2025-07-27T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://flowsynx.io/blog"/>
     <subtitle>FlowSynx Blog</subtitle>
     <icon>https://flowsynx.io/img/favicon.ico</icon>
     <entry>
-        <title type="html"><![CDATA[FlowSynx v0.4.1 is now available]]></title>
-        <id>https://flowsynx.io/blog/flowsynx-v0.4.1-is-now-available</id>
-        <link href="https://flowsynx.io/blog/flowsynx-v0.4.1-is-now-available"/>
-        <updated>2024-08-08T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[We are super excited to announce the latest release of FlowSynx, v0.4.1! This post covers the highlights of the new features and enhancements in FlowSynx v0.4.1.]]></summary>
-        <content type="html"><![CDATA[<p>We are super excited to announce the latest release of FlowSynx, v0.4.1! This post covers the highlights of the new features and enhancements in FlowSynx v0.4.1.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="release-highlights">Release highlights<a href="https://flowsynx.io/blog/flowsynx-v0.4.1-is-now-available#release-highlights" class="hash-link" aria-label="Direct link to Release highlights" title="Direct link to Release highlights">​</a></h2>
-<p>If you’re new to FlowSynx, familiarize yourself by visiting the <a href="https://flowsynx.io/docs/category/getting-started">getting started</a> page.</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="flowsynx">FlowSynx<a href="https://flowsynx.io/blog/flowsynx-v0.4.1-is-now-available#flowsynx" class="hash-link" aria-label="Direct link to FlowSynx" title="Direct link to FlowSynx">​</a></h3>
-<ul>
-<li>[ADDED] Add In Memory Storage plugin <a href="https://github.com/flowsynx/flowsynx/issues/5" target="_blank" rel="noopener noreferrer">#5</a></li>
-<li>[ADDED] Add API endpoint to list logs <a href="https://github.com/flowsynx/flowsynx/issues/73" target="_blank" rel="noopener noreferrer">#73</a></li>
-<li>[FIXED] Change nullable string value to string in Specifications class of plugins <a href="https://github.com/flowsynx/flowsynx/issues/67" target="_blank" rel="noopener noreferrer">#67</a> <a href="https://github.com/flowsynx/flowsynx/issues/68" target="_blank" rel="noopener noreferrer">#68</a> <a href="https://github.com/flowsynx/flowsynx/issues/69" target="_blank" rel="noopener noreferrer">#69</a> <a href="https://github.com/flowsynx/flowsynx/issues/70" target="_blank" rel="noopener noreferrer">#70</a></li>
-<li>[FIXED] Change plugin details from get to post and change getting by id to getting plugin by type <a href="https://github.com/flowsynx/flowsynx/issues/76" target="_blank" rel="noopener noreferrer">#76</a></li>
-<li>[FIXED] Change Plugins list from Get to Post method in Api endpoint <a href="https://github.com/flowsynx/flowsynx/issues/79" target="_blank" rel="noopener noreferrer">#79</a></li>
-<li>[ADDED] Move Taking Max result from plugins to the StorageFilter <a href="https://github.com/flowsynx/flowsynx/issues/80" target="_blank" rel="noopener noreferrer">#80</a></li>
-<li>[FIXED] Add ability to return max result from percentage <a href="https://github.com/flowsynx/flowsynx/issues/77" target="_blank" rel="noopener noreferrer">#77</a></li>
-<li>[FIXED] Change Config Details http method from Get to Post <a href="https://github.com/flowsynx/flowsynx/issues/84" target="_blank" rel="noopener noreferrer">#84</a></li>
-<li>[FIXED] Add file and directory checkers for plugins <a href="https://github.com/flowsynx/flowsynx/issues/86" target="_blank" rel="noopener noreferrer">#86</a></li>
-<li>[FIXED] Update FlowSynx packages to the version 1.2.3 <a href="https://github.com/flowsynx/flowsynx/issues/87" target="_blank" rel="noopener noreferrer">#87</a></li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="flowctl">Flowctl<a href="https://flowsynx.io/blog/flowsynx-v0.4.1-is-now-available#flowctl" class="hash-link" aria-label="Direct link to Flowctl" title="Direct link to Flowctl">​</a></h3>
-<ul>
-<li>[FIXED] Add EscapeMarkup() to the Witten string to avoid exception of Spectre.Console about brackets <a href="https://github.com/flowsynx/flowctl/issues/46" target="_blank" rel="noopener noreferrer">#46</a></li>
-<li>[FIXED] Add command to handle and adapt new API endpoint about Logs <a href="https://github.com/flowsynx/flowctl/issues/40" target="_blank" rel="noopener noreferrer">#40</a></li>
-<li>[FIXED] Move dashboard version from version command to the dashboard command <a href="https://github.com/flowsynx/flowctl/issues/42" target="_blank" rel="noopener noreferrer">#42</a></li>
-<li>[FIXED] Update FlowSynx packages to version 1.2.2 <a href="https://github.com/flowsynx/flowctl/issues/48" target="_blank" rel="noopener noreferrer">#48</a></li>
-<li>[FIXED] Update FlowSynx.Client to the version 0.2.7 <a href="https://github.com/flowsynx/flowctl/issues/49" target="_blank" rel="noopener noreferrer">#49</a></li>
-<li>[FIXED] Change PluginDetails Command option from Id to the Type and other related changes <a href="https://github.com/flowsynx/flowctl/issues/50" target="_blank" rel="noopener noreferrer">#50</a></li>
-<li>[FIXED] Correct the Formatter for table to display the list object properly <a href="https://github.com/flowsynx/flowctl/issues/51" target="_blank" rel="noopener noreferrer">#51</a></li>
-<li>[FIXED] Rename the launchSettings project name to the FlowCtl <a href="https://github.com/flowsynx/flowctl/issues/52" target="_blank" rel="noopener noreferrer">#52</a></li>
-<li>[FIXED] Add ability to stop dashboard to the Stop command <a href="https://github.com/flowsynx/flowctl/issues/53" target="_blank" rel="noopener noreferrer">#53</a></li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="dashboard">Dashboard<a href="https://flowsynx.io/blog/flowsynx-v0.4.1-is-now-available#dashboard" class="hash-link" aria-label="Direct link to Dashboard" title="Direct link to Dashboard">​</a></h3>
-<ul>
-<li>[FIXED] Update FlowSynx.Client to the version 0.2.7 <a href="https://github.com/flowsynx/dashboard/issues/6" target="_blank" rel="noopener noreferrer">#6</a></li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="c-sdk">C# Sdk<a href="https://flowsynx.io/blog/flowsynx-v0.4.1-is-now-available#c-sdk" class="hash-link" aria-label="Direct link to C# Sdk" title="Direct link to C# Sdk">​</a></h3>
-<ul>
-<li>[ADDED] Add Logs endpoint to the SDK <a href="https://github.com/flowsynx/csharp-sdk/issues/3" target="_blank" rel="noopener noreferrer">#3</a></li>
-<li>[FIXED] Change the Plugin Details and list from Get to Post method <a href="https://github.com/flowsynx/csharp-sdk/issues/5" target="_blank" rel="noopener noreferrer">#5</a></li>
-<li>[FIXED] Change PluginDetailsRequest Id property to the Type as well as data type to string <a href="https://github.com/flowsynx/csharp-sdk/issues/6" target="_blank" rel="noopener noreferrer">#6</a></li>
-<li>[FIXED] Change ConfigDetails http method from get to post <a href="https://github.com/flowsynx/csharp-sdk/issues/7" target="_blank" rel="noopener noreferrer">#7</a></li>
-<li>[FIXED] Add PluginDetailsSpecification to the PluginDetails response object <a href="https://github.com/flowsynx/csharp-sdk/issues/8" target="_blank" rel="noopener noreferrer">#8</a></li>
-<li>[FIXED] Change ConfigDetails http method from Get to Post <a href="https://github.com/flowsynx/csharp-sdk/issues/9" target="_blank" rel="noopener noreferrer">#9</a></li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="share-components">Share-Components<a href="https://flowsynx.io/blog/flowsynx-v0.4.1-is-now-available#share-components" class="hash-link" aria-label="Direct link to Share-Components" title="Direct link to Share-Components">​</a></h3>
-<ul>
-<li>[ADDED] Add InMemory LogProvider <a href="https://github.com/flowsynx/shared-components/issues/8" target="_blank" rel="noopener noreferrer">#8</a></li>
-<li>[ADDED] Add percent parser <a href="https://github.com/flowsynx/shared-components/issues/10" target="_blank" rel="noopener noreferrer">#10</a></li>
-<li>[FIXED] Change MaxResult datatype from int to string in order to accept string <a href="https://github.com/flowsynx/shared-components/issues/9" target="_blank" rel="noopener noreferrer">#9</a></li>
-</ul>]]></content>
+        <title type="html"><![CDATA[FlowSynx v1.1.2 is now available]]></title>
+        <id>https://flowsynx.io/blog/flowsynx-v1.1.2-is-now-available</id>
+        <link href="https://flowsynx.io/blog/flowsynx-v1.1.2-is-now-available"/>
+        <updated>2025-07-27T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[FlowSynx v1.1.2 is officially released!]]></summary>
+        <content type="html"><![CDATA[<p>FlowSynx v1.1.2 is officially released!</p>
+<p>We're excited to roll out version 1.1.2 of FlowSynx — our lightweight, secure, and plugin-driven workflow engine. This release focuses on performance improvements, stability enhancements, and continued support for scalable, no-code automation.</p>
+<p>Thank you to the community and contributors helping shape FlowSynx into a powerful platform for orchestrating workflows across cloud and on-prem environments.</p>
+<p>📦 Available now via <a href="https://github.com/flowsynx/flowsynx/releases" target="_blank" rel="noopener noreferrer">GitHub</a>, and <a href="https://hub.docker.com/r/flowsynx/flowsynx" target="_blank" rel="noopener noreferrer">Docker</a>.</p>]]></content>
         <author>
             <name>Maintainers</name>
         </author>
+        <category label="FlowSynx" term="FlowSynx"/>
         <category label="Release" term="Release"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[FlowSynx v0.4.0 is now available]]></title>
-        <id>https://flowsynx.io/blog/flowsynx-v0.4.0-is-now-available</id>
-        <link href="https://flowsynx.io/blog/flowsynx-v0.4.0-is-now-available"/>
-        <updated>2024-07-24T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[We are super excited to announce the latest release of FlowSynx, v0.4.0! This post covers the highlights of the new features and enhancements in FlowSynx v0.4.0.]]></summary>
-        <content type="html"><![CDATA[<p>We are super excited to announce the latest release of FlowSynx, v0.4.0! This post covers the highlights of the new features and enhancements in FlowSynx v0.4.0.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="release-highlights">Release highlights<a href="https://flowsynx.io/blog/flowsynx-v0.4.0-is-now-available#release-highlights" class="hash-link" aria-label="Direct link to Release highlights" title="Direct link to Release highlights">​</a></h2>
-<p>If you’re new to FlowSynx, familiarize yourself by visiting the <a href="https://flowsynx.io/docs/category/getting-started">getting started</a> page.</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="flowsynx">FlowSynx<a href="https://flowsynx.io/blog/flowsynx-v0.4.0-is-now-available#flowsynx" class="hash-link" aria-label="Direct link to FlowSynx" title="Direct link to FlowSynx">​</a></h3>
-<ul>
-<li>[ADDED] Add Google Drive storage plugin <a href="https://github.com/flowsynx/flowsynx/issues/53" target="_blank" rel="noopener noreferrer">#53</a></li>
-<li>[ADDED] Add Cache to the FlowSynx to load already defined and loaded plugins from Memory instead initialized each time <a href="https://github.com/flowsynx/flowsynx/issues/56" target="_blank" rel="noopener noreferrer">#56</a></li>
-<li>[FIXED] Rename showMetadata property to includeMetadata in the list request <a href="https://github.com/flowsynx/flowsynx/issues/42" target="_blank" rel="noopener noreferrer">#42</a></li>
-<li>[FIXED] Add additional condition to check both Container and Directory Exist in Azure Blob plugin <a href="https://github.com/flowsynx/flowsynx/issues/44" target="_blank" rel="noopener noreferrer">#44</a></li>
-<li>[FIXED] Move logic from Specifications to Initialize for AWS S3 storage plugin <a href="https://github.com/flowsynx/flowsynx/issues/58" target="_blank" rel="noopener noreferrer">#58</a></li>
-<li>[ADDED] Add Argument guard for ISerializer during contract object for AWS S3 plugin <a href="https://github.com/flowsynx/flowsynx/issues/59" target="_blank" rel="noopener noreferrer">#59</a></li>
-<li>[FIXED] Update FlowSynx packages version to 1.0.0 due to the release new version <a href="https://github.com/flowsynx/flowsynx/issues/64" target="_blank" rel="noopener noreferrer">#64</a></li>
-<li>[FIXED] Change access modifier for Path property in StorageNormsInfo <a href="https://github.com/flowsynx/flowsynx/issues/6" target="_blank" rel="noopener noreferrer">#66</a></li>
-<li>[FIXED] Move File and Directory filtering to the StorageFilter instead of the implementation in the plugin <a href="https://github.com/flowsynx/flowsynx/issues/37" target="_blank" rel="noopener noreferrer">#37</a></li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="csharp-sdk">CSharp-Sdk<a href="https://flowsynx.io/blog/flowsynx-v0.4.0-is-now-available#csharp-sdk" class="hash-link" aria-label="Direct link to CSharp-Sdk" title="Direct link to CSharp-Sdk">​</a></h3>
-<ul>
-<li>[FIXED] Rename property ShowMetadata to the IncludeMetadata in the storage ListRequest <a href="https://github.com/flowsynx/csharp-sdk/issues/2" target="_blank" rel="noopener noreferrer">#2</a></li>
-<li>[RELEASED] - New version 0.2.0 released</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="share-components">Share-Components<a href="https://flowsynx.io/blog/flowsynx-v0.4.0-is-now-available#share-components" class="hash-link" aria-label="Direct link to Share-Components" title="Direct link to Share-Components">​</a></h3>
-<ul>
-<li>[ADDED] Add Initialize function to the IPlugin interface <a href="https://github.com/flowsynx/shared-components/issues/6" target="_blank" rel="noopener noreferrer">#6</a></li>
-<li>[ADDED] Add Cache in FlowSynx.IO and related UnitTests <a href="https://github.com/flowsynx/shared-components/issues/7" target="_blank" rel="noopener noreferrer">#7</a></li>
-<li>[RELEASED] - New version 1.0.0 released</li>
-</ul>]]></content>
-        <author>
-            <name>Maintainers</name>
-        </author>
-        <category label="Release" term="Release"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[FlowSynx v0.3.2 is now available]]></title>
-        <id>https://flowsynx.io/blog/flowsynx-v0.3.2-is-now-available</id>
-        <link href="https://flowsynx.io/blog/flowsynx-v0.3.2-is-now-available"/>
-        <updated>2024-07-15T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[We are super excited to announce the latest release of FlowSynx, v0.3.2! This post covers the highlights of the new features and enhancements in FlowSynx v0.3.2.]]></summary>
-        <content type="html"><![CDATA[<p>We are super excited to announce the latest release of FlowSynx, v0.3.2! This post covers the highlights of the new features and enhancements in FlowSynx v0.3.2.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="release-highlights">Release highlights<a href="https://flowsynx.io/blog/flowsynx-v0.3.2-is-now-available#release-highlights" class="hash-link" aria-label="Direct link to Release highlights" title="Direct link to Release highlights">​</a></h2>
-<p>If you’re new to FlowSynx, familiarize yourself by visiting the <a href="https://flowsynx.io/docs/category/getting-started">getting started</a> page.</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="flowsynx">FlowSynx<a href="https://flowsynx.io/blog/flowsynx-v0.3.2-is-now-available#flowsynx" class="hash-link" aria-label="Direct link to FlowSynx" title="Direct link to FlowSynx">​</a></h3>
-<ul>
-<li>[ADDED] Add Amazon S3 storage plugin <a href="https://github.com/flowsynx/flowsynx/issues/28" target="_blank" rel="noopener noreferrer">#28</a></li>
-<li>[FIXED] Correcting Md5 hash value for Google cloud storage plugin <a href="https://github.com/flowsynx/flowsynx/issues/34" target="_blank" rel="noopener noreferrer">#34</a></li>
-<li>[FIXED] Change Google cloud storage name and delete storage word from the end of the name <a href="https://github.com/flowsynx/flowsynx/issues/35" target="_blank" rel="noopener noreferrer">#35</a></li>
-<li>[FIXED] Move File and Directory filtering to the StorageFilter instead of the implementation in the plugin <a href="https://github.com/flowsynx/flowsynx/issues/37" target="_blank" rel="noopener noreferrer">#37</a> <a href="https://github.com/flowsynx/flowsynx/issues/38" target="_blank" rel="noopener noreferrer">#38</a> <a href="https://github.com/flowsynx/flowsynx/issues/39" target="_blank" rel="noopener noreferrer">#39</a> <a href="https://github.com/flowsynx/flowsynx/issues/40" target="_blank" rel="noopener noreferrer">#40</a> <a href="https://github.com/flowsynx/flowsynx/issues/41" target="_blank" rel="noopener noreferrer">#41</a></li>
-<li>[FIXED] Rename ShowMetadata property to the IncludeMetadata in the list request <a href="https://github.com/flowsynx/flowsynx/issues/42" target="_blank" rel="noopener noreferrer">#42</a></li>
-<li>[FIXED] Add additional condition to check both Container and Directory Exist in Azure Blob plugi <a href="https://github.com/flowsynx/flowsynx/issues/44" target="_blank" rel="noopener noreferrer">#44</a></li>
-<li>[FIXED] Add StorageMetadataOptions to the StorageService and refactoring some related code <a href="https://github.com/flowsynx/flowsynx/issues/45" target="_blank" rel="noopener noreferrer">#45</a></li>
-<li>[FIXED] Update FlowSynx packages to 0.9.1 for FlowSynx project as well as other plugins to adopt new changes regarding updated IStoragePlugin interface <a href="https://github.com/flowsynx/flowsynx/issues/46" target="_blank" rel="noopener noreferrer">#46</a> <a href="https://github.com/flowsynx/flowsynx/issues/47" target="_blank" rel="noopener noreferrer">#47</a> <a href="https://github.com/flowsynx/flowsynx/issues/48" target="_blank" rel="noopener noreferrer">#48</a> <a href="https://github.com/flowsynx/flowsynx/issues/49" target="_blank" rel="noopener noreferrer">#49</a> <a href="https://github.com/flowsynx/flowsynx/issues/50" target="_blank" rel="noopener noreferrer">#50</a> <a href="https://github.com/flowsynx/flowsynx/issues/51" target="_blank" rel="noopener noreferrer">#51</a></li>
-<li>[FIXED] Update README file <a href="https://github.com/flowsynx/flowsynx/issues/31" target="_blank" rel="noopener noreferrer">#31</a></li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="flowctl">FlowCtl<a href="https://flowsynx.io/blog/flowsynx-v0.3.2-is-now-available#flowctl" class="hash-link" aria-label="Direct link to FlowCtl" title="Direct link to FlowCtl">​</a></h3>
-<ul>
-<li>[FIXED] Open dashboard in web browser when user running dashboard command <a href="https://github.com/flowsynx/flowctl/issues/19" target="_blank" rel="noopener noreferrer">#19</a></li>
-<li>[FIXED] Rename property ShowMetadata to the IncludeMetadata Storage List command as well as update FlowSynx.Client version <a href="https://github.com/flowsynx/flowctl/issues/35" target="_blank" rel="noopener noreferrer">#35</a></li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="csharp-sdk">CSharp-Sdk<a href="https://flowsynx.io/blog/flowsynx-v0.3.2-is-now-available#csharp-sdk" class="hash-link" aria-label="Direct link to CSharp-Sdk" title="Direct link to CSharp-Sdk">​</a></h3>
-<ul>
-<li>[FIXED] Rename property ShowMetadata to the IncludeMetadata in the storage ListRequest <a href="https://github.com/flowsynx/csharp-sdk/issues/2" target="_blank" rel="noopener noreferrer">#2</a></li>
-<li>[RELEASED] - New version 0.2.0 released</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="share-components">Share-Components<a href="https://flowsynx.io/blog/flowsynx-v0.3.2-is-now-available#share-components" class="hash-link" aria-label="Direct link to Share-Components" title="Direct link to Share-Components">​</a></h3>
-<ul>
-<li>[FIXED] Add StorageMetadataOptions to the FlowSynx.Plugin.Storage project in order to handle the IncludeMetadata property <a href="https://github.com/flowsynx/shared-components/issues/3" target="_blank" rel="noopener noreferrer">#3</a></li>
-<li>[FIXED] Add unit tests for FlowSynx.IO project <a href="https://github.com/flowsynx/shared-components/issues/3" target="_blank" rel="noopener noreferrer">#4</a></li>
-<li>[FIXED] Add unit tests for the FlowSynx.Plugin.Storage project <a href="https://github.com/flowsynx/shared-components/issues/5" target="_blank" rel="noopener noreferrer">#5</a></li>
-<li>[RELEASED] - New version 0.9.1 released</li>
-</ul>]]></content>
-        <author>
-            <name>Maintainers</name>
-        </author>
-        <category label="Release" term="Release"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[FlowSynx v0.3.0 is now available]]></title>
-        <id>https://flowsynx.io/blog/flowsynx-v0.3.0-is-now-available</id>
-        <link href="https://flowsynx.io/blog/flowsynx-v0.3.0-is-now-available"/>
-        <updated>2024-07-05T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[We are super excited to announce the latest release of FlowSynx, v0.3.0! This post covers the highlights of the new features and enhancements in FlowSynx v0.3.0.]]></summary>
-        <content type="html"><![CDATA[<p>We are super excited to announce the latest release of FlowSynx, v0.3.0! This post covers the highlights of the new features and enhancements in FlowSynx v0.3.0.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="release-highlights">Release highlights<a href="https://flowsynx.io/blog/flowsynx-v0.3.0-is-now-available#release-highlights" class="hash-link" aria-label="Direct link to Release highlights" title="Direct link to Release highlights">​</a></h2>
-<p>If you’re new to FlowSynx, familiarize yourself by visiting the <a href="https://flowsynx.io/docs/category/getting-started">getting started</a> page.</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="flowsynx">FlowSynx<a href="https://flowsynx.io/blog/flowsynx-v0.3.0-is-now-available#flowsynx" class="hash-link" aria-label="Direct link to FlowSynx" title="Direct link to FlowSynx">​</a></h3>
-<ul>
-<li>[ADDED] Add Google Cloud Storage plugin <a href="https://github.com/flowsynx/flowsynx/issues/21" target="_blank" rel="noopener noreferrer">#21</a></li>
-<li>[FIXED] Normalize in VersionHandler should return correct version value when the given version doesn't start with v <a href="https://github.com/flowsynx/flowsynx/issues/20" target="_blank" rel="noopener noreferrer">#20</a></li>
-<li>[FIXED] Change the StorageNormsParser Separator symbol <a href="https://github.com/flowsynx/flowsynx/issues/22" target="_blank" rel="noopener noreferrer">#22</a></li>
-<li>[FIXED] Change the AssemblyName from flowsynx to flowsynxe <a href="https://github.com/flowsynx/flowsynx/issues/24" target="_blank" rel="noopener noreferrer">#24</a></li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="flowctl">FlowCtl<a href="https://flowsynx.io/blog/flowsynx-v0.3.0-is-now-available#flowctl" class="hash-link" aria-label="Direct link to FlowCtl" title="Direct link to FlowCtl">​</a></h3>
-<ul>
-<li>[FIXED] Remove the self-destruction ability in uninstall functionality and let it to be done manually <a href="https://github.com/flowsynx/flowctl/issues/2" target="_blank" rel="noopener noreferrer">#2</a></li>
-<li>[FIXED] Change the AssemblyName from synx to flowsynx <a href="https://github.com/flowsynx/flowctl/issues/10" target="_blank" rel="noopener noreferrer">#10</a></li>
-<li>[FIXED] Rename all corresponding names regarding flowsynx engine to flowsynxe <a href="https://github.com/flowsynx/flowctl/issues/14" target="_blank" rel="noopener noreferrer">#14</a></li>
-<li>[FIXED] Delete full option from Cli Version command and display all version including engine and dashboard <a href="https://github.com/flowsynx/flowctl/issues/17" target="_blank" rel="noopener noreferrer">#17</a></li>
-</ul>]]></content>
-        <author>
-            <name>Maintainers</name>
-        </author>
-        <category label="Release" term="Release"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[FlowSynx v0.2.0 is now available]]></title>
-        <id>https://flowsynx.io/blog/flowsynx-v0.2.0-is-now-available</id>
-        <link href="https://flowsynx.io/blog/flowsynx-v0.2.0-is-now-available"/>
-        <updated>2024-06-19T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[We are super excited to announce the latest release of FlowSynx, v0.2.0! This post covers the highlights of the new features and enhancements in FlowSynx v0.2.0.]]></summary>
-        <content type="html"><![CDATA[<p>We are super excited to announce the latest release of FlowSynx, v0.2.0! This post covers the highlights of the new features and enhancements in FlowSynx v0.2.0.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="release-highlights">Release highlights<a href="https://flowsynx.io/blog/flowsynx-v0.2.0-is-now-available#release-highlights" class="hash-link" aria-label="Direct link to Release highlights" title="Direct link to Release highlights">​</a></h2>
-<p>If you’re new to FlowSynx, familiarize yourself by visiting the <a href="https://flowsynx.io/docs/category/getting-started">getting started</a> page.</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="flowsynx">FlowSynx<a href="https://flowsynx.io/blog/flowsynx-v0.2.0-is-now-available#flowsynx" class="hash-link" aria-label="Direct link to FlowSynx" title="Direct link to FlowSynx">​</a></h3>
-<ul>
-<li>[ADDED] Add Microsoft Azure Blob storage plugin <a href="https://github.com/flowsynx/flowsynx/issues/1" target="_blank" rel="noopener noreferrer">1</a></li>
-<li>[ADDED] Add OpenAPI specifications to the flowsynx <a href="https://github.com/flowsynx/flowsynx/issues/4" target="_blank" rel="noopener noreferrer">4</a></li>
-<li>[ADDED] Pushing FlowSynx to the Docker hub</li>
-<li>[FIXED] Refactoring <strong>SpecificationsParser</strong> class in order to check require member's value <a href="https://github.com/flowsynx/flowsynx/issues/7" target="_blank" rel="noopener noreferrer">7</a></li>
-<li>[FIXED] Change throw exception to logging message for DeleteAsync method in plugins <a href="https://github.com/flowsynx/flowsynx/issues/12" target="_blank" rel="noopener noreferrer">12</a></li>
-<li>[FIXED] Add ContentType to the ReadAsync API endpoint <a href="https://github.com/flowsynx/flowsynx/issues/13" target="_blank" rel="noopener noreferrer">13</a></li>
-<li>[FIXED] Make CopyFile, CopyDirectory, MoveFile, and  MoveDirectory methods in EntityCopier and EntityMover as asynchronous <a href="https://github.com/flowsynx/flowsynx/issues/14" target="_blank" rel="noopener noreferrer">14</a>, <a href="https://github.com/flowsynx/flowsynx/issues/15" target="_blank" rel="noopener noreferrer">15</a></li>
-<li>[FIXED] Fix issue regarding FlowSynx build and publish workflow action <a href="https://github.com/flowsynx/flowsynx/issues/16" target="_blank" rel="noopener noreferrer">16</a></li>
-<li>[FIXED] Fix warning messages in FlowSynx.Plugin.Storage.Azure.Blobs plugin <a href="https://github.com/flowsynx/flowsynx/issues/18" target="_blank" rel="noopener noreferrer">18</a></li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="flowctl">FlowCtl<a href="https://flowsynx.io/blog/flowsynx-v0.2.0-is-now-available#flowctl" class="hash-link" aria-label="Direct link to FlowCtl" title="Direct link to FlowCtl">​</a></h3>
-<ul>
-<li>[ADDED] Add OpenApi option to the run arguments for running FlowSynx <a href="https://github.com/flowsynx/flowctl/issues/3" target="_blank" rel="noopener noreferrer">3</a></li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="flowsynx-dashboard">FlowSynx Dashboard<a href="https://flowsynx.io/blog/flowsynx-v0.2.0-is-now-available#flowsynx-dashboard" class="hash-link" aria-label="Direct link to FlowSynx Dashboard" title="Direct link to FlowSynx Dashboard">​</a></h3>
-<ul>
-<li>[ADDED] Pushing FlowSynx Dashboard to the Docker hub</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="flowsynx-c-sdk">FlowSynx C# SDK<a href="https://flowsynx.io/blog/flowsynx-v0.2.0-is-now-available#flowsynx-c-sdk" class="hash-link" aria-label="Direct link to FlowSynx C# SDK" title="Direct link to FlowSynx C# SDK">​</a></h3>
-<ul>
-<li>[ADDED] Adding License to the SDK NuGet package <a href="https://github.com/flowsynx/csharp-sdk/issues/1" target="_blank" rel="noopener noreferrer">1</a></li>
-</ul>]]></content>
-        <author>
-            <name>Maintainers</name>
-        </author>
-        <category label="Release" term="Release"/>
+        <category label="WorkflowAutomation" term="WorkflowAutomation"/>
+        <category label="NoCode" term="NoCode"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Introducing the FlowSynx blog]]></title>
         <id>https://flowsynx.io/blog/introducing-the-flowsynx-blog</id>
         <link href="https://flowsynx.io/blog/introducing-the-flowsynx-blog"/>
         <updated>2024-05-11T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Welcome to the FlowSynx blog! We’ve created this blog to share FlowSynx news and a variety of content from and for the FlowSynx community. This content may include deep dives into specific technical topics, examples of how FlowSynx can be used in various scenarios and any other interesting content from the community.]]></summary>
-        <content type="html"><![CDATA[<p>Welcome to the FlowSynx blog! We’ve created this blog to share FlowSynx news and a variety of content from and for the FlowSynx community. This content may include deep dives into specific technical topics, examples of how FlowSynx can be used in various scenarios and any other interesting content from the community.</p>]]></content>
+        <summary type="html"><![CDATA[Welcome to the FlowSynx blog!]]></summary>
+        <content type="html"><![CDATA[<p><strong>Welcome to the FlowSynx blog!</strong></p>
+<p>We’ve created this space to share FlowSynx news and a variety of content from and for the FlowSynx community. This content may include deep dives into specific technical topics, examples of how FlowSynx can be used in various scenarios, and other interesting contributions from the community.</p>
+<p>Whether you're an experienced developer, a solution architect, or just getting started with FlowSynx, this blog is designed to offer insights, tips, and inspiration to help you get the most out of our platform. Expect regular updates covering topics such as:</p>
+<ul>
+<li>Behind-the-scenes updates on new features, roadmap items, and architectural decisions.</li>
+<li>Step-by-step guides and tutorials to help you build and deploy your own custom workflows and plugins.</li>
+<li>Use case spotlights showing how FlowSynx is being applied across different industries and real-world scenarios.</li>
+<li>Community contributions including guest posts, extensions, integration ideas, and tips from users like you.</li>
+<li>Best practices and design patterns to help ensure your solutions are robust, secure, and scalable.</li>
+</ul>
+<p>We believe in building together, and your feedback, questions, and ideas are not only welcome—they’re essential. We hope this blog becomes a valuable resource for learning, sharing, and connecting with others in the FlowSynx ecosystem.</p>
+<p>Stay tuned, and thanks for being a part of the FlowSynx journey!</p>]]></content>
         <author>
             <name>Maintainers</name>
         </author>

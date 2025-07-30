@@ -105,7 +105,7 @@ const config: Config = {
             },
             {
               label: 'Get Started',
-              to: '/docs/category/getting-started',
+              to: '/docs/getting-started',
             },
           ],
         },

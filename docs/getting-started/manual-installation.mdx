@@ -1,0 +1,92 @@
+---
+sidebar_position: 1
+description: Step-by-step guide for manually installing FlowSynx on Windows, Linux, and macOS.
+---
+
+# Manual Installation
+
+You can manually install **FlowSynx** by downloading pre-built binaries for your platform from the [GitHub Releases](https://github.com/flowsynx/flowsynx/releases) page.
+
+FlowSynx supports:
+
+- ✅ Windows
+- ✅ Linux
+- ✅ macOS
+
+## Step 1: Download the Release
+
+1. Visit the [FlowSynx GitHub Releases](https://github.com/flowsynx/flowsynx/releases) page.
+2. Select the version you wish to install.
+3. Download the appropriate archive for your operating system and architecture:
+
+| Platform | Architecture | File Format | Filename |
+|----------|--------------|-------------|------------------|
+| Windows  | x64          | `.zip`      | `flowsynx-windows-x64.zip` |
+| Windows  | arm64        | `.zip`      | `flowsynx-windows-arm64.zip` |
+| Linux    | x64          | `.tar.gz`   | `flowsynx-linux-arm64.tar.gz` |
+| Linux    | arm64        | `.tar.gz`   | `flowsynx-linux-arm.tar.gz` |
+| macOS    | x64          | `.tar.gz`   | `flowsynx-osx-x64.tar.gz` |
+| macOS    | arm64        | `.tar.gz`   | `flowsynx-osx-arm64.tar.gz` |
+
+> **Tip**: Always prefer the latest release unless you need a specific version.
+
+---
+
+## Step 2: Extract the Archive
+
+After downloading the archive, extract it to a preferred location.
+
+### Windows
+
+Use built-in File Explorer or a tool like [7-Zip](https://www.7-zip.org/):
+
+```bash
+Right-click > Extract All
+```
+
+### Linux/macOS
+Use the terminal:
+
+```bash
+# For .tar.gz archives
+tar -xzf flowsynx-<platform>.tar.gz -C /opt/flowsynx
+```
+
+You can replace /opt/flowsynx with your desired directory.
+
+## Step 3: Set Executable Permissions (Linux/macOS)
+Ensure the binary is executable:
+
+```bash
+chmod +x /opt/flowsynx/flowsynx
+```
+
+## Step 4: Add to PATH (Optional)
+To run flowsynx from anywhere in your terminal, add its directory to your system PATH.
+
+### Windows
+1. Press Win + R, type sysdm.cpl, press Enter.
+2. Under Advanced tab > Environment Variables.
+3. Add the extracted folder path to the Path variable.
+
+### Linux/macOS
+Add the following line to your ~/.bashrc, ~/.zshrc, or equivalent:
+
+```bash
+export PATH="/opt/flowsynx:$PATH"
+```
+
+Then reload your shell:
+
+```bash
+source ~/.bashrc  # or source ~/.zshrc
+```
+
+## Step 5: Verify Installation
+Open a terminal or command prompt and run:
+
+```bash
+flowsynx --version
+```
+
+You should see the installed version of FlowSynx.

@@ -198,3 +198,19 @@
 .header-colorful {
   color: var(--ifm-color-primary);
 }
+
+.footer {
+  border-top: 1px solid var(--ifm-toc-border-color);
+  padding-top: 2rem;          /* Optional: space between border and content */
+  margin-top: 2rem;           /* Optional: space above footer */
+}
+
+.footer__links {
+  justify-content: center !important;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.footer__col {
+  max-width: 200px;
+}

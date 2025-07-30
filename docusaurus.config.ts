@@ -95,6 +95,55 @@ const config: Config = {
     },
     footer: {
       style: 'light',
+      links: [
+        {
+          title: 'Learn',
+          items: [
+            {
+              label: 'Concepts',
+              to: '/docs/concepts',
+            },
+            {
+              label: 'Get Started',
+              to: '/docs/category/getting-started',
+            },
+          ],
+        },
+        {
+          title: 'Community',
+          items: [
+            {
+              label: 'GitHub',
+              href: 'https://github.com/flowsynx/flowsynx',
+            },
+            {
+              label: 'Discord',
+              href: 'http://discord.flowsynx.io',
+            },
+            {
+              label: 'Youtube',
+              href: 'https://www.youtube.com/@flowsynx',
+            },
+            {
+              label: 'Linkedin',
+              href: 'https://www.linkedin.com/company/flowsynx',
+            },
+            {
+              label: 'X',
+              href: 'https://x.com/flowsynxio',
+            },
+          ],
+        },
+        {
+          title: 'News & Media',
+          items: [
+            {
+              label: 'Blog',
+              to: '/blog',
+            }
+          ],
+        },
+      ],
       copyright: `Copyright © ${new Date().getFullYear()} - FlowSynx - All rights reserved.<br />
       Built with <a href="https://docusaurus.io/" target="_blank">Docusaurus</a>. Hosted at <a href="https://pages.github.com/" target="_blank">Github Pages</a>.`
     },

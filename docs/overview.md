@@ -6,5 +6,36 @@ sidebar_position: 1
 
 ## Introduction to the FlowSynx
 
-FlowSynx is a cross-platform program to manage files and data on different repositories such as cloud storage, local file system, streams, and etc.
-It is a feature-rich alternative to cloud vendors' web storage interfaces. It will try to cover and support most of the cloud storage products including Azure Files, Azure Blobs, business & consumer file storage services, as well as standard transfer protocols. In addition, FlowSynx has the ability to filter and sort different data and then transfer or store them into different types.
+FlowSynx is a flexible, plugin-driven, cross-platform DAG-based workflow orchestration system designed to automate, scale, and manage complex file and data workflows across cloud and on-premises environments. Built to bridge the gap between low-code accessibility and full-code extensibility, FlowSynx empowers both developers and operations teams to define and execute powerful, declarative workflows in a simple, consistent, and maintainable way.
+
+With its modular plugin architecture, FlowSynx supports seamless integration with external systems, custom business logic, cloud storage providers, databases, APIs, and more—allowing users to extend functionality without modifying the core engine. Workflows are represented as JSON-based [DAGs (Directed Acyclic Graphs)](/docs/concepts#directed-acyclic-graphs-dags), enabling precise control over [execution order, dependencies](/docs/concepts#task-dependencies--execution-order), [retries & error handling](/docs/concepts#retry-policies--error-handling), and conditional logic.
+
+FlowSynx features:
+- Cross-platform execution, supporting Windows, Linux, macOS, and containerized deployments (Docker)
+- Dynamic plugin loading and versioning
+- [Event-driven triggers](/docs/concepts#event-driven-execution--triggers), [human-in-the-loop tasks](/docs/concepts#human-in-the-loop-tasks), and full audit logging
+- Integrated configuration, logging, and auditing, stored in a secure and pluggable backend
+- Role-based access control and per-user security settings
+- Support for hybrid deployments, enabling workflows to span both local infrastructure and remote cloud services
+- Full support for retry policies, failure handling, and stateful tracking of workflow execution
+
+Whether you're automating file transfers, orchestrating machine learning pipelines, syncing distributed systems, or building robust ETL jobs, FlowSynx offers a scalable, extensible foundation to accelerate workflow development and reduce operational complexity—without sacrificing control.
+
+## Architecture overview
+<img src="/img/architecture-diagram.jpg" />
+
+### Intraction tools
+- **CLI Interface**: Command-line tools for interacting with the FlowSynx system, enabling workflow management and execution from terminals.
+- **REST API Gateway**: Provides secure, HTTP/HTTPS RESTful APIs to integrate with external systems, allowing remote workflow control and status querying.
+- **SDK (Library)**: Developer-friendly libraries exposing FlowSynx functionalities programmatically, enabling custom applications to embed or automate workflow operations.
+
+### FlowSynx Core
+- **Workflow Orchestrator**: Loads and executes workflows defined as JSON DAGs.
+- **Plugin Manager**: Dynamically loads plugins and maintains a plugin marketplace/registry.
+- **Security & Auth**: Handles authentication and authorization for both REST API and CLI access.
+- **Logging & Auditing**: Tracks workflow execution, plugin activity, and audit trails.
+- **Trigger Engine**: Listens for external events or schedules workflows to start based on timers, webhooks, or system signals.
+- **Error handling**: Built-in support for task retries, timeouts, and fallbacks ensures reliable execution even in unstable environments. Custom retry strategies can be defined per task.
+
+### Execution environments
+- **Deployment & Execution Environments**: Supports flexible deployment models from standalone desktop/server installs to cloud containerized orchestration, with cross-platform compatibility.

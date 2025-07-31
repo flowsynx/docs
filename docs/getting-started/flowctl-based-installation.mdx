@@ -150,7 +150,7 @@ workflow execution, dashboard hosting, and plugin management.
 The **flowctl** init command automates the setup by fetching the latest stable FlowSynx engine and installing 
 it locally under your user context or system-wide depending on permissions.
 
-## Step 4: Open a Terminal or Command Prompt
+### Open a Terminal or Command Prompt
 <Tabs groupId="operating-systems">
   <TabItem value="linuxMacOs" label="Linux/MacOS">
   You will need to use `sudo` for this quickstart if:
@@ -167,7 +167,7 @@ it locally under your user context or system-wide depending on permissions.
   </TabItem>
 </Tabs>
 
-## Step 5: Run the Initialization Command
+### Run the Initialization Command
 Once the terminal is open with the appropriate permissions, run:
 ```
 flowctl init
@@ -179,7 +179,7 @@ This command performs the following tasks:
 - Installs FlowSynx locally for the current user profile.
 - Prepares the necessary directories and configuration files.
 
-### Binary Integrity Check Failure
+#### Binary Integrity Check Failure
 If the binary fails to validate during download, you may see:
 ```
 Validating download - Fail!  
@@ -193,7 +193,7 @@ flowctl init
 
 If the issue persists, clear any proxy cache or DNS override that may interfere with GitHub/CDN access.
 
-## Step 6: Verify FlowSynx Installation
+## Step 4: Verify FlowSynx Installation
 Once initialization completes successfully, verify that the CLI and runtime are properly set up:
 
 ```
@@ -203,8 +203,8 @@ flowctl version
 Example Output:
 ```
 {
-  "FlowCtl": "0.3.3",
-  "FlowSynx": "0.3.1.0"
+  "FlowCtl": "1.1.1",
+  "FlowSynx": "1.1.2.0"
 }
 ```
 

@@ -1,0 +1,114 @@
+---
+sidebar_position: 3
+---
+
+# Docker-based Installation
+
+You can run FlowSynx entirely within Docker without requiring any local installation of FlowSynx binaries or the FlowCtl CLI. 
+This is ideal for isolated environments, CI/CD pipelines, or container-native deployments.
+
+Prerequisites
+Ensure the following components are installed and configured:
+
+## Prerequisites
+- Install Docker Engine (v20.10 or later)
+- Internet access to pull FlowSynx container images
+
+**Recommended:**
+- Docker Compose v2+ (optional but simplifies multi-container orchestration)
+- Minimum 1 GB RAM and 500 MB disk space
+
+## Step 1: Create a Docker Compose File
+Create a new file named `docker-compose.yml` in your working directory:
+```
+version: '3.8'
+
+services:
+  flowsynx:
+    image: flowsynx/flowsynx:1.1.2-linux-amd64
+    container_name: flowsynx
+    environment:
+      DB__HOST: postgres
+      DB__PORT: 5432
+      DB__NAME: flowxDb
+      DB__USERNAME: postgres
+      DB__PASSWORD: postgrespw
+      Security__EnableBasic: true
+      Security__BasicUsers__0__Id: 0960a93d-e42b-4987-bc07-7bda806a21c7
+      Security__BasicUsers__0__Name: admin
+      Security__BasicUsers__0__Password: admin
+      Security__BasicUsers__0__Roles__0: admin
+      Security__DefaultScheme: Basic
+    volumes:
+      - flowsynx-data:/app
+    working_dir: /app
+    ports:
+      - "6262:6262"
+    command: ["--start"]
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    networks:
+      - basicAuth_net
+
+  postgres:
+    image: postgres:15
+    container_name: flowsynx-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespw
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    networks:
+      - basicAuth_net
+
+volumes:
+  flowsynx-data:
+  pgdata:
+  
+networks:
+  basicAuth_net:
+    driver: bridge
+```
+
+## Step 2: Launch FlowSynx with Docker Compose
+Run the following command in the same directory as the `docker-compose.yml` file:
+```
+docker compose up -d
+```
+
+This will:
+- Pull the FlowSynx engine image (if not already available locally)
+- Start containers in detached mode
+- Mount a persistent volume for configuration and data
+
+## Step 3: Verify the Deployment
+#### Check if containers are running successfully:
+```
+docker compose ps
+```
+
+Expected output:
+```
+NAME                 COMMAND               STATUS              PORTS
+flowsynx             "/app/FlowSynx"       Up 30 seconds       0.0.0.0:6262->8080/tcp
+```
+
+#### Check container logs if needed:
+```
+docker logs flowsynx
+```
+
+#### Cleanup
+To stop and remove all services and containers:
+```
+docker compose down
+```
+
+To remove persistent data as well:
+```
+docker compose down -v
+```

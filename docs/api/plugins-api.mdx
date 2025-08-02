@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 title: Plugins API
-description: FlowSynx Plugins API
+description: The FlowSynx Plugins API allows clients to manage plugin lifecycle operations such as listing, installing, retrieving details, updating, and removing plugins. 
 ---
 
 # FlowSynx Plugins API
@@ -26,7 +26,7 @@ curl -H "Authorization: Bearer <your_token>" http://localhost:6262/plugins
 ### List Installed Plugins
 - **Method**: `GET`
 - **Endpoint**: `/plugins`
-- **Body Required**: Yes
+- **Body Required**: No
 
 #### `curl` Example
 ```bash
@@ -52,8 +52,8 @@ curl -X GET http://localhost:6262/plugins \
 ```
 
 ### Install Plugin
-- **Method**: POST
-- **Endpoint**: /plugins
+- **Method**: `POST`
+- **Endpoint**: `/plugins`
 - **Body Required**: Yes
 
 #### Request Body
@@ -88,8 +88,13 @@ curl -X POST http://localhost:6262/plugins \
 ```
 
 ### Get Plugin Details
-- **Method**: GET
-- **Endpoint**: /plugins/\{pluginId\}
+- **Method**: `GET`
+- **Endpoint**: `/plugins/{pluginId}`
+- **Body Required**: `No`
+
+:::info
+- pluginId: UUID of the plugin to retrieve
+:::
 
 #### `curl` Example
 ```bash
@@ -114,9 +119,9 @@ curl -X GET http://localhost:6262/plugins/6c60c794-99b9-47e8-aa34-18a14cdc4583 \
 ```
 
 ### Update Plugin
-- **Method**: PUT
-- **Endpoint**: /plugins
-- **Body Required**: Yes
+- **Method**: `PUT`
+- **Endpoint**: `/plugins`
+- **Body Required**: `Yes`
 
 #### Request Body
 ```json
@@ -147,11 +152,12 @@ curl -X PUT http:/localhost:6262/plugins \
   "succeeded": true,
   "generatedAtUtc": "2025-08-02T13:09:52.9549804Z"
 }
+```
 
 ### Uninstall Plugin
-- **Method**: DELETE
-- **Endpoint**: /plugins
-- **Body Required**: Yes
+- **Method**: `DELETE`
+- **Endpoint**: `/plugins`
+- **Body Required**: `Yes`
 
 #### Request Body
 ```json
@@ -196,4 +202,5 @@ curl -X DELETE http://localhost:6262/plugins \
 :::info
 - Use `Bearer` or `Basic` authentication depending on server configuration.  
 - Replace `<your_token>` or `username:password` with actual credentials.
+- All configuration IDs are UUIDs.
 :::

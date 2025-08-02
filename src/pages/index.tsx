@@ -24,7 +24,7 @@ function HomepageHeader() {
                 Get started
               </Link>
               <Link className="button button--outline button--primary button--lg margin-right--md"
-                to="docs/api/service-invocation-api">
+                to="docs/api">
                 API Reference
               </Link>
               <Link className="button button--outline button--primary button--lg" target='_blank'

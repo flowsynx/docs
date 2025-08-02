@@ -1,75 +1,71 @@
 ---
-sidebar_position: 4
+sidebar_position: 3
+title: Health API
+description: The Health Check API in FlowSynx provides a simple way to verify whether the service is running and operational. It is commonly used for automated uptime monitoring, container orchestration probes (like Kubernetes liveness/readiness), or deployment verification.
 ---
 
-# Health API
+# FlowSynx Health Check API
 
-Display the health status of FlowSynx System.
+The **Health Check API** in FlowSynx provides a simple way to verify whether the service is running and operational. 
+It is commonly used for automated uptime monitoring, container orchestration probes (like Kubernetes liveness/readiness), 
+or deployment verification.
 
-## Health Api options
-:::note
-This api doesn't have any options.
-:::
+## Configuration Requirement
+This endpoint is conditionally available based on system configuration.
 
-## Calling Health Api
-For calling this api, the following details are required to apply:
+To enable the health check endpoint, the following setting **must be present and set to `true`** in the system configuration file (e.g., `appsettings.json`):
 
-
-<table class="table">
-  <tr>
-    <th>URL</th>
-    <th>Method</th>
-  </tr>
-  <tr>
-    <td>http://localhost:5860/health</td>
-    <td class="centering">GET</td>
-  </tr>
-</table>
-
-Now, if we want to have these details in the form of an http api call, open a new terminal and enter the following command:
+```json
+{
+  "HealthCheck": {
+    "Enabled": true
+  }
+}
+```
 
 :::info
-First of all make sure flowsynx is running.
+If this configuration is not enabled, requests to the `/health` endpoint will return:
+- HTTP 404 Not Found
 :::
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+## Authentication
+The `/health` endpoint is public (no authentication required).
 
-<Tabs groupId="httpApi">
-  <TabItem value="bashHttpApi" label="HTTP API (Bash)">
-  ```
-  curl -X GET http://localhost:5860/health
-  ```
-  </TabItem>
-  <TabItem value="powershellHttpApi" label="HTTP API (PowerShell)">
-  ```
-  Invoke-RestMethod -Method Get -Uri 'http://localhost:5860/health'
-  ```
-  </TabItem>
-</Tabs>
+## Health Check Endpoint
+- **Method**: `GET`
+- **Endpoint**: `/health`
 
-Also you can use `Http Api test clients` to test this api. Anyway, after executing this api, a result like below will be obtained.
+#### `curl` Example
+```bash
+curl -X GET http://localhost:6262/health
 ```
+
+#### Example response
+```json
 {
   "Status": "Healthy",
   "HealthChecks": [
     {
       "Status": "Healthy",
-      "Component": "Configuration Registry",
-      "Description": "Configuration registry available"
+      "Component": "Configuration service",
+      "Description": "Configuration service is available"
     },
     {
       "Status": "Healthy",
-      "Component": "Plugins Registry",
-      "Description": "Plugins registry available"
+      "Component": "Plugins service",
+      "Description": "Plugins service is available"
+    },
+    {
+      "Status": "Healthy",
+      "Component": "Logger service",
+      "Description": "Logger service is available"
     }
   ],
-  "HealthCheckDuration": "00:00:00.0304431"
+  "HealthCheckDuration": "00:00:00.1137624"
 }
 ```
 
-The information including in the result for this api is described as follows:
-
-> **Status**: Display the overall status of flowsynx health state.  
-> **HealthChecks**: The list of different flowsynx component with details include status and description.  
-> **HealthCheckDuration**: Refers to the actual time duration taken to run a health check.
+## Summary Table
+| Operation    | Method | Endpoint  | Requires Config |
+| ------------ | ------ | --------- | --------------- |
+| Check Health | GET    | `/health` | Yes             |

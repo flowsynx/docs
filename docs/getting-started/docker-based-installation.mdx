@@ -113,3 +113,30 @@ To remove persistent data as well:
 ```
 docker compose down -v
 ```
+
+## Step 4: Running the first command
+After your FlowSynx containers are up and running, you can begin interacting with the FlowSynx Engine via its exposed API endpoints. 
+The engine is typically accessible on port 6262 from your host machine.
+
+#### Example: Check System Version
+Use the following curl command to verify that the FlowSynx engine is operational:
+
+```bash
+curl http://localhost:6262/version
+```
+
+#### Expected Output:
+```
+{
+  "data": {
+    "version": "1.1.2"
+  },
+  "messages": [],
+  "succeeded": true,
+  "generatedAtUtc": "2025-08-02T09:33:28.7058406Z"
+}
+```
+If you receive a response like the above, your FlowSynx engine is up and ready to receive further API commands.
+
+:::info[Tip]
+If you're running Docker in a remote VM or cloud instance, replace localhost with the IP or hostname of the Docker host.

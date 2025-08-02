@@ -90,3 +90,26 @@ flowsynx --version
 ```
 
 You should see the installed version of FlowSynx.
+
+## Step 6: Running the first command
+Once the FlowSynx engine is running (default on port 6262), you can interact with its REST API using tools like curl.
+
+#### Example: Check System Version
+This is a good first API call to confirm that the engine is active and healthy:
+
+```bash
+curl http://localhost:6262/version
+```
+
+#### Expected Output:
+```
+{
+  "data": {
+    "version": "1.1.2"
+  },
+  "messages": [],
+  "succeeded": true,
+  "generatedAtUtc": "2025-08-02T09:33:28.7058406Z"
+}
+```
+If you receive a response like the above, your FlowSynx engine is up and ready to receive further API commands.

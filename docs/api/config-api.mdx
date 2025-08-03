@@ -7,7 +7,11 @@ description: The FlowSynx Configuration API provides endpoints for managing plug
 # FlowSynx Config API
 The FlowSynx Configuration API provides endpoints for managing plugin configurations. You can list, create, update, retrieve, and delete configurations via secured RESTful calls.
 
-## Authentication
+## Authentication & Authorization
+### Required:
+- **Authentication**: Yes (Bearer or Basic Auth)
+- **Authorization**: Yes (Must have `admin` or `config` role)
+
 ### 1. Basic Auth
 
 ```bash
@@ -197,16 +201,16 @@ curl -X DELETE http://localhost:6262/config/e80c62f6-8584-4158-b0eb-d5ab1570a409
 ```
 
 ## Summary Table
-| Operation            | Method | Endpoint             | Body | `curl` Example |
-| -------------------- | ------ | -------------------- | ---- | -------------- |
-| List Configurations  | GET    | `/config`            | No   | ✔️             |
-| Add Configuration    | POST   | `/config`            | Yes  | ✔️             |
-| Get Configuration    | GET    | `/config/{configId}` | No   | ✔️             |
-| Update Configuration | PUT    | `/config`            | Yes  | ✔️             |
-| Delete Configuration | DELETE | `/config/{configId}` | No   | ✔️             |
+| Operation            | Method | Endpoint             | Body | Authentication      | Authorization roles     |
+| -------------------- | ------ | -------------------- | ---- | ------------------- | --------------          |
+| List Configurations  | GET    | `/config`            | No   | ✅ Required         | admin, config           |
+| Add Configuration    | POST   | `/config`            | Yes  | ✅ Required         | admin, config           |
+| Get Configuration    | GET    | `/config/{configId}` | No   | ✅ Required         | admin, config           |
+| Update Configuration | PUT    | `/config`            | Yes  | ✅ Required         | admin, config           |
+| Delete Configuration | DELETE | `/config/{configId}` | No   | ✅ Required         | admin, config           |
 
 :::info
-- Use `Bearer` or `Basic` authentication depending on server configuration.  
+- Use `Bearer` or `Basic` authentication depending on flowsynx configuration.  
 - Replace `<your_token>` or `username:password` with actual credentials.
 - Use consistent config `name`, `type`, and `version` fields to avoid misconfiguration.
 - The `specifications` field can include plugin-specific settings in JSON format.

@@ -10,7 +10,11 @@ The FlowSynx Plugins API allows clients to manage plugin lifecycle operations su
 listing, installing, retrieving details, updating, and removing plugins. 
 It uses RESTful principles and supports both **Basic Authentication** and **Bearer Token Authentication**.
 
-## Authentication
+## Authentication & Authorization
+### Required:
+- **Authentication**: Yes (Bearer or Basic Auth)
+- **Authorization**: Yes (Must have `admin` or `plugins` role)
+
 ### 1. Basic Auth
 
 ```bash
@@ -55,6 +59,7 @@ curl -X GET http://localhost:6262/plugins \
 - **Method**: `POST`
 - **Endpoint**: `/plugins`
 - **Body Required**: Yes
+- **Content-Type**: `application/json`
 
 #### Request Body
 ```json
@@ -122,6 +127,7 @@ curl -X GET http://localhost:6262/plugins/6c60c794-99b9-47e8-aa34-18a14cdc4583 \
 - **Method**: `PUT`
 - **Endpoint**: `/plugins`
 - **Body Required**: `Yes`
+- **Content-Type**: `application/json`
 
 #### Request Body
 ```json
@@ -191,16 +197,16 @@ curl -X DELETE http://localhost:6262/plugins \
 ```
 
 ## Summary Table
-| Operation         | Method | Endpoint              | Body | `curl` Example |
-| ----------------- | ------ | --------------------- | ---- | -------------- |
-| List Plugins      | GET    | `/plugins`            | No   | ✔️             |
-| Install Plugin    | POST   | `/plugins`            | Yes  | ✔️             |
-| Plugin Details    | GET    | `/plugins/{pluginId}` | No   | ✔️             |
-| Update Plugin     | PUT    | `/plugins`            | Yes  | ✔️             |
-| Uninstall Plugin  | DELETE | `/plugins`            | Yes  | ✔️             |
+| Operation         | Method | Endpoint              | Body | Authentication      | Authorization roles     |
+| ----------------- | ------ | --------------------- | ---- | --------------      | --------------          |
+| List Plugins      | GET    | `/plugins`            | No   | ✅ Required        | admin, plugins          |
+| Install Plugin    | POST   | `/plugins`            | Yes  | ✅ Required        | admin, plugins          |
+| Plugin Details    | GET    | `/plugins/{pluginId}` | No   | ✅ Required        | admin, plugins          |
+| Update Plugin     | PUT    | `/plugins`            | Yes  | ✅ Required        | admin, plugins          |
+| Uninstall Plugin  | DELETE | `/plugins`            | Yes  | ✅ Required        | admin, plugins          |
 
 :::info
-- Use `Bearer` or `Basic` authentication depending on server configuration.  
+- Use `Bearer` or `Basic` authentication depending on flowsynx configuration.  
 - Replace `<your_token>` or `username:password` with actual credentials.
 - All configuration IDs are UUIDs.
 :::

@@ -4,10 +4,68 @@
         <title>FlowSynx Blog</title>
         <link>https://flowsynx.io/blog</link>
         <description>FlowSynx Blog</description>
-        <lastBuildDate>Sun, 27 Jul 2025 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 11 Sep 2025 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[FlowSynx v1.1.3 is now available]]></title>
+            <link>https://flowsynx.io/blog/flowsynx-v1.1.3-is-now-available</link>
+            <guid>https://flowsynx.io/blog/flowsynx-v1.1.3-is-now-available</guid>
+            <pubDate>Thu, 11 Sep 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[FlowSynx v1.1.3 is officially released!]]></description>
+            <content:encoded><![CDATA[<p>FlowSynx v1.1.3 is officially released!</p>
+<p>We're excited to roll out version 1.1.3 of FlowSynx — our lightweight, secure, and plugin-driven workflow engine.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="https://flowsynx.io/blog/flowsynx-v1.1.3-is-now-available#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h2>
+<ul>
+<li>Add workflow metrics summary feature via API</li>
+<li>Add user-specific event publishing for task updates</li>
+<li>Add LastModified property (<a href="https://github.com/flowsynx/flowsynx/issues/438" target="_blank" rel="noopener noreferrer">#438</a>)</li>
+<li>Add Status to the AddWorkflowTrigger (<a href="https://github.com/flowsynx/flowsynx/issues/439" target="_blank" rel="noopener noreferrer">#439</a>)</li>
+<li>Add AddEventPublisher service into WorkflowOrchestrator to publish event (<a href="https://github.com/flowsynx/flowsynx/issues/437" target="_blank" rel="noopener noreferrer">#437</a>)</li>
+<li>Add AddEventPublisher service (<a href="https://github.com/flowsynx/flowsynx/issues/436" target="_blank" rel="noopener noreferrer">#436</a>)</li>
+<li>Add IEventPublisher and its implementation to support event submiting (<a href="https://github.com/flowsynx/flowsynx/issues/435" target="_blank" rel="noopener noreferrer">#435</a>)</li>
+<li>Add WorkflowHub to make Executions list update (<a href="https://github.com/flowsynx/flowsynx/issues/433" target="_blank" rel="noopener noreferrer">#433</a>)</li>
+<li>Add authenticaton token to the hub communication (<a href="https://github.com/flowsynx/flowsynx/issues/432" target="_blank" rel="noopener noreferrer">#432</a>)</li>
+<li>Add SignalR to the service collection to make application ready to use Hub (<a href="https://github.com/flowsynx/flowsynx/issues/431" target="_blank" rel="noopener noreferrer">#431</a>)</li>
+<li>Add position to the workflow task (<a href="https://github.com/flowsynx/flowsynx/issues/430" target="_blank" rel="noopener noreferrer">#430</a>)</li>
+<li>Add ExecuteWorkflowResponse and change code to return ExecuteWorkflowResponse instead of WorflowExecution Id only (<a href="https://github.com/flowsynx/flowsynx/issues/429" target="_blank" rel="noopener noreferrer">#429</a>)</li>
+<li>Add new feature to get list of workflow execution tasks (<a href="https://github.com/flowsynx/flowsynx/issues/427" target="_blank" rel="noopener noreferrer">#427</a>)</li>
+<li>Modify IWorkflowTaskExecutionService All method to add WorkflowID in query data (<a href="https://github.com/flowsynx/flowsynx/issues/426" target="_blank" rel="noopener noreferrer">#426</a>)</li>
+<li>Add ability into JsonDeserializer to remove trailing commas before ] or } (<a href="https://github.com/flowsynx/flowsynx/issues/425" target="_blank" rel="noopener noreferrer">#425</a>)</li>
+<li>modify gitignore file and add result path to the ignores list (<a href="https://github.com/flowsynx/flowsynx/issues/424" target="_blank" rel="noopener noreferrer">#424</a>)</li>
+<li>Add Workflow Queue Configuration (<a href="https://github.com/flowsynx/flowsynx/issues/422" target="_blank" rel="noopener noreferrer">#422</a>)</li>
+<li>Add DurableWorkflowQueueService based on PostgreSQL (<a href="https://github.com/flowsynx/flowsynx/issues/421" target="_blank" rel="noopener noreferrer">#421</a>)</li>
+<li>Add InMemoryWorkflowQueueService (<a href="https://github.com/flowsynx/flowsynx/issues/420" target="_blank" rel="noopener noreferrer">#420</a>)</li>
+<li>Add ability to configure Https endpoint (<a href="https://github.com/flowsynx/flowsynx/issues/417" target="_blank" rel="noopener noreferrer">#417</a>)</li>
+<li>Add Cors policy feature (<a href="https://github.com/flowsynx/flowsynx/issues/416" target="_blank" rel="noopener noreferrer">#416</a>)</li>
+<li>Add ability to return version in required as argument (<a href="https://github.com/flowsynx/flowsynx/issues/414" target="_blank" rel="noopener noreferrer">#414</a>)</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="other-changes">Other Changes<a href="https://flowsynx.io/blog/flowsynx-v1.1.3-is-now-available#other-changes" class="hash-link" aria-label="Direct link to Other Changes" title="Direct link to Other Changes">​</a></h2>
+<ul>
+<li>Order logs by descending TimeStamp in LoggerService</li>
+<li>Delete the code related to SignalR hub and clean-up code (<a href="https://github.com/flowsynx/flowsynx/issues/434" target="_blank" rel="noopener noreferrer">#434</a>)</li>
+<li>Change WorkflowExecutionDetailsResponse to return workflow definition and workflowid also (<a href="https://github.com/flowsynx/flowsynx/issues/428" target="_blank" rel="noopener noreferrer">#428</a>)</li>
+<li>Replace throw exception with actual result return in GetApprovalStatusAsync (<a href="https://github.com/flowsynx/flowsynx/issues/423" target="_blank" rel="noopener noreferrer">#423</a>)</li>
+<li>Introduce an execution queue mechanism so that workflows are first enqueued and then executed by a background processor in FIFO order (<a href="https://github.com/flowsynx/flowsynx/issues/419" target="_blank" rel="noopener noreferrer">#419</a>)</li>
+<li>Refactor the code to support IClaimsTransformation (<a href="https://github.com/flowsynx/flowsynx/issues/418" target="_blank" rel="noopener noreferrer">#418</a>)</li>
+<li>Clean up the code (<a href="https://github.com/flowsynx/flowsynx/issues/417" target="_blank" rel="noopener noreferrer">#417</a>)</li>
+<li>delete unused log (<a href="https://github.com/flowsynx/flowsynx/issues/417" target="_blank" rel="noopener noreferrer">#417</a>)</li>
+<li>Update getting started link (<a href="https://github.com/flowsynx/flowsynx/issues/415" target="_blank" rel="noopener noreferrer">#415</a>)</li>
+<li>Update SECURITY.md file (<a href="https://github.com/flowsynx/flowsynx/issues/413" target="_blank" rel="noopener noreferrer">#413</a>)</li>
+<li>Update README file (<a href="https://github.com/flowsynx/flowsynx/issues/412" target="_blank" rel="noopener noreferrer">#412</a>)</li>
+<li>Correcting typo (<a href="https://github.com/flowsynx/flowsynx/issues/408" target="_blank" rel="noopener noreferrer">#408</a>)</li>
+<li>Update README file (<a href="https://github.com/flowsynx/flowsynx/issues/408" target="_blank" rel="noopener noreferrer">#408</a>)</li>
+<li>Update CONTRIBUTING file (<a href="https://github.com/flowsynx/flowsynx/issues/409" target="_blank" rel="noopener noreferrer">#409</a>)</li>
+<li>Delete plugin virtual solution folder (<a href="https://github.com/flowsynx/flowsynx/issues/410" target="_blank" rel="noopener noreferrer">#410</a>)</li>
+<li>Correcting BasePath in Storage configuration section (<a href="https://github.com/flowsynx/flowsynx/issues/411" target="_blank" rel="noopener noreferrer">#411</a>)</li>
+</ul>
+<p>📦 Available now via <a href="https://github.com/flowsynx/flowsynx/releases" target="_blank" rel="noopener noreferrer">GitHub</a>, and <a href="https://hub.docker.com/r/flowsynx/flowsynx" target="_blank" rel="noopener noreferrer">Docker</a>.</p>]]></content:encoded>
+            <category>FlowSynx</category>
+            <category>Release</category>
+            <category>WorkflowAutomation</category>
+            <category>NoCode</category>
+        </item>
         <item>
             <title><![CDATA[FlowSynx v1.1.2 is now available]]></title>
             <link>https://flowsynx.io/blog/flowsynx-v1.1.2-is-now-available</link>

@@ -111,8 +111,8 @@ function HomepageFlowSynxArchitecture() {
 export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <Layout title={`Syncs and manage your files and streams to different storage`}
-      description="Description will go into a meta tag in <head />">
+    <Layout title={`Automate and orchestrate processes using FlowSynx automation system`}
+      description="Empowering you to design, control, and automate every step of your workflow by linking ideas, decisions, and actions into one seamless, smart execution engine without writing a single line of code.">
       <HomepageHeader />
       <main>
         <HomepageAboutFlowSynx />

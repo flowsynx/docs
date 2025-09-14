@@ -1,74 +1,234 @@
 ---
 sidebar_position: 3
 title: Triggers
-description: The Health Check API in FlowSynx provides a simple way to verify whether the service is running and operational. It is commonly used for automated uptime monitoring, container orchestration probes (like Kubernetes liveness/readiness), or deployment verification.
+description: The FlowSynx Workflow Trigger API provides endpoints for managing workflow triggers. You can list, create, update, retrieve, and delete triggers for workflows via secured RESTful calls.
 ---
 
-# FlowSynx Triggers API
+# FlowSynx Workflow Trigger API
 
-The **Health Check API** in FlowSynx provides a simple way to verify whether the service is running and operational. 
-It is commonly used for automated uptime monitoring, container orchestration probes (like Kubernetes liveness/readiness), 
-or deployment verification.
+The FlowSynx Workflow Trigger API provides endpoints for managing workflow triggers.  
+You can list, create, update, retrieve, and delete triggers for workflows via secured RESTful calls.  
+It uses RESTful principles and supports both **Basic Authentication** and **Bearer Token Authentication**.
 
 ## Authentication & Authorization
-The `/health` endpoint is public (no authentication and authentication required).
+### Required:
+- **Authentication**: Yes (Bearer or Basic Auth)
+- **Authorization**: Yes (Must have `admin` or `workflow` role)
 
-## Configuration Requirement
-This endpoint is conditionally available based on system configuration.
+### 1. Basic Auth
 
-To enable the health check endpoint, the following setting **must be present and set to `true`** in the system configuration file (e.g., `appsettings.json`):
-
-```json
-{
-  "HealthCheck": {
-    "Enabled": true
-  }
-}
+```bash
+curl -u username:password http://localhost:6262/workflows/{workflowId}/triggers
 ```
 
-:::info
-If this configuration is not enabled, requests to the `/health` endpoint will return:
-- HTTP 404 Not Found
-:::
+### 2. Bearer Token
+```bash
+curl -H "Authorization: Bearer <your_token>" http://localhost:6262/workflows/{workflowId}/triggers
+```
 
-## Authentication
-The `/health` endpoint is public (no authentication required).
+## Trigger Types & Status
 
-## Health Check Endpoint
+### WorkflowTriggerType
+- **Manual**: Triggered manually by a user or API call.
+- **TimeBased**: Triggered automatically based on a schedule or timer.
+
+### WorkflowTriggerStatus
+- **Active**: Trigger is enabled and can fire events.
+- **DeActive**: Trigger is disabled and will not fire until reactivated.
+
+
+## API Endpoints
+
+### List Workflow Triggers
 - **Method**: `GET`
-- **Endpoint**: `/health`
+- **Endpoint**: `/workflows/{workflowId}/triggers`
+- **Body Required**: No
+- **Description**: Retrieves a list of all triggers for a given workflow.
+
+:::info
+- `workflowId`: UUID of the workflow whose triggers are being retrieved.
+:::
 
 #### `curl` Example
 ```bash
-curl -X GET http://localhost:6262/health
+curl -X GET http://localhost:6262/workflows/83b102e0-9129-4069-abd5-97a312ed9c1f/triggers   -H "Authorization: Bearer <your_token>"
 ```
 
-#### Example response
+#### Example Response
 ```json
 {
-  "Status": "Healthy",
-  "HealthChecks": [
+  "data": [
     {
-      "Status": "Healthy",
-      "Component": "Configuration service",
-      "Description": "Configuration service is available"
-    },
-    {
-      "Status": "Healthy",
-      "Component": "Plugins service",
-      "Description": "Plugins service is available"
-    },
-    {
-      "Status": "Healthy",
-      "Component": "Logger service",
-      "Description": "Logger service is available"
+      "id": "9eee96df-0250-44b7-8967-6e4c34454623",
+      "type": "TimeBased",
+      "status": "Active",
+      "properties": { "cron": "0 0 * * *" },
+      "lastModified": "2025-08-10T14:32:01Z"
     }
   ],
-  "HealthCheckDuration": "00:00:00.1137624"
+  "messages": [],
+  "succeeded": true,
+  "generatedAtUtc": "2025-08-10T14:32:01Z"
+}
+```
+
+### Get Workflow Trigger Details
+- **Method**: `GET`
+- **Endpoint**: `/workflows/{workflowId}/triggers/{triggerId}`
+- **Body Required**: No
+- **Description**: Retrieves details of a specific workflow trigger.
+
+:::info
+- `workflowId`: UUID of the workflow.
+- `triggerId`: UUID of the trigger to retrieve.
+:::
+
+#### `curl` Example
+```bash
+curl -X GET http://localhost:6262/workflows/83b102e0-9129-4069-abd5-97a312ed9c1f/triggers/9eee96df-0250-44b7-8967-6e4c34454623   -H "Authorization: Bearer <your_token>"
+```
+
+#### Example Response
+```json
+{
+  "data": {
+    "id": "9eee96df-0250-44b7-8967-6e4c34454623",
+    "type": "TimeBased",
+    "status": "Active",
+    "properties": { "cron": "0 0 * * *" },
+    "lastModified": "2025-08-10T14:35:11Z"
+  },
+  "messages": [],
+  "succeeded": true,
+  "generatedAtUtc": "2025-08-10T14:35:11Z"
+}
+```
+
+### Add Workflow Trigger
+- **Method**: `POST`
+- **Endpoint**: `/workflows/{workflowId}/triggers`
+- **Body Required**: `Yes`
+- **Description**: Creates a new workflow trigger.
+
+#### Request Body
+```json
+{
+  "workflowId": "83b102e0-9129-4069-abd5-97a312ed9c1f",
+  "type": "TimeBased",
+  "status": "Active",
+  "properties": { "cron": "0 0 * * *" }
+}
+```
+
+#### `curl` Example
+```bash
+curl -X POST http://localhost:6262/workflows/83b102e0-9129-4069-abd5-97a312ed9c1f/triggers   -H "Authorization: Bearer <your_token>"   -H "Content-Type: application/json"   -d '{
+        "workflowId": "83b102e0-9129-4069-abd5-97a312ed9c1f",
+        "type": "TimeBased",
+        "status": "Active",
+        "properties": { "cron": "0 0 * * *" }
+      }'
+```
+
+#### Example Response
+```json
+{
+  "data": {
+    "triggerId": "5b464a7c-9e3c-4ea4-9a05-4fed563878b7"
+  },
+  "messages": [
+    "The workflow trigger has been added successfully."
+  ],
+  "succeeded": true,
+  "generatedAtUtc": "2025-08-10T14:40:27Z"
+}
+```
+
+### Update Workflow Trigger
+- **Method**: `PUT`
+- **Endpoint**: `/workflows/{workflowId}/triggers/{triggerId}`
+- **Body Required**: `Yes`
+- **Description**: Updates the workflow trigger definition for the specified `triggerId`.
+
+:::info
+- `workflowId`: UUID of the workflow.
+- `triggerId`: UUID of the trigger to update.
+:::
+
+#### Request Body
+```json
+{
+  "workflowId": "83b102e0-9129-4069-abd5-97a312ed9c1f",
+  "triggerId": "5b464a7c-9e3c-4ea4-9a05-4fed563878b7",
+  "type": "TimeBased",
+  "status": "Active",
+  "properties": { "cron": "0 6 * * *" }
+}
+```
+
+#### `curl` Example
+```bash
+curl -X PUT http://localhost:6262/workflows/83b102e0-9129-4069-abd5-97a312ed9c1f/triggers/5b464a7c-9e3c-4ea4-9a05-4fed563878b7   -H "Authorization: Bearer <your_token>"   -H "Content-Type: application/json"   -d '{
+        "workflowId": "83b102e0-9129-4069-abd5-97a312ed9c1f",
+        "triggerId": "5b464a7c-9e3c-4ea4-9a05-4fed563878b7",
+        "type": "TimeBased",
+        "status": "Active",
+        "properties": { "cron": "0 6 * * *" }
+      }'
+```
+
+#### Example Response
+```json
+{
+  "data": {},
+  "messages": [
+    "The workflow trigger has been updated successfully."
+  ],
+  "succeeded": true,
+  "generatedAtUtc": "2025-08-10T14:45:50Z"
+}
+```
+
+### Delete Workflow Trigger
+- **Method**: `DELETE`
+- **Endpoint**: `/workflows/{workflowId}/triggers/{triggerId}`
+- **Body Required**: `No`
+- **Description**: Deletes the workflow trigger with the specified `triggerId`.
+
+:::info
+- `workflowId`: UUID of the workflow.
+- `triggerId`: UUID of the trigger to delete.
+:::
+
+#### `curl` Example
+```bash
+curl -X DELETE http://localhost:6262/workflows/83b102e0-9129-4069-abd5-97a312ed9c1f/triggers/9eee96df-0250-44b7-8967-6e4c34454623   -H "Authorization: Bearer <your_token>"
+```
+
+#### Example Response
+```json
+{
+  "data": {},
+  "messages": [
+    "The workflow trigger has been deleted successfully."
+  ],
+  "succeeded": true,
+  "generatedAtUtc": "2025-08-10T14:50:12Z"
 }
 ```
 
 ## Summary Table
-| Method | Endpoint  | Authentication      | Authorization roles     | Requires Config |
-| ------ | --------- | --------------      | --------------          | --------------- |
-| GET    | `/health` | Not Required        | Not Required            | Yes             |
+| Operation            | Method | Endpoint                                      | Body | Authentication | Authorization roles   |
+| -------------------- | ------ | --------------------------------------------- | ---- | -------------- | --------------------- |
+| List Workflow Triggers | GET    | `/workflows/{workflowId}/triggers`            | No   | ✅ Required    | admin, workflow       |
+| Get Workflow Trigger   | GET    | `/workflows/{workflowId}/triggers/{triggerId}`| No   | ✅ Required    | admin, workflow       |
+| Add Workflow Trigger   | POST   | `/workflows/{workflowId}/triggers`            | Yes  | ✅ Required    | admin, workflow       |
+| Update Workflow Trigger| PUT    | `/workflows/{workflowId}/triggers/{triggerId}`| Yes  | ✅ Required    | admin, workflow       |
+| Delete Workflow Trigger| DELETE | `/workflows/{workflowId}/triggers/{triggerId}`| No   | ✅ Required    | admin, workflow       |
+
+:::info
+- Use `Bearer` or `Basic` authentication depending on FlowSynx configuration.  
+- Replace `<your_token>` or `username:password` with actual credentials.  
+- The `properties` field is a key-value object and must be valid JSON.  
+- All IDs (`workflowId`, `triggerId`) are UUIDs.  
+:::

@@ -79,6 +79,19 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
+    title: 'Console: Web-UI Management',
+    icon: 'mdi:web',
+    description: (
+      <>
+        The <b>FlowSynx Console</b> provides a modern, browser-based interface for workflow management. 
+        Users can visually design, configure, and monitor workflows, review execution logs, and manage 
+        plugins directly from the web UI. With real-time dashboards, drag-and-drop workflow editing, 
+        and secure multi-user access, the Console simplifies collaboration and operational oversight 
+        across distributed teams.
+      </>
+    ),
+  },
+  {
     title: 'Authentication and Security',
     icon: 'mdi:security-lock',
     description: (

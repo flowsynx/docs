@@ -1,0 +1,402 @@
+---
+sidebar_position: 2
+title: Configuration
+description: Learn how to configure FlowSynx, including setting up environment variables, customizing application settings, and preparing the API for seamless integration.
+---
+
+# FlowSynx Engine Configuration
+This configuration file defines database connections, endpoints, security settings, and other critical runtime options for the FlowSynx Engine.
+It uses hierarchical JSON objects that are automatically loaded by the ASP.NET Core configuration system.
+
+## Database Configuration (Db)
+This section defines how the **FlowSynx Engine** connects to its PostgreSQL database. Each key controls a specific part of the connection string.
+
+```json
+"Db": {
+  "Host": "localhost",
+  "Port": 5432,
+  "Name": "fxdb",
+  "UserName": "postgres",
+  "Password": "p@$$w0rd"
+}
+```
+
+| Key       | Type   | Description |
+|-----------|--------|-------------|
+| `Host`    | string | The hostname or IP address of the PostgreSQL server. Use `localhost` or `127.0.0.1` for a database running on the same machine as FlowSynx. For a remote database, specify the DNS name (e.g., `db.example.com`) or the public/private IP. |
+| `Port`    | int    | TCP port that PostgreSQL listens on. Default is `5432`. Change only if your database runs on a non-standard port or behind a custom proxy. |
+| `Name`    | string | The name of the database (schema) to connect to, e.g., `fxdb`. This database must already exist, and the configured user must have access rights (e.g., SELECT, INSERT, UPDATE). |
+| `UserName`| string | The PostgreSQL role (user) used for authentication. Typically a dedicated service account with minimal required permissions is recommended. |
+| `Password`| string | The password for the specified `UserName`. Use a strong, randomly generated password. Avoid committing this value to source control—use secrets management or environment variables when deploying to production. |
+
+**Usage**:  
+The FlowSynx Engine uses these values to build a standard PostgreSQL connection string:  
+```
+Host=localhost;Port=5432;Database=fxdb;Username=postgres;Password=p@$$w0rd;
+```
+---
+
+
+## Health Check (HealthCheck)
+The Health Check section controls whether the engine exposes a built-in endpoint for system health monitoring.
+When enabled, a `/health` endpoint provides liveness and readiness probes, allowing external services—such as 
+Kubernetes, Docker Swarm, or monitoring tools like Prometheus—to verify that the application is running and ready to handle requests.
+This is essential for automated scaling, rolling updates, and alerting in containerized or cloud-native deployments.
+
+```json
+"HealthCheck": {
+  "Enabled": true
+}
+```
+
+| Key       | Type    | Description                                                  |
+|-----------|---------|--------------------------------------------------------------|
+| `Enabled` | boolean | Enables or disables health check endpoints for monitoring.   |
+
+For comprehensive guidance on configuration options, response formats, and integration examples,
+see the full [Health API documentation](/docs/Engine/api/health).
+It provides in-depth details on endpoint behavior and sample outputs for health checks.
+
+---
+
+## Endpoints (Endpoints)
+
+```json
+"Endpoints": {
+  "http": {
+    "Port": 6262
+  },
+  "https": {
+    "Enabled": true,
+    "Port": 7443,
+    "Certificate": {
+      "Path": "/etc/ssl/certs/flowsynx.pfx",
+      "Password": "<CERT_PASSWORD>"
+    }
+  }
+}
+```
+
+| Key                           | Type      | Default     | Description                                           |
+|-------------                  |--------   |----------   |-------------------------------------------------      |
+| `http.Port`                   | int       | 6262        | HTTP listening port for the FlowSynx API server.      |
+| `https.Enabled`               | bool      | false       | Enables HTTPS endpoint if `true`.                     |
+| `https.Port`                  | int       | 6263        | HTTPS listening port when `Enabled` is `true`.        |
+| `https.Certificate.Path`      | string    | ""          | File path to the X.509 certificate (e.g., PFX file).  |
+| `https.Certificate.Password`  | string    | ""          | Password for the certificate file, if required.       |
+
+- Example full URL: `http://localhost:6262`.
+- Example HTTPS URL: `https://localhost:7443`.
+
+:::note
+If `Https.Enabled` is false, the FlowSynx API runs only on the HTTP port.
+:::
+
+---
+
+## Cross-Origin Resource Sharing (Cors)
+The `Cors` configuration defines the rules for cross-origin requests in your application:
+
+```json
+"Cors": {
+  "PolicyName ": "DevFlowSynxCorsPolicy",
+  "AllowedOrigins": [ "http://localhost:6264" ],
+  "AllowCredentials": false
+}
+```
+
+| Key               | Type        | Default             | Description                                                                                         |
+|-----------------  |------------ | -----------         | ------------------------------------------------------------------------------------------|
+| `PolicyName `     | string      | `DefaultCorsPolicy` | The named CORS policy (note the trailing space—likely a typo; should be `PolicyName`).              |
+| `AllowedOrigins`  | string[]    | `[]` <br />No origins allowed by default                 | List of allowed origins. `*` means allow all. Supports multiple domains.                            |
+| `AllowCredentials`| boolean     | `false`               | If `true`, allows the browser to send cookies or authentication headers with cross-origin requests. |
+
+:::info
+**Allow Credentials**
+
+- If set to `true`, browsers are allowed to send cookies and authentication headers.
+- Cannot be used together with `"*"` in `AllowedOrigins` due to browser security restrictions. You must specify explicit origins when allowing credentials.
+:::
+
+---
+
+## Localization (Localization)
+
+```json
+"Localization": {
+  "Language": "en"
+}
+```
+
+| Key        | Type   | Description                           |
+|------------|--------|---------------------------------------|
+| `Language` | string | Default language/locale (e.g., `en`). |
+
+- The default language and locale code (e.g., en) used by the application.
+
+---
+
+## Rate Limiting (RateLimiting)
+The Rate Limiting configuration controls how many requests a single client (typically identified by 
+IP address or authentication token) can send to the API within a given time window.
+
+It helps protect your application from abuse, excessive traffic, and accidental overload.
+
+```json
+"RateLimiting": {
+  "WindowSeconds": 60,
+  "PermitLimit": 100,
+  "QueueLimit": 10
+}
+```
+
+| Key             | Type | Default | Description                                                                                                                                                                                                                                                   |
+| --------------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `WindowSeconds` | int  | 60      | **Sliding window duration (in seconds)** used to measure request rates. Each client/IP is tracked across a rolling time window of this length. After this period, the count resets. <br/>Example: `60` means requests are evaluated over the last 60 seconds. |
+| `PermitLimit`   | int  | 100     | **Maximum allowed requests** per client/IP within each `WindowSeconds` period. Requests exceeding this threshold are either queued (if `QueueLimit` allows) or rejected with HTTP **429 Too Many Requests**.                                                  |
+| `QueueLimit`    | int  | 10      | **Maximum number of excess requests to queue** once the `PermitLimit` is reached. Queued requests wait for an available permit within the current window. If the queue is full, additional requests are immediately rejected with **429 Too Many Requests**.  |
+
+
+#### Behavior & Notes
+
+-   **Sliding Window Algorithm**:\
+    Uses a rolling time window. For example, with `WindowSeconds = 60`,
+    if a client sends 100 requests between `12:00:00` and `12:00:30`,
+    they cannot send more until some earlier requests fall outside the
+    last 60 seconds.
+-   **Queuing**:\
+    When the permit limit is reached but the queue is not full, excess
+    requests wait until capacity becomes available or the time window
+    advances.
+-   **Defaults**:\
+    If not specified, the configuration defaults to
+    `WindowSeconds = 60`, `PermitLimit = 100`, `QueueLimit = 10`, as
+    defined in the `RateLimitingConfiguration` class.
+
+#### Example
+
+-   With the default settings:
+    -   Each client/IP may send **up to 100 requests in any 60-second
+        window**.
+    -   After 100 requests, up to **10 extra requests** will be queued.
+    -   Any requests beyond that are immediately rejected with **HTTP
+        429 (Too Many Requests)**.
+
+---
+
+## Plugin Registry (PluginRegistry)
+The Plugin Registry section defines the remote registry location that FlowSynx uses to discover, download, validate, and install plugins dynamically at runtime.
+It enables a fully decoupled plugin ecosystem where new functionality can be added without redeploying and reexecuting the FlowSynx engine.
+
+```json
+"PluginRegistry": {
+  "Url": "https://plugins.flowsynx.io/"
+}
+```
+
+| Key | Type   | Description                                                                                                                          |
+| --- | ------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Url | string | **Base URL** of the FlowSynx plugin registry service. This is the root endpoint from which plugins and their metadata are retrieved. |
+
+#### Behavior
+- **Discovery**: The application queries the specified registry URL to list available plugins, versions, and metadata such as author, description, and compatibility information.
+- **Download & Install**: When a plugin is selected, FlowSynx fetches the plugin package (`fspack`) from the registry, validates its integrity (checksum/signature), and installs it into the local plugin store.
+- **Validation**: Before activation, plugins are checked for:
+  - Version compatibility with the current FlowSynx runtime.
+  - Required dependencies or minimum framework versions.
+- **Updates**: The registry URL is also used to detect plugin updates, security patches, and new releases.
+---
+
+## Workflow Queue (WorkflowQueue)
+
+```json
+"WorkflowQueue": {
+  "Provider": "InMemory"
+}
+```
+
+| Key        | Type   | Default      | Description                                                                                                                                                                                 |
+| ---------- | ------ | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Provider` | string | `"InMemory"` | Specifies which backend is used for queuing workflow execution requests. Accepted values are `"InMemory"` for a volatile, in-process queue or `"Durable"` for a persistent, external queue. |
+
+
+#### Providers
+- **InMemory**
+  - Purpose: Ideal for development, quick testing, or lightweight scenarios where high availability and data durability are not required.
+  - Behavior: All queued workflows are stored in process memory and lost on application restart or crash.
+  - Performance: Extremely fast because it avoids network and I/O overhead.
+  - Use Cases: Local development and small single-node deployments.
+
+- **Durable**
+  - Purpose: Suitable for production environments where workflow events must survive application restarts, crashes, or scaling across multiple nodes.
+  - Behavior: Backed by a persistent store on LocalDisk.
+  - Benefits:
+    - Guarantees message persistence and reliable delivery.
+    - Enables delayed retries and auditing.
+
+---
+
+## Encryption (Encryption)
+
+```json
+"Encryption": {
+  "Key": "base64Code"
+}
+```
+
+| Key   | Type   | Description                                                                                                                                                                                                                       |
+| ----- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Key` | string | **Base64-encoded 256-bit (32-byte) AES key** used by the `EncryptionService` class to perform symmetric encryption and decryption of sensitive data. The key must decode to **exactly 32 bytes** to satisfy AES-256 requirements. |
+
+#### Purpose
+This key drives the EncryptionService implementation, which uses AES-256 in CBC mode with a random IV to encrypt and decrypt:
+- Workflow definitions
+- Plugin secrets (API tokens, connection strings, credentials)
+- Any other sensitive configuration or payload that must remain confidential in logs, databases, or configuration files.
+
+#### Example Configuration
+```json
+"Encryption": {
+  "Key": "m+Vvj6TTZ0n8uS5u2zPShG5smjXZm9V4M4vUgKDb3N8="
+}
+```
+
+---
+
+## Security (Security)
+
+```json
+"Security": {
+  "EnableBasic": false,
+  "BasicUsers": [ ... ],
+  "JwtProviders": [ ... ],
+  "DefaultScheme": "Keycloak"
+}
+```
+
+### 1 Basic Authentication
+| Key           | Type    | Description                                                     |
+|---------------|---------|-----------------------------------------------------------------|
+| `EnableBasic` | boolean | Enables or disables built-in Basic Authentication.               |
+| `BasicUsers`  | array   | Predefined users when `EnableBasic` is true.                     |
+
+Example user:
+```json
+{
+  "id": "0960a93d-e42b-4987-bc07-7bda806a21c7",
+  "name": "admin",
+  "password": "admin",
+  "roles": [ "admin" ]
+}
+```
+- **id**: UUID of the user.
+- **name**: Username.
+- **password**: Plaintext password (use strong hashes in production).
+- **roles**: Array of role names.
+
+---
+
+### 2. JWT Providers
+| Key              | Type      | Description                                                                |
+|------------------|-----------|----------------------------------------------------------------------------|
+| `Name`           | string    | Identifier for the provider (`Keycloak`).                                   |
+| `Authority`      | string    | URL of the OpenID Connect authority (Keycloak realm).                        |
+| `Issuer`         | string    | Expected token issuer.                                                       |
+| `Audience`       | string    | Expected audience claim in JWT tokens.                                       |
+| `Secret`         | string    | Shared secret or signing key if using symmetric JWT signing.                 |
+| `RequireHttps`   | boolean   | If `false`, allows HTTP (for dev).                                           |
+| `RoleClaimNames` | string[]  | Claims that contain user roles (`roles`, `realm_access`, `resource_access`). |
+
+- Used for **OAuth2/OpenID Connect** authentication with Keycloak or similar IdPs.
+- Supports role-based access control.
+
+---
+
+### 3. Default Scheme
+| Key            | Type   | Description                                                |
+|----------------|--------|------------------------------------------------------------|
+| `DefaultScheme`| string | Authentication scheme to use by default (e.g., `"Keycloak"`).|
+
+---
+
+## Summary of Key Issues & Recommendations
+
+1. **Trailing Space in `PolicyName`**:  
+   - Fix key to `"PolicyName"` (no trailing space).
+
+2. **Invalid JSON Operators (`||`)**:  
+   - Remove `||` usage in:
+     - `AllowedOrigins`
+     - `WorkflowQueue.Provider`
+   - Use proper JSON arrays or single strings.
+
+3. **Sensitive Data**:  
+   - Move `Db.Password` and `Security.BasicUsers.password` to **secure secrets storage**.
+
+4. **Production Security**:  
+   - Set `"RequireHttps": true` for JWT providers in production.
+
+---
+
+## Example Configuration JSON Snippet
+
+```json
+{
+  "Db": {
+    "Host": "localhost",
+    "Port": 5432,
+    "Name": "fxdb",
+    "UserName": "postgres",
+    "Password": "p@$$w0rd"
+  },
+  "HealthCheck": {
+    "Enabled": true
+  },
+  "Endpoints": {
+    "http": {
+      "Port": 6262
+    }
+  },
+  "Cors": {
+    "PolicyName ": "DevFlowSynxCorsPolicy",
+    "AllowedOrigins": [ "*" ],
+    "AllowCredentials": false
+  },
+  "Localization": {
+    "Language": "en"
+  },
+  "RateLimiting": {
+    "WindowSeconds": 60,
+    "PermitLimit": 100,
+    "QueueLimit": 10
+  },
+  "PluginRegistry": {
+    "Url": "https://plugins.flowsynx.io/"
+  },
+  "WorkflowQueue": {
+    "Provider": "InMemory"
+  },
+  "Encryption": {
+    "Key": "base64Code"
+  },
+  "Security": {
+    "EnableBasic": false,
+    "BasicUsers": [
+      {
+        "id": "0960a93d-e42b-4987-bc07-7bda806a21c7",
+        "name": "admin",
+        "password": "admin",
+        "roles": [ "admin" ]
+      },
+      {
+        "id": "24546675-dfad-4df6-a1c4-e997e0f651ba",
+        "name": "user",
+        "password": "user",
+        "roles": [ "user" ]
+      }
+    ],
+    "JwtProviders": [],
+    "DefaultScheme": "Basic"
+  }
+}
+```

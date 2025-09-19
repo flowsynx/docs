@@ -251,7 +251,7 @@ It enables a fully decoupled plugin ecosystem where new functionality can be add
 
 - **Durable**
   - Purpose: Suitable for production environments where workflow events must survive application restarts, crashes, or scaling across multiple nodes.
-  - Behavior: Backed by a persistent store on LocalDisk.
+  - Behavior: Backed by a persistent store on Database.
   - Benefits:
     - Guarantees message persistence and reliable delivery.
     - Enables delayed retries and auditing.
@@ -340,6 +340,56 @@ Example user:
 | `DefaultScheme`| string | Authentication scheme to use by default (e.g., `"Keycloak"`).|
 
 ---
+
+## Storage
+Defines how workflow execution result data is stored, including maximum storage size, available storage providers, and the default provider to use.
+
+```json
+"Storage": {
+  "MaxSizeLimit": 209715200,
+  "ResultStorage": {
+    "DefaultProvider": "local",
+    "Providers": [
+      {
+        "Name": "local",
+        "Configuration": {
+          "BasePath": "flowsynxresults/"
+        }
+      }
+    ]
+  }
+}
+```
+
+| Key                 | Type           | Description                                                                                                      |
+| ------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------- |
+| **`MaxSizeLimit`**  | `long` (bytes) | The maximum total size allowed for stored results. Defaults to **209 715 200 bytes (200 MB)** if not overridden. |
+| **`ResultStorage`** | `object`       | Configuration for result storage providers.                                                                      |
+
+#### ResultStorage
+Specifies which storage providers are available and which one is used by default.
+| Key                   | Type     | Description                                                                                                         |
+| --------------------- | -------- | ------------------------------------------------------------------------------------------------------------------- |
+| **`DefaultProvider`** | `string` | The name of the provider to use if no specific provider is requested. Must match one of the configured `Providers`. |
+| **`Providers`**       | `array`  | A list of all available result-storage providers. Each entry describes a single provider and its settings.          |
+
+#### Providers Items
+Each provider defines a storage backend and its connection details.
+| Key                 | Type                        | Description                                                                                                                         |
+| ------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| **`Name`**          | `string`                    | Unique identifier for the storage provider (currently only `"local"` is supported).                                                |
+| **`Configuration`** | `dictionary<string,string>` | Key/value settings specific to that provider. The keys depend on the provider type (for example, a local provider uses `BasePath`). |
+
+
+:::info
+When the application starts:
+
+-   All provider names are logged.
+-   If `DefaultProvider` is missing or does not match one of the listed providers, a `FlowSynxException` with `SecurityConfigurationInvalidScheme` is thrown.
+-   A warning is logged if no default provider is defined.
+
+This ensures that result-storage backends are correctly configured and prevents misrouted or lost result data.
+:::
 
 ## Summary of Key Issues & Recommendations
 

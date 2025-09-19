@@ -59,6 +59,28 @@ It provides in-depth details on endpoint behavior and sample outputs for health 
 
 ---
 
+## OpenApi documentation
+This configuration section controls whether OpenAPI (Swagger) documentation is generated and served by the application.
+When enabled, developers and integrators can explore, test, and validate the API using an automatically generated OpenAPI/Swagger UI endpoint.
+
+```json
+"OpenApi": {
+  "Enabled": true
+}
+```
+
+| Key       | Type    | Default | Description                                                                                                                                                                                                                                                                                                                                   |
+| --------- | ------- | --------| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Enabled` | boolean | `false` | **Required.** Set to `true` to enable the OpenAPI/Swagger endpoint for API documentation; set to `false` to disable it entirely. When enabled, the application exposes a browsable web interface (`/open-api` or `/open-api/index.html`) and a machine-readable OpenAPI JSON specification (`/open-api/flowsynx/specifications.json`). |
+
+:::info
+**Typical Use Cases**
+- **Development & QA**: Keep enabled to allow developers and testers to visualize endpoints, request/response schemas, and perform live API calls.
+- **Production**: You may disable it to reduce the application’s attack surface or require authentication/authorization to access it.
+:::
+
+---
+
 ## Endpoints (Endpoints)
 
 ```json

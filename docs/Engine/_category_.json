@@ -1,9 +1,0 @@
-{
-  "label": "Engine",
-  "position": 5,
-  "link": {
-    "type": "generated-index",
-    "slug": "/engine",
-    "description": "Learn how to run and interact with the FlowSynx Engine, including configuration and making direct API calls."
-  }
-}

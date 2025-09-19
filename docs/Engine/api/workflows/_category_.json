@@ -1,9 +1,0 @@
-{
-  "label": "Workflow",
-  "position": 7,
-  "link": {
-    "type": "generated-index",
-    "slug": "/engine/api/workflows",
-    "description": "Explore how to create, manage, execute, and trigger workflows using the FlowSynx platform, including task orchestration."
-  }
-}

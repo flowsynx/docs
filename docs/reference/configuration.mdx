@@ -17,22 +17,29 @@ This section defines how the **FlowSynx Engine** connects to its PostgreSQL data
   "Port": 5432,
   "Name": "fxdb",
   "UserName": "postgres",
-  "Password": "p@$$w0rd"
+  "Password": "p@$$w0rd",
+  "AdditionalOptions": {
+    "SslMode": "Disable",
+    "Pooling": true
+  },
+  "ConnectionString": ""
 }
 ```
 
-| Key       | Type   | Description |
-|-----------|--------|-------------|
-| `Host`    | string | The hostname or IP address of the PostgreSQL server. Use `localhost` or `127.0.0.1` for a database running on the same machine as FlowSynx. For a remote database, specify the DNS name (e.g., `db.example.com`) or the public/private IP. |
-| `Port`    | int    | TCP port that PostgreSQL listens on. Default is `5432`. Change only if your database runs on a non-standard port or behind a custom proxy. |
-| `Name`    | string | The name of the database (schema) to connect to, e.g., `fxdb`. This database must already exist, and the configured user must have access rights (e.g., SELECT, INSERT, UPDATE). |
-| `UserName`| string | The PostgreSQL role (user) used for authentication. Typically a dedicated service account with minimal required permissions is recommended. |
-| `Password`| string | The password for the specified `UserName`. Use a strong, randomly generated password. Avoid committing this value to source control—use secrets management or environment variables when deploying to production. |
+| Key                 | Type               | Description                                                                                                                                                                                                                                                                                                                                  |
+| ------------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Host`              | string             | The hostname or IP address of the PostgreSQL server. Use `localhost` or `127.0.0.1` for a local database. For remote databases, specify the DNS name (e.g., `db.example.com`) or public/private IP.                                                                                                                                          |
+| `Port`              | int                | TCP port that PostgreSQL listens on. Default is `5432`. Change only if your database runs on a non-standard port.                                                                                                                                                                                                                            |
+| `Name`              | string             | The name of the database (schema) to connect to, e.g., `fxdb`. Must already exist, and the configured user must have appropriate access.                                                                                                                                                                                                     |
+| `UserName`          | string             | PostgreSQL role (user) used for authentication. Use a dedicated service account with minimal required permissions.                                                                                                                                                                                                                           |
+| `Password`          | string             | Password for the specified `UserName`. Use strong, randomly generated passwords. Avoid committing this value to source control.                                                                                                                                                                                                              |
+| `AdditionalOptions` | object (key-value) | Optional PostgreSQL-specific settings. Each key represents a valid Npgsql connection string option. Common options include: <br /> - `SslMode` — Controls SSL/TLS usage (`Disable`, `Prefer`, `Require`, etc.)<br />- `Pooling` — Enables or disables connection pooling (`true` or `false`)<br />- Any other valid Npgsql option can be added. |
+| `ConnectionString`  | string             | Optional full PostgreSQL connection string. If set (non-empty), FlowSynx will use this value directly and ignore the other properties. If empty or null, the connection string will be automatically built from `Host`, `Port`, `Name`, `UserName`, `Password`, and `AdditionalOptions`.                                                     |
 
-**Usage**:  
+**Example of auto-generated connection string:**:  
 The FlowSynx Engine uses these values to build a standard PostgreSQL connection string:  
 ```
-Host=localhost;Port=5432;Database=fxdb;Username=postgres;Password=p@$$w0rd;
+Host=localhost;Port=5432;Database=fxdb;Username=postgres;Password=p@$$w0rd;SslMode=Disable;Pooling=true;
 ```
 ---
 

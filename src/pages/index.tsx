@@ -89,6 +89,7 @@ function HomepageFlowSynxArchitecture() {
               <li><b>CLI Interface</b>: Command-line tools for interacting with the FlowSynx system, enabling workflow management and execution from terminals.</li>
               <li><b>REST API Gateway</b>: Provides secure, HTTP/HTTPS RESTful APIs to integrate with external systems, allowing remote workflow control and status querying.</li>
               <li><b>SDK (Library)</b>: Developer-friendly libraries exposing FlowSynx functionalities programmatically, enabling custom applications to embed or automate workflow operations.</li>
+              <li><b>UI-Based Console Management</b>: Intuitive browser-based interface for real-time monitoring and administration of workflows, and system settings with secure authentication.</li>
             </ul>
 
             <h3>FlowSynx Core</h3>
@@ -115,8 +116,8 @@ function HomepageFlowSynxArchitecture() {
 export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <Layout title={`Automate and orchestrate processes using FlowSynx automation system`}
-      description="Empowering you to design, control, and automate every step of your workflow by linking ideas, decisions, and actions into one seamless, smart execution engine without writing a single line of code.">
+    <Layout title={`Streamline and orchestrate processes with FlowSynx, .NET-based workflow automation platform`}
+      description="Design, control, and automate every step of your workflow—linking ideas, decisions, and actions into a single, smart execution engine—all without writing a line of code.">
       <HomepageHeader />
       <main>
         <HomepageAboutFlowSynx />

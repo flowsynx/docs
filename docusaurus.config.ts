@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'FlowSynx',
-  tagline: 'Empowering you to design, control, and automate every step of your workflow by linking ideas, decisions, and actions into one seamless, smart execution engine without writing a single line of code.',
+  tagline: 'Design, control, and automate every step of your workflow—linking ideas, decisions, and actions into a single, smart execution engine—all without writing a line of code.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here

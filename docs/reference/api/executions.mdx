@@ -256,18 +256,18 @@ curl -X GET http://localhost:6262/workflows/{workflowId}/executions/{executionId
 ```
 
 ## Summary Table
-| Operation                  | Method | Endpoint                                                                 | Body | Authentication | Authorization roles   |
-| -------------------------- | ------ | ----------------------------------------------------------------------- | ---- | -------------- | --------------------- |
-| List Executions            | GET    | `/workflows/{workflowId}/executions`                                    | No   | ✅ Required    | admin, workflow       |
-| Execution Details          | GET    | `/workflows/{workflowId}/executions/{executionId}`                      | No   | ✅ Required    | admin, workflow       |
-| Execution Logs             | GET    | `/workflows/{workflowId}/executions/{executionId}/logs`                 | No   | ✅ Required    | admin, workflow       |
-| Execution Tasks            | GET    | `/workflows/{workflowId}/executions/{executionId}/tasks`                | No   | ✅ Required    | admin, workflow       |
-| Task Details               | GET    | `/workflows/{workflowId}/executions/{executionId}/tasks/{taskExecutionId}` | No   | ✅ Required    | admin, workflow       |
-| Task Logs                  | GET    | `/workflows/{workflowId}/executions/{executionId}/tasks/{taskExecutionId}/logs` | No   | ✅ Required    | admin, workflow       |
-| Execute Workflow           | POST   | `/workflows/{workflowId}/executions`                                    | Yes  | ✅ Required    | admin, workflow       |
-| Cancel Execution           | POST   | `/workflows/{workflowId}/executions/{executionId}/cancel`               | No   | ✅ Required    | admin, workflow       |
-| Approve Execution          | POST   | `/workflows/{workflowId}/executions/{executionId}/approvals/{approvalId}/approve` | No | ✅ Required    | admin, workflow       |
-| Reject Execution           | POST   | `/workflows/{workflowId}/executions/{executionId}/approvals/{approvalId}/reject` | No | ✅ Required    | admin, workflow       |
+| Operation       | Method | Endpoint                                                                           | Authorization roles   |
+| ----------------| ------ | ---------------------------------------------------------------------------------- | --------------------- |
+| List            | GET    | `/workflows/{workflowId}/executions`                                               | admin, workflow       |
+| Details         | GET    | `/workflows/{workflowId}/executions/{executionId}`                                 | admin, workflow       |
+| Logs            | GET    | `/workflows/{workflowId}/executions/{executionId}/logs`                            | admin, workflow       |
+| Tasks           | GET    | `/workflows/{workflowId}/executions/{executionId}/tasks`                           | admin, workflow       |
+| Task Details    | GET    | `/workflows/{workflowId}/executions/{executionId}/tasks/{taskExecutionId}`         | admin, workflow       |
+| Task Logs       | GET    | `/workflows/{workflowId}/executions/{executionId}/tasks/{taskExecutionId}/logs`    | admin, workflow       |
+| Execute         | POST   | `/workflows/{workflowId}/executions`                                               | admin, workflow       |
+| Cancel          | POST   | `/workflows/{workflowId}/executions/{executionId}/cancel`                          | admin, workflow       |
+| Approve         | POST   | `/workflows/{workflowId}/executions/{executionId}/approvals/{approvalId}/approve`  | admin, workflow       |
+| Reject          | POST   | `/workflows/{workflowId}/executions/{executionId}/approvals/{approvalId}/reject`   | admin, workflow       |
 
 :::info
 - Use `Bearer` or `Basic` authentication depending on FlowSynx configuration.  

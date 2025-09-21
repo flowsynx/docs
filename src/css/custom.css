@@ -251,3 +251,22 @@
   color: var(--ifm-color-emphasis-900); /* grey text */
   font-size: 0.95rem;
 }
+
+/* Make all tables full-width and borderless left/right */
+.markdown table {
+  width: 100% !important;
+  display: table;
+  table-layout: auto; /* Optional: keeps columns evenly spaced */
+  border-left: none !important; /* Remove left border */
+  border-right: none !important;/* Remove right border */
+}
+
+/* Optional: remove borders from table cells on the edges */
+.markdown table td:first-child,
+.markdown table th:first-child {
+  border-left: none !important;
+}
+.markdown table td:last-child,
+.markdown table th:last-child {
+  border-right: none !important;
+}

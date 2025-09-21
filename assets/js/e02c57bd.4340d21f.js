@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkflowsynx=self.webpackChunkflowsynx||[]).push([[3335],{9557:e=>{e.exports=JSON.parse('{"title":"FlowSynx","slug":"/reference/flowsynx","permalink":"/docs/reference/flowsynx","navigation":{"previous":{"title":"Reference","permalink":"/docs/reference"},"next":{"title":"Configuration","permalink":"/docs/reference/flowsynx/configuration"}}}')}}]);

@@ -24,7 +24,7 @@ function HomepageHeader() {
                 Get started
               </Link>
               <Link className="button button--outline button--primary button--lg margin-right--sm"
-                to="docs/reference/api">
+                to="docs/reference/flowsynx/api">
                 API Reference
               </Link>
               <Link className="button button--outline button--primary button--lg margin-right--sm" 

@@ -30,6 +30,19 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
+/* Firefox */
+::-moz-selection {
+  background: var(--ifm-color-primary-lightest);
+  color: var(--ifm-button-color);
+}
+
+/* Other modern browsers */
+::selection {
+  background: var(--ifm-color-primary-lightest);
+  color: var(--ifm-button-color);
+}
+
+
 .greenIcon {
   color: rgb(0, 128, 0);
 }

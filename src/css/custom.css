@@ -42,6 +42,10 @@
   color: var(--ifm-button-color);
 }
 
+.theme-code-block {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  box-shadow: none !important;
+}
 
 .greenIcon {
   color: rgb(0, 128, 0);

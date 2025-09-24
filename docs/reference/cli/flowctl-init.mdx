@@ -1,0 +1,40 @@
+---
+sidebar_position: 4
+title: Init
+description: Command-line interface to install and initialize a FlowSynx system for the current user profile.
+---
+
+# FlowCtl Init Command
+The `init` command **bootstraps a new FlowSynx environment** for the current user profile.  
+It downloads, installs, and performs one-time initialization of both the FlowSynx core runtime and the optional FlowSynx Console UI (if specified).  
+Use this command when setting up a fresh development, staging, or production environment.
+
+## Usage
+```bash
+flowctl init [options]
+```
+
+Running this command prepares a local FlowSynx instance, ensuring that the correct versions of the core system and console components are installed and configured for use with the FlowCtl CLI.
+
+#### Options
+| Long                 | Required | Default  | Description                                                                                                                       |
+| -------------------- | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| --flowsynx-version   | No       | *latest* | The version of the FlowSynx core system to install. Specify an explicit semantic version (e.g., `1.0.0`) to pin the installation. |
+| --console-version    | No       | *latest* | The version of the FlowSynx Console web UI to install (if applicable). Accepts a semantic version string (e.g., `1.0.0`).         |
+| -?, -h, --help       | No       | —        | Displays detailed help and usage instructions for the `init` command.                                                             |
+
+:::note
+If neither version flag is provided, the command installs the latest stable release of the FlowSynx core system and, if available, the console component.
+:::
+
+#### Examples
+```bash
+# Install the latest stable FlowSynx core and console
+flowctl init
+
+# Install a specific FlowSynx core version with the latest console
+flowctl init --flowsynx-version 1.2.0
+
+# Pin both the FlowSynx core and console to specific versions
+flowctl init --flowsynx-version 1.2.0 --console-version 1.1.0
+```

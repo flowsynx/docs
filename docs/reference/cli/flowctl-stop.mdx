@@ -1,0 +1,30 @@
+---
+sidebar_position: 10
+title: Stop
+description: Command-line interface to gracefully stop the FlowSynx system and any associated applications running under the current user profile.
+---
+
+# FlowCtl Stop Command
+The `stop` command **shuts down the FlowSynx system** and all associated applications that are running under the current user profile.  
+It sends a termination signal to gracefully stop active processes, ensuring that any in-flight tasks or workflows are completed or safely canceled.
+
+## Usage
+```bash
+flowctl stop [options]
+```
+
+When executed, this command locates the FlowSynx instance started by the current user and initiates a controlled shutdown.
+
+#### Options
+| Short  | Long   | Required | Description                                                              |
+| ------ | ------ | -------- | ------------------------------------------------------------------------ |
+| -?, -h | --help | No       | Displays usage information and available options for the `stop` command. |
+
+
+#### Examples
+##### Stop the Running FlowSynx System
+```bash
+flowctl stop
+```
+
+Gracefully terminates the FlowSynx process and any dependent services.

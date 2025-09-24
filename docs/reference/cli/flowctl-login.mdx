@@ -1,0 +1,47 @@
+---
+sidebar_position: 5
+title: Login
+description: Command-line interface to authenticate a user and establish a secure session with a FlowSynx instance.
+---
+
+# FlowCtl Login Command
+The `login` command **authenticates a user and creates a persistent session** with a running FlowSynx system.  
+It supports both **Basic Authentication** (username/password) and **Bearer Token Authentication**, allowing you to securely connect to FlowSynx services before executing other commands that require credentials.
+
+Once authenticated, session tokens or credentials are securely stored in the user profile so that subsequent CLI commands can interact with the FlowSynx instance without repeatedly providing credentials.
+
+## Usage
+```bash
+flowctl login [options]
+```
+
+Initiates the login process and records an authenticated session.
+
+#### Options
+| Long / Short       | Required    | Default | Description                                                                           |
+| ------------------ | ----------- | ------- | ------------------------------------------------------------------------------------- |
+| --basic            | No          | `False` | Use **Basic Authentication**. Requires `--username` and `--password` to be specified. |
+| --bearer           | No          | `False` | Use **Bearer Authentication**. Requires a valid `--token`.                            |
+| -u, --username     | Conditional | *none*  | Username for Basic Authentication. Must be provided when using `--basic`.             |
+| -p, --password     | Conditional | *none*  | Password for Basic Authentication. Must be provided when using `--basic`.             |
+| -t, --token        | Conditional | *none*  | Bearer token for authentication. Must be provided when using `--bearer`.              |
+| -?, -h, --help     | No          | —       | Displays help and usage information for the `login` command.                          |
+
+:::note
+You must choose exactly one authentication mode (--basic or --bearer).
+- For **Basic Authentication**, `--username` and `--password` are required.
+- For **Bearer Authentication**, `--token` is required.
+:::
+
+#### Examples
+##### Basic Authentication
+```bash
+# Prompt the CLI to use basic authentication with username and password
+flowctl login --basic --username alice --password S3cureP@ss
+```
+
+##### Bearer Token Authentication
+```bash
+# Authenticate using a pre-issued bearer token
+flowctl login --bearer --token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+```

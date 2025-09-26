@@ -1,0 +1,42 @@
+---
+sidebar_position: 13
+title: Version
+description: Command-line interface to display the currently installed FlowSynx system version and the FlowCtl CLI version.
+---
+
+# FlowCtl Version Command
+
+The `version` command **retrieves and displays version information** for both the FlowSynx system and the FlowCtl command-line interface (CLI).  
+It is useful for verifying installation details, troubleshooting compatibility issues, or confirming an upgrade.
+
+## Usage
+```bash
+flowctl version [options]
+```
+
+Executes a query that reports:
+- **FlowSynx System Version:** The version of the FlowSynx runtime currently installed and running.
+- **FlowCtl CLI Version:** The version of the CLI tool (flowctl) that you are executing.
+
+#### Options
+| Short  | Long                                | Required | Default | Description                                                    |
+| ------ | ----------------------------------- | -------- | ------- | -------------------------------------------------------------- |
+| -o     | --output `<Json\|Table\|Xml\|Yaml>` | No       | Json    | Specifies the output format for the version information.       |
+| -?, -h | --help                              | No       | —       | Displays detailed usage information for the `version` command. |
+
+
+
+#### Examples
+##### Display Version in Default JSON Format
+```bash
+flowctl version
+```
+
+Outputs a JSON object with the FlowSynx system version and CLI version.
+
+##### Display Version in Table Format
+```bash
+flowctl version --output Table
+```
+
+Prints the version information in a human-readable table.

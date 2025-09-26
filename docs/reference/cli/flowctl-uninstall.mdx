@@ -1,0 +1,40 @@
+---
+sidebar_position: 11
+title: Uninstall
+description: Command-line interface to completely remove the FlowSynx system and its associated files from the current user profile and local machine.
+---
+
+# FlowCtl Uninstall Command
+
+The `uninstall` command **removes the FlowSynx system** from the current user's profile and the local machine environment.  
+It deletes all FlowSynx binaries, configuration data, cached credentials, and supporting files, ensuring a clean decommissioning of the installation.
+
+Use this command when deprovisioning a workstation, reclaiming disk space, or performing a full reinstallation.
+
+## Usage
+```bash
+flowctl uninstall [options]
+```
+
+Executes a complete uninstallation of FlowSynx for the current user.
+
+#### Options
+| Short  | Long    | Required | Description                                                                                   |
+| ------ | ------- | -------- | --------------------------------------------------------------------------------------------- |
+| -f     | --force | No       | Forcefully terminates all running FlowSynx processes before uninstallation. Default: `False`. |
+| -?, -h | --help  | No       | Displays usage information and available options for the `uninstall` command.                 |
+
+#### Examples
+##### Standard Uninstall
+```bash
+flowctl uninstall
+```
+
+Performs a graceful uninstall. If the FlowSynx system is running, the command will prompt you to stop it before proceeding.
+
+##### Forceful Uninstall
+```bash
+flowctl uninstall --force
+```
+
+Immediately stops any running FlowSynx processes and removes all related files without additional confirmation prompts.

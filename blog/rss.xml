@@ -4,10 +4,29 @@
         <title>FlowSynx Blog</title>
         <link>https://flowsynx.io/blog</link>
         <description>FlowSynx Blog</description>
-        <lastBuildDate>Thu, 11 Sep 2025 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 25 Sep 2025 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[FlowSynx v1.1.4 is now available]]></title>
+            <link>https://flowsynx.io/blog/flowsynx-v1.1.4-is-now-available</link>
+            <guid>https://flowsynx.io/blog/flowsynx-v1.1.4-is-now-available</guid>
+            <pubDate>Thu, 25 Sep 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[FlowSynx v1.1.4 is officially released!]]></description>
+            <content:encoded><![CDATA[<p>FlowSynx v1.1.4 is officially released!</p>
+<p>We're excited to roll out version 1.1.4 of FlowSynx — our lightweight, secure, and plugin-driven workflow engine.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="https://flowsynx.io/blog/flowsynx-v1.1.4-is-now-available#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h2>
+<ul>
+<li>Enhance DatabaseConfiguration and refactor the connection string (<a href="https://github.com/flowsynx/flowsynx/issues/444" target="_blank" rel="noopener noreferrer">#444</a>)</li>
+<li>Enhance error handling defaults and resolution logic (<a href="https://github.com/flowsynx/flowsynx/issues/443" target="_blank" rel="noopener noreferrer">#443</a>)</li>
+</ul>
+<p>📦 Available now via <a href="https://github.com/flowsynx/flowsynx/releases" target="_blank" rel="noopener noreferrer">GitHub</a>, and <a href="https://hub.docker.com/r/flowsynx/flowsynx" target="_blank" rel="noopener noreferrer">Docker</a>.</p>]]></content:encoded>
+            <category>FlowSynx</category>
+            <category>Release</category>
+            <category>WorkflowAutomation</category>
+            <category>NoCode</category>
+        </item>
         <item>
             <title><![CDATA[FlowSynx v1.1.3 is now available]]></title>
             <link>https://flowsynx.io/blog/flowsynx-v1.1.3-is-now-available</link>

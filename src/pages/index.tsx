@@ -13,9 +13,9 @@ function HomepageHeader() {
     <header className={clsx('hero hero--background', styles.heroBanner)}>
       <div className="container">
         <div className="row">
-          <div className="col col--8 text--left">
+          <div className="col col--9 text--left">
             <Heading as="h3" className="hero__title">
-            Streamline and orchestrate processes with FlowSynx, .NET-based workflow automation platform
+            FlowSynx: Orchestrate Declarative, Plugin-Driven DAG Workflows on .NET
             </Heading>
             <p className="hero__subtitle">{siteConfig.tagline}</p>
             <div className='{styles.buttons} text--left padding-top--lg'>
@@ -50,21 +50,18 @@ function HomepageAboutFlowSynx() {
         <Heading as="h2">What is the FlowSynx?</Heading>
         <div className="row">
           <div className="col">
-          In today’s software landscape, automation, repeatability, and modular orchestration are essential for scalability, 
-          maintainability, and operational efficiency. Yet many workflow platforms remain too rigid, overly complex, 
-          or locked to a single technology stack.<br />
-
-          FlowSynx was created to break those barriers. It’s an open-source, cross-platform workflow orchestration 
-          system built on .NET, designed to let developers and organizations define, execute, and manage complex workflows with ease.<br />
-
-          The goal of FlowSynx is simple: deliver a lightweight, extensible, and developer-friendly engine that adapts to 
-          diverse domains—from data engineering and DevOps to healthcare, finance, and enterprise integrations. It strikes 
-          the ideal balance between no-code simplicity and full-code flexibility, enabling teams to tailor workflows precisely 
-          to their needs through a modular, plugin-driven architecture.<br />
-
-          At its core is a micro-kernel design that cleanly separates orchestration logic from functional extensions. 
-          This decoupled approach lets you dynamically load, develop, or replace plugins without disrupting system 
-          stability—making FlowSynx highly customizable while remaining easy to maintain and upgrade.
+          In today’s software landscape, automation, repeatability, and modular orchestration are key to achieving scalability, maintainability, 
+          and operational efficiency. Yet many workflow platforms remain rigid, overly complex, or locked into a single technology stack.
+           FlowSynx breaks those barriers. Built on .NET, this open-source, cross-platform workflow orchestration system empowers developers and 
+          organizations to define, execute, and manage complex workflows with ease.<br />
+          
+          The mission of FlowSynx is clear: deliver a lightweight, extensible, and developer-friendly engine that adapts to diverse domains—from 
+          data engineering and DevOps to healthcare, finance, and enterprise integrations. It strikes the perfect balance between no-code simplicity 
+          and full-code flexibility, allowing teams to tailor workflows precisely to their needs through a modular, plugin-driven architecture.<br />
+          
+          At its core, FlowSynx leverages a micro-kernel design, cleanly separating orchestration logic from functional extensions. This decoupled 
+          architecture allows you to dynamically load, develop, or replace plugins without disrupting system stability—making FlowSynx highly customizable, 
+          maintainable, and easy to upgrade.
           </div>
         </div>
       </div>

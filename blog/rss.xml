@@ -14,19 +14,21 @@
             <guid>https://flowsynx.io/blog/flowsynx-v1.2.0-is-now-available</guid>
             <pubDate>Wed, 08 Oct 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[FlowSynx v1.2.0 is officially released!]]></description>
-            <content:encoded><![CDATA[<p>FlowSynx v1.2.0 is officially released!</p>
+            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="flowsynx-v120-is-officially-released">FlowSynx v1.2.0 is officially released!<a href="https://flowsynx.io/blog/flowsynx-v1.2.0-is-now-available#flowsynx-v120-is-officially-released" class="hash-link" aria-label="Direct link to FlowSynx v1.2.0 is officially released!" title="Direct link to FlowSynx v1.2.0 is officially released!">​</a></h2>
 <p>We're excited to roll out version 1.2.0 of FlowSynx — our lightweight, secure, and plugin-driven workflow engine.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="https://flowsynx.io/blog/flowsynx-v1.2.0-is-now-available#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="https://flowsynx.io/blog/flowsynx-v1.2.0-is-now-available#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
 <ul>
 <li>Add a new workflow trigger type based on an HTTP request condition (<a href="https://github.com/flowsynx/flowsynx/issues/448" target="_blank" rel="noopener noreferrer">#448</a>)</li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="https://flowsynx.io/blog/flowsynx-v1.2.0-is-now-available#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="https://flowsynx.io/blog/flowsynx-v1.2.0-is-now-available#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h3>
 <ul>
 <li>Rename WorkflowTimeBasedTriggerProcessor class (<a href="https://github.com/flowsynx/flowsynx/issues/458" target="_blank" rel="noopener noreferrer">#458</a>)</li>
 <li>Enhance JSON handling in ExpressionParser (<a href="https://github.com/flowsynx/flowsynx/issues/446" target="_blank" rel="noopener noreferrer">#446</a>)</li>
 <li>Update FlowSynx.PluginCore to version 1.3.4 (<a href="https://github.com/flowsynx/flowsynx/issues/445" target="_blank" rel="noopener noreferrer">#445</a>)</li>
 </ul>
-<p>📦 Available now via <a href="https://github.com/flowsynx/flowsynx/releases" target="_blank" rel="noopener noreferrer">GitHub</a>, and <a href="https://hub.docker.com/r/flowsynx/flowsynx" target="_blank" rel="noopener noreferrer">Docker</a>.</p>]]></content:encoded>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="available-now-via">Available now via<a href="https://flowsynx.io/blog/flowsynx-v1.2.0-is-now-available#available-now-via" class="hash-link" aria-label="Direct link to Available now via" title="Direct link to Available now via">​</a></h2>
+<a class="button button--primary button--outline button--lg" href="https://github.com/flowsynx/flowsynx/releases" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+<a class="button button--primary button--outline button--lg" href="https://hub.docker.com/r/flowsynx/flowsynx" target="_blank">Docker</a>]]></content:encoded>
             <category>FlowSynx</category>
             <category>Release</category>
             <category>WorkflowAutomation</category>

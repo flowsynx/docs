@@ -1,0 +1,142 @@
+---
+sidebar_position: 3
+title: Error Codes
+description: Comprehensive reference for all FlowSynx system error codes, categorized by subsystem with explanations and resolutions.
+---
+
+# FlowSynx Error Codes
+This page lists all **FlowSynx system error codes** grouped by category.  
+Each error code follows the format:  
+**[FSX ####]** where `####` identifies the category and error number.
+
+## Application Error Codes
+- **[FSX 1001]** `--start` argument is required.
+- **[FSX 1002]** Application endpoint is invalid or unreachable.
+- **[FSX 1003]** Root location not found.
+- **[FSX 1004]** Unable to determine or load the FlowSynx version.
+- **[FSX 1005]** Error occurred while processing Workflow triggers.
+- **[FSX 1006]** Configuration service is failed.
+- **[FSX 1007]** Failed to configure the application server.
+- **[FSX 1008]** Failed to initialize OpenAPI documentation or services.
+
+## Serialization Error Codes
+- **[FSX 1301]** Failed to serialize object data.
+- **[FSX 1302]** Input data for deserialization is empty.
+- **[FSX 1303]** Attempted to serialize an empty object or structure.
+
+## Validation Error Codes
+- **[FSX 1401]** One or more input fields failed validation.
+
+## Security Error Codes
+- **[FSX 1501]** Unable to retrieve user ID from the current context.  
+- **[FSX 1502]** Unable to retrieve the user name.  
+- **[FSX 1503]** Authentication check failed.  
+- **[FSX 1504]** Unable to retrieve user roles.  
+- **[FSX 1505]** Duplicate basic authentication names found.  
+- **[FSX 1506]** Security subsystem initialization failed.  
+- **[FSX 1550]** Authentication is required to access this resource.  
+- **[FSX 1506]** Security configuration scheme is invalid.
+
+## Database Error Codes
+- **[FSX 1601]** Failed to connect to the database.  
+- **[FSX 1602]** Error occurred during database creation.  
+- **[FSX 1603]** Failed to seed initial database data.  
+- **[FSX 1604]** Error while saving data to the database.  
+- **[FSX 1605]** Error while deleting data from the database.  
+- **[FSX 1606]** Error while building database model.  
+- **[FSX 1607]** Database transaction failed or rolled back.
+
+## Logging Error Codes
+- **[FSX 2001]** Failed to retrieve the logs list.  
+- **[FSX 2002]** Failed to retrieve specific log entry.  
+- **[FSX 2003]** Failed to add a log entry.  
+- **[FSX 2004]** Logger instance creation failed.  
+- **[FSX 2005]** Invalid property found in log template.
+
+## Auditing Error Codes
+- **[FSX 2101]** Error applying audit data or state.  
+- **[FSX 2102]** Failed to retrieve audit records.  
+- **[FSX 2103]** Specific audit record could not be retrieved.  
+- **[FSX 2104]** Audit record not found.
+
+## Plugin Configuration Error Codes
+- **[FSX 2201]** General plugin configuration error.  
+- **[FSX 2202]** Plugin configuration not found.  
+- **[FSX 2203]** Plugin configuration already exists.  
+- **[FSX 2204]** Failed to list plugin configurations.  
+- **[FSX 2205]** Failed to retrieve plugin configuration.  
+- **[FSX 2206]** Error checking if plugin configuration exists.  
+- **[FSX 2207]** Failed to add new plugin configuration.  
+- **[FSX 2208]** Failed to update plugin configuration.  
+- **[FSX 2209]** Failed to delete plugin configuration.
+
+## Plugin Error Codes
+- **[FSX 2301]** Plugin not found.  
+- **[FSX 2302]** Plugin type definition not found.  
+- **[FSX 2303]** Plugin specifications are invalid.  
+- **[FSX 2304]** Failed to retrieve plugin list.  
+- **[FSX 2305]** Failed to retrieve specific plugin.  
+- **[FSX 2306]** Failed to retrieve plugin type details.  
+- **[FSX 2307]** Error while checking plugin existence.  
+- **[FSX 2308]** Failed to fetch plugin registry data from the provided URL.  
+- **[FSX 2309]** Plugin not found in the registry.  
+- **[FSX 2310]** Failed to add new plugin.  
+- **[FSX 2311]** Failed to delete plugin.  
+- **[FSX 2312]** Plugin installation failed.  
+- **[FSX 2313]** Plugin uninstallation failed.  
+- **[FSX 2314]** Plugin installation record not found.  
+- **[FSX 2315]** Error initializing plugin loader.  
+- **[FSX 2316]** Failed to load plugin assembly.  
+- **[FSX 2317]** Plugin checksum validation failed.  
+- **[FSX 2318]** Plugin is incompatible with the current system version.
+
+## Workflow Error Codes
+- **[FSX 2401]** Workflow not found.  
+- **[FSX 2402]** Workflow definition must not be empty.  
+- **[FSX 2403]** Workflow name is required.  
+- **[FSX 2404]** Duplicate workflow names found.  
+- **[FSX 2405]** Missing workflow task dependencies.  
+- **[FSX 2406]** Workflow has cyclic dependencies.  
+- **[FSX 2407]** Failed to retrieve workflow list.  
+- **[FSX 2408]** Failed to retrieve workflow details.  
+- **[FSX 2409]** Failed to verify workflow existence.  
+- **[FSX 2410]** Failed to add new workflow.  
+- **[FSX 2411]** Failed to update workflow.  
+- **[FSX 2412]** Failed to delete workflow.  
+- **[FSX 2413]** Failed to list workflow executions.  
+- **[FSX 2414]** Failed to retrieve workflow execution details.  
+- **[FSX 2415]** Error verifying workflow execution existence.  
+- **[FSX 2416]** Failed to add workflow execution.  
+- **[FSX 2417]** Failed to update workflow execution.  
+- **[FSX 2418]** Failed to delete workflow execution.  
+- **[FSX 2419]** Failed to list workflow task executions.  
+- **[FSX 2420]** Failed to retrieve workflow task execution.  
+- **[FSX 2421]** Failed to add workflow task execution.  
+- **[FSX 2422]** Failed to update workflow task execution.  
+- **[FSX 2423]** Failed to delete workflow task execution.  
+- **[FSX 2424]** The workflow queue provider is not supported.  
+- **[FSX 2425]** Failed to initialize workflow queue provider.  
+- **[FSX 2430]** Workflow task failed due to missing dependencies.  
+- **[FSX 2431]** Workflow execution failed.  
+- **[FSX 2432]** Workflow execution initialization failed.  
+- **[FSX 2433]** Workflow task execution was canceled.  
+- **[FSX 2434]** Workflow execution was canceled.  
+- **[FSX 2435]** Error registering workflow cancellation.  
+- **[FSX 2436]** Workflow execution not found.  
+- **[FSX 2437]** Workflow execution task not found.  
+- **[FSX 2438]** Workflow trigger not found.  
+- **[FSX 2439]** Workflow is not paused.  
+- **[FSX 2440]** Workflow approval not found.  
+- **[FSX 2441]** Workflow already approved or rejected.  
+- **[FSX 2442]** Workflow execution rejected.
+
+## Expression Parser Error Codes
+- **[FSX 2601]** Output not found for expression parser result.
+
+## Unknown Error
+- **[FSX 9999]** UnknownError — An unknown or unexpected error occurred.
+
+:::info
+- These error codes are used throughout the FlowSynx system for consistent error handling and logging.  
+- Each category aligns with a subsystem (Application, Plugin, Workflow, Security, etc.).
+:::

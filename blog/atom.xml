@@ -2,11 +2,45 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://flowsynx.io/blog</id>
     <title>FlowSynx Blog</title>
-    <updated>2025-10-08T00:00:00.000Z</updated>
+    <updated>2025-10-17T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://flowsynx.io/blog"/>
     <subtitle>FlowSynx Blog</subtitle>
     <icon>https://flowsynx.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[FlowSynx v1.2.1 is now available]]></title>
+        <id>https://flowsynx.io/blog/flowsynx-v1.2.1-is-now-available</id>
+        <link href="https://flowsynx.io/blog/flowsynx-v1.2.1-is-now-available"/>
+        <updated>2025-10-17T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[FlowSynx v1.2.1 is officially released!]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="flowsynx-v121-is-officially-released">FlowSynx v1.2.1 is officially released!<a href="https://flowsynx.io/blog/flowsynx-v1.2.1-is-now-available#flowsynx-v121-is-officially-released" class="hash-link" aria-label="Direct link to FlowSynx v1.2.1 is officially released!" title="Direct link to FlowSynx v1.2.1 is officially released!">​</a></h2>
+<p>We're excited to roll out version 1.2.1 of FlowSynx — our lightweight, secure, and plugin-driven workflow engine.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="https://flowsynx.io/blog/flowsynx-v1.2.1-is-now-available#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
+<ul>
+<li>Introduce paginated result support (<a href="https://github.com/flowsynx/flowsynx/issues/508" target="_blank" rel="noopener noreferrer">508</a>)</li>
+<li>Enhance database initialization and configurations (<a href="https://github.com/flowsynx/flowsynx/issues/494" target="_blank" rel="noopener noreferrer">494</a>)</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="https://flowsynx.io/blog/flowsynx-v1.2.1-is-now-available#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h3>
+<ul>
+<li>Rename ApprovedAt field to DecidedAt in WorkflowApprovalEntity (<a href="https://github.com/flowsynx/flowsynx/issues/469" target="_blank" rel="noopener noreferrer">469</a>)</li>
+<li>Fix culture-sensitive ToLower() method (<a href="https://github.com/flowsynx/flowsynx/issues/479" target="_blank" rel="noopener noreferrer">479</a>, <a href="https://github.com/flowsynx/flowsynx/issues/497" target="_blank" rel="noopener noreferrer">497</a>, <a href="https://github.com/flowsynx/flowsynx/issues/512" target="_blank" rel="noopener noreferrer">512</a>)</li>
+<li>Documentation update (<a href="https://github.com/flowsynx/flowsynx/issues/463" target="_blank" rel="noopener noreferrer">463</a>, <a href="https://github.com/flowsynx/flowsynx/issues/465" target="_blank" rel="noopener noreferrer">464</a>, <a href="https://github.com/flowsynx/flowsynx/issues/465" target="_blank" rel="noopener noreferrer">464</a>, <a href="https://github.com/flowsynx/flowsynx/issues/481" target="_blank" rel="noopener noreferrer">481</a>, <a href="https://github.com/flowsynx/flowsynx/issues/490" target="_blank" rel="noopener noreferrer">490</a>, <a href="https://github.com/flowsynx/flowsynx/issues/491" target="_blank" rel="noopener noreferrer">491</a>, <a href="https://github.com/flowsynx/flowsynx/issues/493" target="_blank" rel="noopener noreferrer">493</a>, <a href="https://github.com/flowsynx/flowsynx/issues/510" target="_blank" rel="noopener noreferrer">510</a>, <a href="https://github.com/flowsynx/flowsynx/issues/511" target="_blank" rel="noopener noreferrer">511</a>, <a href="https://github.com/flowsynx/flowsynx/issues/514" target="_blank" rel="noopener noreferrer">514</a>, <a href="https://github.com/flowsynx/flowsynx/issues/515" target="_blank" rel="noopener noreferrer">515</a>)</li>
+<li>Add a default branch to switch (<a href="https://github.com/flowsynx/flowsynx/issues/502" target="_blank" rel="noopener noreferrer">502</a>, <a href="https://github.com/flowsynx/flowsynx/issues/503" target="_blank" rel="noopener noreferrer">503</a>)</li>
+<li>Refactor DeleteEntity to void (<a href="https://github.com/flowsynx/flowsynx/issues/504" target="_blank" rel="noopener noreferrer">504</a>)</li>
+<li>Use RandomNumberGenerator in jitter backoff (<a href="https://github.com/flowsynx/flowsynx/issues/505" target="_blank" rel="noopener noreferrer">505</a>)</li>
+<li>Clean up ManualApprovalService dead code (<a href="https://github.com/flowsynx/flowsynx/issues/509" target="_blank" rel="noopener noreferrer">509</a>)</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="available-now-via">Available now via<a href="https://flowsynx.io/blog/flowsynx-v1.2.1-is-now-available#available-now-via" class="hash-link" aria-label="Direct link to Available now via" title="Direct link to Available now via">​</a></h2>
+<a class="button button--primary button--outline button--lg" href="https://github.com/flowsynx/flowsynx/releases" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+<a class="button button--primary button--outline button--lg" href="https://hub.docker.com/r/flowsynx/flowsynx" target="_blank">Docker</a>]]></content>
+        <author>
+            <name>Maintainers</name>
+        </author>
+        <category label="FlowSynx" term="FlowSynx"/>
+        <category label="Release" term="Release"/>
+        <category label="WorkflowAutomation" term="WorkflowAutomation"/>
+        <category label="NoCode" term="NoCode"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[FlowSynx v1.2.0 is now available]]></title>
         <id>https://flowsynx.io/blog/flowsynx-v1.2.0-is-now-available</id>

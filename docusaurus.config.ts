@@ -34,7 +34,13 @@ const config: Config = {
       'classic',
       {
         docs: {
-          sidebarPath: './sidebars.ts'
+          sidebarPath: './sidebars.ts',
+          includeCurrentVersion: true,
+          versions: {
+            current: {
+              label: 'Version: 1.2.x',
+            },
+          },
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -78,6 +84,15 @@ const config: Config = {
           to: '/blog', 
           label: 'Blog', 
           position: 'left'
+        },
+        {
+          type: 'docsVersionDropdown',
+          position: 'right'
+        },
+        {
+          type: 'html',
+          position: 'right',
+          value: '<span class="navbar-divider">|</span>',
         },
         {
           to: 'http://discord.flowsynx.io/',

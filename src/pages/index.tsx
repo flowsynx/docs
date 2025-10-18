@@ -3,6 +3,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/Homepage/features';
+import GitHubContributors from '@site/src/components/GitHubContributors';
 import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
@@ -110,6 +111,29 @@ function HomepageFlowSynxArchitecture() {
   );
 }
 
+function HomepageContributors() {
+  return (
+    <section className='padding-vert--lg'>
+      <div className="container">
+        <Heading as="h2">Meet Our Contributors</Heading>
+        <div className="row">
+          <div className="col">
+            <p>
+            FlowSynx thrives thanks to our dedicated community of contributors. Their expertise, creativity, 
+            and commitment shape every release. We are delighted to introduce our contributors who make this possible.
+            </p>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col">
+            <GitHubContributors owner="flowsynx" repo="flowsynx" />
+          </div>
+      </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return (
@@ -120,6 +144,7 @@ export default function Home(): JSX.Element {
         <HomepageAboutFlowSynx />
         <HomepageFeatures />
         <HomepageFlowSynxArchitecture />
+        <HomepageContributors />
       </main>
     </Layout>
   );

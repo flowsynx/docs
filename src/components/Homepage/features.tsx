@@ -44,6 +44,18 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
+    title: 'Schema-Based Validation',
+    icon: 'mdi:shape-outline',
+    description: (
+      <>
+        FlowSynx supports <b>schema-based validation</b> for workflows, task definitions, plugin configurations, 
+        and input/output data. By defining JSON Schemas, users can ensure that 
+        workflows adhere to expected formats, required fields, and data types before execution. This reduces 
+        runtime errors, enforces consistency, and improves reliability across automated processes.
+      </>
+    ),
+  },
+  {
     title: 'Command-Line Interface (CLI)',
     icon: 'heroicons:command-line-20-solid',
     description: (

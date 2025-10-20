@@ -20,19 +20,19 @@ function HomepageHeader() {
             </Heading>
             <p className="hero__subtitle">{siteConfig.tagline}</p>
             <div className='{styles.buttons} text--left padding-top--lg'>
-              <Link className="button button--primary button--lg margin-right--sm"
+              <Link className="button button--primary button--lg margin-right--md margin-bottom--md"
                 to="/docs/getting-started">
                 Get started
               </Link>
-              <Link className="button button--outline button--primary button--lg margin-right--sm"
+              <Link className="button button--outline button--primary button--lg margin-right--md margin-bottom--md"
                 to="docs/reference/flowsynx/api">
                 API Reference
               </Link>
-              <Link className="button button--outline button--primary button--lg margin-right--sm" 
+              <Link className="button button--outline button--primary button--lg margin-right--md margin-bottom--md" 
               target='_blank' to="https://plugins.flowsynx.io">
                 Plugins
               </Link>
-              <Link className="button button--outline button--primary button--lg" target='_blank'
+              <Link className="button button--outline button--primary button--lg margin-bottom--md" target='_blank'
                 to="https://github.com/flowsynx/samples">
                 Samples
               </Link>

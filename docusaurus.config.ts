@@ -76,6 +76,11 @@ const config: Config = {
           label: 'Docs',
         },
         {
+          to: 'https://schema.flowsynx.io', 
+          label: 'Schemas', 
+          position: 'left'
+        },
+        {
           to: 'https://plugins.flowsynx.io', 
           label: 'Plugins', 
           position: 'left'
@@ -90,12 +95,7 @@ const config: Config = {
           position: 'right'
         },
         {
-          type: 'html',
-          position: 'right',
-          value: '<span class="navbar-divider">|</span>',
-        },
-        {
-          to: 'http://discord.flowsynx.io/',
+          to: 'https://discord.flowsynx.io/',
           position: 'right',
           label: 'Join our Discord',
           className: 'button button--primary button--md join-discord-button'
@@ -122,6 +122,10 @@ const config: Config = {
               label: 'Get Started',
               to: '/docs/getting-started',
             },
+            {
+              label: 'Schemas',
+              href: 'https://schema.flowsynx.io',
+            },
           ],
         },
         {
@@ -133,7 +137,7 @@ const config: Config = {
             },
             {
               label: 'Discord',
-              href: 'http://discord.flowsynx.io',
+              href: 'https://discord.flowsynx.io',
             },
             {
               label: 'Youtube',

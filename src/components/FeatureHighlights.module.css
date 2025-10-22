@@ -1,0 +1,57 @@
+.container {
+    display: flex;
+    padding: 2rem 0rem;
+  }
+  
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: transparent;
+    border: 2px solid #1c1e21;
+    border-radius: 12px;
+    padding: 1.5rem 1rem;
+    gap: 2rem;
+    color: #ccc;
+    width: 100%;
+  }
+  
+  .col {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+  
+  .subtitle {
+    margin-top: 0.4rem;
+    font-size: 0.9rem;
+    color: #aaa;
+  }
+  
+  .green {
+    color: #22c55e; /* Green */
+  }
+
+  .divider {
+    height: 5rem;
+    border-left: 1px solid #444950;
+  }
+  
+  @media (max-width: 768px) {
+    .row {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+    }
+  
+    .divider {
+      display: none;
+    }
+  }
+  

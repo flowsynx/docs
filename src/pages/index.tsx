@@ -4,6 +4,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/Homepage/features';
 import GitHubContributors from '@site/src/components/GitHubContributors';
+import FeatureHighlights from '@site/src/components/FeatureHighlights';
 import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
@@ -39,6 +40,8 @@ function HomepageHeader() {
             </div>
           </div>
         </div>
+        <FeatureHighlights />
+
       </div>
     </header>
   );

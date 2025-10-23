@@ -30,11 +30,14 @@ curl -H "Authorization: Bearer <your_token>" http://localhost:6262/plugins
 ### List Installed Plugins
 - **Method**: `GET`
 - **Endpoint**: `/plugins`
-- **Body Required**: No
+- **Body Required**: No,
+- **Query Parameters (optional)**:
+  - **page** (integer): Page number to retrieve. Default is 1.
+  - **pageSize** (integer): Number of items per page. Default is 25.
 
 #### `curl` Example
 ```bash
-curl -X GET http://localhost:6262/plugins \
+curl -X GET "http://localhost:6262/plugins?page=1&pageSize=25" \
   -H "Authorization: Bearer <your_token>"
 ```
 
@@ -51,9 +54,29 @@ curl -X GET http://localhost:6262/plugins \
   ],
   "messages": [],
   "succeeded": true,
+  "pagination": {
+    "currentPage": 1,
+    "totalPages": 1,
+    "totalCount": 1,
+    "pageSize": 25,
+    "hasPreviousPage": false,
+    "hasNextPage": false
+  },
   "generatedAtUtc": "2025-08-02T13:10:05.2517196Z"
 }
 ```
+
+:::note
+- The pagination object provides metadata for paginated results:
+  - **currentPage**: Current page number.
+  - **totalPages**: Total number of pages available.
+  - **totalCount**: Total number of plugins.
+  - **pageSize**: Number of items per page.
+  - **hasPreviousPage**: true if there’s a previous page.
+  - **hasNextPage**: true if there’s a next page.
+
+You can use the **page** and **pageSize** query parameters to retrieve specific pages of plugin results.
+:::
 
 ### Install Plugin
 - **Method**: `POST`

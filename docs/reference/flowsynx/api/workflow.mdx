@@ -31,10 +31,13 @@ curl -H "Authorization: Bearer <your_token>" http://localhost:6262/workflows
 - **Endpoint**: `/workflows`
 - **Body Required**: No
 - **Description**: Retrieves a list of all workflows with their `id`, `name`, and last modified date.
+- **Query Parameters (optional)**:
+  - **page** (integer): Page number to retrieve. Default is 1.
+  - **pageSize** (integer): Number of items per page. Default is 25.
 
 #### `curl` Example
 ```bash
-curl -X GET http://localhost:6262/workflows \
+curl -X GET http://localhost:6262/workflows?page=1&pageSize=25 \
   -H "Authorization: Bearer <your_token>"
 ```
 
@@ -50,9 +53,29 @@ curl -X GET http://localhost:6262/workflows \
   ],
   "messages": [],
   "succeeded": true,
+  "pagination": {
+    "currentPage": 1,
+    "totalPages": 1,
+    "totalCount": 1,
+    "pageSize": 25,
+    "hasPreviousPage": false,
+    "hasNextPage": false
+  },
   "generatedAtUtc": "2025-08-10T14:32:01Z"
 }
 ```
+
+:::note
+- The pagination object provides metadata for paginated results:
+  - **currentPage**: Current page number.
+  - **totalPages**: Total number of pages available.
+  - **totalCount**: Total number of plugins.
+  - **pageSize**: Number of items per page.
+  - **hasPreviousPage**: true if there’s a previous page.
+  - **hasNextPage**: true if there’s a next page.
+
+You can use the **page** and **pageSize** query parameters to retrieve specific pages of plugin results.
+:::
 
 ### Get Workflow Details
 - **Method**: `GET`

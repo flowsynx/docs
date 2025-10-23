@@ -30,10 +30,13 @@ curl -H "Authorization: Bearer <your_token>" http://localhost:6262/workflows/{wo
 - **Endpoint**: `/workflows/{workflowId}/executions`
 - **Body Required**: No
 - **Description**: Retrieves a list of executions for the specified workflow.
+- **Query Parameters (optional)**:
+  - **page** (integer): Page number to retrieve. Default is 1.
+  - **pageSize** (integer): Number of items per page. Default is 25.
 
 #### `curl` Example
 ```bash
-curl -X GET http://localhost:6262/workflows/{workflowId}/executions \
+curl -X GET http://localhost:6262/workflows/{workflowId}/executions?page=1&pageSize=25 \
   -H "Authorization: Bearer <your_token>"
 ```
 
@@ -50,9 +53,29 @@ curl -X GET http://localhost:6262/workflows/{workflowId}/executions \
   ],
   "messages": [],
   "succeeded": true,
+  "pagination": {
+    "currentPage": 1,
+    "totalPages": 1,
+    "totalCount": 1,
+    "pageSize": 25,
+    "hasPreviousPage": false,
+    "hasNextPage": false
+  },
   "generatedAtUtc": "2025-09-14T10:31:00Z"
 }
 ```
+
+:::note
+- The pagination object provides metadata for paginated results:
+  - **currentPage**: Current page number.
+  - **totalPages**: Total number of pages available.
+  - **totalCount**: Total number of plugins.
+  - **pageSize**: Number of items per page.
+  - **hasPreviousPage**: true if there’s a previous page.
+  - **hasNextPage**: true if there’s a next page.
+
+You can use the **page** and **pageSize** query parameters to retrieve specific pages of plugin results.
+:::
 
 ### Get Workflow Execution Details
 - **Method**: `GET`
@@ -109,9 +132,12 @@ curl -X GET http://localhost:6262/workflows/{workflowId}/executions/{executionId
 
 ### List Workflow Execution Tasks
 - **Method**: `GET`
-- **Endpoint**: `/workflows/{workflowId}/executions/{executionId}/tasks`
+- **Endpoint**: `/workflows/{workflowId}/executions/{executionId}/tasks?page=1&pageSize=25`
 - **Body Required**: No
 - **Description**: Retrieves the list of tasks associated with a workflow execution.
+- **Query Parameters (optional)**:
+  - **page** (integer): Page number to retrieve. Default is 1.
+  - **pageSize** (integer): Number of items per page. Default is 25.
 
 #### Example Response
 ```json
@@ -130,9 +156,29 @@ curl -X GET http://localhost:6262/workflows/{workflowId}/executions/{executionId
   ],
   "messages": [],
   "succeeded": true,
+  "pagination": {
+    "currentPage": 1,
+    "totalPages": 1,
+    "totalCount": 1,
+    "pageSize": 25,
+    "hasPreviousPage": false,
+    "hasNextPage": false
+  },
   "generatedAtUtc": "2025-09-14T10:33:00Z"
 }
 ```
+
+:::note
+- The pagination object provides metadata for paginated results:
+  - **currentPage**: Current page number.
+  - **totalPages**: Total number of pages available.
+  - **totalCount**: Total number of plugins.
+  - **pageSize**: Number of items per page.
+  - **hasPreviousPage**: true if there’s a previous page.
+  - **hasNextPage**: true if there’s a next page.
+
+You can use the **page** and **pageSize** query parameters to retrieve specific pages of plugin results.
+:::
 
 ### Get Workflow Execution Task Details
 - **Method**: `GET`
@@ -158,9 +204,12 @@ curl -X GET http://localhost:6262/workflows/{workflowId}/executions/{executionId
 
 ### Get Workflow Execution Task Logs
 - **Method**: `GET`
-- **Endpoint**: `/workflows/{workflowId}/executions/{executionId}/tasks/{taskExecutionId}/logs`
+- **Endpoint**: `/workflows/{workflowId}/executions/{executionId}/tasks/{taskExecutionId}/logs?page=1&pageSize=25`
 - **Body Required**: No
 - **Description**: Retrieves logs for a specific task execution.
+- **Query Parameters (optional)**:
+  - **page** (integer): Page number to retrieve. Default is 1.
+  - **pageSize** (integer): Number of items per page. Default is 25.
 
 #### Example Response
 ```json
@@ -176,9 +225,29 @@ curl -X GET http://localhost:6262/workflows/{workflowId}/executions/{executionId
   ],
   "messages": [],
   "succeeded": true,
+  "pagination": {
+    "currentPage": 1,
+    "totalPages": 1,
+    "totalCount": 1,
+    "pageSize": 25,
+    "hasPreviousPage": false,
+    "hasNextPage": false
+  },
   "generatedAtUtc": "2025-09-14T10:34:00Z"
 }
 ```
+
+:::note
+- The pagination object provides metadata for paginated results:
+  - **currentPage**: Current page number.
+  - **totalPages**: Total number of pages available.
+  - **totalCount**: Total number of plugins.
+  - **pageSize**: Number of items per page.
+  - **hasPreviousPage**: true if there’s a previous page.
+  - **hasNextPage**: true if there’s a next page.
+
+You can use the **page** and **pageSize** query parameters to retrieve specific pages of plugin results.
+:::
 
 ### Execute Workflow
 - **Method**: `POST`

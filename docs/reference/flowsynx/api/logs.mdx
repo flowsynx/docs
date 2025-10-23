@@ -30,6 +30,9 @@ curl -H "Authorization: Bearer <your_token>" http://localhost:6262/logs
 - **Endpoint**: `/logs`
 - **Body Required**: `Yes`
 - **Content-Type**: `application/json`
+- **Query Parameters (optional)**:
+  - **page** (integer): Page number to retrieve. Default is 1.
+  - **pageSize** (integer): Number of items per page. Default is 25.
 
 #### Required Body
 | Field      | Type   | Required | Description                                                            |
@@ -51,7 +54,7 @@ curl -H "Authorization: Bearer <your_token>" http://localhost:6262/logs
 
 #### `curl` Example
 ```bash
-curl -X POST http://localhost:6262/logs \
+curl -X POST http://localhost:6262/logs?page=1&pageSize=25 \
   -H "Authorization: Bearer <your_token>" \
   -H "Content-Type: application/json" \
   -d '{
@@ -83,9 +86,30 @@ curl -X POST http://localhost:6262/logs \
   ],
   "messages": [],
   "succeeded": true,
+  "pagination": {
+    "currentPage": 1,
+    "totalPages": 1,
+    "totalCount": 1,
+    "pageSize": 25,
+    "hasPreviousPage": false,
+    "hasNextPage": false
+  },
   "generatedAtUtc": "2025-08-01T17:00:39.1100673Z"
 }
 ```
+
+:::note
+- The pagination object provides metadata for paginated results:
+  - **currentPage**: Current page number.
+  - **totalPages**: Total number of pages available.
+  - **totalCount**: Total number of plugins.
+  - **pageSize**: Number of items per page.
+  - **hasPreviousPage**: true if there’s a previous page.
+  - **hasNextPage**: true if there’s a next page.
+
+You can use the **page** and **pageSize** query parameters to retrieve specific pages of plugin results.
+:::
+
 
 ## Summary Table
 | Method | Endpoint | Authentication      | Authorization Roles   | Filters Supported                        |

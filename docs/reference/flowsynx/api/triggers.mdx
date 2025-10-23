@@ -44,6 +44,9 @@ curl -H "Authorization: Bearer <your_token>" http://localhost:6262/workflows/{wo
 - **Endpoint**: `/workflows/{workflowId}/triggers`
 - **Body Required**: No
 - **Description**: Retrieves a list of all triggers for a given workflow.
+- **Query Parameters (optional)**:
+  - **page** (integer): Page number to retrieve. Default is 1.
+  - **pageSize** (integer): Number of items per page. Default is 25.
 
 :::info
 - `workflowId`: UUID of the workflow whose triggers are being retrieved.
@@ -51,7 +54,7 @@ curl -H "Authorization: Bearer <your_token>" http://localhost:6262/workflows/{wo
 
 #### `curl` Example
 ```bash
-curl -X GET http://localhost:6262/workflows/83b102e0-9129-4069-abd5-97a312ed9c1f/triggers   -H "Authorization: Bearer <your_token>"
+curl -X GET http://localhost:6262/workflows/83b102e0-9129-4069-abd5-97a312ed9c1f/triggers?page=1&pageSize=25   -H "Authorization: Bearer <your_token>"
 ```
 
 #### Example Response
@@ -68,9 +71,29 @@ curl -X GET http://localhost:6262/workflows/83b102e0-9129-4069-abd5-97a312ed9c1f
   ],
   "messages": [],
   "succeeded": true,
+  "pagination": {
+    "currentPage": 1,
+    "totalPages": 1,
+    "totalCount": 1,
+    "pageSize": 25,
+    "hasPreviousPage": false,
+    "hasNextPage": false
+  },
   "generatedAtUtc": "2025-08-10T14:32:01Z"
 }
 ```
+
+:::note
+- The pagination object provides metadata for paginated results:
+  - **currentPage**: Current page number.
+  - **totalPages**: Total number of pages available.
+  - **totalCount**: Total number of plugins.
+  - **pageSize**: Number of items per page.
+  - **hasPreviousPage**: true if there’s a previous page.
+  - **hasNextPage**: true if there’s a next page.
+
+You can use the **page** and **pageSize** query parameters to retrieve specific pages of plugin results.
+:::
 
 ### Get Workflow Trigger Details
 - **Method**: `GET`

@@ -9,18 +9,32 @@ This schema defines a **Directed Acyclic Graph (DAG)** workflow as a single JSON
 
 ## Top-Level Structure
 
-A workflow definition is a single JSON object with three main parts:
+A workflow definition is a single JSON object with a "Schema" URL and a nested "Workflow" object:
 
 ```jsonc
 {
-  "Name": "...",              // required
-  "Description": "...",       // optional
-  "Configuration": { ... },   // optional global settings
-  "Tasks": [ ... ]            // required list of task objects
+  "Schema": "https://schema.flowsynx.io/workflows/...",
+  "Workflow": {
+    "Name": "...",              // required
+    "Description": "...",       // optional
+    "Configuration": { ... },   // optional global settings
+    "Tasks": [ ... ]            // required list of task objects
+  }
 }
 ```
 
 ### Fields
+
+| Field      | Type   | Required | Default | Description                                     |
+| ---------- | ------ | -------- | ------- | ----------------------------------------------- |
+| `Schema`   | string | ✅        | —       | URL identifying the JSON schema for validation. |
+| `Workflow` | object | ✅        | —       | Object containing the workflow definition.      |
+
+> FlowSynx workflow schemas are available at: [https://schema.flowsynx.io](https://schema.flowsynx.io)
+
+### Workflow Object
+
+The "Workflow" object contains the actual workflow definition with the following fields:
 
 | Field           | Type   | Required | Default | Description                                                    |
 | --------------- | ------ | -------- | ------- | -------------------------------------------------------------- |
@@ -169,70 +183,73 @@ Used purely for visualization.
 
 ```json
 {
-  "Name": "DataProcessingWorkflow",
-  "Description": "Loading data from Amazon S3, convert it to CSV and then store it on Local FileSystem",
-  "Configuration": {
-    "DegreeOfParallelism": 4,
-    "Timeout": 600000,
-    "ErrorHandling": {
-      "Strategy": "Retry",
-      "RetryPolicy": {
-        "MaxRetries": 5,
-        "BackoffStrategy": "Exponential",
-        "InitialDelay": 2000,
-        "MaxDelay": 30000,
-        "BackoffCoefficient": 2.5
-      }
-    }
-  },
-  "Tasks": [
-    {
-      "Name": "AmazonFilesList",
-      "Type": {
-        "plugin": "FlowSynx.Cloud.Amazon.S3",
-        "version": "1.1.0",
-        "Ssecifications": {
-          "AccessKey": "AKIAEXAMPLE123456",
-          "SecretKey": "abc123secretkeyexample",
-          "Region": "us-east-1",
-          "Bucket": "my-flowsynx-bucket",
-          "SessionToken": "FQoGZXIvYXdzEJr..."
+  "Schema": "https://schema.flowsynx.io/workflows/v1.0.0/schema.json",
+  "Workflow": {
+    "Name": "DataProcessingWorkflow",
+    "Description": "Loading data from Amazon S3, convert it to CSV and then store it on Local FileSystem",
+    "Configuration": {
+      "DegreeOfParallelism": 4,
+      "Timeout": 600000,
+      "ErrorHandling": {
+        "Strategy": "Retry",
+        "RetryPolicy": {
+          "MaxRetries": 5,
+          "BackoffStrategy": "Exponential",
+          "InitialDelay": 2000,
+          "MaxDelay": 30000,
+          "BackoffCoefficient": 2.5
         }
-      },
-      "Parameters": {
-        "Operation": "list",
-        "Path": "documents/report.json",
-        "Recurse": true,
-        "CaseSensitive": false,
-        "MaxResults": 10
-      },
-      "Position": { "X": 100, "Y": 50 }
+      }
     },
-    {
-      "Name": "ToCSV",
-      "Type": {
-        "plugin": "FlowSynx.Data.Csv",
-        "version": "1.2.0"
+    "Tasks": [
+      {
+        "Name": "AmazonFilesList",
+        "Type": {
+          "plugin": "FlowSynx.Cloud.Amazon.S3",
+          "version": "1.1.0",
+          "Ssecifications": {
+            "AccessKey": "AKIAEXAMPLE123456",
+            "SecretKey": "abc123secretkeyexample",
+            "Region": "us-east-1",
+            "Bucket": "my-flowsynx-bucket",
+            "SessionToken": "FQoGZXIvYXdzEJr..."
+          }
+        },
+        "Parameters": {
+          "Operation": "list",
+          "Path": "documents/report.json",
+          "Recurse": true,
+          "CaseSensitive": false,
+          "MaxResults": 10
+        },
+        "Position": { "X": 100, "Y": 50 }
       },
-      "Dependencies": ["AmazonFilesList"],
-      "Parameters": { 
-        "Operation": "read",
-        "Delimiter": ","
-       },
-      "Position": { "X": 300, "Y": 50 }
-    },
-    {
-      "Name": "SaveData",
-      "Type": "",
-      "Dependencies": ["ToCSV"],
-      "Parameters": { 
+      {
+        "Name": "ToCSV",
+        "Type": {
+          "plugin": "FlowSynx.Data.Csv",
+          "version": "1.2.0"
+        },
+        "Dependencies": ["AmazonFilesList"],
+        "Parameters": { 
+          "Operation": "read",
+          "Delimiter": ","
+        },
+        "Position": { "X": 300, "Y": 50 }
+      },
+      {
+        "Name": "SaveData",
+        "Type": "",
+        "Dependencies": ["ToCSV"],
+        "Parameters": { 
           "Operation": "write",
           "path": "result.txt",
           "Data": "$[Outputs('ToCSV')]",
           "overwrite": true
-       },
-      "Position": { "X": 500, "Y": 50 }
-    }
-  ]
+        },
+        "Position": { "X": 500, "Y": 50 }
+      }
+    ]
+  }
 }
 ```

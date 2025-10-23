@@ -170,6 +170,19 @@ const FeatureList: FeatureItem[] = [
       intelligent recovery from transient failures without manual intervention.
       </>
     ),
+  },
+  {
+    title: 'Unified Error Codes & Response Integration',
+    icon: 'bxs:error',
+    description: (
+      <>
+        FlowSynx introduces a standardized error code system using the format <b>[FSX ####]</b>, 
+        where each code uniquely identifies the error category and number. This unified structure 
+        ensures consistent and predictable error reporting across workflows, plugins, and API responses. 
+        Errors are automatically surfaced in the FlowSynx web interface, providing clear context, 
+        real-time visibility, and simplified troubleshooting for both users and developers.
+      </>
+    ),
   }
 ];
 

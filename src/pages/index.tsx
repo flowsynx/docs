@@ -41,7 +41,6 @@ function HomepageHeader() {
           </div>
         </div>
         <FeatureHighlights />
-
       </div>
     </header>
   );

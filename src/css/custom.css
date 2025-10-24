@@ -13,6 +13,7 @@
   --ifm-color-primary-light: #009999;
   --ifm-color-primary-lighter: #00a0a0;
   --ifm-color-primary-lightest: #00b5b5;
+  --ifm-color-border-gray: #cccccc;
   --ifm-code-font-size: 90%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
@@ -26,6 +27,7 @@
   --ifm-color-primary-light: #59e4d6;
   --ifm-color-primary-lighter: #65e6d9;
   --ifm-color-primary-lightest: #8aece2;
+  --ifm-color-border-gray: #555555;
   --ifm-code-font-size: 90%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
@@ -85,11 +87,19 @@
 }
 
 .hero--background {
-  background-image: url('/img/hero-img.jpg');
+  background-image: url('/img/hero-img.png');
   background-repeat: no-repeat; /* Prevents the image from repeating */
   background-size: cover; /* Scales the image to cover the entire container */
   background-position: center; /* Centers the image */
   color: #fff;
+}
+
+.hero__title{
+  color: var(--ifm-hero-text-color);
+}
+
+.hero__subtitle {
+  color: var(--ifm-hero-text-color);
 }
 
 .about-section{

@@ -9,11 +9,11 @@
     justify-content: space-around;
     align-items: center;
     background-color: transparent;
-    border: 2px solid #1c1e21;
+    border: 1px solid var(--ifm-color-border-gray);
     border-radius: 12px;
     padding: 1.5rem 1rem;
     gap: 2rem;
-    color: #ccc;
+    color: var(--ifm-hero-text-color);
     width: 100%;
   }
   
@@ -31,7 +31,7 @@
   .subtitle {
     margin-top: 0.4rem;
     font-size: 0.9rem;
-    color: #aaa;
+    color: var(--ifm-footer-link-color);
   }
   
   .green {
@@ -40,7 +40,7 @@
 
   .divider {
     height: 5rem;
-    border-left: 1px solid #444950;
+    border-left: 1px solid var(--ifm-color-border-gray);;
   }
   
   @media (max-width: 768px) {

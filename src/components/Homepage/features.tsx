@@ -115,6 +115,18 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
+    title: 'Secret Management Integration',
+    icon: 'fluent:key-multiple-16-filled',
+    description: (
+      <>
+        FlowSynx introduces a unified <b>SecretManagement provider framework</b> that securely handles 
+        sensitive data such as API keys, passwords, certificates, and tokens. The system supports multiple 
+        secret providers — including Infisical, Azure Key Vault, HashiCorp Vault, and AWS Secrets Manager 
+        under a single consistent interface.
+      </>
+    ),
+  }, 
+  {
     title: 'Logging, Monitoring, and Auditing',
     icon: 'eos-icons:monitoring',
     description: (
@@ -183,7 +195,7 @@ const FeatureList: FeatureItem[] = [
         real-time visibility, and simplified troubleshooting for both users and developers.
       </>
     ),
-  }
+  } 
 ];
 
 function Feature({title, icon, description}: FeatureItem) {

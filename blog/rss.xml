@@ -4,10 +4,48 @@
         <title>FlowSynx Blog</title>
         <link>https://flowsynx.io/blog</link>
         <description>FlowSynx Blog</description>
-        <lastBuildDate>Sun, 26 Oct 2025 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 08 Nov 2025 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[FlowSynx v1.2.3 is now available]]></title>
+            <link>https://flowsynx.io/blog/flowsynx-v1.2.3-is-now-available</link>
+            <guid>https://flowsynx.io/blog/flowsynx-v1.2.3-is-now-available</guid>
+            <pubDate>Sat, 08 Nov 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[FlowSynx v1.2.3 is officially released!]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="flowsynx-v123-is-officially-released">FlowSynx v1.2.3 is officially released!<a href="https://flowsynx.io/blog/flowsynx-v1.2.3-is-now-available#flowsynx-v123-is-officially-released" class="hash-link" aria-label="Direct link to FlowSynx v1.2.3 is officially released!" title="Direct link to FlowSynx v1.2.3 is officially released!">​</a></h2>
+<p>We're excited to roll out version 1.2.3 of FlowSynx — our lightweight, secure, and plugin-driven workflow engine.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="https://flowsynx.io/blog/flowsynx-v1.2.3-is-now-available#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h2>
+<ul>
+<li>Add Infisical for Configuration Management (<a href="https://github.com/flowsynx/flowsynx/pull/615" target="_blank" rel="noopener noreferrer">#615</a>)</li>
+<li>Add Azure Key Vault secret provider implementation (<a href="https://github.com/flowsynx/flowsynx/issues/635" target="_blank" rel="noopener noreferrer">#635</a>)</li>
+<li>Add HashiCorp Vault secret provider implementation (<a href="https://github.com/flowsynx/flowsynx/issues/636" target="_blank" rel="noopener noreferrer">636</a>)</li>
+<li>Add AWS Secrets Manager integration (<a href="https://github.com/flowsynx/flowsynx/issues/637" target="_blank" rel="noopener noreferrer">637</a>)</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="https://flowsynx.io/blog/flowsynx-v1.2.3-is-now-available#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h2>
+<ul>
+<li>Refactor: Reduce Cognitive Complexity (<a href="https://github.com/flowsynx/flowsynx/pull/589" target="_blank" rel="noopener noreferrer">#589</a>, <a href="https://github.com/flowsynx/flowsynx/pull/590" target="_blank" rel="noopener noreferrer">#590</a>, <a href="https://github.com/flowsynx/flowsynx/pull/599" target="_blank" rel="noopener noreferrer">#599</a>, <a href="https://github.com/flowsynx/flowsynx/pull/601" target="_blank" rel="noopener noreferrer">#601</a>, <a href="https://github.com/flowsynx/flowsynx/pull/604" target="_blank" rel="noopener noreferrer">#604</a>)</li>
+<li>Rename parameter rateLimitPolicy to rateLimitPolicyName in Endpoints (<a href="https://github.com/flowsynx/flowsynx/issues/606" target="_blank" rel="noopener noreferrer">#606</a>, <a href="https://github.com/flowsynx/flowsynx/issues/607" target="_blank" rel="noopener noreferrer">#607</a>, <a href="https://github.com/flowsynx/flowsynx/issues/608" target="_blank" rel="noopener noreferrer">#608</a>, <a href="https://github.com/flowsynx/flowsynx/issues/609" target="_blank" rel="noopener noreferrer">#609</a>, <a href="https://github.com/flowsynx/flowsynx/issues/610" target="_blank" rel="noopener noreferrer">#610</a>, <a href="https://github.com/flowsynx/flowsynx/issues/611" target="_blank" rel="noopener noreferrer">#611</a>, <a href="https://github.com/flowsynx/flowsynx/issues/612" target="_blank" rel="noopener noreferrer">#612</a>)</li>
+<li>Refactor persistence layers for SQLite and PostgreSQL (<a href="https://github.com/flowsynx/flowsynx/issues/670" target="_blank" rel="noopener noreferrer">#670</a>)</li>
+<li>Refactor namespaces and enhance test coverage (<a href="https://github.com/flowsynx/flowsynx/issues/673" target="_blank" rel="noopener noreferrer">#673</a>)</li>
+<li>Make encryption key optional in EncryptionService (<a href="https://github.com/flowsynx/flowsynx/issues/674" target="_blank" rel="noopener noreferrer">#674</a>)</li>
+<li>Refactor service configuration and add DatabaseProvider (<a href="https://github.com/flowsynx/flowsynx/issues/676" target="_blank" rel="noopener noreferrer">#676</a>)</li>
+<li>Refactor ConsoleLogger for disposal and thread safety (<a href="https://github.com/flowsynx/flowsynx/issues/650" target="_blank" rel="noopener noreferrer">#650</a>)</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="acknowledgements">Acknowledgements<a href="https://flowsynx.io/blog/flowsynx-v1.2.3-is-now-available#acknowledgements" class="hash-link" aria-label="Direct link to Acknowledgements" title="Direct link to Acknowledgements">​</a></h2>
+<p>Big thanks to our contributors in this release:<br>
+<a href="https://github.com/Sakeeb91" target="_blank" rel="noopener noreferrer">@Sakeeb91</a> <a href="https://github.com/mohin-io" target="_blank" rel="noopener noreferrer">@arch92</a> <a href="https://github.com/AB-404" target="_blank" rel="noopener noreferrer">@AB-404</a> <a href="https://github.com/napalskies" target="_blank" rel="noopener noreferrer">@napalskies</a> <a href="https://github.com/cnaples79" target="_blank" rel="noopener noreferrer">@cnaples79</a> <a href="https://github.com/lerrxws" target="_blank" rel="noopener noreferrer">@lerrxws</a> <a href="https://github.com/rezaziagham" target="_blank" rel="noopener noreferrer">@rezaziagham</a></p>
+<p>Every commit, review, and suggestion helped shape this version.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="available-now-via">Available now via<a href="https://flowsynx.io/blog/flowsynx-v1.2.3-is-now-available#available-now-via" class="hash-link" aria-label="Direct link to Available now via" title="Direct link to Available now via">​</a></h2>
+<a class="button button--primary button--outline button--lg" href="https://github.com/flowsynx/flowsynx/releases/tag/v1.2.3" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+<a class="button button--primary button--outline button--lg" href="https://hub.docker.com/r/flowsynx/flowsynx/tags?name=1.2.3" target="_blank">Docker</a>
+<h4>To begin, please visit the <a href="https://flowsynx.io/docs/getting-started">Getting Started</a> page.</h4>]]></content:encoded>
+            <category>FlowSynx</category>
+            <category>Release</category>
+            <category>WorkflowAutomation</category>
+            <category>NoCode</category>
+        </item>
         <item>
             <title><![CDATA[FlowSynx v1.2.2 is now available]]></title>
             <link>https://flowsynx.io/blog/flowsynx-v1.2.2-is-now-available</link>

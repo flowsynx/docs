@@ -56,6 +56,19 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
+    title: 'Unified Data Abstraction Layer (UDAL)',
+    icon: 'mdi:database-sync-outline',
+    description: (
+      <>
+        The <b>UDAL</b> in FlowSynx provides a seamless interface for accessing, 
+        transforming, and synchronizing data across heterogeneous sources. It abstracts underlying data complexities, 
+        offering a consistent structure for workflow integration. By standardizing data models and connection handling, 
+        UDAL simplifies data interoperability, enhances reusability, and ensures uniform access control and validation 
+        across all automated processes.
+      </>
+    ),
+  },  
+  {
     title: 'Command-Line Interface (CLI)',
     icon: 'heroicons:command-line-20-solid',
     description: (

@@ -67,7 +67,20 @@ const FeatureList: FeatureItem[] = [
         across all automated processes.
       </>
     ),
-  },  
+  },
+  {
+    title: 'Source-Agnostic Processing',
+    icon: 'mdi:database-cog-outline',
+    description: (
+      <>
+        <b>Source-Agnostic Processing</b> in FlowSynx enables seamless handling of data 
+        from any source — databases, APIs, or files — without source-specific logic. 
+        Once loaded into the <b>UDAL</b> model, all processing plugins (e.g., <b>CSV</b>, 
+        <b>ZipCompressor</b>, <b>DatabaseWriter</b>) work uniformly, ensuring consistent 
+        transformation and orchestration across diverse systems.
+      </>
+    ),
+  },
   {
     title: 'Command-Line Interface (CLI)',
     icon: 'heroicons:command-line-20-solid',

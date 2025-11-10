@@ -26,7 +26,7 @@ version: '3.8'
 
 services:
   flowsynx:
-    image: flowsynx/flowsynx:1.1.2-linux-amd64
+    image: flowsynx/flowsynx:1.2.2-linux-amd64
     container_name: flowsynx
     environment:
       DB__HOST: postgres
@@ -40,6 +40,7 @@ services:
       Security__BasicUsers__0__Password: admin
       Security__BasicUsers__0__Roles__0: admin
       Security__DefaultScheme: Basic
+      Encryption__Key: u3W1rKiLcnJrGLRt3SbRWDL/XWrjEybG3EDIdxAioIU=
     volumes:
       - flowsynx-data:/app
     working_dir: /app

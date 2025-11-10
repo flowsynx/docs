@@ -1,0 +1,203 @@
+---
+sidebar_position: 3
+title: Expressions Syntax
+description: Learn how to use expressions in FlowSynx workflows to reference outputs, variables, and nested data dynamically during workflow execution.
+---
+
+# FlowSynx Expression Syntax
+
+FlowSynx supports a flexible **expression system** that allows you to reference **workflow outputs**, **variables**, and **nested properties** dynamically within workflow definitions.  
+Expressions are resolved at runtime by the `ExpressionParser` engine.
+
+## Overview
+
+Expressions are enclosed within the syntax:
+
+```
+$[...]
+```
+
+Anything inside `$[...]` is evaluated by the expression parser.
+
+You can use this syntax anywhere in your workflow — for example in **task parameters**, **paths**, or **input data** fields.
+
+## Expression Sources
+
+FlowSynx supports two main data sources inside expressions:
+
+| Source | Syntax Example | Description |
+| ------- | --------------- | ----------- |
+| **Variables** | `$[Variables('InputPath')]` | References workflow-level variables defined under `"Variables"` in the workflow JSON. |
+| **Outputs** | `$[Outputs('TaskName')]` | References the output of a previously executed task. |
+
+Both can be used in nested or concatenated contexts.
+
+## Basic Examples
+
+### Accessing Workflow Variables
+
+```jsonc
+"Parameters": {
+  "Path": "$[Variables('InputPath')]"
+}
+```
+
+If your workflow defines:
+
+```jsonc
+"Variables": {
+  "InputPath": "s3://bucket/input"
+}
+```
+
+The parser will replace `$[Variables('InputPath')]` with:
+
+```
+s3://bucket/input
+```
+
+### Accessing Task Outputs
+
+```jsonc
+"Parameters": {
+  "Data": "$[Outputs('ExtractData')]"
+}
+```
+
+This retrieves the **entire output** of a task named `ExtractData`.
+
+## Nested Property Access
+
+You can access **nested fields** or **array elements** inside objects and arrays using `.` (dot notation) or `[]` (indexers):
+
+| Example | Meaning |
+| -------- | -------- |
+| `$[Outputs('ExtractData').Records[0].Id]` | Accesses the `Id` property of the first record in the `Records` array. |
+| `$[Outputs('Transform').Result.Data.Value]` | Accesses a deeply nested property. |
+
+These can be combined with variable lookups:
+
+```jsonc
+"Parameters": {
+  "Path": "$[Variables('BasePath')]/$[Outputs('Task1').FileName]"
+}
+```
+
+If:
+```jsonc
+"Variables": { "BasePath": "/data/output" },
+"Outputs": { "Task1": { "FileName": "report.csv" } }
+```
+
+Result:
+```
+/data/output/report.csv
+```
+
+## Expression Evaluation Rules
+
+The `ExpressionParser` engine follows these rules:
+
+1. **Single Expression**  
+   - If the expression is *entirely* a `$[...]` block, the value is returned directly as an object (not just a string).  
+   - Example: `$[Outputs('Task1')]` returns the full object produced by `Task1`.
+
+2. **String Concatenation**  
+   - If the expression is embedded within a larger string, the resolved value is converted to a string and concatenated.  
+   - Example: `"File: $[Outputs('Task1').FileName]"` → `"File: result.csv"`.
+
+3. **Nested Expressions**  
+   - Expressions can reference other expressions recursively.  
+   - Example: `$[Variables(Outputs('MetaTask').VariableKey)]`.
+
+4. **Case Insensitivity**  
+   - Keys and property names are resolved case-insensitively (`Outputs('task1')` = `Outputs('Task1')`).
+
+5. **Unbalanced Brackets or Parentheses**  
+   - The parser detects and throws descriptive errors for unbalanced `[]` or `()` characters.
+
+6. **Quoted Keys**  
+   - You can wrap keys in single quotes to include spaces or special characters:  
+     `$[Variables('My Custom Key')]`.
+
+## Supported Operations
+
+### 1. Variable Access
+```
+$[Variables('key')]
+```
+
+### 2. Output Access
+```
+$[Outputs('taskName')]
+```
+
+### 3. Nested Field Access
+```
+$[Outputs('task').data.results[1].value]
+```
+
+### 4. Combined or Concatenated Strings
+```
+"Path": "logs/$[Variables('RunId')]/$[Outputs('Extract').FileName]"
+```
+
+### 5. Recursive Expressions
+```
+$[Variables(Outputs('Metadata').DynamicKey)]
+```
+
+## Error Handling
+
+When an expression cannot be resolved, the parser throws a `FlowSynxException` with specific error codes.
+
+| Error Code | Condition | Example |
+| ----------- | ---------- | -------- |
+| `ExpressionParserKeyNotFound` | Key or source (`Variables` / `Outputs`) is missing or invalid. | `$[Outputs('UnknownTask')]` |
+| — | Unbalanced brackets or parentheses. | `$[Variables('Key'` |
+
+## Example Use Case
+
+Here’s a real-world usage in a FlowSynx workflow task:
+
+```jsonc
+{
+  "Name": "SaveData",
+  "Type": "FlowSynx.FileSystem",
+  "Dependencies": ["ToCSV"],
+  "Parameters": {
+    "Operation": "write",
+    "Path": "$[Variables('OutputDirectory')]/$[Outputs('ToCSV').FileName]",
+    "Data": "$[Outputs('ToCSV').Content]",
+    "Overwrite": true
+  }
+}
+```
+
+If:
+```jsonc
+"Variables": { "OutputDirectory": "/mnt/results" },
+"Outputs": { "ToCSV": { "FileName": "report.csv", "Content": "data" } }
+```
+
+Then the evaluated parameters become:
+```jsonc
+{
+  "Operation": "write",
+  "Path": "/mnt/results/report.csv",
+  "Data": "data",
+  "Overwrite": true
+}
+```
+
+## Summary
+
+FlowSynx Expressions allow:
+- Dynamic parameter substitution.
+- Flexible referencing of workflow data.
+- Safe and validated parsing with descriptive errors.
+- Recursive resolution for advanced workflow logic.
+
+:::info
+You can use `$[Variables(...)]` and `$[Outputs(...)]` in *any* string field inside a FlowSynx workflow — the parser will automatically handle context-aware replacements.
+:::

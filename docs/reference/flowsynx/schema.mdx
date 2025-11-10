@@ -17,6 +17,7 @@ A workflow definition is a single JSON object with a "Schema" URL and a nested "
   "Workflow": {
     "Name": "...",              // required
     "Description": "...",       // optional
+    "Variables": { ... }        // optional
     "Configuration": { ... },   // optional global settings
     "Tasks": [ ... ]            // required list of task objects
   }
@@ -40,8 +41,21 @@ The "Workflow" object contains the actual workflow definition with the following
 | --------------- | ------ | -------- | ------- | -------------------------------------------------------------- |
 | `Name`          | string | ✅        | —       | Unique name of the workflow.                                   |
 | `Description`   | string | ❌        | null    | Human-readable description of the workflow’s purpose.          |
+| `Variables`     | object | ❌        | `{}`    | Dictionary of key-value pairs for workflow-level variables.    |
 | `Configuration` | object | ❌        | `{}`    | Global execution settings such as parallelism and error rules. |
 | `Tasks`         | array  | ✅        | `[]`    | Array of task objects defining the DAG.                        |
+
+## Variables Object
+
+The `Variables` object is a dictionary that allows you to define key-value pairs for workflow-level variables. These variables can be referenced throughout the workflow.
+
+```jsonc
+"Variables": {
+  "InputPath": "s3://bucket/input",
+  "MaxRetries": 5,
+  "EnableLogging": true
+}
+```
 
 ## Configuration Object
 
@@ -67,14 +81,28 @@ Controls what happens when a task fails.
 ```jsonc
 "ErrorHandling": {
   "Strategy": "Retry",
+  "TriggerPolicy": { ... }
   "RetryPolicy": { ... }
 }
 ```
 
-| Key           | Type   | Required | Default | Description                            |
-| ------------- | ------ | -------- | ------- | -------------------------------------- |
-| `Strategy`    | enum   | ❌        | "Abort" | One of `"Retry"`, `"Skip"`, `"Abort"`. |
-| `RetryPolicy` | object | ❌        | `{}`    | Used only if `Strategy` is `"Retry"`.  |
+| Key             | Type   | Required | Default | Description                            |
+| ---------------| ------ | -------- | --------| -------------------------------------- |
+| `Strategy`      | enum   | ❌       | "Abort" | One of `"Retry"`, `"Skip"`, `"Abort"` or `"TriggerTask"`. |
+| `TriggerPolicy` | object | ❌       | null    | Specifies the task to trigger when Strategy is "TriggerTask". |
+| `RetryPolicy`   | object | ❌       | `{}`    | Used only if `Strategy` is `"Retry"`.  |
+
+### TriggerPolicy
+
+```jsonc
+"TriggerPolicy": {
+  "TaskName": "NotifyAdmin"
+}
+```
+
+| Key             | Type   | Required | Description                              |
+| ---------------| ------ | -------- | --------------------------------------   |
+| `TaskName`      | string   | ✅       | The name of the task to be triggered.  |
 
 ### RetryPolicy
 

@@ -46,3 +46,33 @@ This design allows teams to develop and deploy custom features without altering 
 JSON Schema Validation ensures that every workflow definition, task configuration, and plugin descriptor in FlowSynx adheres to a precise, machine-verifiable structure. It acts as both a contract and a guardrail, ensuring that workflows are not only syntactically valid but semantically consistent before execution.
 
 In FlowSynx, all workflows are represented as JSON-based Directed Acyclic Graphs (DAGs). To maintain consistency, a comprehensive JSON Schema is applied to validate Workflow structure, Task definitions, Dependency integrity, Type safety and constraints, Plugin contract validation, etc.
+
+## Unified Data Abstraction Layer (UDAL)
+
+The UDAL in FlowSynx provides a seamless interface for accessing, transforming, and synchronizing data across heterogeneous sources. It abstracts underlying data complexities, offering a consistent structure for workflow integration. By standardizing data models and connection handling, UDAL simplifies data interoperability, enhances reusability, and ensures uniform access control and validation across all automated processes. 
+
+Every data source (local file, cloud storage, database, API) is normalized into a consistent internal structure (UDAL). This allows the engine to represent and transfer data without being tied to the physical storage location.
+
+## Source-Agnostic Processing
+
+Once the data is loaded into FlowSynx’s **Unified Data Abstraction Layer (UDAL)** model, all downstream processing plugins (e.g., CSV, ZipCompresor/Decompresor, DatabaseWriter) can operate **uniformly and interchangeably**, regardless of the original data source or protocol.
+
+This abstraction ensures a **consistent data representation**—so plugins no longer need to handle source-specific logic or connection details. Instead, each plugin works purely on the normalized UDAL objects, enabling a fully modular and composable data workflow.
+
+Whether the input originated from:
+
+- A **local file** (e.g., CSV, JSON, XML)
+- **Cloud object storage** such as Azure Blob Storage, Azure Data Lake, or Amazon S3
+- A **remote REST API** endpoint (JSON, XML, or custom schema)
+- A **database query result** (via SQL or ORM adapters)
+- Or even a **streaming or message-based source** (Kafka, Event Hub, RabbitMQ)
+
+…the behavior and execution flow remain identical from the plugin’s perspective.
+
+This design provides several key advantages:
+- **Uniformity:** All plugins interact with a consistent in-memory model, reducing conditional logic and source coupling.
+- **Reusability:** The same transformation and enrichment logic can be reused across multiple data ingestion pipelines.
+- **Extensibility:** New data sources can be integrated simply by adding a new source adapter that maps incoming data to the UDAL schema—no changes needed to existing processing logic.
+- **Scalability:** Workflows can scale horizontally without worrying about differences in storage or access patterns.
+
+Ultimately, this **source-agnostic** approach makes FlowSynx’s processing layer truly modular, future-proof, and cloud-neutral—enabling seamless integration across diverse enterprise data ecosystems.

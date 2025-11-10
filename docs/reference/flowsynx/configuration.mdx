@@ -292,6 +292,53 @@ This key drives the EncryptionService implementation, which uses AES-256 in CBC 
 
 ---
 
+## Secret Configuration (Secrets)
+
+The `Secrets` section defines how FlowSynx retrieves and manages sensitive configuration values, such as API keys, database credentials, and other secrets. This feature allows the application to securely integrate with external secret management systems.
+
+When enabled, the application fetches secrets dynamically from the configured secret provider(s). This ensures that sensitive data is not hardcoded in configuration files or source code.
+
+```json
+"Secrets": {
+  "Enabled": false,
+  "DefaultProvider": "Infisical",
+  "Providers": {
+    "Infisical": {
+      "HostUri": "http://localhost:8080/",
+      "ProjectId": "<project-id>",
+      "EnvironmentSlug": "dev",
+      "SecretPath": "/",
+      "ClientId": "<machine-identity-client-id>",
+      "ClientSecret": "<machine-identity-client-secret>"
+    }
+  }
+}
+```
+
+| **Key**                    | **Type**              | **Default**   | **Description**                                                                                                                          |
+| -------------------------- | --------------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `Enabled`                  | `boolean`             | `false`       | Enables or disables secret management. If `false`, the application does not attempt to fetch secrets from external providers.            |
+| `DefaultProvider`          | `string`              | `"Infisical"` | The name of the default secret provider. Must match one of the keys in the `Providers` dictionary.                                       |
+| `Providers`                | `object (dictionary)` | `{}`          | A dictionary of secret providers, where each key is the provider name and the value is a configuration object specific to that provider. |
+| `Providers.<ProviderName>` | `object`              | N/A           | Configuration for a specific secret provider. The keys and values depend on the provider type.                                           |
+
+The following keys are specific to the `Infisical` secret provider. Other providers may have different configurations and requirements:
+
+| Key                        | Type                 | Default       | Description                                                                                                                              |
+|----------------------------|----------------------|---------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| `HostUri`                  | `string`            | N/A           | The base URI of the secret provider’s API. For example: `http://localhost:8080/` for Infisical.                                          |
+| `ProjectId`                | `string`            | N/A           | The unique identifier for the project in the secret management system.                                                                   |
+| `EnvironmentSlug`          | `string`            | N/A           | The environment (e.g., `dev`, `prod`) from which secrets should be fetched.                                                              |
+| `SecretPath`               | `string`            | `/`           | The path within the secret management system where secrets are stored.                                                                   |
+| `ClientId`                 | `string`            | N/A           | The client ID used to authenticate with the secret provider.                                                                             |
+| `ClientSecret`             | `string`            | N/A           | The client secret used to authenticate with the secret provider.                                                                         |
+
+> **Note**: These keys are specific to the `Infisical` provider. If you are using a different provider, the required keys and their meanings may vary. Always refer to the documentation of the specific provider you are integrating with.
+
+**Dynamic Secret Fetching**: When enabled, secrets are fetched dynamically at runtime from the specified provider. This reduces the risk of exposing sensitive data in configuration files.
+
+---
+
 ## Security (Security)
 
 ```json

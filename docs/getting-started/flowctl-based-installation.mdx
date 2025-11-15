@@ -28,9 +28,9 @@ import TabItem from '@theme/TabItem';
     ```
 
     #### Installing a specific **flowctl** version
-    The following example shows how to install **flowctl** version `1.1.1`.
+    The following example shows how to install **flowctl** version `1.2.4`.
     ```
-    wget -q https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.sh -O - | /bin/bash -s 1.1.1
+    wget -q https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.sh -O - | /bin/bash -s 1.2.4
     ```
 
     #### Install without sudo
@@ -42,9 +42,9 @@ import TabItem from '@theme/TabItem';
     ```
 
     #### Installing a specific **flowctl** version without sudo
-    The following example shows how to install **flowctl** version `1.1.1`.
+    The following example shows how to install **flowctl** version `1.2.4`.
     ```
-    wget -q https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.sh -O - | FLOWCTL_INSTALL_DIR="$HOME/flowctl" /bin/bash -s 1.1.1
+    wget -q https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.sh -O - | FLOWCTL_INSTALL_DIR="$HOME/flowctl" /bin/bash -s 1.2.4
     ```
   </TabItem>
   <TabItem value="windows" label="Windows">
@@ -55,9 +55,9 @@ import TabItem from '@theme/TabItem';
     ```
 
     #### Installing a specific **flowctl** version
-    The following example shows how to install **flowctl** version `1.1.1`.
+    The following example shows how to install **flowctl** version `1.2.4`.
     ```
-    $script=iwr -useb https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.ps1; $block=[ScriptBlock]::Create($script); invoke-command -ScriptBlock $block -ArgumentList "1.1.1"
+    $script=iwr -useb https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.ps1; $block=[ScriptBlock]::Create($script); invoke-command -ScriptBlock $block -ArgumentList "1.2.4"
     ```
   
     #### Install without administrative rights
@@ -68,10 +68,10 @@ import TabItem from '@theme/TabItem';
     ```
   
     #### Installing a specific flowctl version without administrative rights
-    The following example shows how to install **flowctl** version `1.1.1`.
+    The following example shows how to install **flowctl** version `1.2.4`.
     ```
     $Env:FLOWCTL_INSTALL_DIR = "<your_alt_install_dir_path>"
-    $script=iwr -useb https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.ps1; $block=[ScriptBlock]::Create($script); invoke-command -ScriptBlock $block -ArgumentList "0.1.0", "$Env:FLOWCTL_INSTALL_DIR"
+    $script=iwr -useb https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.ps1; $block=[ScriptBlock]::Create($script); invoke-command -ScriptBlock $block -ArgumentList "1.2.4", "$Env:FLOWCTL_INSTALL_DIR"
     ```
   </TabItem>
   <TabItem value="macos" label="MacOS">
@@ -82,9 +82,9 @@ import TabItem from '@theme/TabItem';
     ```
 
     #### Installing a specific **flowctl** version
-    The following example shows how to install **flowctl** version `1.1.1`.
+    The following example shows how to install **flowctl** version `1.2.4`.
     ```
-    curl -fsSL https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.sh | /bin/bash -s 1.1.1
+    curl -fsSL https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.sh | /bin/bash -s 1.2.4
     ```
 
     #### Install without sudo
@@ -96,9 +96,9 @@ import TabItem from '@theme/TabItem';
     ```
 
     #### Installing a specific flowctl version without sudo
-    The following example shows how to install **flowctl** version `1.1.1`.
+    The following example shows how to install **flowctl** version `1.2.4`.
     ```
-    curl -fsSL https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.sh | FLOWCTL_INSTALL_DIR="$HOME/flowctl" /bin/bash -s 1.1.1
+    curl -fsSL https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.sh | FLOWCTL_INSTALL_DIR="$HOME/flowctl" /bin/bash -s 1.2.4
     ```
   </TabItem>
 </Tabs>
@@ -204,8 +204,8 @@ flowctl version
 Example Output:
 ```
 {
-  "FlowCtl": "1.1.1",
-  "FlowSynx": "1.1.2.0"
+  "FlowCtl": "1.2.1",
+  "FlowSynx": "1.2.4.0"
 }
 ```
 

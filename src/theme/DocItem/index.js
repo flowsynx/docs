@@ -1,23 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import OriginalDocItem from '@theme-original/DocItem';
 
 export default function DocItemWrapper(props) {
   const [feedback, setFeedback] = useState(null);
   const [comment, setComment] = useState('');
 
+  // Helper to send GA events safely
+  const sendGAEvent = (eventName, params) => {
+    const interval = setInterval(() => {
+      if (window.gtag) {
+        window.gtag('event', eventName, params);
+        clearInterval(interval);
+      }
+    }, 100);
+  };
+
   const handleFeedback = (value) => {
     setFeedback(value);
 
-    if (window.gtag) {
-      window.gtag('event', 'helpful_feedback', {
-        page_path: props.content.metadata.permalink,
-        helpful: value,
-      });
-    }
+    // Fire GA event safely
+    sendGAEvent('helpful_feedback', {
+      event_category: 'Doc Feedback',
+      event_label: props.content.metadata.permalink,
+      helpful: value,
+    });
   };
 
   const handleCommentSubmit = () => {
     console.log('User comment:', comment);
+
+    // Fire GA event for comment
+    sendGAEvent('helpful_feedback_comment', {
+      event_category: 'Doc Feedback',
+      event_label: props.content.metadata.permalink,
+      comment,
+    });
+
     alert('Thanks for your comment! ❤️');
     setFeedback('no-commented');
   };

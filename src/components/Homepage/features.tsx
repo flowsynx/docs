@@ -82,6 +82,34 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
+    title: 'Conditional Flow Control',
+    icon: 'mdi:shuffle-variant',
+    description: (
+      <>
+        <b>Conditional Flow Control</b> in FlowSynx enables workflows to make decisions 
+        dynamically — executing specific tasks only when conditions are met. Using 
+        branching logic, comparison rules, and expression-based evaluations, workflows 
+        can adapt at runtime to handle different paths, fallback operations, 
+        error-based routing, and multi-branch execution. This ensures intelligent, 
+        context-aware automation for complex real-world scenarios.
+      </>
+    ),
+  },
+  {
+    title: 'Expression Evaluation',
+    icon: 'mdi:function-variant',
+    description: (
+      <>
+        <b>Expression Evaluation</b> in FlowSynx enables dynamic parameterization of 
+        workflows using powerful expressions. Values can be computed at runtime based on 
+        variables, task outputs, environment data, conditional logic, or complex 
+        transformations. This allows workflows to adapt intelligently, reduce static 
+        configuration, and support advanced scenarios such as computed file paths, 
+        conditional parameters, dynamic mappings, and rule-driven automation.
+      </>
+    ),
+  },  
+  {
     title: 'Command-Line Interface (CLI)',
     icon: 'heroicons:command-line-20-solid',
     description: (

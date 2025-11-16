@@ -38,14 +38,24 @@ JSON-based [DAGs (Directed Acyclic Graphs)](/docs/concepts#directed-acyclic-grap
 precise control over [execution order, dependencies](/docs/concepts#task-dependencies--execution-order), 
 [retries & error handling](/docs/concepts#retry-policies--error-handling), and conditional logic.
 
-FlowSynx features:
-- .NET-native, cross-platform execution, supporting Windows, Linux, macOS, and containerized deployments (Docker)
-- Dynamic plugin loading and versioning using C# assemblies
-- [Event-driven triggers](/docs/concepts#event-driven-execution--triggers), [human-in-the-loop tasks](/docs/concepts#human-in-the-loop-tasks), and full audit logging
-- Integrated configuration, logging, and auditing, stored in a secure and pluggable backend
-- Role-based access control and per-user security settings
-- Support for hybrid deployments, enabling workflows to span both local infrastructure and remote cloud services
-- Full support for retry policies, failure handling, and stateful tracking of workflow execution
+### FlowSynx features:
+- **Plugin-Based Extensibility** — Add, upgrade, or remove capabilities dynamically and version-controlled  
+- **Cross-Platform Execution** — Runs everywhere (Windows, Linux, macOS, Docker, Cloud)  
+- **JSON-Defined Workflows** — Declarative, portable, and version-controlled  
+- **Schema Validation** — Catch errors early with JSON schema checks  
+- **CLI & SDK Support** — Total control for developers and DevOps teams  
+- **Robust Authentication & Access Control** — Compatible with JWT and Basic Auth, featuring RBAC  
+- **Secret Management Integration** — Infisical, Azure Key Vault, HashiCorp Vault, AWS Secrets Manager  
+- **Triggers & Events** — Webhooks, schedules, and file-change detection  
+- **Human-in-the-Loop Tasks** — Combine automation with human approval  
+- **Conditional Flow Control** — Execute tasks based on conditions and branching logic  
+- **Expression Evaluation** — Dynamic parameterization using expressions  
+- **Advanced Logging & Auditing** — Full transparency into every execution  
+- **Error Handling** - Configurable Error Handling and Retry Policies per task and workflow level  
+- **Marketplace & Registry** — Discover and manage plugins easily  
+- **Web Console UI** — Intuitive dashboard for workflow monitoring and control  
+- **Unified Data Abstraction Layer (UDAL)** — Simplifies data access across diverse sources  
+- **Source-Agnostic Processing** — Operate uniformly and interchangeably, regardless of the original data source or protocol  
 
 Whether you’re automating file transfers, orchestrating machine learning pipelines, syncing distributed systems, or building robust ETL jobs, FlowSynx’s C# API and .NET foundation offer a scalable, extensible platform to accelerate workflow development and reduce operational complexity—without sacrificing control.
 

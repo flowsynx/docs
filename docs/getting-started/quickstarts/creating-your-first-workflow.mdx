@@ -1,0 +1,183 @@
+---
+sidebar_position: 1
+title: Creating Your First Workflow
+description: A step-by-step guide for defining, executing, and validating a basic "Hello World" workflow in FlowSynx.
+---
+
+# Creating Your First Workflow
+This guide provides a structured introduction to creating and executing a basic workflow in FlowSynx.  
+The example demonstrates how to define workflow components in JSON, initiate an execution using the CLI or API, and review the resulting output.
+
+## Objectives
+
+By the end of this guide, you will understand:
+
+- How to construct a minimal JSON-based workflow definition  
+- How tasks and dependencies form a directed acyclic graph (DAG)  
+- How to execute workflows using the Dashboard, CLI, or REST API  
+- How to verify execution status and inspect generated output 
+
+## 1. Defining a Basic “Hello World” Workflow
+
+FlowSynx workflows are defined using a structured JSON schema. A workflow generally contains:
+
+- **Metadata** — high-level information such as the workflow name and description  
+- **Tasks** — individual units of execution, typically backed by plugins  
+- **DAG Definition** — declaring dependencies among tasks  
+- **Execution Parameters** — plugin settings, retry options, and other controls  
+
+The following example represents a minimal workflow containing a single task that writes a text file to the local file system.
+
+### Example: Minimal Hello World Workflow
+
+```json
+{
+  "name": "Hello World Workflow",
+  "description": "A minimal FlowSynx workflow example",
+  "tasks": [
+    {
+      "name": "Hello world",
+      "type": "",
+      "parameters": {
+        "operation": "write",
+        "path": "results/test.txt",
+        "data": "Hello, FlowSynx!",
+        "overwrite": false
+      },
+      "dependencies": [],
+    }
+  ]
+}
+```
+
+Save the workflow as:
+
+```
+hello-world.json
+```
+
+## 2. Workflow Structure Overview
+
+This section describes how FlowSynx interprets the key components of the workflow.
+
+#### name
+
+Specifies the display name of the workflow. This value is shown in the Dashboard, logs, and execution listings.
+
+```json
+"name": "Hello World Workflow"
+```
+
+#### tasks
+
+The tasks array defines all executable units. Each task includes:
+
+- `name`: a unique identifier within the workflow
+- `type`: the plugin or built-in handler to execute
+- `parameters`: input values required by the specified plugin
+- `dependencies`: optional list of task names indicating execution order
+
+In this example:
+- `type` is empty (`""`), which instructs FlowSynx to use the built-in Local File System plugin.
+- `dependencies` is empty, so the task executes immediately.
+
+## 3. Executing the Workflow
+
+Workflows may be executed through several FlowSynx components:
+
+- The FlowSynx Dashboard
+- The API
+- The CLI (optional)
+- Triggers and automation rules
+
+The following sections demonstrate execution using the CLI and the REST API.
+
+### 3.1 Executing via CLI (flowctl)
+
+Ensure the flowctl command-line tool is installed. For installation instructions, refer to:
+[Install Flowctl](/docs/getting-started/flowctl-based-installation)
+
+#### Run from a JSON file
+
+```
+flowctl workflows executions execute -f ./hello-world.json
+```
+
+### 3.2 Executing via REST API
+
+The REST API provides full programmatic control for managing workflows.
+Any standard HTTP client (Postman, HTTPie, curl, etc.) may be used.
+
+For detailed API documentation, refer to:
+[Add new Workflow](/docs/reference/flowsynx/api/workflow#add-new-workflow)
+
+#### Step 1: Add the Workflow
+
+##### Endpoint
+
+```
+POST http://localhost:6262/workflows/Add
+Content-Type: application/json
+```
+
+##### Request Body 
+Use the same JSON used in the [hello-world-workflow](/docs/getting-started/quickstarts/creating-your-first-workflow#example-hello-world-workflow-minimal)
+
+##### Example Response
+
+```json
+{
+  "data": {
+    "id": "586bc7b0-499b-4b01-9510-93ac643ad8bb",
+    "name": "Hello World Workflow"
+  },
+  "messages": [
+    "The workflow has been added successfully."
+  ],
+  "succeeded": true,
+  "generatedAtUtc": "2025-11-15T14:40:27Z"
+}
+```
+
+Record the workflow `id` value — you will need it to execute the workflow.
+
+#### Step 2: Execute the Workflow
+
+##### Endpoint
+
+```
+POST http://localhost:6262/workflows/<UUID>/executions
+Content-Type: application/json
+```
+
+##### Example Response
+
+```json
+{
+  "data": {
+    "workflowId": "586bc7b0-499b-4b01-9510-93ac643ad8bb",
+    "executionId": "0878cda6-6df8-44d0-9e4b-1ecbe5c190f1",
+    "startedAt": "2025-11-15T14:41:06Z"
+  },
+  "messages": [
+    "Workflow '586bc7b0-499b-4b01-9510-93ac643ad8bb' executed successfully!"
+  ],
+  "succeeded": true,
+  "generatedAtUtc": "2025-11-15T14:41:06Z"
+}
+```
+
+### 3.3 Viewing Results
+
+After execution completes, navigate to the `results/` directory.
+You should find the generated file:
+
+```
+results/test.txt
+```
+
+The file should contain the following content:
+
+```
+Hello, FlowSynx!
+```

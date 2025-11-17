@@ -7,263 +7,272 @@ type FeatureItem = {
   title: string;
   icon: string;
   description: JSX.Element;
+  slug: string; 
 };
 
 const FeatureList: FeatureItem[] = [
   {
     title: 'Plugin-Based Extensibility',
     icon: 'icon-park-solid:api',
+    slug: '/docs/concepts/plugin-based-architecture',
     description: (
       <>
         Each functional component in FlowSynx—from task definitions and runtime behaviors to integration endpoints 
         and authentication providers—is treated as a plugin. Users can develop custom plugins using well-defined 
-        interfaces and register them with the system, enabling FlowSynx to adapt to specific business rules, protocols, or environments.
+        interfaces and register them with the system, enabling FlowSynx to adapt to specific business rules, 
+        protocols, or environments.
       </>
     ),
   },
   {
     title: 'Cross-Platform Execution',
     icon: 'garden:platform-26',
+    slug: '',
     description: (
       <>
-        FlowSynx is designed to run seamlessly across major platforms, including Windows, Linux, and macOS. Additionally, 
-        it offers <b>containerized deployment</b> via Docker, making it ideal for integration into modern DevOps pipelines, 
-        Kubernetes environments, or hybrid cloud architectures.
+        FlowSynx runs seamlessly on Windows, Linux, and macOS, and supports <b>containerized deployment</b> via Docker. 
+        This flexibility makes it perfect for integration into modern DevOps pipelines, Kubernetes environments, or 
+        hybrid cloud architectures, ensuring efficient workflow management across diverse infrastructures.
       </>
     ),
   },
   {
     title: 'Workflow Definition and Execution',
     icon: 'fluent:flowchart-16-filled',
+    slug: '/docs/concepts/dependencies-execution-order',
     description: (
       <>
-        Workflows in FlowSynx are defined as <b>Directed Acyclic Graphs (DAGs)</b> using JSON or DSL representations. 
-        These workflows support conditional logic, parallel execution, error handling, input/output mapping, and 
-        custom execution contexts—enabling advanced control flow with traceability and fault tolerance.
+        Workflows in FlowSynx are defined as <b>Directed Acyclic Graphs (DAGs)</b> using JSON or DSL. They support 
+        conditional logic, parallel execution, error handling, and input/output mapping, enabling advanced control 
+        flow with traceability and fault tolerance for robust automation and integration.
       </>
     ),
   },
   {
     title: 'Schema-Based Validation',
     icon: 'mdi:shape-outline',
+    slug: '/docs/concepts/json-schema-validation',
     description: (
       <>
-        FlowSynx supports <b>schema-based validation</b> for workflows, task definitions, plugin configurations, 
-        and input/output data. By defining JSON Schemas, users can ensure that 
-        workflows adhere to expected formats, required fields, and data types before execution. This reduces 
-        runtime errors, enforces consistency, and improves reliability across automated processes.
+        FlowSynx supports <b>schema-based validation</b> for workflows and plugin configurations. By defining JSON Schemas, 
+        users ensure workflows adhere to expected formats and data types before execution. This reduces runtime errors and 
+        improves reliability across automated processes, enforcing consistency throughout.
       </>
     ),
   },
   {
-    title: 'Unified Data Abstraction Layer (UDAL)',
+    title: 'Unified Data Abstraction Layer',
     icon: 'mdi:database-sync-outline',
+    slug: '/docs/concepts/unified-data-abstraction-layer',
     description: (
       <>
-        The <b>UDAL</b> in FlowSynx provides a seamless interface for accessing, 
-        transforming, and synchronizing data across heterogeneous sources. It abstracts underlying data complexities, 
-        offering a consistent structure for workflow integration. By standardizing data models and connection handling, 
-        UDAL simplifies data interoperability, enhances reusability, and ensures uniform access control and validation 
-        across all automated processes.
+        The <b>UDAL</b> in FlowSynx provides a unified interface for accessing and transforming data from diverse sources. 
+        It simplifies complexities, ensuring consistent structure for workflow integration while maintaining uniform access 
+        control and validation across all automated processes, enhancing reliability and efficiency.
       </>
     ),
   },
   {
     title: 'Source-Agnostic Processing',
     icon: 'mdi:database-cog-outline',
+    slug: '/docs/concepts/source-agnostic-processing',
     description: (
       <>
-        <b>Source-Agnostic Processing</b> in FlowSynx enables seamless handling of data 
-        from any source — databases, APIs, or files — without source-specific logic. 
-        Once loaded into the <b>UDAL</b> model, all processing plugins (e.g., <b>CSV</b>, 
-        <b>ZipCompressor</b>, <b>DatabaseWriter</b>) work uniformly, ensuring consistent 
-        transformation and orchestration across diverse systems.
+        <b>Source-Agnostic Processing</b> in FlowSynx allows seamless data handling from any source—databases, APIs, or 
+        files—without source-specific logic. Once integrated into the <b>UDAL</b> model, all processing plugins (e.g., CSV, ZipCompressor) 
+        operate uniformly, ensuring consistent transformation across diverse systems.
       </>
     ),
   },
   {
     title: 'Conditional Flow Control',
     icon: 'mdi:shuffle-variant',
+    slug: '',
     description: (
       <>
-        <b>Conditional Flow Control</b> in FlowSynx enables workflows to make decisions 
-        dynamically — executing specific tasks only when conditions are met. Using 
-        branching logic, comparison rules, and expression-based evaluations, workflows 
-        can adapt at runtime to handle different paths, fallback operations, 
-        error-based routing, and multi-branch execution. This ensures intelligent, 
-        context-aware automation for complex real-world scenarios.
+        <b>Conditional Flow Control</b> in FlowSynx enables dynamic task execution based on conditions. By incorporating branching 
+        logic and expression evaluations, workflows can intelligently adapt at runtime, ensuring efficient automation even in complex 
+        scenarios, enhancing overall process flexibility and responsiveness.
       </>
     ),
   },
   {
     title: 'Expression Evaluation',
     icon: 'mdi:function-variant',
+    slug: '',
     description: (
       <>
-        <b>Expression Evaluation</b> in FlowSynx enables dynamic parameterization of 
-        workflows using powerful expressions. Values can be computed at runtime based on 
-        variables, task outputs, environment data, conditional logic, or complex 
-        transformations. This allows workflows to adapt intelligently, reduce static 
-        configuration, and support advanced scenarios such as computed file paths, 
-        conditional parameters, dynamic mappings, and rule-driven automation.
+        <b>Expression Evaluation</b> in FlowSynx allows dynamic parameterization of workflows using expressions. Values can be computed 
+        at runtime based on variables, task outputs, or conditional logic. This enables workflows to adapt intelligently, reducing static 
+        configuration and supporting scenarios like computed paths and rule-driven automation.
       </>
     ),
   },  
   {
     title: 'Command-Line Interface (CLI)',
     icon: 'heroicons:command-line-20-solid',
+    slug: '',
     description: (
       <>
-        A comprehensive CLI tool is included for managing workflows, invoking executions, debugging tasks, 
-        monitoring logs, and interacting with the system at a low level. This is ideal for scripting, 
-        batch jobs, and infrastructure automation.
+        A powerful CLI tool is provided for managing workflows, invoking executions, debugging tasks, and monitoring logs. It's perfect for 
+        scripting, batch jobs, and automating infrastructure, allowing users to interact with the system at a low level for enhanced control 
+        and efficiency in their automation processes.
       </>
     ),
   },
   {
     title: 'Software Development Kit (SDK)',
     icon: 'material-symbols:sdk',
+    slug: '',
     description: (
       <>
-        FlowSynx provides a full-featured SDK for programmatic access. Developers can use the SDK to integrate 
-        workflow functionality into their applications, define dynamic workflows at runtime, fetch execution results, 
-        and implement plugin hosting strategies. The SDK is structured with clean architecture principles and is 
-        available in .NET, with planned bindings for other ecosystems via REST APIs or language bridges.
+        FlowSynx offers a comprehensive SDK for programmatic access, enabling developers to integrate workflow functionality, define dynamic 
+        workflows, fetch execution results, and implement plugin hosting. Built on clean architecture principles, the SDK is available in .NET, 
+        with future bindings planned for other ecosystems via REST APIs.
       </>
     ),
   },
   {
     title: 'REST-API Accessibility',
     icon: 'dashicons:rest-api',
+    slug: '',
     description: (
       <>
-        Exposes core functionality through a well-documented, versioned RESTful API that enables secure remote access 
-        and seamless integration across platforms and programming languages. The API supports standard HTTP methods 
-        (GET, POST, PUT, DELETE), offers comprehensive OpenAPI/Swagger documentation, and includes authentication, 
-        rate limiting, and error handling mechanisms to ensure robustness, scalability, and ease of use for developers.
+        Provides a well-documented, versioned RESTful API for secure remote access and integration across platforms. It supports standard HTTP 
+        methods (GET, POST, PUT, DELETE) and includes OpenAPI/Swagger documentation, authentication, rate limiting, and error handling for 
+        robustness and scalability, ensuring ease of use for developers.
       </>
     ),
   },
   {
     title: 'Console: Web-UI Management',
     icon: 'mdi:web',
+    slug: '',
     description: (
       <>
-        The <b>FlowSynx Console</b> provides a modern, browser-based interface for workflow management. 
-        Users can visually design, configure, and monitor workflows, review execution logs, and manage 
-        plugins directly from the web UI. With real-time dashboards, drag-and-drop workflow editing, 
-        and secure multi-user access, the Console simplifies collaboration and operational oversight 
-        across distributed teams.
+        The <b>FlowSynx Console</b> offers a modern web interface for managing workflows. Users can design, configure, and monitor workflows, 
+        review logs, and manage plugins. With real-time dashboards and drag-and-drop editing, it simplifies collaboration and oversight across 
+        teams, enhancing operational efficiency.
       </>
     ),
   },
   {
     title: 'Authentication and Security',
     icon: 'mdi:security-lock',
+    slug: '',
     description: (
       <>
-        FlowSynx includes pluggable authentication support, enabling integration with modern identity providers 
-        such as OAuth2, OpenID Connect (e.g., Keycloak), as well as support for basic and token-based authentication. 
-        Security policies can be enforced per user, per plugin, and per workflow execution.
+        FlowSynx supports pluggable authentication, integrating with identity providers like OAuth2 and OpenID Connect (e.g., Keycloak). 
+        It also offers basic and token-based authentication, allowing security policies to be enforced at user, plugin, and workflow execution 
+        evels for enhanced control and compliance.
       </>
     ),
   },
   {
     title: 'Secret Management Integration',
     icon: 'fluent:key-multiple-16-filled',
+    slug: '',
     description: (
       <>
-        FlowSynx introduces a unified <b>SecretManagement provider framework</b> that securely handles 
-        sensitive data such as API keys, passwords, certificates, and tokens. The system supports multiple 
-        secret providers — including Infisical, Azure Key Vault, HashiCorp Vault, and AWS Secrets Manager 
-        under a single consistent interface.
+        FlowSynx features a unified <b>Secret Management provider framework</b> for securely handling sensitive data like API keys, passwords, 
+        and tokens. It supports various secret providers, including Infisical, Azure Key Vault, HashiCorp Vault, and AWS Secrets Manager, all 
+        under a consistent interface for ease of use.
       </>
     ),
   }, 
   {
     title: 'Logging, Monitoring, and Auditing',
     icon: 'eos-icons:monitoring',
+    slug: '',
     description: (
       <>
-        All workflow executions and plugin interactions are fully traceable. The system provides structured logging, 
-        execution history, and audit trail support for compliance and observability.
+        All workflow executions and plugin interactions are traceable. The system offers structured logging, execution history, and audit trail 
+        support, ensuring compliance and observability. This feature enhances transparency and accountability, making it easier to monitor and 
+        review automated processes effectively.
       </>
     ),
   },
   {
     title: 'Standalone and Containerized Modes',
     icon: 'cib:docker',
+    slug: '',
     description: (
       <>
-        FlowSynx can operate as a lightweight local service for single-user or single-machine scenarios, 
-        or it can scale horizontally through distributed orchestration models—enabling large-scale, 
-        multi-tenant execution across clusters or cloud-native infrastructures.
+      FlowSynx operates as a lightweight local service for single-user scenarios or scales horizontally through distributed orchestration. 
+      This enables large-scale, multi-tenant execution across clusters or cloud-native infrastructures, ensuring flexibility and efficiency 
+      in diverse deployment environments.
       </>
     ),
   },
   {
     title: 'Trigger-Based Workflow Execution',
     icon: 'subway:power',
+    slug: '/docs/concepts/trigger-based-execution',
     description: (
       <>
-        Automatically launch workflows in response to specific events like file uploads, API calls, 
-        or scheduled intervals. Triggers eliminate manual intervention by monitoring conditions and 
-        instantly activating corresponding task flows, ensuring real-time, event-driven automation.
+        Automatically launch workflows in response to events like file uploads, API calls, or scheduled intervals. Triggers remove manual 
+        intervention by monitoring conditions and instantly activating task flows, ensuring real-time, event-driven automation for efficient 
+        and responsive operations across various scenarios.
       </>
     ),
   },
   {
     title: 'Human-in-the-Loop (HITL) Approval',
     icon: 'pajamas:approval-solid',
+    slug: '/docs/concepts/human-in-the-loop-tasks',
     description: (
       <>
-      Integrate human decision points into automated workflows with Human-in-the-Loop Approval. This 
-      feature pauses execution until an authorized user manually approves or rejects a pending task. 
-      Ideal for scenarios requiring compliance checks, risk assessment, or business validation, it 
-      adds a layer of control and accountability within otherwise automated processes.
+      Integrate human decision points into workflows with Human-in-the-Loop Approval. This feature pauses execution until an authorized user 
+      approves or rejects a task. Ideal for compliance checks or business validation, it adds control and accountability within automated processes, 
+      ensuring critical decisions are made by humans.
       </>
     ),
   },
   {
     title: 'Flexible Error Handling',
     icon: 'bxs:error',
+    slug: '/docs/concepts/retry-policies-error-handling',
     description: (
       <>
-      Ensure workflow resilience with configurable error-handling strategies that define how failures 
-      are managed during execution. Choose from Retry, Skip, or Abort behaviors to match the criticality 
-      of each task. Fine-tune retry behavior with customizable policies, including maximum retries, 
-      initial delay, and backoff strategies such as Fixed, Linear, Exponential, or Jitter, enabling 
-      intelligent recovery from transient failures without manual intervention.
+      Ensure workflow resilience with error-handling strategies that define failure management. Choose from Retry, Skip, or Abort behaviors. Fine-tune 
+      retry policies, including max retries, initial delay, and backoff strategies like Fixed, Linear, or Exponential, enabling intelligent recovery from 
+      transient failures without manual intervention.
       </>
     ),
   },
   {
     title: 'Unified Error Codes & Response Integration',
     icon: 'fluent:puzzle-cube-16-filled',
+    slug: '',
     description: (
       <>
-        FlowSynx introduces a standardized error code system using the format <b>[FSX ####]</b>, 
-        where each code uniquely identifies the error category and number. This unified structure 
-        ensures consistent and predictable error reporting across workflows, plugins, and API responses. 
-        Errors are automatically surfaced in the FlowSynx web interface, providing clear context, 
-        real-time visibility, and simplified troubleshooting for both users and developers.
+        FlowSynx introduces a standardized error code system in the format <b>[FSX ####]</b>, uniquely identifying error categories. This structure 
+        ensures consistent error reporting across workflows and APIs. Errors are surfaced in the FlowSynx web interface, providing clear context and 
+        real-time visibility for users and developers.
       </>
     ),
   } 
 ];
 
-function Feature({title, icon, description}: FeatureItem) {
+function Feature({ title, icon, description, slug }: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
-        <div className="card feature-card margin-bottom--lg">
-          <div className="card__header">
-            <Icon className="feature-card-header" icon={icon} height="64" />
-            <Heading as="h3">{title}</Heading>
-          </div>
-          <div className="card__body">
-            <p>{description}</p>
-          </div>
+      <div className="card feature-card margin-bottom--lg">
+        <div className="card__header">
+          <Icon className="feature-card-header" icon={icon} height="64" />
+          <Heading as="h3">{title}</Heading>
         </div>
+        <div className="card__body">
+          <p>{description}</p>
+        </div>
+        <div className="card__footer">
+            {slug && (
+            <a className="button button--outline button--primary" href={`${slug}`}>
+              Read more...
+            </a>
+            )}
+        </div>
+      </div>
     </div>
   );
 }
@@ -275,7 +284,7 @@ export default function HomepageFeatures(): JSX.Element {
         <Heading as="h2">FlowSynx features and capabilities</Heading>
         <div className="row">
           <div className="col padding-bottom--lg">
-          A comprehensive look at the modular workflow engine powering intelligent automation and seamless integration.
+            A comprehensive look at the modular workflow engine powering intelligent automation and seamless integration.
           </div>
         </div>
         <div className="row">

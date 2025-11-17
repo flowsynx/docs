@@ -1,0 +1,9 @@
+{
+  "label": "Concepts",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "slug": "/concepts",
+    "description": "Learn the fundamental concepts behind FlowSynx, including architecture, data flow, and best practices."
+  }
+}

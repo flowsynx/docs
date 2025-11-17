@@ -1,0 +1,13 @@
+---
+sidebar_position: 2
+description: FlowSynx is fully container-ready, making it easy to deploy in isolated, reproducible environments using Docker. This option is highly recommended for users looking to minimize conflicts, simplify upgrades, and ensure consistent behavior across development, staging, and production environments.
+---
+
+# Directed Acyclic Graphs (DAG)
+
+Directed Acyclic Graphs (DAGs) are a foundational structure for modeling workflows where tasks (nodes) are connected by directed edges (arrows) that define the execution order and dependencies. A DAG ensures there are no circular dependencies—once a task starts executing, the graph flows in one direction and cannot loop back. This acyclic nature is crucial for deterministic execution, allowing systems like FlowSynx to compute task order, validate graph integrity, and parallelize non-dependent tasks safely and efficiently.
+
+In practice, DAGs enable clear visualization and reasoning about complex workflows involving conditionals, branches, merges, and independent execution paths. Each node represents a discrete task (e.g., file transformation, API call), while edges represent dependency constraints (e.g., Task B cannot start until Task A finishes). This structure enables features like error isolation, dependency-based retries, and fine-grained control over execution, making DAGs ideal for workflow orchestration in data pipelines, CI/CD processes, and distributed systems.
+
+Below is an example of a DAG (Directed Acyclic Graph) workflow, illustrating a series of interconnected tasks that flow from a defined "Task 1" point through various processing stages and converge at an "Task 8" node, without forming any cycles.
+<img src="/img/DAG-example.jpg" />

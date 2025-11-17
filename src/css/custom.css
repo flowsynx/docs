@@ -72,6 +72,15 @@
   color: var(--ifm-color-primary);
 }
 
+.readMoreButton {
+  margin-top: 8px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0;
+}
+
 .connector-card {
   border: 1px solid var(--ifm-color-emphasis-300);
 }

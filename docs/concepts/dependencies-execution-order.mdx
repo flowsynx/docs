@@ -1,0 +1,10 @@
+---
+sidebar_position: 3
+description: FlowSynx is fully container-ready, making it easy to deploy in isolated, reproducible environments using Docker. This option is highly recommended for users looking to minimize conflicts, simplify upgrades, and ensure consistent behavior across development, staging, and production environments.
+---
+
+# Dependencies & Execution Order
+
+Task dependencies define the logical and temporal relationships between steps in a workflow. In a DAG-based system, dependencies are represented by the edges between tasks: a task may only execute once all its parent (upstream) tasks have completed successfully. This model guarantees that execution follows the defined structure, enabling intelligent scheduling, concurrency, and ordered flow management.
+
+FlowSynx uses this dependency model to calculate the execution plan dynamically. It identifies independent tasks that can run in parallel and delays dependent tasks until their prerequisites are met. This ensures workflows behave predictably and optimally, especially in large pipelines with hundreds of steps. Proper dependency management also allows for features like partial retries, conditional branching, and more precise error localization when something goes wrong mid-flow.

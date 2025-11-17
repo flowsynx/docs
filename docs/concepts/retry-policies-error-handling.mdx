@@ -1,0 +1,16 @@
+---
+sidebar_position: 3
+description: FlowSynx is fully container-ready, making it easy to deploy in isolated, reproducible environments using Docker. This option is highly recommended for users looking to minimize conflicts, simplify upgrades, and ensure consistent behavior across development, staging, and production environments.
+---
+
+# Retry Policies & Error Handling
+
+Retry policies define how the system should respond to failures during task execution. In a robust workflow engine like 
+FlowSynx, each task can have custom retry strategies—such as fixed delays, exponential backoff, or limited retry 
+attempts—configured declaratively. This allows workflows to be resilient to transient failures (e.g., temporary network 
+issues, slow third-party APIs) without manual intervention.
+
+Error handling complements retries by defining fallback behaviors, like alternative branches, alerts, manual approval 
+steps, or graceful workflow termination. FlowSynx supports conditional error paths, enabling workflows to recover or 
+adapt when specific failures occur. Together, retry and error handling mechanisms reduce operational burden, increase 
+system reliability, and ensure critical workflows complete successfully even in the face of unpredictable runtime conditions.

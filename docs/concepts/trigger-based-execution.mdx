@@ -1,0 +1,16 @@
+---
+sidebar_position: 7
+description: FlowSynx is fully container-ready, making it easy to deploy in isolated, reproducible environments using Docker. This option is highly recommended for users looking to minimize conflicts, simplify upgrades, and ensure consistent behavior across development, staging, and production environments.
+---
+
+# Trigger-Based Execution
+
+Event-driven execution allows workflows to start in response to external stimuli, such as a new file upload, a database 
+change, an HTTP webhook, or a scheduled time. Triggers decouple workflow initiation from user actions, enabling true 
+automation. In FlowSynx, events are often handled through specialized trigger plugins that monitor external systems 
+or subscribe to message queues, firing workflows as soon as relevant conditions are met.
+
+This model is ideal for reactive systems, where actions must occur as soon as something changes—like ingesting new data, 
+responding to customer activity, or syncing systems in real time. Event-driven execution makes workflows more dynamic 
+and efficient, supporting both polling and push-based mechanisms. It enables continuous processing and tight integration 
+with systems like IoT, cloud storage, APIs, and databases, forming the backbone of real-time and autonomous operations.

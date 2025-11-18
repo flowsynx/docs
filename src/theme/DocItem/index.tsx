@@ -32,7 +32,6 @@ export default function DocItemWrapper(props: Props) {
       has_comment: 1,
     });
 
-    alert('Thanks for your comment! ❤️');
     setFeedback('no-commented');
   };
 
@@ -68,6 +67,7 @@ export default function DocItemWrapper(props: Props) {
               value={comment}
               onChange={(e) => setComment(e.target.value)}
               rows={4}
+              className='feedback-comment-box'
               style={{ width: '100%', padding: '0.5rem', fontSize: '14px', marginBottom: '0.5rem' }}
             />
             <div>

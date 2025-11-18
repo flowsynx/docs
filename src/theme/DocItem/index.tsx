@@ -1,39 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import OriginalDocItem from '@theme-original/DocItem';
+import type { Props } from '@theme/DocItem';
 
-export default function DocItemWrapper(props) {
-  const [feedback, setFeedback] = useState(null);
+export default function DocItemWrapper(props: Props) {
+  const [feedback, setFeedback] = useState<string | null>(null);
   const [comment, setComment] = useState('');
 
-  // Helper to send GA events safely
-  const sendGAEvent = (eventName, params) => {
+  const sendGAEvent = (eventName: string, params: Record<string, any>) => {
     const interval = setInterval(() => {
-      if (window.gtag) {
-        window.gtag('event', eventName, params);
+      if ((window as any).gtag) {
+        (window as any).gtag('event', eventName, params);
         clearInterval(interval);
       }
-    }, 100);
+    }, 200);
   };
 
-  const handleFeedback = (value) => {
+  const handleFeedback = (value: 'yes' | 'no') => {
     setFeedback(value);
 
-    // Fire GA event safely
-    sendGAEvent('helpful_feedback', {
-      event_category: 'Doc Feedback',
-      event_label: props.content.metadata.permalink,
-      helpful: value,
+    sendGAEvent('doc_feedback', {
+      doc_permalink: props.content.metadata.permalink,
+      helpful: value === 'yes' ? 1 : 0,
     });
   };
 
   const handleCommentSubmit = () => {
     console.log('User comment:', comment);
 
-    // Fire GA event for comment
-    sendGAEvent('helpful_feedback_comment', {
-      event_category: 'Doc Feedback',
-      event_label: props.content.metadata.permalink,
-      comment,
+    sendGAEvent('doc_feedback_comment', {
+      doc_permalink: props.content.metadata.permalink,
+      has_comment: 1,
     });
 
     alert('Thanks for your comment! ❤️');

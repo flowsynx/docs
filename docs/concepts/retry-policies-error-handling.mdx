@@ -5,145 +5,140 @@ description: Learn how FlowSynx uses powerful retry policies and configurable er
 
 # Retry Policies & Error Handling
 
-No matter how well-designed a workflow is, failures are inevitable—network blips, unavailable APIs, temporary file locks, slow external services, and unexpected data conditions can all cause tasks to fail. What separates a reliable orchestration system from a fragile one is how effectively it responds to these failures.
+No matter how well-designed a workflow is, failures are inevitable—network blips, unavailable APIs, temporary file locks, 
+slow external services, and unexpected data conditions can all cause tasks to fail. What separates a reliable orchestration 
+system from a fragile one is how effectively it responds to these failures.
 
-FlowSynx provides a powerful, flexible, and fully declarative framework for managing task failures through **retry policies** and **error handling mechanisms**. Together, these features ensure that workflows remain resilient, self-healing, and capable of adapting to runtime conditions without requiring human intervention.
+FlowSynx provides a powerful, flexible, and fully declarative framework for managing task failures through retry policies 
+and error-handling mechanisms. Together, these features ensure that workflows remain resilient, self-healing, and capable of 
+adapting to runtime conditions without requiring human intervention.
 
+<img src="/img/Retry-Policies-Error-Handling.jpg" />
 
-## The Purpose of Retry Policies
+## Why Retry Policies Matter
 
-Retry policies define **how and when** FlowSynx should attempt to re-execute a failed task. Not all failures are permanent—many are transient and resolve with a simple retry. Rather than immediately marking a workflow as failed, FlowSynx uses retry logic to intelligently recover from temporary disruptions.
+In distributed systems and integration-heavy environments, many failures are not permanent—they are transient. 
+A database might be briefly unavailable, an API may be momentarily overloaded, or a short-lived network failure 
+may interrupt a task. Retry policies give FlowSynx the ability to distinguish between transient and unrecoverable 
+conditions and respond accordingly.
 
-### Common Retry Strategies
+Instead of immediately marking a task or workflow as failed, retry logic allows FlowSynx to:
 
-FlowSynx supports a wide range of retry strategies that can be configured per task:
+- Attempt recovery automatically
+- Reduce the need for human operators to investigate temporary issues
+- Increase workflow reliability without additional complexity in user code
+- Adapt behavior based on task importance, latency tolerance, and failure patterns
+- Enforce consistent operational behavior across teams and environments
 
-### **1. Fixed Delays**
-Retry after a constant delay.
+Retry policies transform workflows from brittle pipelines into robust, fault-tolerant systems capable of gracefully 
+handling real-world conditions.
 
-Example: Retry every 5 seconds for up to 3 attempts.
+## Retry Strategies
 
-### **2. Exponential Backoff**
-Each retry waits longer than the previous one.
+FlowSynx supports multiple retry strategies, each optimized for different operational scenarios. 
+All retry behavior is fully configurable per task, giving developers and operators fine-grained 
+control over execution behavior.
 
-Example: 1s → 2s → 4s → 8s → 16s.
+### 1. Fixed Delay
 
-This approach reduces load on external services and helps prevent cascading failures.
+Retries occur after a constant delay between attempts.  
+Best suited for predictable, low-variance environments where a consistent cooldown is sufficient.
 
-### **3. Jitter (Randomized Delay)**
-Adds randomness to avoid retry storms, especially important when many tasks call the same external service.
+#### Example:
+Retry every 5 seconds regardless of the number of attempts.
 
-### **4. Limited Retry Attempts**
-Limits the maximum number of retries to avoid infinite retry loops.
+### 2. Linear Backoff
 
-### **5. No Retry**
-Some tasks—especially those involving irreversible operations—can disable retries entirely.
+Delay increases linearly after each retry attempt.  
+Useful when failures become less likely to resolve without additional cooldown time.
 
-Retry configurations are fully declarative in FlowSynx, making them easy to manage, audit, and version with the workflow definition.
+#### Example:
+Retry after 5s, then 10s, then 15s…
 
+### 3. Exponential Backoff
 
-## Intelligent Retry Behavior
+Delay grows exponentially after each failure.
+Ideal for handling throttled APIs, rate-limited services, or cascading system overload.
 
-Beyond simple retry loops, FlowSynx incorporates advanced behavior:
+#### Example:
+Retry after 2s, 4s, 8s, 16s…
 
-- **retry only on specific error types** (e.g., HTTP 500 but not 400)  
-- **abort early** if retries are unlikely to succeed  
-- **context propagation** so each attempt has access to previous results  
-- **per-task and global defaults** for consistent policy enforcement  
+### 4. Jitter
 
-These capabilities turn FlowSynx into a resilient system that gracefully handles real-world reliability issues.
+Adds randomness to delay intervals to prevent retry storms or synchronized failures, especially in distributed systems.  
+Jitter can be combined with any strategy to avoid concurrent retry spikes.
 
+#### Example:
+An exponential backoff of 8s ± random jitter between 0–2s.
+
+## Retry Policy Configuration
+Retry policies are defined declaratively inside task definitions:
+
+``` json
+"retryPolicy": {
+   "backoffStrategy": "fixed",
+   "maxRetries": 3,
+   "initialDelay": 100000,
+   "maxDelay": 100000
+}
+```
+
+#### Configuration Fields
+
+- **backoffStrategy** — `fixed`, `linear`, `exponential`, `jitter`
+- **maxRetries** — Maximum number of attempts before the task is considered failed
+- **initialDelay** — Delay (ms) before the first retry
+- **maxDelay** — Optional upper cap for backoff growth
+- **jitter** — Optional randomized delay component
+
+If no retry policy is defined, FlowSynx defaults to zero retries—failures propagate immediately.
 
 ## Error Handling in FlowSynx
 
-While retries handle transient issues, error handling manages what happens when a task truly cannot succeed. Instead of halting the entire workflow, FlowSynx can gracefully redirect execution using **fallback paths** or **error branches**.
+While retry policies address transient issues, error-handling actions define what FlowSynx should do when retries are 
+exhausted or when an error is considered unrecoverable.
 
-### Types of Error Handling Strategies
+FlowSynx supports multiple post-failure behaviors that give developers control over workflow continuity and compensation logic.
 
-### **1. Alternative Execution Paths**
-Define a separate branch that runs if a task fails.
+### 1. Retry
 
-Example:  
-If the primary API call fails, use a backup service or cached data.
+Re-executes the task according to the defined retry policy.  
+This happens before any error-handling action is evaluated and is part of the standard failure pipeline.
 
-### **2. Manual Approval or Human-in-the-Loop**
-FlowSynx can pause the workflow and request human review.
+### 2. Skip
 
-Example:  
-If validation fails, require a user to confirm or modify data.
+Skips the failed task and continues workflow execution.  
+Downstream tasks still execute, but dependencies receive a skipped status.
 
-### **3. Alerts and Notifications**
-Trigger emails, Slack messages, or webhook alerts when failures occur.
+#### Use cases:
+- Optional tasks
+- Side-effect-free steps
+- Best-effort enrichment workflows
 
-### **4. Graceful Termination**
-Abort the workflow cleanly with structured error information for debugging.
+### 3. Abort
 
-### **5. Compensating Actions**
-Run cleanup or rollback tasks when operations fail.
+Stops the entire workflow and marks it as failed.
 
-Example:  
-If a database update fails halfway, trigger a compensating transaction.
+#### Use cases:
+- Critical steps where partial results are unacceptable
+- Compliance or security-sensitive operations
+- Situations where continued execution would cause data corruption
 
-### **6. Conditional Error Rules**
-FlowSynx supports conditions such as:
+### 4. TriggerTask
 
-- “If Task X fails with Code A, do Path 1”
-- “If a task fails more than twice, skip to Node Y”
-- “If upstream dependency fails, skip this task and continue”
+Executes a fallback or compensating task—similar to a saga or compensating transaction step.
 
-This level of granularity enables sophisticated, self-healing workflow behavior.
+#### Examples:
+- Cleanup of partially written data
+- Sending a notification to operators
+- Starting a backup workflow
+- Reverting changes performed by preceding tasks
 
-
-## Combining Retries and Error Handling
-
-Retries and error handling work together to form FlowSynx’s robust fault-tolerance model:
-
-### Workflow example:
-
-1. **Try Task A**  
-2. Retry up to 3 times with exponential backoff.  
-3. If it still fails:  
-   - Trigger an alert  
-   - Execute an error-handling branch  
-   - Run compensating action Task B  
-   - Move to manual approval Task C  
-4. Continue workflow execution or gracefully terminate based on configuration  
-
-This ensures transient issues are retried automatically, while genuine errors are handled deterministically and safely.
-
-
-## Benefits of FlowSynx's Fault-Tolerance Model
-
-FlowSynx’s retry and error handling mechanisms provide significant operational advantages:
-
-### **Improved Reliability**
-Workflows can withstand intermittent failures without user intervention.
-
-### **Reduced Operational Overhead**
-Teams spend less time debugging or manually rerunning workflows.
-
-### **Predictable Failure Behavior**
-Well-defined policies ensure consistent and auditable execution paths.
-
-### **Higher Workflow Success Rates**
-Automatic recovery drastically increases the number of workflows that finish successfully.
-
-### **Safer and More Controlled Execution**
-Fallbacks, compensations, and approvals minimize risk and prevent unintended side effects.
-
-
-## Building Resilient Workflows at Scale
-
-As workflows grow larger and more interconnected, the likelihood of encountering failures increases. FlowSynx’s robust retry and error-handling model is designed for these large-scale environments, providing:
-
-- distributed execution stability  
-- error isolation across branches  
-- dependency-aware fallback logic  
-- per-task execution history for debugging  
-- flexible configuration aligned with best practices  
-
-These capabilities make FlowSynx suitable for mission-critical pipelines where failure tolerance is not optional.
+TriggerTask allows workflows to implement corrective behavior and guarantees operational consistency even in failure cases.
 
 ---
 
-Retry policies and error handling are not just features—they are foundational aspects of FlowSynx’s reliability model. By combining intelligent retries with powerful, configurable error pathways, FlowSynx ensures that even the most complex workflows can execute predictably, safely, and successfully in the face of real-world uncertainties.
+FlowSynx's retry policies and error-handling framework enable workflows to remain robust, self-healing, and highly 
+reliable even in dynamic or distributed environments. By combining multiple backoff strategies, jitter, compensating 
+tasks, and fine-grained control over failure behavior, FlowSynx delivers operational resilience without requiring 
+additional user code.

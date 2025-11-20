@@ -15,25 +15,29 @@ function HomepageHeader() {
     <header className={clsx('hero hero--background', styles.heroBanner)}>
       <div className="container">
         <div className="row">
-          <div className="col col--9 text--left">
+          <div className="col col--10 text--left">
             <Heading as="h3" className="hero__title">
-            FlowSynx: Orchestrate Declarative, Plugin-Driven DAG Workflows on .NET
+            Declarative and Unified Interoperability Orchestrator for Intelligent Information Flow
             </Heading>
             <p className="hero__subtitle">{siteConfig.tagline}</p>
             <div className='{styles.buttons} text--left padding-top--lg'>
-              <Link className="button button--primary button--lg margin-right--md margin-bottom--md"
+              <Link className="button button--primary button--lg button--quickstart margin-right--md margin-bottom--md"
                 to="/docs/getting-started">
                 Get started
               </Link>
-              <Link className="button button--outline button--primary button--lg margin-right--md margin-bottom--md"
+              <Link className="button button--outline button--secondary hero-button--secondary button--lg margin-right--md margin-bottom--md"
+                to="/docs/getting-started/quickstarts/flowsynx-in-5-minutes">
+                Quick Starts
+              </Link>
+              <Link className="button button--outline button--secondary hero-button--secondary button--lg margin-right--md margin-bottom--md"
                 to="docs/reference/flowsynx/api">
                 API Reference
               </Link>
-              <Link className="button button--outline button--primary button--lg margin-right--md margin-bottom--md" 
+              <Link className="button button--outline button--secondary hero-button--secondary button--lg margin-right--md margin-bottom--md" 
               target='_blank' to="https://plugins.flowsynx.io">
                 Plugins
               </Link>
-              <Link className="button button--outline button--primary button--lg margin-bottom--md" target='_blank'
+              <Link className="button button--outline button--secondary hero-button--secondary button--lg margin-bottom--md" target='_blank'
                 to="https://github.com/flowsynx/samples">
                 Samples
               </Link>
@@ -53,18 +57,19 @@ function HomepageAboutFlowSynx() {
         <Heading as="h2">What is the FlowSynx?</Heading>
         <div className="row">
           <div className="col">
-          In today’s software landscape, automation, repeatability, and modular orchestration are key to achieving scalability, maintainability, 
-          and operational efficiency. Yet many workflow platforms remain rigid, overly complex, or locked into a single technology stack.
-           FlowSynx breaks those barriers. Built on .NET, this open-source, cross-platform workflow orchestration system empowers developers and 
-          organizations to define, execute, and manage complex workflows with ease.<br />
+          In today’s enterprise landscape, connecting fragmented systems, ensuring data consistency, and orchestrating complex workflows 
+          are critical to achieving operational efficiency, scalability, and maintainability. Yet, many workflow platforms remain rigid, 
+          siloed, or locked into a single technology stack. <b>FlowSynx breaks these barriers</b>. Built on .NET, this cross-platform 
+          orchestration engine enables organizations to seamlessly unify data and orchestrate workflows across legacy systems, cloud 
+          platforms, and modern applications. Its plugin-driven, declarative DAG architecture provides the flexibility to integrate any 
+          system, automate any process, and maintain full control over execution.<br /><br />
           
-          The mission of FlowSynx is clear: deliver a lightweight, extensible, and developer-friendly engine that adapts to diverse domains—from 
-          data engineering and DevOps to healthcare, finance, and enterprise integrations. It strikes the perfect balance between no-code simplicity 
-          and full-code flexibility, allowing teams to tailor workflows precisely to their needs through a modular, plugin-driven architecture.<br />
-          
-          At its core, FlowSynx leverages a micro-kernel design, cleanly separating orchestration logic from functional extensions. This decoupled 
-          architecture allows you to dynamically load, develop, or replace plugins without disrupting system stability—making FlowSynx highly customizable, 
-          maintainable, and easy to upgrade.
+          The mission of FlowSynx is clear: deliver a lightweight, extensible, and enterprise-ready orchestration engine that adapts to diverse 
+          domains—from healthcare and finance to data engineering, DevOps, and complex hybrid integrations. It strikes the perfect balance between 
+          simplicity and flexibility, allowing teams to define, extend, and manage workflows precisely to their business needs. At its core, 
+          FlowSynx leverages a modular micro-kernel design, cleanly separating orchestration logic from functional extensions. This decoupled 
+          architecture allows plugins to be developed, loaded, updated, or replaced dynamically—without disrupting existing workflows—making 
+          FlowSynx highly customizable, maintainable, and future-proof for the hybrid enterprise.
           </div>
         </div>
       </div>

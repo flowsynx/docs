@@ -314,3 +314,11 @@
   border: 1px solid var(--ifm-color-emphasis-300);
   font-size: 16px;
 }
+
+.hero-button--secondary {
+  border-color: var(--ifm-color-emphasis-500);
+}
+
+.hero-button--secondary:hover {
+  border-color: var(--ifm-color-emphasis-500);
+}

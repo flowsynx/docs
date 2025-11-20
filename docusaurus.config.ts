@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'FlowSynx',
-  tagline: 'Seamless Workflow Automation—Declarative, Extensible, and Fully Controllable. Turn complex processes into maintainable, auditable, and transparent workflows that adapt to your business needs.',
+  tagline: 'Seamlessly unify data and orchestrate workflows across legacy, cloud, and modern systems using plugin-driven, declarative DAGs—delivering secure, reliable, auditable, and fully controllable automation for the hybrid enterprise.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -39,12 +39,18 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          showLastUpdateTime: true,
+          showLastUpdateAuthor: true,
           includeCurrentVersion: true,
           versions: {
             current: {
               label: 'Version: 1.2.x',
             },
           },
+        },
+        blog: {
+          showReadingTime: true,
+          showLastUpdateTime: true,
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -69,103 +75,112 @@ const config: Config = {
     navbar: {
       title: 'FlowSynx',
       logo: {
-        alt: 'FlowSynx Logo',
-        src: 'img/logo.svg',
+      alt: 'FlowSynx Logo',
+      src: 'img/logo.svg',
       },
       items: [
-        {
-          type: 'docSidebar',
-          sidebarId: 'docSidebar',
-          position: 'left',
-          label: 'Docs',
-        },
-        {
-          to: 'https://schema.flowsynx.io', 
-          label: 'Schemas', 
-          position: 'left'
-        },
-        {
-          to: 'https://plugins.flowsynx.io', 
-          label: 'Plugins', 
-          position: 'left'
-        },
-        {
-          to: '/blog', 
-          label: 'Blog', 
-          position: 'left'
-        },
-        {
-          type: 'docsVersionDropdown',
-          position: 'right'
-        },
-        {
-          to: 'https://discord.flowsynx.io/',
-          position: 'right',
-          label: 'Join our Discord',
-          className: 'button button--primary button--md join-discord-button'
-        },
-        {
-          href: 'https://github.com/flowsynx/flowsynx',
-          position: 'right',
-          className: 'header-github-link',
-          'aria-label': 'GitHub repository',
-        },
+      {
+        type: 'docSidebar',
+        sidebarId: 'docSidebar',
+        position: 'left',
+        label: 'Docs',
+      },
+      {
+        to: 'https://schema.flowsynx.io', 
+        label: 'Schemas', 
+        position: 'left'
+      },
+      {
+        to: 'https://plugins.flowsynx.io', 
+        label: 'Plugins', 
+        position: 'left'
+      },
+      {
+        to: '/blog', 
+        label: 'Blog', 
+        position: 'left'
+      },
+      {
+        to: '/docs/faq', // Add this line for FAQ
+        label: 'FAQ', 
+        position: 'left'
+      },
+      {
+        type: 'docsVersionDropdown',
+        position: 'right'
+      },
+      {
+        to: 'https://discord.flowsynx.io/',
+        position: 'right',
+        label: 'Join our Discord',
+        className: 'button button--primary button--md join-discord-button'
+      },
+      {
+        href: 'https://github.com/flowsynx/flowsynx',
+        position: 'right',
+        className: 'header-github-link',
+        'aria-label': 'GitHub repository',
+      },
       ],
     },
     footer: {
       style: 'light',
       links: [
+      {
+        title: 'Learn',
+        items: [
         {
-          title: 'Learn',
-          items: [
-            {
-              label: 'Concepts',
-              to: '/docs/concepts',
-            },
-            {
-              label: 'Get Started',
-              to: '/docs/getting-started',
-            },
-            {
-              label: 'Schemas',
-              href: 'https://schema.flowsynx.io',
-            },
-          ],
+          label: 'Concepts',
+          to: '/docs/concepts',
         },
         {
-          title: 'Community',
-          items: [
-            {
-              label: 'GitHub',
-              href: 'https://github.com/flowsynx/flowsynx',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discord.flowsynx.io',
-            },
-            {
-              label: 'Youtube',
-              href: 'https://www.youtube.com/@flowsynx',
-            },
-            {
-              label: 'Linkedin',
-              href: 'https://www.linkedin.com/company/flowsynx',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/flowsynxio',
-            },
-          ],
+          label: 'Getting Started',
+          to: '/docs/getting-started',
         },
         {
-          title: 'News & Media',
-          items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            }
-          ],
+          label: 'Quick Starts',
+          to: '/docs/getting-started/quickstarts/flowsynx-in-5-minutes',
         },
+        {
+          label: 'Schemas',
+          href: 'https://schema.flowsynx.io',
+        },
+        ],
+      },
+      {
+        title: 'Community',
+        items: [
+        {
+          label: 'GitHub',
+          href: 'https://github.com/flowsynx/flowsynx',
+        },
+        {
+          label: 'Discord',
+          href: 'https://discord.flowsynx.io',
+        },
+        {
+          label: 'Youtube',
+          href: 'https://www.youtube.com/@flowsynx',
+        },
+        {
+          label: 'Linkedin',
+          href: 'https://www.linkedin.com/company/flowsynx',
+        },
+        {
+          label: 'X',
+          href: 'https://x.com/flowsynxio',
+        },
+        ],
+      },
+      {
+        title: 'News & Media',
+        items: [
+        {
+          label: 'Blog',
+          to: '/blog',
+        }
+        ],
+      },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} - FlowSynx - All rights reserved.<br />
       Built with <a href="https://docusaurus.io/" target="_blank">Docusaurus</a>. Hosted at <a href="https://pages.github.com/" target="_blank">Github Pages</a>.`

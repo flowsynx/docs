@@ -2,11 +2,50 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://flowsynx.io/blog</id>
     <title>FlowSynx Blog</title>
-    <updated>2025-11-17T00:00:00.000Z</updated>
+    <updated>2025-11-29T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://flowsynx.io/blog"/>
     <subtitle>FlowSynx Blog</subtitle>
     <icon>https://flowsynx.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[FlowSynx v1.2.5 is now available]]></title>
+        <id>https://flowsynx.io/blog/flowsynx-v1.2.5-is-now-available</id>
+        <link href="https://flowsynx.io/blog/flowsynx-v1.2.5-is-now-available"/>
+        <updated>2025-11-29T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[FlowSynx v1.2.5 is officially released!]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flowsynx-v125-is-officially-released">FlowSynx v1.2.5 is officially released!<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.5-is-now-available#flowsynx-v125-is-officially-released" class="hash-link" aria-label="Direct link to FlowSynx v1.2.5 is officially released!" title="Direct link to FlowSynx v1.2.5 is officially released!" translate="no">​</a></h2>
+<!-- --><p>We're excited to roll out version 1.2.5 of FlowSynx — our lightweight, secure, and plugin-driven workflow engine.</p>
+<!-- --><p>This is the v1.2.5 release of FlowSynx</p>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-changed">What's Changed<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.5-is-now-available#whats-changed" class="hash-link" aria-label="Direct link to What's Changed" title="Direct link to What's Changed" translate="no">​</a></h2>
+<!-- --><ul>
+<!-- --><li class="">Fix IsBinaryFile binary detection (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/702" target="_blank" rel="noopener noreferrer" class="">#702</a>) by <!-- --><a href="https://github.com/mohin-io" target="_blank" rel="noopener noreferrer" class=""><strong>@mohin-io</strong></a> in <!-- --><a href="https://github.com/flowsynx/flowsynx/pull/716" target="_blank" rel="noopener noreferrer" class="">#716</a></li>
+<!-- --><li class="">Fix structured exception logging in LogsListHandler by <!-- --><a href="https://github.com/djzh23" target="_blank" rel="noopener noreferrer" class=""><strong>@djzh23</strong></a> in <!-- --><a href="https://github.com/flowsynx/flowsynx/pull/728" target="_blank" rel="noopener noreferrer" class="">#728</a></li>
+<!-- --><li class="">Refactor JWT provider loop to use LINQ Select by <!-- --><a href="https://github.com/djzh23" target="_blank" rel="noopener noreferrer" class=""><strong>@djzh23</strong></a> in <!-- --><a href="https://github.com/flowsynx/flowsynx/pull/729" target="_blank" rel="noopener noreferrer" class="">#729</a></li>
+<!-- --><li class="">fix: replaced unnecessary boolean literal (is false) with direct nega… by <!-- --><a href="https://github.com/AB-404" target="_blank" rel="noopener noreferrer" class=""><strong>@AB-404</strong></a> in <!-- --><a href="https://github.com/flowsynx/flowsynx/pull/731" target="_blank" rel="noopener noreferrer" class="">#731</a></li>
+<!-- --><li class="">Fix structured logging in AuditsListHandler by <!-- --><a href="https://github.com/mohin-io" target="_blank" rel="noopener noreferrer" class=""><strong>@mohin-io</strong></a> in <!-- --><a href="https://github.com/flowsynx/flowsynx/pull/735" target="_blank" rel="noopener noreferrer" class="">#735</a></li>
+<!-- --><li class="">Fix structured logging in audit handlers (#724) by <!-- --><a href="https://github.com/mohin-io" target="_blank" rel="noopener noreferrer" class=""><strong>@mohin-io</strong></a> in <!-- --><a href="https://github.com/flowsynx/flowsynx/pull/736" target="_blank" rel="noopener noreferrer" class="">#736</a></li>
+<!-- --><li class="">Refactor BuildGraph as static method by <!-- --><a href="https://github.com/ksuraev" target="_blank" rel="noopener noreferrer" class=""><strong>@ksuraev</strong></a> in <!-- --><a href="https://github.com/flowsynx/flowsynx/pull/752" target="_blank" rel="noopener noreferrer" class="">#752</a></li>
+<!-- --><li class="">Use structured logging in SummaryHandler by <!-- --><a href="https://github.com/mohin-io" target="_blank" rel="noopener noreferrer" class=""><strong>@mohin-io</strong></a> in <!-- --><a href="https://github.com/flowsynx/flowsynx/pull/750" target="_blank" rel="noopener noreferrer" class="">#750</a></li>
+<!-- --><li class="">Use structured logging in AddPluginConfigHandler by <!-- --><a href="https://github.com/mohin-io" target="_blank" rel="noopener noreferrer" class=""><strong>@mohin-io</strong></a> in <!-- --><a href="https://github.com/flowsynx/flowsynx/pull/751" target="_blank" rel="noopener noreferrer" class="">#751</a></li>
+<!-- --><li class="">Improve logging in UpdatePluginConfigHandler by <!-- --><a href="https://github.com/mohin-io" target="_blank" rel="noopener noreferrer" class=""><strong>@mohin-io</strong></a> in <!-- --><a href="https://github.com/flowsynx/flowsynx/pull/759" target="_blank" rel="noopener noreferrer" class="">#759</a></li>
+<!-- --></ul>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-contributors">New Contributors<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.5-is-now-available#new-contributors" class="hash-link" aria-label="Direct link to New Contributors" title="Direct link to New Contributors" translate="no">​</a></h2>
+<!-- --><ul>
+<!-- --><li class=""><a href="https://github.com/djzh23" target="_blank" rel="noopener noreferrer" class=""><strong>@djzh23</strong></a> made their first contribution in <!-- --><a href="https://github.com/flowsynx/flowsynx/pull/728" target="_blank" rel="noopener noreferrer" class="">#728</a></li>
+<!-- --><li class=""><a href="https://github.com/ksuraev" target="_blank" rel="noopener noreferrer" class=""><strong>@ksuraev</strong></a> made their first contribution in <!-- --><a href="https://github.com/flowsynx/flowsynx/pull/752" target="_blank" rel="noopener noreferrer" class="">#752</a></li>
+<!-- --></ul>
+<!-- --><p><strong>Full Changelog</strong>: <!-- --><a href="https://github.com/flowsynx/flowsynx/compare/v1.2.4...v1.2.5" target="_blank" rel="noopener noreferrer" class="">https://github.com/flowsynx/flowsynx/compare/v1.2.4...v1.2.5</a></p>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="available-now-via">Available now via<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.5-is-now-available#available-now-via" class="hash-link" aria-label="Direct link to Available now via" title="Direct link to Available now via" translate="no">​</a></h2>
+<!-- --><a class="button button--primary button--outline button--lg" href="https://github.com/flowsynx/flowsynx/releases/tag/v1.2.5" target="_blank"><i class="fab fa-github"></i> GitHub<!-- --></a>
+<!-- --><a class="button button--primary button--outline button--lg" href="https://hub.docker.com/r/flowsynx/flowsynx/tags?name=1.2.5" target="_blank">Docker</a>
+<!-- --><h4>To begin, please visit the <!-- --><a href="https://flowsynx.io/docs/getting-started">Getting Started</a> page.<!-- --></h4>]]></content>
+        <author>
+            <name>Maintainers</name>
+        </author>
+        <category label="FlowSynx" term="FlowSynx"/>
+        <category label="Release" term="Release"/>
+        <category label="WorkflowAutomation" term="WorkflowAutomation"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Designing for Infinite Flexibility: Plugin-Based Extensibility in FlowSynx]]></title>
         <id>https://flowsynx.io/blog/designing-for-infinite-flexibility-plugin-Based-extensibility-in-flowSynx</id>

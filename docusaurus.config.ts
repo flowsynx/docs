@@ -51,6 +51,11 @@ const config: Config = {
         blog: {
           showReadingTime: true,
           showLastUpdateTime: true,
+          routeBasePath: 'blog',
+          blogSidebarCount: 10,
+          postsPerPage: 6,
+          blogTitle: 'Blog',
+          blogDescription: 'Technical articles and tutorials'
         },
         theme: {
           customCss: './src/css/custom.css',

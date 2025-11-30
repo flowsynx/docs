@@ -1,0 +1,110 @@
+/* ============================
+   FlowSynx Features UI Upgrades
+=============================== */
+
+.featuresSection {
+  padding: 4rem 0;
+}
+
+.sectionTitle {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: var(--ifm-color-emphasis-600);
+  max-width: 700px;
+  margin: 0 auto 2.5rem auto;
+  text-align: center;
+}
+
+/* Feature Card */
+.featureCard {
+  background: var(--ifm-background-surface-color);
+  padding: 2rem;
+  border-radius: 1.25rem;
+  box-shadow: var(--ifm-global-shadow-md);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.featureCard:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--ifm-global-shadow-lg);
+  border-color: var(--ifm-color-primary);
+  box-shadow: var(--ifm-global-shadow-md);
+}
+
+/* Header */
+.featureHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.featureIcon {
+  color: var(--ifm-color-primary);
+  min-width: 56px;
+  transition: transform 0.3s ease;
+}
+
+.featureCard:hover .featureIcon {
+  transform: scale(1.07);
+}
+
+.featureTitle {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--ifm-heading-color);
+}
+
+/* Body */
+.featureBody {
+  flex: 1;
+  margin-bottom: 1.25rem;
+  color: var(--ifm-color-emphasis-800);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+/* Footer */
+.featureFooter {
+  margin-top: 1.2rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.readMoreButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border: none;
+  background: none;
+  padding: 0.25rem 0;
+  color: var(--ifm-color-primary);
+  transition: color 0.25s ease;
+}
+
+.readMoreButton:hover {
+  color: var(--ifm-color-primary-dark);
+}
+
+.readMoreIcon {
+  font-size: 1rem;
+  transition: transform 0.25s ease;
+}
+
+.readMoreButton:hover .readMoreIcon {
+  transform: translateX(4px);
+}

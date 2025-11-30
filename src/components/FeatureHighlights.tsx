@@ -6,7 +6,7 @@ export default function FeatureHighlights() {
       <div className={styles.container}>
         <div className={styles.row}>
           <div className={styles.col}>
-            <h3 className={`${styles.title} ${styles.green}`}>Secure</h3>
+            <h3 className={`${styles.title}`}>Secure</h3>
             <p className={styles.subtitle}>Built-in security and RBAC capability ensures that workflows are protected</p>
           </div>
           <div className={styles.divider}></div>
@@ -21,7 +21,7 @@ export default function FeatureHighlights() {
           </div>
           <div className={styles.divider}></div>
           <div className={styles.col}>
-            <h3 className={`${styles.title}`}>Plugin-Based Extensibility</h3>
+            <h3 className={`${styles.title}`}>Extensibale</h3>
             <p className={styles.subtitle}>Add, upgrade, or remove capabilities dynamically and version-controlled</p>
           </div>
         </div>

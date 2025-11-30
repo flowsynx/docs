@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
-import styles from './styles.module.css';
+import styles from './features.module.css';
 import { Icon } from '@iconify/react';
 
 type FeatureItem = {
@@ -99,7 +99,7 @@ const FeatureList: FeatureItem[] = [
   {
     title: 'Expression Evaluation',
     icon: 'mdi:function-variant',
-    slug: '',
+    slug: '/docs/reference/flowsynx/expressions',
     description: (
       <>
         <b>Expression Evaluation</b> in FlowSynx allows dynamic parameterization of workflows using expressions. Values can be computed 
@@ -256,22 +256,28 @@ const FeatureList: FeatureItem[] = [
 
 function Feature({ title, icon, description, slug }: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="card feature-card margin-bottom--lg">
-        <div className="card__header">
-          <Icon className="feature-card-header" icon={icon} height="64" />
-          <Heading as="h3">{title}</Heading>
+    <div className={clsx('col col--4 margin-bottom--lg')}>
+      <div className={styles.featureCard}>
+        <div className={styles.featureHeader}>
+          <Icon className={styles.featureIcon} icon={icon} height="56" />
+          <Heading as="h3" className={styles.featureTitle}>{title}</Heading>
         </div>
-        <div className="card__body">
-          <p>{description}</p>
+
+        <div className={styles.featureBody}>
+          {description}
         </div>
-        <div className="card__footer">
-            {slug && (
-            <a className="button button--outline button--primary" href={`${slug}`}>
-              Read more...
+
+        {slug && (
+          <div className={styles.featureFooter}>
+            <a
+              className={styles.readMoreButton}
+              href={slug}
+            >
+              Read more
+              <Icon icon="mdi:arrow-right" className={styles.readMoreIcon} />
             </a>
-            )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -279,14 +285,16 @@ function Feature({ title, icon, description, slug }: FeatureItem) {
 
 export default function HomepageFeatures(): JSX.Element {
   return (
-    <section className={styles.features}>
+    <section className={styles.featuresSection}>
       <div className="container">
-        <Heading as="h2">FlowSynx features and capabilities</Heading>
-        <div className="row">
-          <div className="col padding-bottom--lg">
-            A comprehensive look at the modular workflow engine powering intelligent automation and seamless integration.
-          </div>
-        </div>
+        <Heading as="h2" className={styles.sectionTitle}>
+          FlowSynx Features & Capabilities
+        </Heading>
+
+        <p className={styles.sectionSubtitle}>
+          A comprehensive look at the modular workflow engine powering intelligent automation and seamless integration.
+        </p>
+
         <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />

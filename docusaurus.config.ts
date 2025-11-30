@@ -187,6 +187,12 @@ const config: Config = {
         ],
       },
       ],
+      logo: {
+        alt: 'FlowSynx Logo',
+        src: 'img/logo.svg',
+        href: '/',
+        width: 96,
+      },
       copyright: `Copyright © ${new Date().getFullYear()} - FlowSynx - All rights reserved.<br />
       Built with <a href="https://docusaurus.io/" target="_blank">Docusaurus</a>. Hosted at <a href="https://pages.github.com/" target="_blank">Github Pages</a>.`
     },

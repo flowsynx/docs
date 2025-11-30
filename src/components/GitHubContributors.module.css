@@ -1,0 +1,56 @@
+.contributorsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.contributorCard {
+  width: 110px;
+  text-align: center;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.contributorCard:hover {
+  transform: translateY(-5px) scale(1.05);
+}
+
+.contributorAvatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 0.25s ease, border 0.25s ease;
+}
+
+.contributorCard:hover .contributorAvatar {
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.contributorName {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ifm-font-color-base);
+  opacity: 0.85;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .contributorCard {
+    width: 90px;
+  }
+
+  .contributorAvatar {
+    width: 72px;
+    height: 72px;
+  }
+
+  .contributorName {
+    font-size: 0.75rem;
+  }
+}

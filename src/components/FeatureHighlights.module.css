@@ -1,57 +1,77 @@
 .container {
-    display: flex;
-    padding: 2rem 0rem;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 0rem;
+  gap: 2rem;
+}
+
+/* Modern card-style row */
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1rem 1rem;
+  gap: 1rem;
+  color: var(--ifm-hero-text-color);
+  width: 100%;
+  backdrop-filter: blur(10px);
+}
+
+/* Column layout */
+.col {
+  flex: 1;
+  text-align: center;
+  padding: 0.5rem;
+  border: 2px solid transparent; /* default border */
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* Hover effect: border and subtle shadow */
+.col:hover {
+  border: 2px solid  rgba(255, 255, 255, 0.1);
+}
+
+/* Titles */
+.title {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+}
+
+/* Subtitles */
+.subtitle {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #f0f0f0d8;
+  opacity: 0.85;
+}
+
+/* Divider */
+.divider {
+  height: 8rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 0;
+  align-self: stretch;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
   .row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    background-color: transparent;
-    border: 1px solid var(--ifm-color-border-gray);
-    border-radius: 12px;
-    padding: 1.5rem 1rem;
-    gap: 2rem;
-    color: var(--ifm-hero-text-color);
-    width: 100%;
-  }
-  
-  .col {
-    flex: 1;
+    flex-direction: column;
     text-align: center;
-  }
-  
-  .title {
-    margin: 0;
-    font-size: 1.25rem;
-    font-weight: 700;
-  }
-  
-  .subtitle {
-    margin-top: 0.4rem;
-    font-size: 0.9rem;
-    color: var(--ifm-footer-link-color);
-  }
-  
-  .green {
-    color: #22c55e; /* Green */
+    gap: 1.5rem;
+    padding: 1.5rem 1rem;
   }
 
   .divider {
-    height: 5rem;
-    border-left: 1px solid var(--ifm-color-border-gray);;
+    display: none;
   }
-  
-  @media (max-width: 768px) {
-    .row {
-      flex-direction: column;
-      text-align: center;
-      gap: 1rem;
-    }
-  
-    .divider {
-      display: none;
-    }
-  }
-  
+}

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import styles from './GitHubContributors.module.css';
 
 interface Contributor {
   id: number;
@@ -39,20 +40,21 @@ const GitHubContributors: React.FC<GitHubContributorsProps> = ({ owner, repo }) 
   if (!contributors.length) return <p>No contributors found.</p>;
 
   return (
-    <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+    <div className={styles.contributorsGrid}>
       {contributors.map((c) => (
-        <div key={c.id} style={{ textAlign: 'center', width: '100px' }}>
+        <div key={c.id} className={styles.contributorCard}>
           <a href={c.html_url} target="_blank" rel="noopener noreferrer">
             <img
               src={c.avatar_url}
               alt={c.login}
-              style={{ width: '96px', borderRadius: '50%' }}
+              className={styles.contributorAvatar}
             />
           </a>
+          <p className={styles.contributorName}>{c.login}</p>
         </div>
       ))}
     </div>
-  );
+  );  
 };
 
 export default GitHubContributors;

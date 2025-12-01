@@ -19,12 +19,10 @@ import TabItem from '@theme/TabItem';
     The following command starts FlowSynx with all required services:
 
     ```bash
-    docker run -d \
-      --name flowsynx \
+    docker run -d --name flowsynx \
       -p 6262:6262 \
       -v flowsynx_data:/app/data \
-      flowsynx/flowsynx:1.2.4-linux-amd64 \
-      --start
+      flowsynx/flowsynx:1.2.4-linux-amd64 --start
     ```
 
     **What this command does:**
@@ -71,7 +69,10 @@ Paste the following content:
   "tasks": [
     {
       "name": "Hello world",
-      "type": "",
+      "type": { 
+        "plugin": "FlowSynx.Storage.Local",
+        "version": "1.0.0"
+      },
       "parameters": {
         "operation": "write",
         "path": "/app/data/test.txt",

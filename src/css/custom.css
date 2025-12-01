@@ -484,6 +484,7 @@
   padding: 2.5rem;
   border-radius: 1.25rem;
   border: 1px solid var(--ifm-color-emphasis-200);
+  box-shadow: var(--ifm-global-shadow-md);
   animation: fadeInUp 0.55s ease forwards;
   margin: auto;
 }

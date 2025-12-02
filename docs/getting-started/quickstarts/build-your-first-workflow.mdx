@@ -1,0 +1,414 @@
+---
+description: This hands-on tutorial guides you through creating,
+  executing, and monitoring your first FlowSynx workflow, including
+  tasks, dependencies, error handling, and expressions.
+sidebar_position: 2
+title: Build Your First Workflow
+---
+
+# Build Your First Workflow (15--30 min)
+
+This hands-on tutorial walks through the complete lifecycle of a basic
+**FlowSynx** workflow: creation, execution, monitoring, and enhancement
+with advanced features such as **multi-task DAGs**, **dependency
+resolution**, **retry/error-handling policies**, and **dynamic
+expressions**.\
+By the end, you will understand how FlowSynx orchestrates tasks,
+evaluates expressions, and enforces workflow integrity.
+
+## Step 1: Set Up the Environment (≈5 min)
+
+FlowSynx can run as a containerized service or as a standalone binary.
+Docker is recommended as it isolates the runtime and persists workflow
+metadata through mounted volumes.
+
+#### Option A --- Docker (recommended)
+
+```bash
+docker run -d --name flowsynx \
+  -p 6262:6262 \
+  -v flowsynx_data:/app/data \
+  flowsynx/flowsynx:1.2.4-linux-amd64 --start
+```
+
+#### Verify installation
+
+```bash
+curl http://localhost:6262/version
+```
+
+You should receive a JSON payload containing the FlowSynx version and build metadata.
+
+#### Option B --- Binary Installation
+
+1.  Download the latest release for your OS/architecture.
+2.  Start the engine:
+
+```bash
+flowsynx --start
+```
+
+This launches the embedded HTTP server, workflow engine, expression evaluator, and plugin host.
+
+## Step 2: Create a Simple Single-Task Workflow (≈3 min)
+
+Workflows in FlowSynx are defined as **JSON DAGs**. Each workflow contains: 
+- A unique `name` 
+- Optional `description` 
+- A list of `tasks` 
+- Optional `variables`, `errorHandling`, `triggers`, and metadata
+
+Each task must define:
+- `name` (unique per workflow)
+- `type` (plugin or built-in executor)
+- `parameters` (executor-specific)
+
+#### Create a single-task workflow
+
+```bash
+curl -X POST http://localhost:6262/workflows -H "Content-Type: application/json" -d '{
+  "name": "hello_workflow",
+  "description": "Single task example",
+  "tasks": [
+    {
+      "name": "write_hello",
+      "type": { 
+        "plugin": "FlowSynx.Storage.Local",
+        "version": "1.0.0"
+      },
+      "parameters": {
+        "path": "/app/data/hello.txt",
+        "data": "Hello, FlowSynx!",
+        "overwrite": true
+      }
+    }
+  ]
+}'
+```
+
+You will receive:
+
+- `workflowId`
+- Timestamps
+- Normalized/validated workflow structure
+
+## Step 3: Add Task Dependencies (2--3 Tasks) (≈5--7 min)
+
+FlowSynx resolves execution order using a **dependency graph**, not task ordering. Tasks execute as soon as all prerequisites have succeeded.
+
+#### Create a read → load csv → compres → write pipeline
+
+```bash
+curl -X POST http://localhost:6262/workflows -H "Content-Type: application/json" -d '{
+  "name": "transform_pipeline",
+  "tasks": [
+    {
+      "name": "get_csv",
+      "type": {
+        "plugin": "FlowSynx.Web.HttpRequest",
+        "version": "1.1.1"
+      },
+      "parameters": {
+        "operation": "GET",
+        "url": "https://github.com/flowsynx/samples/blob/master/data/datablist/customers-100.csv"
+      }
+    },
+    {
+      "name": "read_csv"",
+      "type": { 
+        "plugin": "FlowSynx.Data.Csv",
+        "version": "1.2.3"
+      },
+      "dependencies": ["get_csv"],
+      "parameters": {
+        "operation": "read",
+        "delimiter": ",",
+        "data": "$[Outputs('get_csv')]"
+      }
+    },
+    {
+      "name": "zip_compress_csv",
+      "type": {
+        "plugin": "FlowSynx.Compression.Zip",
+        "version": "1.0.0"
+      },
+      "dependencies": ["read_csv"],
+      "parameters": {
+        "operation": "compress",
+        "data": "$[Outputs('read_csv')]"
+      }
+    },
+    {
+      "name": "write_output",
+      "type": { 
+        "plugin": "FlowSynx.Storage.Local",
+        "version": "1.0.0"
+      },
+      "dependencies": ["zip_compress_csv"],
+      "parameters": {
+        "operation": "write",
+        "path": "/app/data/result.zip",
+        "data": "$[Outputs('zip_compress_csv')]",
+        "overwrite": true
+      }
+    }
+  ]
+}'
+```
+
+**Key Technical Notes**  
+- Dependencies must reference other task names exactly.
+- Cyclic graphs (A → B → A) are rejected during validation.
+- Tasks without dependencies are considered root nodes and are scheduled immediately.
+- Outputs are available via `"$[Outputs('<taskName>').<property>]"` placeholders. For more information [**Expressions**](/docs/reference/flowsynx/expressions)
+
+## Step 4: Add Error Handling (Retry Policy) (≈5 min)
+
+FlowSynx allows **task-level** and **workflow-level** error-handling policies. Task-level values override workflow defaults.
+
+Retry policies support:
+
+- `maxRetries`
+- `initialDelayMilliseconds`
+- `maxDelayMilliseconds`
+- `backoffStrategy`: `Fixed`, `Linear`, `Exponential`, `Jitter`
+- `backoffCoefficient`: multiplier for exponential growth
+
+#### Example: Retry a HTTP request
+
+```bash
+curl -X POST http://localhost:6262/workflows -H "Content-Type: application/json" -d '{
+  "name": "transform_pipeline_with_retry",
+  "tasks": [
+    {
+      "name": "get_csv",
+      "type": {
+        "plugin": "FlowSynx.Web.HttpRequest",
+        "version": "1.1.1"
+      },
+      "parameters": {
+        "operation": "GET",
+        "url": "https://github.com/flowsynx/samples/blob/master/data/datablist/customers-100.csv"
+      },
+      "errorHandling": {
+        "strategy": "Retry",
+        "retryPolicy": {
+          "maxRetries": 5,
+          "initialDelayMilliseconds": 500,
+          "maxDelayMilliseconds": 5000,
+          "backoffStrategy": "Exponential",
+          "backoffCoefficient": 2.0
+        }
+      }
+    },
+    {
+      "name": "read_csv"",
+      "type": { 
+        "plugin": "FlowSynx.Data.Csv",
+        "version": "1.2.3"
+      },
+      "dependencies": ["get_csv"],
+      "parameters": {
+        "operation": "read",
+        "delimiter": ",",
+        "data": "$[Outputs('get_csv')]"
+      }
+    },
+    {
+      "name": "zip_compress_csv",
+      "type": {
+        "plugin": "FlowSynx.Compression.Zip",
+        "version": "1.0.0"
+      },
+      "dependencies": ["read_csv"],
+      "parameters": {
+        "operation": "compress",
+        "data": "$[Outputs('read_csv')]"
+      }
+    },
+    {
+      "name": "write_output",
+      "type": { 
+        "plugin": "FlowSynx.Storage.Local",
+        "version": "1.0.0"
+      },
+      "dependencies": ["zip_compress_csv"],
+      "parameters": {
+        "operation": "write",
+        "path": "/app/data/result.zip",
+        "data": "$[Outputs('zip_compress_csv')]",
+        "overwrite": true
+      }
+    }
+  ]
+}'
+```
+
+If retries are exhausted, the task moves to **Failed**, and the workflow fails unless you configure a `TriggerTask`, `Skip`, or custom handler.
+
+## Step 5: Use Expressions for Dynamic Values (≈5--7 min)
+
+FlowSynx expressions are evaluated at runtime and can reference:
+
+- Variables
+- Task outputs
+- Conditional results
+- Computed values from the expression engine (strings, numbers, dates, booleans)
+
+Expressions use the platform’s configured parser (e.g., `$[...]` syntax).
+
+#### Workflow with Variables
+
+```bash
+curl -X POST http://localhost:6262/workflows -H "Content-Type: application/json" -d '{
+  "name": "transform_pipeline_with_retry_and_variables",
+  "variables": {
+    "taskA": "get_csv",
+    "taskB": "read_csv",
+    "taskC": "zip_compress_csv",
+    "taskD": "write_output",
+    "url": "https://github.com/flowsynx/samples/blob/master/data/datablist/customers-100.csv",
+    "delimiter": ","
+  },
+  "tasks": [
+    {
+      "name": $[Variables('taskA')]",
+      "type": {
+        "plugin": "FlowSynx.Web.HttpRequest",
+        "version": "1.1.1"
+      },
+      "parameters": {
+        "operation": "GET",
+        "url": "$[Variables('url')]"
+      },
+      "errorHandling": {
+        "strategy": "Retry",
+        "retryPolicy": {
+          "maxRetries": 5,
+          "initialDelayMilliseconds": 500,
+          "maxDelayMilliseconds": 5000,
+          "backoffStrategy": "Exponential",
+          "backoffCoefficient": 2.0
+        }
+      }
+    },
+    {
+      "name":  "$[Variables('taskB')]",
+      "type": { 
+        "plugin": "FlowSynx.Data.Csv",
+        "version": "1.2.3"
+      },
+      "dependencies": ["$[Variables('taskA')]"],
+      "parameters": {
+        "operation": "read",
+        "delimiter": "$[Variables('delimiter')]",
+        "data": "$[Outputs(Variables('taskA'))]"
+      }
+    },
+    {
+      "name": "$[Variables('taskC')]",
+      "type": {
+        "plugin": "FlowSynx.Compression.Zip",
+        "version": "1.0.0"
+      },
+      "dependencies": ["$[Variables('taskB')]"],
+      "parameters": {
+        "operation": "compress",
+        "data": "$[Outputs(Variables('taskB'))]"
+      }
+    },
+    {
+      "name": "$[Variables('taskD')]",
+      "type": { 
+        "plugin": "FlowSynx.Storage.Local",
+        "version": "1.0.0"
+      },
+      "dependencies": ["$[Variables('taskC')]"],
+      "parameters": {
+        "operation": "write",
+        "path": "/app/data/result.zip",
+        "data": "$[Outputs(Variables('taskC'))]",
+        "overwrite": true
+      }
+    }
+  ]
+}'
+```
+
+## Step 6: Execute and Monitor (≈5 min)
+
+#### Start execution:
+
+``` bash
+curl -X POST http://localhost:6262/workflows/<WORKFLOW_ID>/executions
+```
+
+#### List all executions:
+
+``` bash
+curl http://localhost:6262/workflows/<WORKFLOW_ID>/executions?page=1&pageSize=25
+```
+
+#### Get execution details:
+
+``` bash
+curl http://localhost:6262/workflows/<WORKFLOW_ID>/executions/<EXECUTION_ID>
+```
+
+This includes DAG state, per-task results, timestamps, error messages, and dependency state.
+
+#### View task logs:
+
+``` bash
+curl http://localhost:6262/workflows/<WORKFLOW_ID>/executions/<EXECUTION_ID>/tasks/<TASK_ID>/logs
+```
+
+#### List pending approvals::
+
+``` bash
+curl http://localhost:6262/workflows/<WORKFLOW_ID>/executions/<EXECUTION_ID>/approvals
+```
+
+#### Approve:
+
+``` bash
+curl -X POST http://localhost:6262/workflows/<WORKFLOW_ID>/executions/<EXECUTION_ID>/approvals/<APPROVAL_ID>/approve
+```
+
+#### Reject:
+
+``` bash
+curl -X POST http://localhost:6262/workflows/<WORKFLOW_ID>/executions/<EXECUTION_ID>/approvals/<APPROVAL_ID>/reject
+```
+
+#### Cancel execution:
+
+``` bash
+curl -X POST http://localhost:6262/workflows/<WORKFLOW_ID>/executions/<EXECUTION_ID>/cancel
+```
+
+## Troubleshooting
+
+| Issue                         | Cause                                         | Resolution                                             |
+| ----------------------------- | --------------------------------------------- | ------------------------------------------------------ |
+| 404 when starting execution   | Invalid workflow ID                           | Re-check the ID returned by creation.                  |
+| Workflow fails immediately    | Invalid schema or missing dependency          | Ensure all `dependencies` reference existing tasks.    |
+| Duplicate task names          | Non-unique `name` properties                  | Rename tasks; names must be unique.                    |
+| Conditional target never runs | Target not included in `tasks` array          | Add the task definition to `tasks`.                    |
+| Task stuck in Paused          | Manual approval required                      | Inspect approvals endpoint.                            |
+| Retry does not occur          | Missing `"strategy": "Retry"`                 | Add the correct error strategy.                        |
+| Backoff not applied           | Missing `backoffStrategy` or coefficient      | Add required attributes.                               |
+| Expression unresolved         | Syntax mismatch                               | Verify `$[...]` pattern and expression rules.          |
+| Workflow remains Pending      | Cyclic dependencies or no runnable root tasks | Inspect dependency graph.                              |
+| Task canceled                 | Timeout or manual cancellation                | Increase `timeoutMilliseconds` or avoid cancellation.  |
+| Triggered task does not run   | Incorrect trigger reference                   | Ensure `triggerPolicy.taskName` is valid.              |
+| Workflow fails after retries  | Permanent error                               | Check plugin logs and consider adjusting retry policy. |
+
+#### General diagnostic tips
+
+- Inspect executions via `/executions/<EXECUTION_ID>` for full DAG state.
+- Start with simple expressions before introducing nested logic.
+- Increase engine logging verbosity from the server configuration for detailed traces.
+- Validate workflow JSON using provided schema (if available).
+
+Happy orchestrating! 🚀

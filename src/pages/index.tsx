@@ -15,7 +15,7 @@ function HomepageHeader() {
         <div className="row">
           <div className="col col--12 text--left">
             <Heading as="h3" className="hero__title">
-            Declarative and Unified Interoperability Orchestrator for Intelligent Information Flow
+            Unified Compositional Substrate for Orchestrating Intelligent Information Flow
             </Heading>
             <p className="hero__subtitle">{siteConfig.tagline}</p>
             <div className='{styles.buttons} text--left padding-top--lg'>
@@ -54,24 +54,22 @@ function HomepageAboutFlowSynx() {
       <div className="container">
         <div className="about-wrapper">
           <h2 className="about-title">What is FlowSynx?</h2>
-
-          <p>
-            In today’s enterprise landscape, connecting fragmented systems, ensuring data consistency, and orchestrating complex workflows 
-            are critical to achieving operational efficiency, scalability, and maintainability. Yet, many workflow platforms remain rigid, 
-            siloed, or locked into a single technology stack. <b>FlowSynx breaks these barriers</b>. Built on .NET, this cross-platform 
-            orchestration engine enables organizations to seamlessly unify data and orchestrate workflows across legacy systems, cloud 
-            platforms, and modern applications. Its plugin-driven, declarative DAG architecture provides the flexibility to integrate any 
-            system, automate any process, and maintain full control over execution.
-          </p>
-
-          <p>
-            The mission of FlowSynx is clear: deliver a lightweight, extensible, and enterprise-ready orchestration engine that adapts to diverse 
-            domains—from healthcare and finance to data engineering, DevOps, and complex hybrid integrations. It strikes the perfect balance between 
-            simplicity and flexibility, allowing teams to define, extend, and manage workflows precisely to their business needs. At its core, 
-            FlowSynx leverages a modular micro-kernel design, cleanly separating orchestration logic from functional extensions. This decoupled 
-            architecture allows plugins to be developed, loaded, updated, or replaced dynamically—without disrupting existing workflows—making 
-            FlowSynx highly customizable, maintainable, and future-proof for the hybrid enterprise.
-          </p>
+          <p> In today’s enterprise landscape, connecting fragmented systems, ensuring data consistency, and orchestrating 
+            complex workflows are critical to achieving operational efficiency, scalability, and maintainability. 
+            Yet, many workflow platforms remain rigid, siloed, or locked into a single technology stack. 
+            <b>FlowSynx breaks these barriers</b>. Built on .NET, this cross-platform orchestration engine enables 
+            organizations to seamlessly unify data and compositional substrates across legacy systems, cloud platforms, 
+            and modern applications. Its plugin-driven, declarative DAG architecture provides the flexibility to integrate 
+            any system, automate any process, and maintain full control over execution. </p>
+            
+            <p> The mission of FlowSynx is clear: deliver a lightweight, extensible, and enterprise-ready orchestration 
+              engine that adapts to diverse domains—from healthcare and finance to data engineering, DevOps, and complex 
+              hybrid integrations. It strikes the perfect balance between simplicity and flexibility, allowing teams to define, 
+              extend, and manage workflows precisely to their business needs. At its core, FlowSynx leverages a modular micro-kernel 
+              design, cleanly separating orchestration logic from functional extensions. This decoupled architecture treats each 
+              system, dataset, and workflow as compositional substrates, enabling plugins to be developed, loaded, updated, or 
+              replaced dynamically—without disrupting existing workflows—making FlowSynx highly customizable, maintainable, and 
+              future-proof for the hybrid enterprise. </p>
         </div>
       </div>
     </section>

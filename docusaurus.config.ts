@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'FlowSynx',
-  tagline: 'Seamlessly unify data and orchestrate workflows across legacy, cloud, and modern systems using plugin-driven, declarative DAGs—delivering secure, reliable, auditable, and fully controllable automation for the hybrid enterprise.',
+  tagline: 'Seamlessly unify data and compositional substrate across legacy, cloud, and modern systems using plugin-driven, declarative DAGs—delivering secure, reliable, auditable, and fully controllable automation for the hybrid enterprise.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here

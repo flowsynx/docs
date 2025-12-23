@@ -186,9 +186,9 @@ const FeatureList: FeatureItem[] = [
     slug: '',
     description: (
       <>
-        All workflow executions and plugin interactions are traceable. The system offers structured logging, execution history, and audit trail 
-        support, ensuring compliance and observability. This feature enhances transparency and accountability, making it easier to monitor and 
-        review automated processes effectively.
+        All workflow executions and plugin interactions are traceable with structured logging, execution history, and audit trails. 
+        Logs can be written to files and centralized systems like Seq, ensuring compliance, observability, and easy monitoring, 
+        troubleshooting, and review of automated processes.
       </>
     ),
   },

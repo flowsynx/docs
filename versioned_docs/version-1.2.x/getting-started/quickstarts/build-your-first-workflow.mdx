@@ -160,7 +160,7 @@ curl -X POST http://localhost:6262/workflows -H "Content-Type: application/json"
 - Dependencies must reference other task names exactly.
 - Cyclic graphs (A → B → A) are rejected during validation.
 - Tasks without dependencies are considered root nodes and are scheduled immediately.
-- Outputs are available via `"$[Outputs('<taskName>').<property>]"` placeholders. For more information [**Expressions**](/docs/reference/flowsynx/expressions)
+- Outputs are available via `"$[Outputs('<taskName>').<property>]"` placeholders. For more information [**Expressions**](./../../reference/flowsynx/expressions)
 
 ## Step 4: Add Error Handling (Retry Policy) (≈5 min)
 

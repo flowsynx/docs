@@ -1,0 +1,688 @@
+---
+sidebar_position: 1
+title: Configuration
+description: Learn how to configure FlowSynx, including setting up environment variables, customizing application settings, and preparing the API for seamless integration.
+---
+
+# FlowSynx Configuration
+This configuration file defines database connections, endpoints, security settings, and other critical runtime options for the FlowSynx Engine.
+It uses hierarchical JSON objects that are automatically loaded by the ASP.NET Core configuration system.
+
+
+## 1. Core Configuration
+The `Core` section defines **AI providers**, **databases**, **secrets management**, and **security**.
+
+### 1.1 AI Providers (Core.AI)
+Controls all AI and LLM-related features inside FlowSynx, including the default model provider.
+
+```json
+"Core": {
+  "AI": {
+    "Enabled": true,
+    "DefaultProvider": "AzureOpenAI",
+    "Providers": {
+      "AzureOpenAI": {
+        "Endpoint": "YOUR-AZUREOPENAI-ENDPOINT",
+        "ApiKey": "YOUR_AZUREOPENAI_API_KEY",
+        "Deployment": "gpt-4o-mini"
+      }
+    }
+  }
+}
+```
+
+#### Fields
+
+| Key               | Type    | Description                                     |
+| ----------------- | ------- | ----------------------------------------------- |
+| `Enabled`         | boolean | Enables all AI features in FlowSynx.            |
+| `DefaultProvider` | string  | Name of the provider used if none is specified. |
+| `Providers`       | object  | A dictionary of provider configurations.        |
+
+#### Supported providers
+- Azure OpenAI — for enterprise-grade LLM access via Azure.
+
+### 1.2 Databases (Core.Databases)
+Defines connection settings for relational databases.
+
+```json
+"Databases": {
+  "Default": "SQLite",
+  "Connections": {
+    "Postgres": {
+      "Provider": "Postgres",
+      "Host": "localhost",
+      "Port": 5432,
+      "Database": "fxdb",
+      "UserName": "postgres",
+      "Password": "p@$$w0rd",
+      "AdditionalOptions": {
+        "SslMode": "Disable",
+        "Pooling": true
+      }
+    },
+    "SQLite": {
+      "Provider": "SQLite",
+      "FilePath": "flowsynx.db"
+    }
+  }
+}
+```
+
+#### Key Notes
+- Supports PostgreSQL and SQLite.
+- Default selects the active database provider.
+
+### 1.3 Secret Providers (Core.Secrets)
+The `Secrets` section defines how FlowSynx retrieves and manages sensitive configuration values, such as API keys, database credentials, and other secrets. This feature allows the application to securely integrate with external secret management systems.
+
+When enabled, the application fetches secrets dynamically from the configured secret provider(s). This ensures that sensitive data is not hardcoded in configuration files or source code.
+
+```json
+"Secrets": {
+  "Enabled": false,
+  "DefaultProvider": "Infisical",
+  "Providers": {
+    "Infisical": {
+      "HostUri": "http://localhost:8080/",
+      "ProjectId": "<project-id>",
+      "EnvironmentSlug": "dev",
+      "SecretPath": "/",
+      "ClientId": "<machine-identity-client-id>",
+      "ClientSecret": "<machine-identity-client-secret>"
+    }
+  }
+}
+```
+
+| **Key**                    | **Type**              | **Default**   | **Description**                                                                                                                          |
+| -------------------------- | --------------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `Enabled`                  | `boolean`             | `false`       | Enables or disables secret management. If `false`, the application does not attempt to fetch secrets from external providers.            |
+| `DefaultProvider`          | `string`              | `"Infisical"` | The name of the default secret provider. Must match one of the keys in the `Providers` dictionary.                                       |
+| `Providers`                | `object (dictionary)` | `{}`          | A dictionary of secret providers, where each key is the provider name and the value is a configuration object specific to that provider. |
+| `Providers.<ProviderName>` | `object`              | N/A           | Configuration for a specific secret provider. The keys and values depend on the provider type.                                           |
+
+The following keys are specific to the `Infisical` secret provider. Other providers may have different configurations and requirements:
+
+| Key                        | Type                 | Default       | Description                                                                                                                              |
+|----------------------------|----------------------|---------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| `HostUri`                  | `string`            | N/A           | The base URI of the secret provider’s API. For example: `http://localhost:8080/` for Infisical.                                          |
+| `ProjectId`                | `string`            | N/A           | The unique identifier for the project in the secret management system.                                                                   |
+| `EnvironmentSlug`          | `string`            | N/A           | The environment (e.g., `dev`, `prod`) from which secrets should be fetched.                                                              |
+| `SecretPath`               | `string`            | `/`           | The path within the secret management system where secrets are stored.                                                                   |
+| `ClientId`                 | `string`            | N/A           | The client ID used to authenticate with the secret provider.                                                                             |
+| `ClientSecret`             | `string`            | N/A           | The client secret used to authenticate with the secret provider.                                                                         |
+
+> **Note**: These keys are specific to the `Infisical` provider. If you are using a different provider, the required keys and their meanings may vary. Always refer to the documentation of the specific provider you are integrating with.
+
+**Dynamic Secret Fetching**: When enabled, secrets are fetched dynamically at runtime from the specified provider. This reduces the risk of exposing sensitive data in configuration files.
+
+### 1.4 Security (Core.Security)
+Covers encryption and authentication.
+
+#### Encryption (Core.Security.Encryption)
+
+```json
+"Encryption": {
+  "Key": "<BASE64_STRING>"
+}
+```
+
+| Key   | Type   | Description                                                                                                                                                                                                                       |
+| ----- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Key` | string | **Base64-encoded 256-bit (32-byte) AES key** used by the `EncryptionService` class to perform symmetric encryption and decryption of sensitive data. The key must decode to **exactly 32 bytes** to satisfy AES-256 requirements. |
+
+#### Purpose
+This key drives the EncryptionService implementation, which uses AES-256 in CBC mode with a random IV to encrypt and decrypt:
+- Workflow definitions
+- Plugin secrets (API tokens, connection strings, credentials)
+- Any other sensitive configuration or payload that must remain confidential in logs, databases, or configuration files.
+
+#### Authentication (Core.Security.Authentication)
+
+```json
+"Authentication": {
+  "Enabled": false,
+  "Basic": { ... },
+  "JwtProviders": [ ... ],
+  "DefaultScheme": "Basic"
+}
+```
+
+> When Enabled is set to false, the FlowSynx engine runs without the authentication service, and all requests are processed without security.
+
+##### Basic Authentication
+
+| Key       | Type    | Description                                                  |
+|-----------|---------|--------------------------------------------------------------|
+| `Enabled` | boolean | Enables or disables built-in Basic Authentication.           |
+| `Users`   | array   | Predefined users when `Enabled` is true.                     |
+
+Example user:
+```json
+{
+  "id": "0960a93d-e42b-4987-bc07-7bda806a21c7",
+  "name": "admin",
+  "password": "admin",
+  "roles": [ "admin" ]
+}
+```
+- **id**: UUID of the user.
+- **name**: Username.
+- **password**: Plaintext password (use strong hashes in production).
+- **roles**: Array of role names.
+
+---
+
+##### JWT Providers
+| Key              | Type      | Description                                                                |
+|------------------|-----------|----------------------------------------------------------------------------|
+| `Name`           | string    | Identifier for the provider (`Keycloak`).                                   |
+| `Authority`      | string    | URL of the OpenID Connect authority (Keycloak realm).                        |
+| `Issuer`         | string    | Expected token issuer.                                                       |
+| `Audience`       | string    | Expected audience claim in JWT tokens.                                       |
+| `Secret`         | string    | Shared secret or signing key if using symmetric JWT signing.                 |
+| `RequireHttps`   | boolean   | If `false`, allows HTTP (for dev).                                           |
+| `RoleClaimNames` | string[]  | Claims that contain user roles (`roles`, `realm_access`, `resource_access`). |
+
+- Used for **OAuth2/OpenID Connect** authentication with Keycloak or similar IdPs.
+- Supports role-based access control.
+
+##### Default Scheme
+| Key            | Type   | Description                                                |
+|----------------|--------|------------------------------------------------------------|
+| `DefaultScheme`| string | Authentication scheme to use by default (e.g., `"Keycloak"`).|
+
+
+## 2. System Configuration
+Contains operational settings for the FlowSynx engine runtime.
+
+### 2.1 Server (System.Server)
+
+```json
+"Server": {
+  "http": {
+    "Port": 6262
+  },
+  "https": {
+    "Enabled": true,
+    "Port": 7443,
+    "Certificate": {
+      "Path": "/etc/ssl/certs/flowsynx.pfx",
+      "Password": "<CERT_PASSWORD>"
+    }
+  }
+}
+```
+
+| Key                           | Type      | Default     | Description                                           |
+|-------------                  |--------   |----------   |-------------------------------------------------      |
+| `http.Port`                   | int       | 6262        | HTTP listening port for the FlowSynx API server.      |
+| `https.Enabled`               | bool      | false       | Enables HTTPS endpoint if `true`.                     |
+| `https.Port`                  | int       | 6263        | HTTPS listening port when `Enabled` is `true`.        |
+| `https.Certificate.Path`      | string    | ""          | File path to the X.509 certificate (e.g., PFX file).  |
+| `https.Certificate.Password`  | string    | ""          | Password for the certificate file, if required.       |
+
+- Example full URL: `http://localhost:6262`.
+- Example HTTPS URL: `https://localhost:7443`.
+
+:::note
+If `Https.Enabled` is false, the FlowSynx API runs only on the HTTP port.
+:::
+
+
+### 2.2 Health Check (System.HealthCheck)
+The Health Check section controls whether the engine exposes a built-in endpoint for system health monitoring.
+When enabled, a `/health` endpoint provides liveness and readiness probes, allowing external services—such as 
+Kubernetes, Docker Swarm, or monitoring tools like Prometheus—to verify that the application is running and ready to handle requests.
+This is essential for automated scaling, rolling updates, and alerting in containerized or cloud-native deployments.
+
+```json
+"HealthCheck": {
+  "Enabled": true
+}
+```
+
+| Key       | Type    | Description                                                  |
+|-----------|---------|--------------------------------------------------------------|
+| `Enabled` | boolean | Enables or disables health check endpoints for monitoring.   |
+
+For comprehensive guidance on configuration options, response formats, and integration examples,
+see the full [Health API documentation](/docs/reference/flowsynx/api/health).
+It provides in-depth details on endpoint behavior and sample outputs for health checks.
+
+
+### 2.3 Cors (System.Cors)
+The `Cors` configuration defines the rules for cross-origin requests in your application:
+
+```json
+"Cors": {
+  "PolicyName ": "DevFlowSynxCorsPolicy",
+  "AllowedOrigins": [ "http://localhost:6264" ],
+  "AllowCredentials": false
+}
+```
+
+| Key               | Type        | Default             | Description                                                                                         |
+|-----------------  |------------ | -----------         | ------------------------------------------------------------------------------------------|
+| `PolicyName `     | string      | `DefaultCorsPolicy` | The named CORS policy (note the trailing space—likely a typo; should be `PolicyName`).              |
+| `AllowedOrigins`  | string[]    | `[]` <br />No origins allowed by default                 | List of allowed origins. `*` means allow all. Supports multiple domains.                            |
+| `AllowCredentials`| boolean     | `false`               | If `true`, allows the browser to send cookies or authentication headers with cross-origin requests. |
+
+:::info
+**Allow Credentials**
+
+- If set to `true`, browsers are allowed to send cookies and authentication headers.
+- Cannot be used together with `"*"` in `AllowedOrigins` due to browser security restrictions. You must specify explicit origins when allowing credentials.
+:::
+
+### 2.4 Workflow Queue (System.Workflow)
+
+```json
+"Workflow": {
+  "Queue": {
+    "Provider": "InMemory"
+  }
+}
+```
+
+| Key        | Type   | Default      | Description                                                                                                                                                                                 |
+| ---------- | ------ | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Provider` | string | `"InMemory"` | Specifies which backend is used for queuing workflow execution requests. Accepted values are `"InMemory"` for a volatile, in-process queue or `"Durable"` for a persistent, external queue. |
+
+
+#### Providers
+- **InMemory**
+  - Purpose: Ideal for development, quick testing, or lightweight scenarios where high availability and data durability are not required.
+  - Behavior: All queued workflows are stored in process memory and lost on application restart or crash.
+  - Performance: Extremely fast because it avoids network and I/O overhead.
+  - Use Cases: Local development and small single-node deployments.
+
+- **Durable**
+  - Purpose: Suitable for production environments where workflow events must survive application restarts, crashes, or scaling across multiple nodes.
+  - Behavior: Backed by a persistent store on Database.
+  - Benefits:
+    - Guarantees message persistence and reliable delivery.
+    - Enables delayed retries and auditing.
+
+### 2.5 Logging (System.Logger)
+
+```json
+"Logger": {
+  "Level": "Info"
+}
+```
+
+**Levels:**
+- Trace
+- Debug
+- Info
+- Warn
+- Error
+- Fatal
+
+### 2.6 OpenApi (System.OpenApi)
+This configuration section controls whether OpenAPI (Swagger) documentation is generated and served by the application.
+When enabled, developers and integrators can explore, test, and validate the API using an automatically generated OpenAPI/Swagger UI endpoint.
+
+```json
+"OpenApi": {
+  "Enabled": true
+}
+```
+
+| Key       | Type    | Default | Description                                                                                                                                                                                                                                                                                                                                   |
+| --------- | ------- | --------| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Enabled` | boolean | `false` | **Required.** Set to `true` to enable the OpenAPI/Swagger endpoint for API documentation; set to `false` to disable it entirely. When enabled, the application exposes a browsable web interface (`/open-api` or `/open-api/index.html`) and a machine-readable OpenAPI JSON specification (`/open-api/flowsynx/specifications.json`). |
+
+:::info
+**Typical Use Cases**
+- **Development & QA**: Keep enabled to allow developers and testers to visualize endpoints, request/response schemas, and perform live API calls.
+- **Production**: You may disable it to reduce the application’s attack surface or require authentication/authorization to access it.
+:::
+
+
+### 2.7 Localization (System.Localization)
+
+```json
+"Localization": {
+  "Language": "en"
+}
+```
+
+| Key        | Type   | Description                           |
+|------------|--------|---------------------------------------|
+| `Language` | string | Default language/locale (e.g., `en`). |
+
+- The default language and locale code (e.g., en) used by the application.
+
+
+### 2.8 Rate Limiting (System.RateLimiting)
+The Rate Limiting configuration controls how many requests a single client (typically identified by 
+IP address or authentication token) can send to the API within a given time window.
+
+It helps protect your application from abuse, excessive traffic, and accidental overload.
+
+```json
+"RateLimiting": {
+  "WindowSeconds": 60,
+  "PermitLimit": 100,
+  "QueueLimit": 10
+}
+```
+
+| Key             | Type | Default | Description                                                                                                                                                                                                                                                   |
+| --------------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `WindowSeconds` | int  | 60      | **Sliding window duration (in seconds)** used to measure request rates. Each client/IP is tracked across a rolling time window of this length. After this period, the count resets. <br/>Example: `60` means requests are evaluated over the last 60 seconds. |
+| `PermitLimit`   | int  | 100     | **Maximum allowed requests** per client/IP within each `WindowSeconds` period. Requests exceeding this threshold are either queued (if `QueueLimit` allows) or rejected with HTTP **429 Too Many Requests**.                                                  |
+| `QueueLimit`    | int  | 10      | **Maximum number of excess requests to queue** once the `PermitLimit` is reached. Queued requests wait for an available permit within the current window. If the queue is full, additional requests are immediately rejected with **429 Too Many Requests**.  |
+
+
+#### Behavior & Notes
+
+-   **Sliding Window Algorithm**:\
+    Uses a rolling time window. For example, with `WindowSeconds = 60`,
+    if a client sends 100 requests between `12:00:00` and `12:00:30`,
+    they cannot send more until some earlier requests fall outside the
+    last 60 seconds.
+-   **Queuing**:\
+    When the permit limit is reached but the queue is not full, excess
+    requests wait until capacity becomes available or the time window
+    advances.
+-   **Defaults**:\
+    If not specified, the configuration defaults to
+    `WindowSeconds = 60`, `PermitLimit = 100`, `QueueLimit = 10`, as
+    defined in the `RateLimitingConfiguration` class.
+
+#### Example
+
+-   With the default settings:
+    -   Each client/IP may send **up to 100 requests in any 60-second
+        window**.
+    -   After 100 requests, up to **10 extra requests** will be queued.
+    -   Any requests beyond that are immediately rejected with **HTTP
+        429 (Too Many Requests)**.
+
+### 2.9 Storage (System.Storage)
+Defines how workflow execution result data is stored, including maximum storage size, available storage providers, and the default provider to use.
+
+```json
+"Storage": {
+  "MaxSizeLimit": 209715200,
+  "ResultStorage": {
+    "DefaultProvider": "local",
+    "Providers": [
+      {
+        "Name": "local",
+        "Configuration": {
+          "BasePath": "flowsynxresults/"
+        }
+      }
+    ]
+  }
+}
+```
+
+| Key                 | Type           | Description                                                                                                      |
+| ------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------- |
+| **`MaxSizeLimit`**  | `long` (bytes) | The maximum total size allowed for stored results. Defaults to **209 715 200 bytes (200 MB)** if not overridden. |
+| **`ResultStorage`** | `object`       | Configuration for result storage providers.                                                                      |
+
+#### ResultStorage
+Specifies which storage providers are available and which one is used by default.
+| Key                   | Type     | Description                                                                                                         |
+| --------------------- | -------- | ------------------------------------------------------------------------------------------------------------------- |
+| **`DefaultProvider`** | `string` | The name of the provider to use if no specific provider is requested. Must match one of the configured `Providers`. |
+| **`Providers`**       | `array`  | A list of all available result-storage providers. Each entry describes a single provider and its settings.          |
+
+#### Providers Items
+Each provider defines a storage backend and its connection details.
+| Key                 | Type                        | Description                                                                                                                         |
+| ------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| **`Name`**          | `string`                    | Unique identifier for the storage provider (currently only `"local"` is supported).                                                |
+| **`Configuration`** | `dictionary<string,string>` | Key/value settings specific to that provider. The keys depend on the provider type (for example, a local provider uses `BasePath`). |
+
+
+:::info
+When the application starts:
+
+-   All provider names are logged.
+-   If `DefaultProvider` is missing or does not match one of the listed providers, a `FlowSynxException` with `SecurityConfigurationInvalidScheme` is thrown.
+-   A warning is logged if no default provider is defined.
+
+This ensures that result-storage backends are correctly configured and prevents misrouted or lost result data.
+:::
+
+## 3. Integrations
+Integrations define optional external services.
+
+### 3.1 Notifications (Integrations.Notifications)
+
+```json
+"Notifications": {
+  "Enabled": true,
+  "BaseUrl": "http://localhost:6262/",
+  "DefaultProviders": [ "Gmail" ],
+  "Providers": {
+    "Gmail": {
+      "Type": "smtp",
+      "Host": "smtp.gmail.com",
+      "Port": 587,
+      "Credentials": {
+        "UserName": "username",
+        "Password": "password"
+      },
+      "Sender": {
+        "Address": "test@gmail.com",
+        "Name": "FlowSynx"
+      },
+      "Recipients": [
+        "testuser@outlook.com"
+      ]
+    }
+  }
+}
+```
+
+**Supports:**
+- SMTP email providers
+- Webhooks
+
+### 3.2 Plugin Registry (Integrations.PluginRegistry)
+The Plugin Registry section defines the remote registry location that FlowSynx uses to discover, download, validate, and install plugins dynamically at runtime.
+It enables a fully decoupled plugin ecosystem where new functionality can be added without redeploying and reexecuting the FlowSynx engine.
+
+```json
+"PluginRegistry": {
+  "Url": "https://plugins.flowsynx.io/"
+}
+```
+
+| Key | Type   | Description                                                                                                                          |
+| --- | ------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Url | string | **Base URL** of the FlowSynx plugin registry service. This is the root endpoint from which plugins and their metadata are retrieved. |
+
+#### Behavior
+- **Discovery**: The application queries the specified registry URL to list available plugins, versions, and metadata such as author, description, and compatibility information.
+- **Download & Install**: When a plugin is selected, FlowSynx fetches the plugin package (`fspack`) from the registry, validates its integrity (checksum/signature), and installs it into the local plugin store.
+- **Validation**: Before activation, plugins are checked for:
+  - Version compatibility with the current FlowSynx runtime.
+  - Required dependencies or minimum framework versions.
+- **Updates**: The registry URL is also used to detect plugin updates, security patches, and new releases.
+---
+
+## Example Full Configuration JSON Snippet
+
+```json
+{
+  "Core": {
+    "AI": {
+      "Enabled": true,
+      "DefaultProvider": "AzureOpenAI",
+      "Providers": {
+        "AzureOpenAI": {
+          "Endpoint": "YOUR-AZUREOPENAI-ENDPOINT",
+          "ApiKey": "YOUR_AZUREOPENAI_API_KEY",
+          "Deployment": "gpt-4o-mini"
+        },
+        "OpenAI": {
+          "ApiKey": "YOUR_OPENAI_API_KEY",
+          "Model": "gpt-4o-mini"
+        },
+        "Ollama": {
+          "Host": "http://localhost:11434",
+          "Model": "llama3.1"
+        }
+      }
+    },
+    "Databases": {
+      "Default": "SQLite",
+      "Connections": {
+        "Postgres": {
+          "Provider": "Postgres",
+          "Host": "localhost",
+          "Port": 5432,
+          "Database": "fxdb",
+          "UserName": "postgres",
+          "Password": "p@$$w0rd",
+          "AdditionalOptions": {
+            "SslMode": "Disable",
+            "Pooling": true
+          }
+        },
+        "SQLite": {
+          "Provider": "SQLite",
+          "FilePath": "flowsynx.db"
+        }
+      }
+    },
+    "Secrets": {
+      "Enabled": false,
+      "DefaultProvider": "Infisical",
+      "Providers": {
+        "Infisical": {
+          "HostUri": "http://localhost:8080/",
+          "ProjectId": "<project-id>",
+          "EnvironmentSlug": "dev",
+          "SecretPath": "/",
+          "ClientId": "<machine-identity-client-id>",
+          "ClientSecret": "<machine-identity-client-secret>"
+        }
+      }
+    },
+    "Security": {
+      "Encryption": {
+        "Key": "u3W1rKiLcnJrGLRt3SbRWDL/XWrjEybG3EDIdxAioIU="
+      },
+      "Authentication": {
+        "Enabled": false,
+        "Basic": {
+          "Enabled": true,
+          "Users": [
+            {
+              "id": "0960a93d-e42b-4987-bc07-7bda806a21c7",
+              "name": "admin",
+              "password": "admin",
+              "roles": [ "admin" ]
+            },
+            {
+              "id": "24546675-dfad-4df6-a1c4-e997e0f651ba",
+              "name": "user",
+              "password": "user",
+              "roles": [ "user" ]
+            }
+          ]
+        },
+        "JwtProviders": [
+          {
+            "Name": "Keycloak",
+            "Authority": "http://localhost:8080/realms/flowsynx",
+            "Issuer": "http://localhost:8080/realms/flowsynx",
+            "Audience": "flowsynx-backend",
+            "Secret": "1p3blNtpjlMTb5CnDdxGo5iMpR1O7C4z",
+            "RequireHttps": false,
+            "RoleClaimNames": [ "roles", "realm_access", "resource_access" ]
+          }
+        ],
+        "DefaultScheme": "Basic"
+      }
+    }
+  },
+  "System": {
+    "Server": {
+      "http": {
+        "Port": 6262
+      }
+    },
+    "HealthCheck": {
+      "Enabled": true
+    },
+    "Cors": {
+      "PolicyName ": "DevFlowSynxCorsPolicy",
+      "AllowedOrigins": [ "http://localhost:6264" ],
+      "AllowCredentials": false
+    },
+    "Workflow": {
+      "Queue": {
+        "Provider": "InMemory"
+      }
+    },
+    "Logger": {
+      "Level": "Info"
+    },
+    "OpenApi": {
+      "Enabled": false
+    },
+    "Localization": {
+      "Language": "en"
+    },
+    "RateLimiting": {
+      "WindowSeconds": 60,
+      "PermitLimit": 100,
+      "QueueLimit": 10
+    },
+    "Storage": {
+      "MaxSizeLimit": 209715200,
+      "ResultStorage": {
+        "DefaultProvider": "local",
+        "Providers": [
+          {
+            "Name": "local",
+            "Configuration": {
+              "BasePath": "flowsynxresults/"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Integrations": {
+    "Notifications": {
+      "Enabled": true,
+      "BaseUrl": "http://localhost:6262/",
+      "DefaultProviders": [ "Gmail" ],
+      "Providers": {
+        "Gmail": {
+          "Type": "smtp",
+          "Host": "smtp.gmail.com",
+          "Port": 587,
+          "Credentials": {
+            "UserName": "username",
+            "Password": "password"
+          },
+          "Sender": {
+            "Address": "test@gmail.com",
+            "Name": "FlowSynx"
+          },
+          "Recipients": [
+            "testuser@outlook.com"
+          ]
+        }
+      }
+    },
+    "PluginRegistry": {
+      "Url": "https://plugins.flowsynx.io/"
+    }
+  }
+}
+```

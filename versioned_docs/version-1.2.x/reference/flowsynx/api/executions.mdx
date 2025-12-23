@@ -1,0 +1,347 @@
+---
+sidebar_position: 8
+title: Workflow Execution
+description: The FlowSynx Workflow Execution API provides endpoints for executing workflows, monitoring their progress, viewing execution logs, inspecting task-level details, and managing execution approvals or cancellations.
+---
+
+# FlowSynx Workflow Execution API
+
+The FlowSynx Workflow Execution API provides endpoints for running workflows, tracking their execution status, retrieving execution logs, and managing approvals. It uses RESTful principles and supports both **Basic Authentication** and **Bearer Token Authentication**.
+
+## Authentication & Authorization
+### Required:
+- **Authentication**: Yes (Bearer or Basic Auth)
+- **Authorization**: Yes (Must have `admin` or `workflow` role)
+
+### 1. Basic Auth
+```bash
+curl -u username:password http://localhost:6262/workflows/{workflowId}/executions
+```
+
+### 2. Bearer Token
+```bash
+curl -H "Authorization: Bearer <your_token>" http://localhost:6262/workflows/{workflowId}/executions
+```
+
+## API Endpoints
+
+### List Workflow Executions
+- **Method**: `GET`
+- **Endpoint**: `/workflows/{workflowId}/executions`
+- **Body Required**: No
+- **Description**: Retrieves a list of executions for the specified workflow.
+- **Query Parameters (optional)**:
+  - **page** (integer): Page number to retrieve. Default is 1.
+  - **pageSize** (integer): Number of items per page. Default is 25.
+
+#### `curl` Example
+```bash
+curl -X GET http://localhost:6262/workflows/{workflowId}/executions?page=1&pageSize=25 \
+  -H "Authorization: Bearer <your_token>"
+```
+
+#### Example Response
+```json
+{
+  "data": [
+    {
+      "id": "4d546c15-4e34-41ce-b72e-6fd4cf991f57",
+      "status": "Running",
+      "executionStart": "2025-09-14T10:30:00Z",
+      "executionEnd": null
+    }
+  ],
+  "messages": [],
+  "succeeded": true,
+  "pagination": {
+    "currentPage": 1,
+    "totalPages": 1,
+    "totalCount": 1,
+    "pageSize": 25,
+    "hasPreviousPage": false,
+    "hasNextPage": false
+  },
+  "generatedAtUtc": "2025-09-14T10:31:00Z"
+}
+```
+
+:::note
+- The pagination object provides metadata for paginated results:
+  - **currentPage**: Current page number.
+  - **totalPages**: Total number of pages available.
+  - **totalCount**: Total number of plugins.
+  - **pageSize**: Number of items per page.
+  - **hasPreviousPage**: true if there’s a previous page.
+  - **hasNextPage**: true if there’s a next page.
+
+You can use the **page** and **pageSize** query parameters to retrieve specific pages of plugin results.
+:::
+
+### Get Workflow Execution Details
+- **Method**: `GET`
+- **Endpoint**: `/workflows/{workflowId}/executions/{executionId}`
+- **Body Required**: No
+- **Description**: Retrieves detailed information about a specific workflow execution.
+
+#### `curl` Example
+```bash
+curl -X GET http://localhost:6262/workflows/{workflowId}/executions/{executionId} \
+  -H "Authorization: Bearer <your_token>"
+```
+
+#### Example Response
+```json
+{
+  "data": {
+    "workflowId": "83b102e0-9129-4069-abd5-97a312ed9c1f",
+    "executionId": "4d546c15-4e34-41ce-b72e-6fd4cf991f57",
+    "workflow": "{ \"name\": \"sample-flowsynx-workflow\", "\description\": "\This is a sample flowsynx workflow\", \"tasks\": [] }",
+    "status": "Running",
+    "executionStart": "2025-09-14T10:30:00Z",
+    "executionEnd": null
+  },
+  "messages": [],
+  "succeeded": true,
+  "generatedAtUtc": "2025-09-14T10:32:00Z"
+}
+```
+
+### Get Workflow Execution Logs
+- **Method**: `GET`
+- **Endpoint**: `/workflows/{workflowId}/executions/{executionId}/logs`
+- **Body Required**: No
+- **Description**: Retrieves logs generated during a workflow execution.
+
+#### Example Response
+```json
+{
+  "data": [
+    {
+      "id": "1fbcf6d4-4e2e-44ac-9c45-27b92d7d91f4",
+      "message": "Execution started",
+      "level": "Info",
+      "timeStamp": "2025-09-14T10:30:01Z",
+      "exception": null
+    }
+  ],
+  "messages": [],
+  "succeeded": true,
+  "generatedAtUtc": "2025-09-14T10:32:05Z"
+}
+```
+
+### List Workflow Execution Tasks
+- **Method**: `GET`
+- **Endpoint**: `/workflows/{workflowId}/executions/{executionId}/tasks?page=1&pageSize=25`
+- **Body Required**: No
+- **Description**: Retrieves the list of tasks associated with a workflow execution.
+- **Query Parameters (optional)**:
+  - **page** (integer): Page number to retrieve. Default is 1.
+  - **pageSize** (integer): Number of items per page. Default is 25.
+
+#### Example Response
+```json
+{
+  "data": [
+    {
+      "id": "a82ff6f1-1a8c-4f9c-8ef2-7f476eb1d1b1",
+      "name": "Sample-flowsynx-workflow",
+      "workflowId": "78b9d130-3407-4d9c-aef9-e233b9391dba",
+      "workflowExecutionId": "2a37cf51-691d-4d53-98cb-301f83b05fc2",
+      "status": "Completed",
+      "message": "Validation successful",
+      "startTime": "2025-09-14T10:31:00Z",
+      "endTime": "2025-09-14T10:31:30Z"
+    }
+  ],
+  "messages": [],
+  "succeeded": true,
+  "pagination": {
+    "currentPage": 1,
+    "totalPages": 1,
+    "totalCount": 1,
+    "pageSize": 25,
+    "hasPreviousPage": false,
+    "hasNextPage": false
+  },
+  "generatedAtUtc": "2025-09-14T10:33:00Z"
+}
+```
+
+:::note
+- The pagination object provides metadata for paginated results:
+  - **currentPage**: Current page number.
+  - **totalPages**: Total number of pages available.
+  - **totalCount**: Total number of plugins.
+  - **pageSize**: Number of items per page.
+  - **hasPreviousPage**: true if there’s a previous page.
+  - **hasNextPage**: true if there’s a next page.
+
+You can use the **page** and **pageSize** query parameters to retrieve specific pages of plugin results.
+:::
+
+### Get Workflow Execution Task Details
+- **Method**: `GET`
+- **Endpoint**: `/workflows/{workflowId}/executions/{executionId}/tasks/{taskExecutionId}`
+- **Body Required**: No
+- **Description**: Retrieves detailed information for a specific task in a workflow execution.
+
+#### Example Response
+```json
+{
+  "data": {
+    "id": "cf8bb78b-142e-450e-a6d2-95e7f5e9a954",
+    "status": "Completed",
+    "message": "Task executed successfully",
+    "startTime": "2025-09-14T10:31:00Z",
+    "endTime": "2025-09-14T10:31:10Z"
+  },
+  "messages": [],
+  "succeeded": true,
+  "generatedAtUtc": "2025-09-14T10:33:30Z"
+}
+```
+
+### Get Workflow Execution Task Logs
+- **Method**: `GET`
+- **Endpoint**: `/workflows/{workflowId}/executions/{executionId}/tasks/{taskExecutionId}/logs?page=1&pageSize=25`
+- **Body Required**: No
+- **Description**: Retrieves logs for a specific task execution.
+- **Query Parameters (optional)**:
+  - **page** (integer): Page number to retrieve. Default is 1.
+  - **pageSize** (integer): Number of items per page. Default is 25.
+
+#### Example Response
+```json
+{
+  "data": [
+    {
+      "id": "b24c61c3-9fa2-4c2a-a8e1-8e3317a021a0",
+      "message": "Task started",
+      "level": "Info",
+      "timeStamp": "2025-09-14T10:31:01Z",
+      "exception": null
+    }
+  ],
+  "messages": [],
+  "succeeded": true,
+  "pagination": {
+    "currentPage": 1,
+    "totalPages": 1,
+    "totalCount": 1,
+    "pageSize": 25,
+    "hasPreviousPage": false,
+    "hasNextPage": false
+  },
+  "generatedAtUtc": "2025-09-14T10:34:00Z"
+}
+```
+
+:::note
+- The pagination object provides metadata for paginated results:
+  - **currentPage**: Current page number.
+  - **totalPages**: Total number of pages available.
+  - **totalCount**: Total number of plugins.
+  - **pageSize**: Number of items per page.
+  - **hasPreviousPage**: true if there’s a previous page.
+  - **hasNextPage**: true if there’s a next page.
+
+You can use the **page** and **pageSize** query parameters to retrieve specific pages of plugin results.
+:::
+
+### Execute Workflow
+- **Method**: `POST`
+- **Endpoint**: `/workflows/{workflowId}/executions`
+- **Body Required**: Yes
+- **Description**: Starts a new execution of the specified workflow.
+
+#### Request Body
+```json
+{
+  "workflowId": "bed17b37-6ec8-4c33-94c1-9774ce2b92fa"
+}
+```
+
+#### Example Response
+```json
+{
+  "data": {
+    "workflowId": "bed17b37-6ec8-4c33-94c1-9774ce2b92fa",
+    "executionId": "0b4c8ed0-4c94-4d7e-b8d4-1290c41512cd",
+    "startedAt": "2025-09-14T10:35:00Z"
+  },
+  "messages": ["Workflow execution started."],
+  "succeeded": true,
+  "generatedAtUtc": "2025-09-14T10:35:00Z"
+}
+```
+
+### Cancel Workflow Execution
+- **Method**: `POST`
+- **Endpoint**: `/workflows/{workflowId}/executions/{executionId}/cancel`
+- **Body Required**: No
+- **Description**: Cancels a running workflow execution.
+
+#### Example Response
+```json
+{
+  "data": {},
+  "messages": ["The workflow execution has been canceled."],
+  "succeeded": true,
+  "generatedAtUtc": "2025-09-14T10:36:00Z"
+}
+```
+
+### Approve Workflow Execution
+- **Method**: `POST`
+- **Endpoint**: `/workflows/{workflowId}/executions/{executionId}/approvals/{approvalId}/approve`
+- **Body Required**: No
+- **Description**: Approves a workflow execution step that requires human approval.
+
+#### Example Response
+```json
+{
+  "data": {},
+  "messages": ["The workflow execution step has been approved."],
+  "succeeded": true,
+  "generatedAtUtc": "2025-09-14T10:37:00Z"
+}
+```
+
+### Reject Workflow Execution
+- **Method**: `POST`
+- **Endpoint**: `/workflows/{workflowId}/executions/{executionId}/approvals/{approvalId}/reject`
+- **Body Required**: No
+- **Description**: Rejects a workflow execution step that requires human approval.
+
+#### Example Response
+```json
+{
+  "data": {},
+  "messages": ["The workflow execution step has been rejected."],
+  "succeeded": true,
+  "generatedAtUtc": "2025-09-14T10:38:00Z"
+}
+```
+
+## Summary Table
+| Operation       | Method | Endpoint                                                                           | Authorization roles   |
+| ----------------| ------ | ---------------------------------------------------------------------------------- | --------------------- |
+| List            | GET    | `/workflows/{workflowId}/executions`                                               | admin, workflow       |
+| Details         | GET    | `/workflows/{workflowId}/executions/{executionId}`                                 | admin, workflow       |
+| Logs            | GET    | `/workflows/{workflowId}/executions/{executionId}/logs`                            | admin, workflow       |
+| Tasks           | GET    | `/workflows/{workflowId}/executions/{executionId}/tasks`                           | admin, workflow       |
+| Task Details    | GET    | `/workflows/{workflowId}/executions/{executionId}/tasks/{taskExecutionId}`         | admin, workflow       |
+| Task Logs       | GET    | `/workflows/{workflowId}/executions/{executionId}/tasks/{taskExecutionId}/logs`    | admin, workflow       |
+| Execute         | POST   | `/workflows/{workflowId}/executions`                                               | admin, workflow       |
+| Cancel          | POST   | `/workflows/{workflowId}/executions/{executionId}/cancel`                          | admin, workflow       |
+| Approve         | POST   | `/workflows/{workflowId}/executions/{executionId}/approvals/{approvalId}/approve`  | admin, workflow       |
+| Reject          | POST   | `/workflows/{workflowId}/executions/{executionId}/approvals/{approvalId}/reject`   | admin, workflow       |
+
+:::info
+- Use `Bearer` or `Basic` authentication depending on FlowSynx configuration.  
+- Replace `<your_token>` or `username:password` with actual credentials.  
+- All workflow IDs, execution IDs, task execution IDs, and approval IDs are UUIDs.  
+- Executions may contain multiple tasks, each with its own logs and status.  
+:::
+

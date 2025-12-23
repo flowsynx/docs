@@ -1,0 +1,29 @@
+---
+sidebar_position: 6
+title: Logout
+description: Command-line interface to terminate the authenticated session with a FlowSynx instance.
+---
+
+# FlowCtl Login Command
+The `logout` command **terminates the current authentication session** with a FlowSynx system.  
+It clears any cached credentials or session tokens that were previously stored by the `login` command, ensuring that subsequent CLI operations require fresh authentication.
+
+Use this command to explicitly end a session when switching users, decommissioning a workstation, or maintaining strict security policies.
+
+## Usage
+```bash
+flowctl logout [options]
+```
+
+Executes a secure logout procedure and removes any locally stored session artifacts.
+
+#### Options
+| Short  | Long   | Required | Description                                                   |
+| ------ | ------ | -------- | ------------------------------------------------------------- |
+| -?, -h | --help | No       | Displays help and usage information for the `logout` command. |
+
+#### Examples
+```bash
+# Log out from the current FlowSynx session
+flowctl logout
+```

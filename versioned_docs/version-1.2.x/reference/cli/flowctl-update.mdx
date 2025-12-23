@@ -1,0 +1,50 @@
+---
+sidebar_position: 12
+title: Update
+description: Command-line interface to upgrade the FlowSynx system to a specified version with optional forced termination of running instances.
+---
+
+# FlowCtl Update Command
+
+The `update` command **upgrades the FlowSynx system** to a newer or specific version.  
+It downloads and installs the requested release while preserving existing configuration, logs, and user-specific settings.
+
+Use this command to keep your FlowSynx deployment current with the latest features, security patches, and performance improvements.
+
+## Usage
+```bash
+flowctl update [options]
+```
+
+Executes an update of the FlowSynx installation for the current user profile.
+
+#### Options
+| Short  | Long                         | Required | Description                                                                                              |
+| ------ | ---------------------------- | -------- | -------------------------------------------------------------------------------------------------------- |
+| -f     | --force                      | No       | Forcefully terminates all running FlowSynx processes before applying the update. Default: `False`.       |
+|        | --flowsynx-version           | No       | Target FlowSynx version to install (e.g., `1.0.0`). If omitted, updates to the latest available release. |
+| -?, -h | --help                       | No       | Displays usage information and available options for the `update` command.                               |
+
+
+#### Examples
+##### Update to the Latest Version
+```bash
+flowctl update
+```
+
+Fetches and installs the most recent stable version of FlowSynx.
+
+##### Update to a Specific Version
+```bash
+flowctl update --flowsynx-version 1.1.3
+```
+
+Updates FlowSynx to version 1.2.3, retaining all existing user settings.
+
+
+##### Forceful Update
+```bash
+flowctl update --flowsynx-version 1.1.3 --force
+```
+
+Terminates any running FlowSynx processes and performs the upgrade without requiring manual confirmation.

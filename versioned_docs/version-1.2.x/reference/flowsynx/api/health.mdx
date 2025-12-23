@@ -1,0 +1,74 @@
+---
+sidebar_position: 3
+title: Health
+description: The Health Check API in FlowSynx provides a simple way to verify whether the service is running and operational. It is commonly used for automated uptime monitoring, container orchestration probes (like Kubernetes liveness/readiness), or deployment verification.
+---
+
+# FlowSynx Health Check API
+
+The **Health Check API** in FlowSynx provides a simple way to verify whether the service is running and operational. 
+It is commonly used for automated uptime monitoring, container orchestration probes (like Kubernetes liveness/readiness), 
+or deployment verification.
+
+## Authentication & Authorization
+The `/health` endpoint is public (no authentication and authentication required).
+
+## Configuration Requirement
+This endpoint is conditionally available based on system configuration.
+
+To enable the health check endpoint, the following setting **must be present and set to `true`** in the system configuration file (e.g., `appsettings.json`):
+
+```json
+{
+  "HealthCheck": {
+    "Enabled": true
+  }
+}
+```
+
+:::info
+If this configuration is not enabled, requests to the `/health` endpoint will return:
+- HTTP 404 Not Found
+:::
+
+## Authentication
+The `/health` endpoint is public (no authentication required).
+
+## Health Check Endpoint
+- **Method**: `GET`
+- **Endpoint**: `/health`
+
+#### `curl` Example
+```bash
+curl -X GET http://localhost:6262/health
+```
+
+#### Example response
+```json
+{
+  "Status": "Healthy",
+  "HealthChecks": [
+    {
+      "Status": "Healthy",
+      "Component": "Configuration service",
+      "Description": "Configuration service is available"
+    },
+    {
+      "Status": "Healthy",
+      "Component": "Plugins service",
+      "Description": "Plugins service is available"
+    },
+    {
+      "Status": "Healthy",
+      "Component": "Logger service",
+      "Description": "Logger service is available"
+    }
+  ],
+  "HealthCheckDuration": "00:00:00.1137624"
+}
+```
+
+## Summary Table
+| Method | Endpoint  | Authentication      | Authorization roles     | Requires Config |
+| ------ | --------- | --------------      | --------------          | --------------- |
+| GET    | `/health` | Not Required        | Not Required            | Yes             |

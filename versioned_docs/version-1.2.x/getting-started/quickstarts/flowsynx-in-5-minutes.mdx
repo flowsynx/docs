@@ -1,0 +1,151 @@
+---
+sidebar_position: 1
+title: FlowSynx in 5 Minutes
+description: A rapid hands-on guide to install FlowSynx, run your first workflow, and understand the next steps.
+---
+
+# FlowSynx in 5 Minutes (Quickstart)
+This quickstart guide enables you to install FlowSynx, create a minimal workflow, and run it end-to-end in under five minutes. 
+It is designed for first-time users with no prior knowledge of FlowSynx.
+
+## 1. Install FlowSynx
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="operating-systems">
+  <TabItem value="docker" label="Docker (One-Liner)">
+    **The fastest way to run FlowSynx is via Docker.**  
+    The following command starts FlowSynx with all required services:
+
+    ```bash
+    docker run -d --name flowsynx \
+      -p 6262:6262 \
+      -v flowsynx_data:/app/data \
+      flowsynx/flowsynx:1.2.4-linux-amd64 --start
+    ```
+
+    **What this command does:**
+    - Pulls the latest FlowSynx image
+    - Exposes API on port 6262
+    - Persists workflow and execution data in a local Docker volume
+  </TabItem>
+  <TabItem value="manual" label="Pre-Built Binary">
+    **Prefer to run FlowSynx locally?**  
+    Download a pre-built binary for your OS from the latest release:
+
+    [**Releases**](https://github.com/flowsynx/flowsynx/releases/latest)
+
+    After extracting the ZIP file, start FlowSynx with:
+    ```
+    flowsynx --start
+    ```
+  </TabItem>
+</Tabs>
+
+After the container starts, FlowSynx is available at:
+
+```
+http://localhost:6262
+```
+
+## 2. Create a Minimal “Hello World” Workflow
+
+Workflows in FlowSynx are defined in JSON.  
+The following example writes a text file `results/test.txt` containing the message `"Hello, FlowSynx!"`.
+
+Create a file named:
+
+```
+hello-world.json
+```
+
+Paste the following content:
+
+```json
+{
+  "name": "Hello World Workflow",
+  "description": "A minimal FlowSynx workflow example",
+  "tasks": [
+    {
+      "name": "Hello world",
+      "type": { 
+        "plugin": "FlowSynx.Storage.Local",
+        "version": "1.0.0"
+      },
+      "parameters": {
+        "operation": "write",
+        "path": "/app/data/test.txt",
+        "data": "Hello, FlowSynx!",
+        "overwrite": false
+      },
+      "dependencies": [],
+    }
+  ]
+}
+```
+
+## 3. Execute the Workflow
+
+You can execute the workflow using either the **FlowCtl CLI** or the **REST API**.
+
+#### Option A — Run with flowctl (recommended)
+
+If you have installed the CLI:
+
+```
+flowctl workflows executions execute -f ./hello-world.json
+```
+
+Execution begins immediately.  
+
+:::info Flowctl
+If flowctl is not installed, please refer to [**Install flowctl**](/docs/getting-started/flowctl-based-installation) guide to help you install it.
+:::
+
+#### Option B — Run via REST API
+
+##### 1. Add the workflow:
+
+```
+curl -X POST http://localhost:6262/workflows \
+  -H "Content-Type: application/json" \
+  --data @hello-world.json
+```
+
+Copy the returned `id` value.
+
+##### 2. Execute the workflow:
+
+```
+curl -X POST http://localhost:6262/workflows/<WORKFLOW_ID>/executions
+```
+
+## 4. Verify the Output
+
+After successful execution, a file is created at:
+
+```
+/app/data/test.txt
+```
+
+The file contains:
+
+```
+Hello, FlowSynx!
+```
+
+This confirms that your FlowSynx environment and workflow engine are working correctly.
+
+## 5. What’s Next?
+
+Now that FlowSynx is installed and your first workflow is running, explore the following:
+
+#### ▶ [**Learn the Workflow Model**](/docs/concepts)
+Understand DAGs, tasks, dependencies, and error handling.
+
+#### ▶ [**Use the FlowCtl CLI**](/docs/reference/cli/overview)
+Discover advanced CLI commands for managing workflows, executions, logs, and diagnostics.
+
+#### ▶ [**Integrate with the API**](/docs/reference/flowsynx/api)
+Use FlowSynx programmatically from your applications and automation systems.

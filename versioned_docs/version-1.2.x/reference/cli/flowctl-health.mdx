@@ -1,0 +1,34 @@
+---
+sidebar_position: 3
+title: Health
+description: Command-line interface to query and display the operational health of a FlowSynx instance.
+---
+
+# FlowCtl Health
+The `health` command performs a **live health check** against a running FlowSynx system.  
+It queries the target instance’s `/health` endpoint (or equivalent internal API) and returns a structured status report suitable for monitoring, diagnostics, and automation.
+
+Use this command to quickly verify that the FlowSynx service is reachable, properly configured, and operating within expected parameters before executing other commands or deploying workflows.
+
+## Usage
+```bash
+flowctl health [options]
+```
+
+When executed, the command sends an HTTP(S) request to the specified FlowSynx endpoint and displays a health summary.
+
+#### Options
+| Short  | Long      | Required | Default | Description                                                                                                                                              |
+| ------ | --------- | -------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -a     | --address | No       | *none*  | Target HTTP or HTTPS endpoint of the FlowSynx instance (e.g., `http://127.0.0.1:8080`). Overrides the default address configured in the FlowCtl profile. |
+| -o     | --output  | No       | `Json`  | Output format for the health report. Supported formats: `Json`, `Table`, `Xml`, `Yaml`.                                                                  |
+| -?, -h | --help    | No       | —       | Displays help and usage information for the `health` command.                                                                                            |
+
+#### Examples
+```bash
+# Default JSON output to verify a local instance
+flowctl health
+
+# Query a remote instance with a custom address and table-formatted output
+flowctl health --address http://flowsynx.example.com:8080 --output Table
+```

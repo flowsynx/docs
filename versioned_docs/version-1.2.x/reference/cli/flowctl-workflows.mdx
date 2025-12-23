@@ -1,0 +1,200 @@
+---
+sidebar_position: 14
+title: Workflows
+description: Command-line interface to manage, execute, and monitor FlowSynx workflows, including triggers and execution approvals.
+---
+
+# FlowCtl Workflows Command
+
+The `workflows` command provides a **complete management interface for FlowSynx workflows**.  
+It supports creating, updating, deleting, executing, and inspecting workflows, as well as managing their triggers, executions, and approval tasks.
+
+## Root Command: workflows
+#### Usage
+```bash
+flowctl workflows [command] [options]
+```
+
+If no subcommand is specified, the command lists all existing workflows in the system.
+
+#### Options
+| Short  | Long      | Required | Default | Description                                                                                                  |
+| ------ | --------- | -------- | ------- | ------------------------------------------------------------------------------------------------------------ |
+| -a     | --address | No       | *none*  | HTTP(S) endpoint of the FlowSynx system (e.g., `http://127.0.0.1:8080`). Overrides default profile settings. |
+| -o     | --output  | No       | `Json`  | Output format for list/details operations. Supported formats: `Json`, `Table`, `Xml`, `Yaml`.                |
+| -?, -h | --help    | No       | —       | Display usage information for the `plugins` command and its subcommands.                                     |
+
+#### Available Subcommands
+| Command      | Description                                              |
+| ------------ | -------------------------------------------------------- |
+| `add`        | Add a new workflow.                                      |
+| `delete`     | Delete an existing workflow.                             |
+| `details`    | Retrieve detailed information about a workflow.          |
+| `update`     | Update an existing workflow definition.                  |
+| `executions` | Manage workflow executions (run, cancel, approve, etc).  |
+| `triggers`   | Manage workflow triggers (add, update, delete, details). |
+
+#### Example: List All available workflows
+```bash
+flowctl workflows --output Table
+```
+
+## Manage Workflows
+### Add
+Create a new workflow definition.
+
+```bash
+flowctl workflows add [options]
+```
+
+#### Options
+| Short  | Long              | Required    | Description                                    |
+| ------ | ----------------- | ----------- | ---------------------------------------------- |
+| -d     | --definition      | Conditional | JSON string of the workflow definition.        |
+| -f     | --definition-file | Conditional | Path to a JSON file containing the definition. |
+| -a     | --address         | No          | HTTP endpoint to connect to FlowSynx.          |
+| -?, -h | --help            | No          | Show help.                                     |
+
+Either `--definition` or `--definition-file` is required.
+
+### Delete
+Remove an existing workflow.
+
+#### Usage
+```bash
+flowctl workflows delete --workflow-id <workflow-id>
+```
+
+#### Options
+| Short  | Long      | Required | Description                                                          |
+| ------ | --------- | -------- | -------------------------------------------------------------------- |
+| -t     | --type    | **Yes**  | Type or identifier of the plugin to uninstall.                       |
+| -v     | --version | **Yes**  | Version of the plugin to uninstall. Must match an installed version. |
+| -a     | --address | No       | Target FlowSynx HTTP(S) endpoint. Overrides CLI defaults.            |
+| -?, -h | --help    | No       | Show usage and help information for the `uninstall` command.         |
+
+#### Required Options:
+- `-w`, `--workflow-id`: The unique workflow identifier.
+
+### Details
+Get details about a specific workflow.
+
+#### Usage
+```bash
+flowctl workflows details --workflow-id <workflow-id>
+```
+
+### Update
+Update an existing workflow definition.
+
+#### Usage
+```bash
+flowctl workflows update --workflow-id <workflow-id> [--definition <json> | --definition-file <file>]
+```
+
+Either `--definition` or `--definition-file` is required.
+
+## Manage Executions
+Control workflow execution lifecycle.
+
+```bash
+flowctl workflows executions [command] [options]
+```
+
+#### Commands
+| Command     | Description                                           |
+| ----------- | ----------------------------------------------------- |
+| `execute`   | Start execution of a workflow.                        |
+| `details`   | Get details of a specific workflow execution.         |
+| `logs`      | Retrieve logs of a specific execution.                |
+| `cancel`    | Cancel an in-progress workflow execution.             |
+| `approvals` | Manage pending approvals for human-in-the-loop tasks. |
+
+### Execute
+Run a workflow.
+
+```bash
+flowctl workflows executions execute --workflow-id <workflow-id>
+```
+
+### Details
+View execution details.
+
+```bash
+flowctl workflows executions details --workflow-id <workflow-id> --execution-id <execution-id>
+```
+
+### Logs
+Get execution logs.
+
+```bash
+flowctl workflows executions logs --workflow-id <workflow-id> --execution-id <execution-id>
+```
+
+### Cancel
+Cancel a running execution.
+
+```bash
+flowctl workflows executions cancel --workflow-id <workflow-id> --execution-id <execution-id>
+```
+
+### Approvals
+Manage pending approvals (human tasks).
+
+```bash
+flowctl workflows executions approvals [command] [options]
+```
+
+Commands: `approve`, `reject`
+
+#### Approve
+Approve a pending task.
+
+```bash
+flowctl workflows executions approvals approve --workflow-id <workflow-id> --execution-id <execution-id> --approval-id <approval-id>
+```
+
+#### Reject
+Reject a pending task.
+
+```bash
+flowctl workflows executions approvals reject --workflow-id <workflow-id> --execution-id <execution-id> --approval-id <approval-id>
+```
+
+## Manage Triggers
+Workflow triggers define automated execution rules.
+
+```bash
+flowctl workflows triggers [command] [options]
+```
+
+#### Commands
+| Command   | Description                          |
+| --------- | ------------------------------------ |
+| `add`     | Add a new trigger to a workflow.     |
+| `details` | Get details of a specific trigger.   |
+| `update`  | Update an existing workflow trigger. |
+| `delete`  | Delete a workflow trigger.           |
+
+
+#### Add
+```bash
+flowctl workflows triggers add --workflow-id <workflow-id> [--data <json> | --data-file <file>]
+```
+
+Either `--data` or `--data-file` is required.
+
+#### Details
+```bash
+flowctl workflows triggers details --workflow-id <workflow-id> --trigger-id <trigger-id>
+```
+
+#### Update
+```bash
+flowctl workflows triggers update --workflow-id <workflow-id> --trigger-id <trigger-id> [--data <json> | --data-file <file>]
+```
+
+#### Delete
+```bash
+flowctl workflows triggers delete --workflow-id <workflow-id> --trigger-id <trigger-id>
+```

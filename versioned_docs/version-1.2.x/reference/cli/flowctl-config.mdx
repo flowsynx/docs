@@ -1,0 +1,116 @@
+---
+sidebar_position: 2
+title: Config
+description: Command-line interface for managing FlowSynx plugin configuration records.
+---
+
+# FlowCtl Config
+The `config` command provides **end-to-end management of FlowSynx plugin configuration objects**.  
+It is used to create, inspect, enumerate, and remove configuration records that the FlowCtl CLI and the underlying FlowSynx runtime depend on for plugin operation.
+
+A configuration record encapsulates all plugin-specific parameters—such as credentials, connection details, and runtime options—required by FlowSynx to execute or orchestrate workflows.
+
+
+## Root Command: config
+#### Usage
+```bash
+flowctl config [command] [options]
+```
+
+Executes a configuration-related subcommand or, if no subcommand is provided, lists all available plugin configuration records.
+
+#### Options
+| Short  | Long      | Required | Default | Description                                                                                                                                           |
+| ------ | --------- | -------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -a     | --address | No       | *none*  | Target HTTP(S) endpoint of the FlowSynx instance (for example: `http://127.0.0.1:8080`). Overrides the endpoint defined in the CLI’s default profile. |
+| -o     | --output  | No       | `Json`  | Specifies the output format for command results. Supported values: `Json`, `Table`, `Xml`, `Yaml`.                                                    |
+| -?, -h | --help    | No       | —       | Displays context-sensitive help and usage information for the `config` command and its subcommands.                                                   |
+
+#### Available Subcommands
+| Subcommand | Purpose                                                                 |
+| ---------- | ----------------------------------------------------------------------- |
+| `add`      | Create and register a new plugin configuration in the FlowSynx backend. |
+| `delete`   | Permanently remove a plugin configuration by its unique identifier.     |
+| `details`  | Retrieve a complete, structured view of a specific configuration item.  |
+
+:::note
+If no subcommand is provided, `flowctl config` displays list of all plugin configs.
+:::
+
+## Subcommand: flowctl config add
+Registers a new plugin configuration with the FlowSynx service.
+This subcommand supports both inline JSON input and external JSON file ingestion for defining plugin-specific parameters.
+
+#### Usage
+```bash
+flowctl config add [options]
+```
+
+#### Options
+| Short  | Long        | Required    | Default | Description                                                                                |
+| ------ | ----------- | ----------- | ------- | ------------------------------------------------------------------------------------------ |
+| -d     | --data      | Conditional | *none*  | JSON string defining the plugin configuration payload. Escaping may be required in shells. |
+| -f     | --data-file | Conditional | *none*  | Path to a file containing a valid JSON configuration definition.                           |
+| -a     | --address   | No          | *none*  | Overrides the FlowSynx service endpoint for this operation.                                |
+| -?, -h | --help      | No          | —       | Displays help and usage details specific to the `add` subcommand.                          |
+
+
+:::info Data Input Rules
+- Mandatory Selection: You must provide either `--data` or `--data-file`.
+- Inline Input: `--data` accepts a raw JSON string. Ensure proper shell escaping.
+- File Input: `--data-file` reads unescaped JSON directly from the specified file path.
+:::
+
+#### Examples
+```bash
+# Inline JSON
+flowctl config add --data '{"name": "process", "type": "FlowSynx.Execution.ExternalProcess", "version": "1.0.0", "specifications": {}}'
+
+# From file
+flowctl config add --data-file ./config.json
+```
+
+## Subcommand: config delete
+Deletes a previously registered plugin configuration from the FlowSynx environment.
+
+#### Usage
+```bash
+flowctl config delete [options]
+```
+
+#### Options
+| Short  | Long        | Required | Default | Description                                                          |
+| ------ | ----------- | -------- | ------- | -------------------------------------------------------------------- |
+| -c     | --config-id | **Yes**  | *none*  | Unique identifier (UUID/GUID) of the plugin configuration to delete. |
+| -a     | --address   | No       | *none*  | Optional override for the FlowSynx service endpoint.                 |
+| -?, -h | --help      | No       | —       | Show usage and help for the `delete` subcommand.                     |
+
+#### Examples
+```bash
+flowctl config delete --config-id 8f7e2c10-93c7-4d21-bf88-fcddf2e1a8a3
+```
+
+## Subcommand: config details
+Fetches and displays the full configuration object for a given plugin configuration ID, useful for inspection, auditing, or troubleshooting.
+
+#### Usage
+```bash
+flowctl config details [options]
+```
+
+#### Options
+| Short  | Long        | Required | Default | Description                                                          |
+| ------ | ----------- | -------- | ------- | -------------------------------------------------------------------- |
+| -c     | --config-id | **Yes**  | *none*  | Unique identifier (UUID/GUID) of the configuration to retrieve.      |
+| -o     | --output    | No       | `Json`  | Output formatting. Supported values: `Json`, `Table`, `Xml`, `Yaml`. |
+| -?, -h | --help      | No       | —       | Display help and usage information for the `details` subcommand.     |
+
+
+#### Examples
+```bash
+# Default JSON output
+flowctl config details -c 8f7e2c10-93c7-4d21-bf88-fcddf2e1a8a3
+
+# Table output for improved readability in terminal
+flowctl config details -c 8f7e2c10-93c7-4d21-bf88-fcddf2e1a8a3 --output Table
+```

@@ -1,0 +1,85 @@
+---
+sidebar_position: 3
+description: FlowSynx is fully container-ready, making it easy to deploy in isolated, reproducible environments using Docker. This option is highly recommended for users looking to minimize conflicts, simplify upgrades, and ensure consistent behavior across development, staging, and production environments.
+---
+
+# Docker-based Installation
+
+You can run FlowSynx entirely within Docker without requiring any local installation of FlowSynx binaries or the FlowCtl CLI. 
+This is ideal for isolated environments, CI/CD pipelines, or container-native deployments.
+
+## Prerequisites
+Ensure the following components are installed and configured:
+
+- Install Docker Engine (v20.10 or later)
+- Internet access to pull FlowSynx container images
+
+**Recommended:**
+- Minimum 1 GB RAM and 500 MB disk space
+
+## Step 1: Launch FlowSynx with Docker
+Run the following command to start the FlowSynx container:
+
+```bash
+docker run -d --name flowsynx -p 6262:6262 -v flowsynx_data:/app/data flowsynx/flowsynx:1.2.4-linux-amd64 --start
+```
+
+This will:
+- Pull the FlowSynx engine image (if not already available locally)
+- Start containers in detached mode
+- Mount a persistent volume for configuration and data
+
+## Step 3: Verify the Deployment
+#### Check if containers are running successfully:
+```
+docker ps
+```
+
+Expected output:
+```
+CONTAINER ID    IMAGE                                COMMAND          STATUS         PORTS
+<container-id>  flowsynx/flowsynx:1.2.4-linux-amd64  "/app/FlowSynx"  Up X seconds   0.0.0.0:6262->6262/tcp
+```
+
+#### Check container logs if needed:
+```
+docker logs flowsynx
+```
+
+#### Cleanup
+To stop and remove all services and containers:
+```
+docker stop flowsynx && docker rm flowsynx
+```
+
+To remove persistent data as well:
+```
+docker volume rm flowsynx_data
+```
+
+## Step 4: Running the first command
+After your FlowSynx containers are up and running, you can begin interacting with the FlowSynx Engine via its exposed API endpoints. 
+The engine is typically accessible on port 6262 from your host machine.
+
+#### Example: Check System Version
+Use the following curl command to verify that the FlowSynx engine is operational:
+
+```bash
+curl http://localhost:6262/version
+```
+
+#### Expected Output:
+```
+{
+  "data": {
+    "version": "1.2.4"
+  },
+  "messages": [],
+  "succeeded": true,
+  "generatedAtUtc": "2025-11-15T09:33:28.7058406Z"
+}
+```
+If you receive a response like the above, your FlowSynx engine is up and ready to receive further API commands.
+
+:::info[Tip]
+If you're running Docker in a remote VM or cloud instance, replace localhost with the IP or hostname of the Docker host.

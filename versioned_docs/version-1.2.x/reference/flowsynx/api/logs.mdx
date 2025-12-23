@@ -1,0 +1,126 @@
+---
+sidebar_position: 6
+title: Logs
+description: The Logs API allows users or administrators to search and retrieve application logs from the FlowSynx system. This endpoint is useful for auditing, debugging, and monitoring system behavior in real-time or retrospectively.
+---
+
+# FlowSynx Logs API
+
+TThe **Logs API** allows administrators to search and retrieve application logs from the FlowSynx system. 
+This endpoint is useful for auditing, debugging, and monitoring system behavior in real-time or retrospectively.
+
+## Authentication & Authorization
+### Required:
+- **Authentication**: Yes (Bearer or Basic Auth)
+- **Authorization**: Yes (Must have `admin` or `logs` role)
+
+### 1. Basic Auth
+
+```bash
+curl -u username:password http://localhost:6262/logs
+```
+
+### 2.Bearer Token
+```bash
+curl -H "Authorization: Bearer <your_token>" http://localhost:6262/logs
+```
+
+## Logs Endpoint
+- **Method**: `POST`
+- **Endpoint**: `/logs`
+- **Body Required**: `Yes`
+- **Content-Type**: `application/json`
+- **Query Parameters (optional)**:
+  - **page** (integer): Page number to retrieve. Default is 1.
+  - **pageSize** (integer): Number of items per page. Default is 25.
+
+#### Required Body
+| Field      | Type   | Required | Description                                                            |
+| ---------- | ------ | -------- | --------------------------------------------------------               |
+| `level`    | string | Optional | Log level filter (`crit`, `fail`, `Warn`, `info`, `dbug` )             |
+| `fromdate` | string | Optional | ISO 8601 UTC start date (e.g., `"2025-08-01T00:00:00Z"`)               |
+| `todate`   | string | Optional | ISO 8601 UTC end date (e.g., `"2025-08-02T23:59:59Z"`)                 |
+| `message`  | string | Optional | Filter logs containing this text (case-insensitive)                    |
+
+#### Example Body
+```json
+{
+  "level": "info",
+  "fromdate": "2025-07-01T00:00:00Z",
+  "todate": "2025-08-01T00:00:00Z",
+  "message": ""
+}
+```
+
+#### `curl` Example
+```bash
+curl -X POST http://localhost:6262/logs?page=1&pageSize=25 \
+  -H "Authorization: Bearer <your_token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+        "level": "info",
+        "fromdate": "2025-07-01T00:00:00Z",
+        "todate": "2025-08-01T00:00:00Z",
+        "message": ""
+      }'
+```
+
+#### Example response
+```json
+{
+  "data": [
+    {
+      "id": "971ed04e-42b5-4289-81aa-ae4c0a5606eb",
+      "message": "Workflow '83b102e0-9129-4069-abd5-97a312ed9c1f' started.",
+      "level": "Info",
+      "timeStamp": "2025-07-08T23:16:46.8315157",
+      "exception": null
+    },
+    {
+      "id": "41c9236d-4b40-4d2a-9158-532eb2a52fc2",
+      "message": "Initialized task executions for workflow '83b102e0-9129-4069-abd5-97a312ed9c1f'",
+      "level": "Info",
+      "timeStamp": "2025-07-08T23:16:46.8874874",
+      "exception": null
+    }
+  ],
+  "messages": [],
+  "succeeded": true,
+  "pagination": {
+    "currentPage": 1,
+    "totalPages": 1,
+    "totalCount": 1,
+    "pageSize": 25,
+    "hasPreviousPage": false,
+    "hasNextPage": false
+  },
+  "generatedAtUtc": "2025-08-01T17:00:39.1100673Z"
+}
+```
+
+:::note
+- The pagination object provides metadata for paginated results:
+  - **currentPage**: Current page number.
+  - **totalPages**: Total number of pages available.
+  - **totalCount**: Total number of plugins.
+  - **pageSize**: Number of items per page.
+  - **hasPreviousPage**: true if there’s a previous page.
+  - **hasNextPage**: true if there’s a next page.
+
+You can use the **page** and **pageSize** query parameters to retrieve specific pages of plugin results.
+:::
+
+
+## Summary Table
+| Method | Endpoint | Authentication      | Authorization Roles   | Filters Supported                        |
+| ------ | -------- | -------------       | ---------------       | ---------------------------------------- |
+| POST   | `/logs`  | ✅ Required         | `admin`, `logs`       | `level`, `fromdate`, `todate`, `message` |
+
+:::info
+- Use `Bearer` or `Basic` authentication depending on flowsynx configuration.  
+- Replace `<your_token>` or `username:password` with actual credentials.
+- Use empty string "" for any field to ignore that filter.
+- Dates must be in ISO 8601 format.
+- The API returns a limited number of results (250 logs max).
+- Supported Log level: `crit`, `fail`, `Warn`, `info`, `dbug`
+:::

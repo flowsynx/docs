@@ -1,0 +1,143 @@
+---
+sidebar_position: 3
+description: Understanding how FlowSynx manages task dependencies and execution order using DAG-based scheduling to ensure reliable, predictable, and optimized workflow execution.
+---
+
+# Dependencies & Execution Order
+
+Workflow execution is not just about running tasks—it's about running them **in the correct order**, **with the correct prerequisites**, and **at the correct moment**. In FlowSynx, this process is governed by a powerful dependency model rooted in Directed Acyclic Graphs (DAGs). Dependencies define the logical and temporal relationships between tasks, ensuring that each step executes exactly when it should and that the workflow behaves consistently, even as it grows in complexity.
+
+## The Role of Dependencies in Workflow Design
+
+Dependencies specify which tasks must complete before another task can begin. In DAG terminology, these are represented as **directed edges** between nodes:
+
+- **Parent / Upstream Task** — A prerequisite  
+- **Child / Downstream Task** — A task that depends on one or more parents  
+
+A task *cannot* start until all upstream dependencies have completed successfully.
+
+### Basic Dependency Example
+
+<img src="/img/Basic-Dependency-Example.jpg" />
+
+## Validating Dependencies & Detecting Structural Problems
+
+To guarantee correctness before execution begins, FlowSynx automatically runs a series of structural validation checks. These checks ensure that the workflow is valid, executable, and free of ambiguous or inconsistent definitions.
+
+FlowSynx uses a combination of simple hash-based scans and a classic cycle-detection algorithm.
+
+
+### 1. Duplicate Task Detection (O(n))
+
+FlowSynx uses a **single-pass HashSet membership test** to ensure task names are unique:
+
+```
+for each task:
+    if task.Name in hashset: DUPLICATE
+    else add to hashset
+```
+
+#### Diagram
+<img src="/img/Duplicate-Task-Detection.jpg" />
+
+
+### 2. Missing Dependencies / Missing Branch Targets (O(V + E))
+
+FlowSynx builds a HashSet of all defined task names and checks whether dependencies reference anything that doesn't exist.
+
+<img src="/img/Missing-Dependencies.jpg" />
+
+### 3. Cyclic Dependency Detection (Kahn’s Algorithm) (O(V + E))
+
+FlowSynx uses **Kahn’s Algorithm**, a topological sort strategy, to detect cycles. Kahn’s Algorithm is a classic method for detecting cycles in a directed graph (like a workflow DAG).
+If the workflow has a cycle, you cannot topologically sort it, and that’s exactly how the algorithm detects the problem.
+
+#### Algorithm Steps
+- Each task is a node (V).
+- Each dependency is a directed edge (E): **A → B** means A must run before B.
+- We compute in-degree for each node:
+- How many tasks depend on this node?
+- Repeatedly remove nodes with in-degree = 0 (tasks with no unmet prerequisites).
+- Removing a node also removes its outgoing edges, lowering in-degrees of its neighbors.
+- If there is a cycle, some nodes will never reach in-degree 0.
+
+#### Diagram — No Cycle
+
+<img src="/img/DAG-NoCycle-Exists.jpg" />
+```
+in-degree:
+A:0, B:1, C:1
+
+Queue: [A]
+Pop A → decrement B → B:0 → enqueue B
+Pop B → decrement C → C:0 → enqueue C
+Pop C → done
+
+Processed = 3, Total = 3 → no cycle
+```
+
+#### Diagram — Cycle Exists
+<img src="/img/DAG-Cycle-Exists.jpg" />
+
+```
+in-degree:
+A:1, B:1, C:1
+
+Queue: (empty)
+
+Processed = 0 < 3 → cycle detected
+```
+
+## Dynamic Execution Planning in FlowSynx
+
+FlowSynx analyzes task dependencies and computes the execution plan dynamically.
+
+### Execution Flow Diagram
+<img src="/img/Execution-Flow-Diagram.jpg" />
+
+## Concurrency and Parallel Execution
+
+DAGs allow tasks with no dependency relationship to run concurrently.
+
+### Parallelism Example
+<img src="/img/Parallelism-Example.jpg" />
+
+A and B run in parallel; C waits for both.
+
+## Dependency-Driven Reliability
+
+### Error Isolation Diagram
+<img src="/img/Error-Isolation-Diagram.jpg" />
+
+```
+If [B] fails:
+   [C] blocked
+   [D] blocked
+   [E] blocked
+```
+
+FlowSynx can isolate the branch containing failures without affecting unrelated parts of the workflow.
+
+## Conditional Branching and Advanced Flows
+<img src="/img/Conditional-Branching-Flow.jpg" />
+
+## Scaling to Large Pipelines
+
+### Large Pipeline DAG
+<img src="/img/Large-Pipeline-DAG.jpg" />
+
+FlowSynx’s dependency model enables:
+
+- Automated ordering  
+- Fast topological sorting  
+- Predictable state transitions  
+- High concurrency  
+- Fine-grained error localization  
+- Improved debuggability through clear DAG visualization  
+
+---
+
+Proper dependency management is not just a feature of FlowSynx—it is one of the core principles enabling powerful, 
+reliable, and scalable workflow automation. By combining **hash-based validations**, **graph integrity checks**, and 
+**Kahn’s Algorithm**, FlowSynx ensures that every workflow is structurally sound *before a single task executes*. And 
+through DAG-driven scheduling, FlowSynx guarantees that each workflow runs exactly as intended, regardless of complexity or scale.

@@ -1,0 +1,126 @@
+---
+sidebar_position: 8
+title: Plugins
+description: Command-line interface to list, install, uninstall, update, and inspect FlowSynx plugins.
+---
+
+# FlowCtl Plugins Command
+The `plugins` command provides **full lifecycle management for FlowSynx plugins**.  
+Plugins extend the FlowSynx system with additional capabilities such as new connectors, transformations, or workflow tasks.  
+Use this command to install new plugins, upgrade or remove existing ones, and inspect plugin details.
+
+## Root Command: plugins
+#### Usage
+```bash
+flowctl plugins [subcommand] [options]
+```
+
+When invoked without a subcommand, the command lists all currently installed plugins on the target FlowSynx instance.
+
+#### Options
+| Short  | Long      | Required | Default | Description                                                                                                  |
+| ------ | --------- | -------- | ------- | ------------------------------------------------------------------------------------------------------------ |
+| -a     | --address | No       | *none*  | HTTP(S) endpoint of the FlowSynx system (e.g., `http://127.0.0.1:8080`). Overrides default profile settings. |
+| -o     | --output  | No       | `Json`  | Output format for list/details operations. Supported formats: `Json`, `Table`, `Xml`, `Yaml`.                |
+| -?, -h | --help    | No       | —       | Display usage information for the `plugins` command and its subcommands.                                     |
+
+#### Available Subcommands
+| Subcommand | Purpose                                                                 |
+| -----------| ----------------------------------------------------------------------- |
+| install    | Install a new plugin by specifying its type and version.                |
+| uninstall  | Remove an installed plugin from the FlowSynx system.                    |
+| details    | Retrieve detailed metadata about a specific plugin.                     |
+| update     | Upgrade an installed plugin by replacing an old version with a new one. |
+
+#### Example: List All Installed Plugins
+```bash
+flowctl plugins --output Table
+```
+
+## Subcommand: flowctl plugins install
+Installs a specific plugin package into the FlowSynx system.
+
+#### Usage
+```bash
+flowctl plugins install [options]
+```
+
+#### Options
+| Short  | Long      | Required | Description                                                                                |
+| ------ | --------- | -------- | ------------------------------------------------------------------------------------------ |
+| -t     | --type    | **Yes**  | Type or identifier of the plugin to install (e.g., `FlowSynx.Execution.ExternalProcess`). |
+| -v     | --version | **Yes**  | Version of the plugin to install, expressed as a semantic version string (e.g., `1.0.0`).  |
+| -a     | --address | No       | Target FlowSynx HTTP(S) endpoint. Overrides CLI defaults.                                  |
+| -?, -h | --help    | No       | Show usage and help information for the `install` command.                                 |
+
+#### Example
+```bash
+# Install a specific plugin type and version
+flowctl plugins install --type "FlowSynx.Execution.ExternalProcess" --version "1.1.0"
+```
+
+## Subcommand: flowctl plugins uninstall
+Removes a plugin from the FlowSynx system.
+
+#### Usage
+```bash
+flowctl plugins uninstall [options]
+```
+
+#### Options
+| Short  | Long      | Required | Description                                                          |
+| ------ | --------- | -------- | -------------------------------------------------------------------- |
+| -t     | --type    | **Yes**  | Type or identifier of the plugin to uninstall.                       |
+| -v     | --version | **Yes**  | Version of the plugin to uninstall. Must match an installed version. |
+| -a     | --address | No       | Target FlowSynx HTTP(S) endpoint. Overrides CLI defaults.            |
+| -?, -h | --help    | No       | Show usage and help information for the `uninstall` command.         |
+
+#### Example
+```bash
+flowctl plugins uninstall --type "FlowSynx.Execution.ExternalProcess" --version "1.1.0"
+```
+
+## Subcommand: flowctl plugins details
+Retrieves detailed information about a specific installed plugin.
+
+#### Usage
+```bash
+flowctl plugins details [options]
+```
+
+#### Options
+| Short  | Long        | Required | Default | Description                                                                      |
+| ------ | ----------- | -------- | ------- | -------------------------------------------------------------------------------- |
+| -p     | --plugin-id | **Yes**  | *none*  | Unique identifier of the plugin (UUID or system-generated ID) to inspect.        |
+| -a     | --address   | No       | *none*  | Target FlowSynx HTTP(S) endpoint.                                                |
+| -o     | --output    | No       | `Json`  | Output format for the plugin details. Supported: `Json`, `Table`, `Xml`, `Yaml`. |
+| -?, -h | --help      | No       | —       | Show usage and help information for the `details` command.                       |
+
+#### Example
+```bash
+# Retrieve details in table format
+flowctl plugins details --plugin-id "3cbb73e5-ded8-4fae-a938-7c00c14e5a51" --output Table
+```
+
+## Subcommand: flowctl plugins update
+Upgrades an installed plugin to a newer version by uninstalling the old version and installing the specified new version.
+
+#### Usage
+```bash
+flowctl plugins update [options]
+```
+
+#### Options
+| Short  | Long          | Required | Description                                               |
+| ------ | ------------- | -------- | --------------------------------------------------------- |
+| -t     | --type        | **Yes**  | Type or identifier of the plugin to update.               |
+| -o     | --old-version | **Yes**  | Version of the currently installed plugin to be replaced. |
+| -n     | --new-version | **Yes**  | Version of the plugin to install as the upgrade target.   |
+| -a     | --address     | No       | Target FlowSynx HTTP(S) endpoint.                         |
+| -?, -h | --help        | No       | Show usage and help information for the `update` command. |
+
+#### Examples
+```bash
+# Upgrade plugin FlowSynx.Execution.ExternalProcess from v1.1.0 to v1.2.0
+flowctl plugins update --type --type "FlowSynx.Execution.ExternalProcess" --old-version "1.1.0" --new-version "1.2.0"
+```

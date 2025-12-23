@@ -1,0 +1,245 @@
+---
+sidebar_position: 2
+description: For those who prefer automation, scriptability, the Flowctl provides a powerful way to install, configure, and manage FlowSynx with a few simple commands. This method is ideal for DevOps pipelines, infrastructure-as-code scenarios, and repeatable deployment patterns.
+---
+
+# Flowctl-based Installation
+
+FlowCtl is the primary command-line interface (CLI) for managing and operating FlowSynx systems. 
+This guide will walk you through the installation process across major operating systems, 
+including support for versioning, non-administrative installations, and environment setup.
+
+## Prerequisites
+Before installation, ensure the following:
+- A supported shell environment (`bash`, `powershell`, or equivalent).
+- Internet access to download the installation script.
+- (Optional) Write access to the target installation directory (e.g., `/usr/local/bin`, `%SystemDrive%\flowsynx`, or a custom path).
+
+## Step 1: Install the FlowCtl
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="operating-systems">
+  <TabItem value="linux" label="Linux">
+    #### Install from Terminal
+    Install the latest Linux **flowctl** to `/usr/local/bin`:
+    ```
+    wget -q https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.sh -O - | /bin/bash
+    ```
+
+    #### Installing a specific **flowctl** version
+    The following example shows how to install **flowctl** version `1.2.4`.
+    ```
+    wget -q https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.sh -O - | /bin/bash -s 1.2.4
+    ```
+
+    #### Install without sudo
+    If you do not have access to the sudo command or your username is not in the sudoers file, 
+    you can install **flowctl** to an alternate directory via the `FLOWCTL_INSTALL_DIR` environment variable. 
+    This directory must already exist and be accessible by the current user.
+    ```
+    wget -q https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.sh -O - | FLOWCTL_INSTALL_DIR="$HOME/flowctl" /bin/bash
+    ```
+
+    #### Installing a specific **flowctl** version without sudo
+    The following example shows how to install **flowctl** version `1.2.4`.
+    ```
+    wget -q https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.sh -O - | FLOWCTL_INSTALL_DIR="$HOME/flowctl" /bin/bash -s 1.2.4
+    ```
+  </TabItem>
+  <TabItem value="windows" label="Windows">
+    #### Install from Powershell
+    Install the latest windows **flowctl** to $Env:SystemDrive\flowsynx and add this directory to the User PATH environment variable:
+    ```
+    iwr -useb https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.ps1 | iex
+    ```
+
+    #### Installing a specific **flowctl** version
+    The following example shows how to install **flowctl** version `1.2.4`.
+    ```
+    $script=iwr -useb https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.ps1; $block=[ScriptBlock]::Create($script); invoke-command -ScriptBlock $block -ArgumentList "1.2.4"
+    ```
+  
+    #### Install without administrative rights
+    If you do not have admin rights, you can install FlowSynx to an alternate directory via the `FLOWCTL_INSTALL_DIR` environment variable. The script below creates the directory if it does not exist.
+    ```
+    $Env:FLOWCTL_INSTALL_DIR = "<your_alt_install_dir_path>"
+    $script=iwr -useb https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.ps1; $block=[ScriptBlock]::Create($script); invoke-command -ScriptBlock $block -ArgumentList "", "$Env:FLOWCTL_INSTALL_DIR"
+    ```
+  
+    #### Installing a specific flowctl version without administrative rights
+    The following example shows how to install **flowctl** version `1.2.4`.
+    ```
+    $Env:FLOWCTL_INSTALL_DIR = "<your_alt_install_dir_path>"
+    $script=iwr -useb https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.ps1; $block=[ScriptBlock]::Create($script); invoke-command -ScriptBlock $block -ArgumentList "1.2.4", "$Env:FLOWCTL_INSTALL_DIR"
+    ```
+  </TabItem>
+  <TabItem value="macos" label="MacOS">
+    #### Install from Terminal
+    Install the latest **flowctl** to `/usr/local/bin`:
+    ```
+    curl -fsSL https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.sh | /bin/bash
+    ```
+
+    #### Installing a specific **flowctl** version
+    The following example shows how to install **flowctl** version `1.2.4`.
+    ```
+    curl -fsSL https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.sh | /bin/bash -s 1.2.4
+    ```
+
+    #### Install without sudo
+    If you do not have access to the sudo command or your username is not in the sudoers file, you can install 
+    **flowctl** to an alternate directory via the FLOWCTL_INSTALL_DIR environment variable. 
+    This directory must already exist and be accessible by the current user.
+    ```
+    curl -fsSL https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.sh | FLOWCTL_INSTALL_DIR="$HOME/flowctl" /bin/bash
+    ```
+
+    #### Installing a specific flowctl version without sudo
+    The following example shows how to install **flowctl** version `1.2.4`.
+    ```
+    curl -fsSL https://raw.githubusercontent.com/flowsynx/flowctl/master/install/install.sh | FLOWCTL_INSTALL_DIR="$HOME/flowctl" /bin/bash -s 1.2.4
+    ```
+  </TabItem>
+</Tabs>
+
+:::info[Register path to the OS Environment Varables]
+In linux-based operating system, if you use the **Install without sudo** option, you must register the **$HOME/flowctl** to the PATH of Environment Variables. To do this, you can use below command:
+
+```
+export PATH=$PATH:$HOME/flowctl
+```
+:::
+
+## Step 2: Verify the flowctl installation
+Verify the CLI is installed by restarting your terminal/command prompt and running the following:
+```
+flowctl -h
+```
+#### Output
+```
+Description:
+  flowctl controls the FlowSynx engine
+
+Usage:
+  flowctl [command] [options]
+
+Options:
+  -?, -h, --help  Show help and usage information
+
+Commands:
+  config     Manage and display the list and details of plugin configuration
+  health     Display the health status of FlowSynx System
+  init       Installs and initializes the FlowSynx system for the current user profile.
+  login      Authenticates the user and establishes a session with the FlowSynx system
+  logout     Close authentication session with the FlowSynx system
+  logs       Get FlowSynx System logs
+  plugins    Manage and display the list and details of plugins supported by the FlowSynx system.
+  run        Run and execute the FlowSynx system under the current user profile
+  stop       Stop the FlowSynx system and its associated applications running under the current user profile.
+  uninstall  Uninstalling the FlowSynx System from the current user's profile and local machine environment
+  update     Updates the FlowSynx system
+  version    Displays the FlowSynx system version and CLI version.
+  workflows  Manage and display the list and details of workflows.
+```
+
+## Step 3: Initialize FlowSynx
+After installing the **flowctl** CLI, the next step is to initialize the FlowSynx runtime environment. 
+This process will download and configure the required FlowSynx binaries and prepare your system for 
+workflow execution, dashboard hosting, and plugin management.
+
+The **flowctl** init command automates the setup by fetching the latest stable FlowSynx engine and installing 
+it locally under your user context or system-wide depending on permissions.
+
+### Open a Terminal or Command Prompt
+<Tabs groupId="operating-systems">
+  <TabItem value="linuxMacOs" label="Linux/MacOS">
+  You will need to use `sudo` for this quickstart if:
+
+  - You run your Docker commands with `sudo`, or
+  - The install path is `/usr/local/bin` (default install path).
+  </TabItem>
+  <TabItem value="windows" label="Windows">
+  Open Windows Terminal or Command Prompt as Administrator to avoid permission issues during installation.
+
+  - Press Start or Windows key.
+  - Search for “Command Prompt” or “Windows Terminal”.
+  - Right-click the result and choose Run as administrator.
+  </TabItem>
+</Tabs>
+
+### Run the Initialization Command
+Once the terminal is open with the appropriate permissions, run:
+```
+flowctl init
+```
+
+This command performs the following tasks:
+- Downloads the latest stable FlowSynx engine.
+- Verifies the integrity of downloaded binaries.
+- Installs FlowSynx locally for the current user profile.
+- Prepares the necessary directories and configuration files.
+
+#### Binary Integrity Check Failure
+If the binary fails to validate during download, you may see:
+```
+Validating download - Fail!  
+The downloaded data may has been corrupted!
+```
+
+This usually indicates a temporary network or cache issue. To resolve just Re-run the command:
+```
+flowctl init
+```
+
+If the issue persists, clear any proxy cache or DNS override that may interfere with GitHub/CDN access.
+
+## Step 4: Verify FlowSynx Installation
+Once initialization completes successfully, verify that the CLI and runtime are properly set up:
+
+```
+flowctl version
+```
+
+Example Output:
+```
+{
+  "FlowCtl": "1.2.1",
+  "FlowSynx": "1.2.4.0"
+}
+```
+
+Expected Fields:
+- FlowCtl: Version of the installed CLI.
+- FlowSynx: Version of the runtime system that powers workflow execution.
+
+## Step 5: Start FlowSynx Engine and Call the API
+After initializing FlowSynx via `flowctl init`, you must explicitly start the FlowSynx engine using:
+```
+flowctl run
+```
+
+This command starts the FlowSynx engine and associated services locally.
+
+## Step 6: Running the first command
+Once the engine is running, test it by calling the health check API using `curl`.
+
+#### Example: Check System Version
+This is a good first API call to confirm that the engine is active and healthy:
+
+```bash
+curl http://localhost:6262/version
+```
+
+#### Expected Output:
+```
+{
+  "data": {
+    "version": "1.1.2"
+  },
+  "messages": [],
+  "succeeded": true,
+  "generatedAtUtc": "2025-08-02T09:33:28.7058406Z"
+}
+```
+If you receive a response like the above, your FlowSynx engine is up and ready to receive further API commands.

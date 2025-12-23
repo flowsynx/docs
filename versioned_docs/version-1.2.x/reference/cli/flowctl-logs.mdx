@@ -1,0 +1,54 @@
+---
+sidebar_position: 7
+title: Logs
+description: Command-line interface to query, filter, and export FlowSynx system logs.
+---
+
+# FlowCtl Logs Command
+The `logs` command retrieves **runtime and diagnostic log entries** from a FlowSynx instance.  
+It provides flexible filtering by date range, log level, and message content, and supports exporting results for auditing, debugging, or external analysis.
+
+This command is useful for operations, troubleshooting, and compliance tasks where detailed system event tracking is required.
+
+## Usage
+```bash
+flowctl logs [options]
+```
+
+Connects to the target FlowSynx instance, queries the system log store, and displays or exports matching log entries.
+
+#### Options
+| Short  | Long        | Required | Default | Description                                                                                                                                         |
+| ------ | ----------- | -------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -l     | --level     | No       | `off`   | Sets the **log verbosity filter**. Valid values: `Dbug`, `Info`, `Warn`, `Fail`, `Crit`. Only entries at or above the specified level are returned. |
+| -f     | --from-date | No       | *none*  | Specifies the **start date/time** (UTC or local ISO-8601 format) from which logs should be retrieved.                                               |
+| -t     | --to-date   | No       | *none*  | Specifies the **end date/time** (UTC or local ISO-8601 format) for log retrieval.                                                                   |
+| -m     | --message   | No       | *none*  | Filters logs by message content or substring match.                                                                                                 |
+| -e     | --export-to | No       | *none*  | File path to which the retrieved log entries will be exported. Supported formats depend on the selected output option.                              |
+| -a     | --address   | No       | *none*  | HTTP(S) endpoint of the FlowSynx system (e.g., `http://127.0.0.1:8080`). Overrides the default address configured in the FlowCtl profile.           |
+| -o     | --output    | No       | `Json`  | Output formatting for the retrieved logs. Supported formats: `Json`, `Table`, `Xml`, `Yaml`.                                                        |
+| -?, -h | --help      | No       | —       | Displays detailed help and usage instructions for the `logs` command.                                                                               |
+
+#### Examples
+##### Retrieve All Logs in JSON (default)
+```bash
+flowctl logs
+```
+
+##### Filter by Log Level and Date Range
+```bash
+# Fetch warnings and above for a specific date range
+flowctl logs --level Warn --from-date "2025-09-01T00:00:00Z" --to-date "2025-09-07T23:59:59Z"
+```
+
+##### Search by Message Content
+```bash
+# Search for entries containing the phrase "connection timeout"
+flowctl logs --message "connection timeout"
+```
+
+##### Export Logs to File
+```bash
+# Export critical-level logs to a YAML file
+flowctl logs --level Crit --export-to ./critical-logs.yaml --output Yaml
+```

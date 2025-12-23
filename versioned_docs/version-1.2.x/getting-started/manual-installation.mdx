@@ -1,0 +1,126 @@
+---
+sidebar_position: 1
+description: Ideal for custom environments, this approach gives you full control over the configuration and deployment process. You'll download the necessary files, define your runtime settings, and manually manage dependencies—perfect for fine-tuned setups or air-gapped systems.
+---
+
+import { Icon } from '@iconify/react';
+
+# Manual Installation
+
+You can manually install **FlowSynx** by downloading pre-built binaries for your platform from the [GitHub Releases](https://github.com/flowsynx/flowsynx/releases) page.
+
+FlowSynx supports:
+
+- Windows
+- Linux
+- macOS
+
+## Step 1: Download the Release
+
+1. Visit the [FlowSynx GitHub Releases](https://github.com/flowsynx/flowsynx/releases) page.
+2. Select the version you wish to install.
+3. Download the appropriate archive for your operating system and architecture:
+
+| Platform                                                                  | Architecture | File Format | Filename                       |
+|---------------------------------------------------------------------------|--------------|-------------|------------------              |
+| <Icon icon="ri:windows-fill" width="24" height="24" /> Windows            | x64          | `.zip`      | `flowsynx-windows-x64.zip`     |
+| <Icon icon="ri:windows-fill" width="24" height="24" /> Windows            | arm64        | `.zip`      | `flowsynx-windows-arm64.zip`   |
+| <Icon icon="ant-design:linux-outlined" width="24" height="24" /> Linux    | x64          | `.tar.gz`   | `flowsynx-linux-arm64.tar.gz`  |
+| <Icon icon="ant-design:linux-outlined" width="24" height="24" /> Linux    | arm64        | `.tar.gz`   | `flowsynx-linux-arm.tar.gz`    |
+| <Icon icon="wpf:macos" width="24" height="24" /> macOS                    | x64          | `.tar.gz`   | `flowsynx-osx-x64.tar.gz`      |
+| <Icon icon="wpf:macos" width="24" height="24" /> macOS                    | arm64        | `.tar.gz`   | `flowsynx-osx-arm64.tar.gz`    |
+
+:::info
+Always prefer the latest release unless you need a specific version.
+:::
+
+---
+
+## Step 2: Extract the Archive
+
+After downloading the archive, extract it to a preferred location.
+
+### Windows
+
+Use built-in File Explorer or a tool like [7-Zip](https://www.7-zip.org/):
+
+```bash
+Right-click > Extract All
+```
+
+### Linux/macOS
+Use the terminal:
+
+```bash
+# For .tar.gz archives
+tar -xzf flowsynx-<platform>.tar.gz -C /opt/flowsynx
+```
+
+You can replace /opt/flowsynx with your desired directory.
+
+## Step 3: Set Executable Permissions (Linux/macOS)
+Ensure the binary is executable:
+
+```bash
+chmod +x /opt/flowsynx/flowsynx
+```
+
+## Step 4: Add to PATH (Optional)
+To run flowsynx from anywhere in your terminal, add its directory to your system PATH.
+
+### Windows
+1. Press Win + R, type sysdm.cpl, press Enter.
+2. Under Advanced tab > Environment Variables.
+3. Add the extracted folder path to the Path variable.
+
+### Linux/macOS
+Add the following line to your ~/.bashrc, ~/.zshrc, or equivalent:
+
+```bash
+export PATH="/opt/flowsynx:$PATH"
+```
+
+Then reload your shell:
+
+```bash
+source ~/.bashrc  # or source ~/.zshrc
+```
+
+## Step 5: Verify Installation
+Open a terminal or command prompt and run:
+
+```bash
+flowsynx --version
+```
+
+You should see the installed version of FlowSynx.
+
+## Step 6: Running the engine
+Execute following command into terminal to start flowsynx engine:
+
+```bash
+flowsynx --start
+```
+
+## Step 7: Running the first command
+Once the FlowSynx engine is running (default on port 6262), you can interact with its REST API using tools like curl.
+
+#### Example: Check System Version
+This is a good first API call to confirm that the engine is active and healthy:
+
+```bash
+curl http://localhost:6262/version
+```
+
+#### Expected Output:
+```
+{
+  "data": {
+    "version": "1.2.4"
+  },
+  "messages": [],
+  "succeeded": true,
+  "generatedAtUtc": "2025-11-15T09:33:28.7058406Z"
+}
+```
+If you receive a response like the above, your FlowSynx engine is up and ready to receive further API commands.

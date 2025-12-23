@@ -1,0 +1,38 @@
+---
+sidebar_position: 9
+title: Run
+description: Command-line interface to start and execute the FlowSynx system under the current user profile.
+---
+
+# FlowCtl Run Command
+The `run` command **starts and executes the FlowSynx system** using the current user’s profile and configuration.  
+It can launch FlowSynx interactively in the foreground or as a background service for continuous operation.
+
+## Usage
+```bash
+flowctl run [options]
+```
+
+When executed without any options, FlowSynx runs in the foreground and streams its logs and status to the current terminal session.
+
+#### Options
+| Short  | Long         | Required | Default | Description                                                                                                                   |
+| ------ | ------------ | -------- | ------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| -b     | --background | No       | `False` | Run the FlowSynx system as a **background process**, allowing the terminal to be freed while the system continues to operate. |
+| -?, -h | --help       | No       | —       | Display usage information and available options for the `run` command.                                                        |
+
+
+#### Examples
+##### Start in Foreground
+```bash
+flowctl run
+```
+
+Runs FlowSynx interactively, keeping logs and output visible in the current shell.<br />
+Press **Ctrl + C** to gracefully stop.
+
+##### Start in Background
+```bash
+flowctl run --background
+```
+Launches FlowSynx as a background process. The terminal can be closed while the system keeps running.

@@ -1,0 +1,80 @@
+---
+sidebar_position: 1
+---
+
+# Overview
+
+<div class="cardsGrid">
+
+  <a class="overview-card" href="/docs/getting-started">
+    <h3 class="overview-card-title">Getting started</h3>
+    <p class="overview-card-description">Read the comprehensive documentation to start building workflows.</p>
+  </a>
+
+  <a class="overview-card" href="https://github.com/flowsynx/samples" target="_blank">
+    <h3 class="overview-card-title">Samples</h3>
+    <p class="overview-card-description">Explore ready-to-use workflow examples and starter templates.</p>
+  </a>
+
+  <a class="overview-card" href="https://github.com/flowsynx/flowsynx" target="_blank" rel="noopener noreferrer">
+    <h3 class="overview-card-title">GitHub Repo</h3>
+    <p class="overview-card-description">Browse the full source code, raise issues, and contribute.</p>
+  </a>
+
+</div>
+
+## Introduction to the FlowSynx
+
+FlowSynx is a flexible, plugin-driven, cross-platform .NET-based DAG workflow orchestration system, 
+designed to automate, scale, and manage complex data workflows across cloud and on-premises environments. 
+Written in C# and built on .NET, FlowSynx bridges the gap between low-code accessibility and full-code 
+extensibility, empowering developers and operations teams to define and execute powerful, declarative 
+workflows in a simple, consistent, and maintainable way.
+
+With its modular plugin architecture and native C# SDK, FlowSynx supports seamless integration with 
+external systems, custom business logic, cloud storage providers, databases, APIs, and more—allowing 
+users to extend functionality without modifying the core engine. Workflows are represented as 
+JSON-based [DAGs (Directed Acyclic Graphs)](/docs/concepts#directed-acyclic-graphs-dags), enabling 
+precise control over [execution order, dependencies](/docs/concepts#task-dependencies--execution-order), 
+[retries & error handling](/docs/concepts#retry-policies--error-handling), and conditional logic.
+
+### FlowSynx features:
+- **Plugin-Based Extensibility** — Add, upgrade, or remove capabilities dynamically and version-controlled  
+- **Cross-Platform Execution** — Runs everywhere (Windows, Linux, macOS, Docker, Cloud)  
+- **JSON-Defined Workflows** — Declarative, portable, and version-controlled  
+- **Schema Validation** — Catch errors early with JSON schema checks  
+- **CLI & SDK Support** — Total control for developers and DevOps teams  
+- **Robust Authentication & Access Control** — Compatible with JWT and Basic Auth, featuring RBAC  
+- **Secret Management Integration** — Infisical, Azure Key Vault, HashiCorp Vault, AWS Secrets Manager  
+- **Triggers & Events** — Webhooks, schedules, and file-change detection  
+- **Human-in-the-Loop Tasks** — Combine automation with human approval  
+- **Conditional Flow Control** — Execute tasks based on conditions and branching logic  
+- **Expression Evaluation** — Dynamic parameterization using expressions  
+- **Advanced Logging & Auditing** — Full transparency into every execution  
+- **Error Handling** - Configurable Error Handling and Retry Policies per task and workflow level  
+- **Marketplace & Registry** — Discover and manage plugins easily  
+- **Web Console UI** — Intuitive dashboard for workflow monitoring and control  
+- **Unified Data Abstraction Layer (UDAL)** — Simplifies data access across diverse sources  
+- **Source-Agnostic Processing** — Operate uniformly and interchangeably, regardless of the original data source or protocol  
+
+Whether you’re automating file transfers, orchestrating machine learning pipelines, syncing distributed systems, or building robust ETL jobs, FlowSynx’s C# API and .NET foundation offer a scalable, extensible platform to accelerate workflow development and reduce operational complexity—without sacrificing control.
+
+## Architecture overview
+<img src="/img/architecture-diagram.jpg" />
+
+### Intraction tools
+- **CLI Interface**: Command-line tools written in .NET for interacting with FlowSynx, enabling workflow management and execution from terminals.
+- **REST API Gateway**: Provides secure, HTTP/HTTPS RESTful APIs to integrate with external systems, allowing remote workflow control and status querying.
+- **SDK (Library)**: Developer-friendly .NET libraries exposing FlowSynx functionalities programmatically, enabling custom applications to embed or automate workflow operations.
+- **UI-Based Console Management**: Browser-based interface for real-time monitoring and administration of workflows and system settings, built with Blazor and .NET backend.
+
+### FlowSynx Core
+- **Workflow Orchestrator**: Loads and executes workflows defined as JSON DAGs with native C# execution.
+- **Plugin Manager**: Dynamically loads C# plugins as assemblies and maintains a plugin marketplace/registry.
+- **Security & Authentication**: Handles authentication and authorization for both REST API and CLI access.
+- **Logging & Auditing**: Tracks workflow execution, plugin activity, and audit trails.
+- **Trigger Engine**: Listens for external events or schedules workflows to start based on timers, webhooks, or system signals.
+- **Error handling**: Built-in support for task retries, timeouts, and fallbacks ensures reliable execution even in unstable environments. Custom retry strategies can be defined per task.
+
+### Execution environments
+- **Deployment & Execution Environments**: Supports flexible deployment models from standalone desktop/server installs to cloud containerized orchestration, with full **cross-platform .NET runtime compatibility**.

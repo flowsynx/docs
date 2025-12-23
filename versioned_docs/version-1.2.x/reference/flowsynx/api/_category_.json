@@ -1,0 +1,9 @@
+{
+  "label": "API",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "slug": "/reference/flowsynx/api",
+    "description": "In this guide, you’ll simulate and access an application by running and calling the FlowSynx API directly."
+  }
+}

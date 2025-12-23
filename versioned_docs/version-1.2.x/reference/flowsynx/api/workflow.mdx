@@ -1,0 +1,232 @@
+---
+sidebar_position: 7
+title: Workflow
+description: The FlowSynx Workflow API provides endpoints for managing workflows. You can list, create, update, retrieve, and delete workflows via secured RESTful calls.
+---
+
+# FlowSynx Workflow API
+
+The FlowSynx Workflow API provides endpoints for managing workflows. You can list, create, update, retrieve, and delete workflows via secured RESTful calls.
+It uses RESTful principles and supports both **Basic Authentication** and **Bearer Token Authentication**.
+
+## Authentication & Authorization
+### Required:
+- **Authentication**: Yes (Bearer or Basic Auth)
+- **Authorization**: Yes (Must have `admin` or `workflow` role)
+
+### 1. Basic Auth
+
+```bash
+curl -u username:password http://localhost:6262/workflows
+```
+
+### 2.Bearer Token
+```bash
+curl -H "Authorization: Bearer <your_token>" http://localhost:6262/workflows
+```
+
+## API Endpoints
+### List All Workflows
+- **Method**: `GET`
+- **Endpoint**: `/workflows`
+- **Body Required**: No
+- **Description**: Retrieves a list of all workflows with their `id`, `name`, and last modified date.
+- **Query Parameters (optional)**:
+  - **page** (integer): Page number to retrieve. Default is 1.
+  - **pageSize** (integer): Number of items per page. Default is 25.
+
+#### `curl` Example
+```bash
+curl -X GET http://localhost:6262/workflows?page=1&pageSize=25 \
+  -H "Authorization: Bearer <your_token>"
+```
+
+#### Example response
+```json
+{
+  "data": [
+    {
+      "id": "5b329d40-b383-4226-a068-0848df3f8ed2",
+      "name": "Patient Data Sync",
+      "modifiedDate": "2025-08-10T14:32:01Z"
+    }
+  ],
+  "messages": [],
+  "succeeded": true,
+  "pagination": {
+    "currentPage": 1,
+    "totalPages": 1,
+    "totalCount": 1,
+    "pageSize": 25,
+    "hasPreviousPage": false,
+    "hasNextPage": false
+  },
+  "generatedAtUtc": "2025-08-10T14:32:01Z"
+}
+```
+
+:::note
+- The pagination object provides metadata for paginated results:
+  - **currentPage**: Current page number.
+  - **totalPages**: Total number of pages available.
+  - **totalCount**: Total number of plugins.
+  - **pageSize**: Number of items per page.
+  - **hasPreviousPage**: true if there’s a previous page.
+  - **hasNextPage**: true if there’s a next page.
+
+You can use the **page** and **pageSize** query parameters to retrieve specific pages of plugin results.
+:::
+
+### Get Workflow Details
+- **Method**: `GET`
+- **Endpoint**: `/workflows/{workflowId}`
+- **Body Required**: No
+- **Description**: Retrieves the full workflow definition for the specified `workflowId`.
+
+:::info
+- `workflowId`: UUID of the workflow to retrieve.
+:::
+
+#### `curl` Example
+```bash
+curl -X GET http://localhost:6262/workflows/5b329d40-b383-4226-a068-0848df3f8ed2 \
+  -H "Authorization: Bearer <your_token>"
+```
+
+#### Example response
+```json
+{
+  "data": {
+    "id": "5b329d40-b383-4226-a068-0848df3f8ed2",
+    "name": "Patient Data Sync",
+    "workflow": "{ \"name\": \"sample-flowsynx-workflow\", "\description\": "\This is a sample flowsynx workflow\", \"tasks\": [] }"
+  },
+  "messages": [],
+  "succeeded": true,
+  "generatedAtUtc": "2025-08-10T14:35:11Z"
+}
+```
+
+### Add New Workflow
+- **Method**: `POST`
+- **Endpoint**: `/plugins/Add`
+- **Body Required**: `Yes`
+- **Description***: Creates a new workflow using the provided JSON definition.
+
+#### Request Body
+```json
+{
+  "definition": "{ \"name\": \"sample-flowsynx-workflow\", "\description\": "\This is a sample flowsynx workflow\", \"tasks\": [] }"
+}
+```
+
+#### `curl` Example
+```bash
+curl -X POST http://localhost:6262/workflows/Add \
+  -H "Authorization: Bearer <your_token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+        "definition": "{ \"name\": \"sample-flowsynx-workflow\", "\description\": "\This is a sample flowsynx workflow\", \"tasks\": [] }"
+      }'
+```
+
+#### Example Response
+```json
+{
+  "data": {
+    "id": "586bc7b0-499b-4b01-9510-93ac643ad8bb",
+    "name": "sample-flowsynx-workflow"
+  },
+  "messages": [
+    "The workflow has been added successfully."
+  ],
+  "succeeded": true,
+  "generatedAtUtc": "2025-08-10T14:40:27Z"
+}
+```
+
+### Update Workflow
+- **Method**: `PUT`
+- **Endpoint**: `/workflows/{workflowId}`
+- **Body Required**: `Yes`
+- **Content-Type**: `application/json`
+- **Description**: Updates the workflow definition for the specified `workflowId`.
+
+:::info
+- `workflowId`: UUID of the workflow to update.
+:::
+
+#### Request Body
+```json
+{
+  "workflowId": "586bc7b0-499b-4b01-9510-93ac643ad8bb",
+  "definition": "{ \"name\": \"sample-flowsynx-workflow2\", "\description\": "\This is a sample flowsynx workflow\", \"tasks\": [] }"
+}
+```
+
+#### `curl` Example
+```bash
+curl -X PUT http://localhost:6262/workflows/586bc7b0-499b-4b01-9510-93ac643ad8bb \
+  -H "Authorization: Bearer <your_token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+        "workflowId": "586bc7b0-499b-4b01-9510-93ac643ad8bb",
+        "definition": "{ \"name\": \"sample-flowsynx-workflow2\", "\description\": "\This is a sample flowsynx workflow\", \"tasks\": [] }"
+      }'
+```
+
+#### Example Response
+```json
+{
+  "data": {},
+  "messages": [
+    "The workflow has been updated successfully."
+  ],
+  "succeeded": true,
+  "generatedAtUtc": "2025-08-10T14:45:50Z"
+}
+```
+
+### Delete Workflow
+- **Method**: `DELETE`
+- **Endpoint**: `/workflows/{workflowId}`
+- **Body Required**: `No`
+- **Description**: Deletes the workflow associated with the given `workflowId`.
+
+:::info
+- `workflowId`: UUID of the workflow to delete.
+:::
+
+#### `curl` Example
+```bash
+curl -X DELETE http://localhost:6262/workflows/586bc7b0-499b-4b01-9510-93ac643ad8bb \
+  -H "Authorization: Bearer <your_token>"
+```
+
+#### Example Response
+```json
+{
+  "data": {},
+  "messages": [
+    "The workflow has been deleted successfully."
+  ],
+  "succeeded": true,
+  "generatedAtUtc": "2025-08-10T14:50:12Z"
+}
+```
+
+## Summary Table
+| Operation          | Method | Endpoint                    | Body | Authentication | Authorization roles   |
+| ------------------ | ------ | --------------------------- | ---- | -------------- | --------------------- |
+| List Workflows     | GET    | `/workflows`                | No   | ✅ Required    | admin, workflow       |
+| Get Workflow       | GET    | `/workflows/{workflowId}`   | No   | ✅ Required    | admin, workflow       |
+| Add Workflow       | POST   | `/workflows/Add`            | Yes  | ✅ Required    | admin, workflow       |
+| Update Workflow    | PUT    | `/workflows/{workflowId}`   | Yes  | ✅ Required    | admin, workflow       |
+| Delete Workflow    | DELETE | `/workflows/{workflowId}`   | No   | ✅ Required    | admin, workflow       |
+
+:::info
+- Use `Bearer` or `Basic` authentication depending on FlowSynx configuration.  
+- Replace `<your_token>` or `username:password` with actual credentials.  
+- The `definition` field must contain a valid JSON representation of the workflow DAG.  
+- All workflow IDs are UUIDs.  
+:::

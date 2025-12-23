@@ -42,9 +42,15 @@ const config: Config = {
           showLastUpdateTime: true,
           showLastUpdateAuthor: false,
           includeCurrentVersion: true,
+          lastVersion: 'current',
           versions: {
+            '1.2.x': {
+              label: '1.2.x',
+              banner: 'none',
+            },
             current: {
-              label: 'Version: 1.2.x',
+              label: '1.3.x (Latest)',
+              path: '/',
             },
           },
         },

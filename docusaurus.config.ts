@@ -112,9 +112,10 @@ const config: Config = {
         position: 'left'
       },
       {
-        to: '/docs/faq', // Add this line for FAQ
-        label: 'FAQ', 
-        position: 'left'
+        type: 'doc',
+        docId: 'faq/faq',
+        label: 'FAQ',
+        position: 'left',
       },
       {
         type: 'docsVersionDropdown',

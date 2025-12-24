@@ -69,17 +69,18 @@ Paste the following content:
   "tasks": [
     {
       "name": "Hello world",
-      "type": { 
-        "plugin": "FlowSynx.Storage.Local",
-        "version": "1.0.0"
-      },
-      "parameters": {
+      "type": "FlowSynx.Storage.Local:1.1.0",
+      "execution": {
         "operation": "write",
-        "path": "/app/data/test.txt",
-        "data": "Hello, FlowSynx!",
-        "overwrite": false
+        "parameters": {
+          "path": "/app/data/test.txt",
+          "data": "Hello, FlowSynx!",
+          "overwrite": false
+        }
       },
-      "dependencies": [],
+      "flowcontrol": {
+        "dependencies": []
+      }
     }
   ]
 }

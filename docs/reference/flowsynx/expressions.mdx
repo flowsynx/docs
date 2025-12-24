@@ -1,12 +1,19 @@
 ---
 sidebar_position: 3
 title: Expressions Syntax
-description: FlowSynx expression system for dynamic access to variables, task outputs, nested data, arithmetic, conditionals, boolean logic, and functional aggregation.
+description: FlowSynx expression system for dynamic access to variables, task outputs, secrets, nested data, arithmetic, conditionals, boolean logic, and functional aggregation.
 ---
 
 # FlowSynx Expression Syntax
 
-FlowSynx provides a powerful expression system for dynamically resolving **workflow variables**, **task outputs**, **nested properties**, **arithmetic**, **boolean logic**, **conditional (ternary) operations**, and **functional aggregations** at runtime.  
+FlowSynx provides a powerful expression system for dynamically resolving workflow data at runtime, including:
+- Variables and task outputs
+- Secrets
+- Nested properties and arrays
+- Arithmetic and boolean logic
+- Conditional (ternary) operations
+- Functional aggregations
+
 All expressions are evaluated by the `ExpressionParser`.
 
 ## Core Delimiter
@@ -16,30 +23,32 @@ Wrap any resolvable content in:
 $[...]
 ```
 
-If the entire value is a single `$[...]` block, the resolved object is returned directly (e.g. an array or JSON object). If embedded inside a larger string, the resolved value is converted to a string and concatenated.
+- If the entire value is a single `$[...]` block, the resolved object is returned directly (e.g., an array, `JObject`, or complex CLR type).
+- If embedded inside a larger string, the resolved value is converted to a string and concatenated.
 
 ## Data Sources
 
 | Source | Syntax | Description |
 | ------ | ------ | ----------- |
-| Variables | `$[Variables('Key')]` | Workflow-level variable lookup (case-insensitive). |
-| Outputs | `$[Outputs('TaskName')]` | Output of a previously executed task (case-insensitive). |
+| Variables | `$[Variables('Key')]`      | Workflow-level variable lookup (case-insensitive).           |
+| Outputs   | `$[Outputs('TaskName')]`   | Output of a previously executed task (case-insensitive).     |
+| Secrets   | `$[Secrets('Name')]`       | Secret value resolved via default secret provider (if set).  |
 
 Keys with spaces or special characters should use single quotes: `$[Variables('My Custom Key')]`.
 
 ### Outputs as PluginContext
 
-The [`Outputs`](command:_github.copilot.openSymbolFromReferences?%5B%22%22%2C%5B%7B%22uri%22%3A%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fc%3A%2Fgithub%2Fflowsynx%2Fdocs%2Fdocs%2Freference%2Fflowsynx%2Fexpressions.mdx%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%2C%22pos%22%3A%7B%22line%22%3A25%2C%22character%22%3A2%7D%7D%5D%2C%2203b219c3-6667-4007-919c-1aa2e2101390%22%5D "Go to definition") object provides access to the following properties:
+The `Outputs('TaskName')` reference typically resolves to a `PluginContext` object with:
 
 | Property         | Description                                                                 |
-| ---------------- | --------------------------------------------------------------------------- |
-| `Id`             | The unique identifier of the plugin context.                               |
-| `SourceType`     | The type of source that generated the output.                               |
-| `Format`         | The format of the output, if applicable.                                    |
-| `Metadata`       | A dictionary containing metadata as key-value pairs.                       |
-| `RawData`        | The raw binary data of the output, if available.                            |
-| `Content`        | The string content of the output, if available.                             |
-| `StructuredData` | A list of dictionaries representing structured data, if applicable.         |
+|----------------- |----------------------------------------------------------------------------- |
+| `Id`             | The unique identifier of the plugin context.                                 |
+| `SourceType`     | The source type that generated the output.                                   |
+| `Format`         | The format of the output, if applicable.                                     |
+| `Metadata`       | A dictionary containing metadata as key-value pairs (case-insensitive).      |
+| `RawData`        | The raw binary data of the output, if available.                             |
+| `Content`        | The string content of the output, if available.                              |
+| `StructuredData` | A list of dictionaries representing structured data, if applicable.          |
 
 Keys with spaces or special characters should use single quotes: `$[Variables('My Custom Key')]`.
 
@@ -95,6 +104,17 @@ $[Outputs('Task').Content == 'success' ? 'completed' : 'retry']
 
 This update ensures that the Outputs object is documented accurately as a PluginContext type, reflecting its properties and usage in expressions. 
 
+## Secrets
+
+If a default secret provider is configured, `Secrets('Name')` resolves secret values:
+
+```
+$[Secrets('ApiKey')] 
+$[Contains(Secrets('AllowedHosts'), 'example.com')]
+```
+
+If no default provider is available, `Secrets(...)` is unsupported.
+
 ## Nested Access
 
 Use dot notation and indexers:
@@ -121,14 +141,19 @@ Example: `$['static-value']`
 
 Built-in case-insensitive aggregation and search functions:
 
-| Function | Signature | Behavior |
-| -------- | --------- | -------- |
-| `Min` | `Min(arg1, arg2, collection, ...)` | Returns smallest numeric value (flattens enumerables). |
-| `Max` | `Max(...)` | Returns largest numeric value. |
-| `Sum` | `Sum(...)` | Sums all numeric values. |
-| `Avg` | `Avg(...)` | Arithmetic mean (0 if no numbers). |
-| `Count` | `Count(collection)` or `Count(arg1,arg2,...)` | If single enumerable → element count; otherwise number of arguments. |
-| `Contains` | `Contains(container, value)` | Case-insensitive search (strings, enumerables, or direct value comparison). |
+| Function  | Signature                                   | Behavior                                                                                 |
+|---------- |---------------------------------------------|------------------------------------------------------------------------------------------|
+| `Min`     | `Min(arg1, arg2, collection, ...)`         | Returns smallest numeric value (flattens enumerables).                                   |
+| `Max`     | `Max(...)`                                  | Returns largest numeric value.                                                           |
+| `Sum`     | `Sum(...)`                                  | Sums all numeric values.                                                                 |
+| `Avg`     | `Avg(...)`                                  | Arithmetic mean (0 if no numbers).                                                       |
+| `Count`   | `Count(collection)` or `Count(arg1,...)`    | Single enumerable → element count; otherwise number of arguments.                        |
+| `Contains`| `Contains(container, value)`                | Case-insensitive search (strings, enumerables, dictionaries, or direct value comparison).|
+| `Length`  | `Length(value)`                             | Returns length of strings, arrays, lists, JArrays, or enumerable count.                  |
+| `Guid`    | `Guid()`                                    | Returns a new GUID string.                                                               |
+| `Now`     | `Now()`                                     | Returns current local date/time.                                                         |
+| `NowUtc`  | `NowUtc()`                                  | Returns current UTC date/time.                                                           |
+| `IsNull`  | `IsNull(value)`                             | Returns `true` if value is `null`.                                                       |
 
 Arguments can be:
 - Literals
@@ -143,8 +168,15 @@ $[Sum(Variables('Prep').Values)]
 $[Avg(Variables('A').Numbers, Outputs('B').Content, 10)] 
 $[Count(Variables('ListTask').Items)] 
 $[Contains(Outputs('Meta').Metadata, 'critical')] 
-$[Min(Variables('A').Values, Variables('B').Values)]
+$[Min(Variables('A').Values, Variables('B').Values)] 
+$[Length(Outputs('Task').Content)] 
+$[IsNull(Outputs('Task').StructuredData) ? 'none' : 'has-data']
 ```
+
+:::note
+- When a function appears inside arithmetic, it is evaluated and replaced by its string representation for numeric computation.
+- A standalone function inside `$[...]` returns its native result (number, string, bool).
+:::
 
 ## Arithmetic Expressions
 
@@ -206,7 +238,8 @@ Resolution is recursive: inner expressions resolve before outer structures.
 If:
 
 ```
-Variables: { "Base": "/data/out" } Outputs: { "Export": { "Id": "report.csv" } }
+Variables: { "Base": "/data/out" } 
+Outputs: { "Export": { "Id": "report.csv" } }
 ```
 
 Result:
@@ -229,7 +262,9 @@ Parser throws `FlowSynxException` (code: `ExpressionParserKeyNotFound`) for:
 - Invalid functional syntax (e.g. `Contains()` with argument count ≠ 2).
 - Malformed conditional expressions.
 
-In arithmetic-only contexts, missing lookups are coerced to `0` (to avoid failure). Direct lookup outside arithmetic still throws.
+Contextual behavior:
+- In arithmetic-only contexts, unresolved lookups are coerced to `"0"`.
+- Direct top-level lookups that cannot be resolved may throw an exception.
 
 ## Examples
 
@@ -241,20 +276,21 @@ $[Min(Outputs('A').Content, Outputs('B').Content)]
 $[Variables(Outputs('Resolver').Id)]
 ```
 
-
 ## Best Practices
 
 - Use single quotes for keys with spaces: `$[Variables('My Key')]`.
 - Keep arithmetic numeric; non-numeric tokens cause literal fallback.
 - Prefer explicit parentheses for complex logic.
-- Avoid over-nesting; consider storing intermediate values in variables.
+- Avoid over-nesting; store intermediate values in variables or outputs where helpful.
+- Use `IsNull(...)` to guard against missing data before navigation.
 
 ## Summary
 
 FlowSynx Expressions support:
-- Dynamic access to variables and task outputs
+- Dynamic access to variables, task outputs, and secrets
 - Nested property and array traversal
-- Functional aggregation (Min/Max/Sum/Avg/Count/Contains)
+- Functional aggregation (Min/Max/Sum/Avg/Count/Contains/Length)
+- Utility functions (`Guid`, `Now`, `NowUtc`, `IsNull`)
 - Arithmetic and numeric evaluation
 - Boolean logic and conditional branching
 - Recursive and dynamic key resolution

@@ -65,15 +65,15 @@ The `Variables` object is a dictionary that allows you to define key-value pairs
 "Configuration": {
   "DegreeOfParallelism": 3,
   "ErrorHandling": { ... },
-  "Timeout": 600000
+  "TimeoutMilliseconds": 600000
 }
 ```
 
-| Key                   | Type    | Required | Default | Meaning                                                          |
-| --------------------- | ------- | -------- | ------- | ---------------------------------------------------------------- |
-| `DegreeOfParallelism` | integer | ❌        | 3       | Maximum number of tasks running at the same time.                |
-| `ErrorHandling`       | object  | ❌        | `{}`    | Default error-handling strategy for all tasks unless overridden. |
-| `Timeout`             | integer | ❌        | null    | Maximum total runtime (milliseconds) for the entire workflow.    |
+| Key                               | Type    | Required  | Default | Meaning                                                          |
+| --------------------------------- | ------- | --------- | ------- | ---------------------------------------------------------------- |
+| `DegreeOfParallelism`             | integer | ❌        | 3       | Maximum number of tasks running at the same time.                |
+| `ErrorHandling`                   | object  | ❌        | `{}`    | Default error-handling strategy for all tasks unless overridden. |
+| `TimeoutMilliseconds`             | integer | ❌        | null    | Maximum total runtime (milliseconds) for the entire workflow.    |
 
 ## ErrorHandling Object
 Controls what happens when a task fails.
@@ -110,19 +110,19 @@ Controls what happens when a task fails.
 "RetryPolicy": {
   "MaxRetries": 3,
   "BackoffStrategy": "Fixed",
-  "InitialDelay": 1000,
-  "MaxDelay": 10000,
+  "InitialDelayMilliseconds": 1000,
+  "MaxDelayMilliseconds": 10000,
   "BackoffCoefficient": 2.0
 }
 ```
 
-| Key                  | Type    | Default | Description                                                |
-| -------------------- | ------- | ------- | ---------------------------------------------------------- |
-| `MaxRetries`         | integer | 3       | Maximum retry attempts.                                    |
-| `BackoffStrategy`    | enum    | "Fixed" | One of `"Fixed"`, `"Linear"`, `"Exponential"`, `"Jitter"`. |
-| `InitialDelay`       | integer | 1000    | Delay (ms) before first retry.                             |
-| `MaxDelay`           | integer | 10000   | Maximum allowed delay (ms) between retries.                |
-| `BackoffCoefficient` | number  | 2.0     | Growth factor for linear or exponential backoff.           |
+| Key                              | Type    | Default | Description                                                |
+| -------------------------------- | ------- | ------- | ---------------------------------------------------------- |
+| `MaxRetries`                     | integer | 3       | Maximum retry attempts.                                    |
+| `BackoffStrategy`                | enum    | "Fixed" | One of `"Fixed"`, `"Linear"`, `"Exponential"`, `"Jitter"`. |
+| `InitialDelayMilliseconds`       | integer | 1000    | Delay (ms) before first retry.                             |
+| `MaxDelayMilliseconds`           | integer | 10000   | Maximum allowed delay (ms) between retries.                |
+| `BackoffCoefficient`             | number  | 2.0     | Growth factor for linear or exponential backoff.           |
 
 #### BackoffStrategy Enum
 
@@ -140,30 +140,101 @@ Each task is an object:
 {
   "Name": "ExtractData",
   "Description": "...",
-  "Type": "Plugin.DataExtractor",
-  "Parameters": { "source": "s3://bucket/raw" },
-  "ErrorHandling": { ... },         // optional, overrides global
-  "ManualApproval": { ... },        // optional human-in-the-loop
-  "Timeout": 300000,
-  "Dependencies": ["OtherTask"],
+  "Type": "Plugin.DataExtractor:1.0.0",
+  "Execution": { ... },
+  "FlowControl": { ... }
+  "ErrorHandling": { ... },
+  "ManualApproval": { ... },
   "Output": "extractedData",
   "Position": { "X": 100, "Y": 50 }
 }
 ```
 
-| Key              | Type             | Required | Default     | Description                                                          |
-| ---------------- | ---------------- | -------- | ----------- | -------------------------------------------------------------------- |
-| `Name`           | string           | ✅        | —           | Unique identifier for the task.                                      |
-| `Description`    | string           | ❌        | null        | Optional documentation.                                              |
-| `Type`           | string / object  | ❌        | null        | Identifier or configuration describing how the task runs.            |
-| `Parameters`     | object           | ❌        | `{}`        | Arbitrary key-value pairs passed to the task executor.               |
-| `ErrorHandling`  | object           | ❌        | null        | Task-specific error handling, same format as global `ErrorHandling`. |
-| `ManualApproval` | object           | ❌        | null        | Details for manual human approval (see below).                       |
-| `Timeout`        | integer (ms)     | ❌        | null        | Maximum runtime for this task.                                       |
-| `Dependencies`   | array of strings | ❌        | `[]`        | Names of tasks that must finish before this one starts.              |
-| `Output`         | string           | ❌        | ""          | Name of variable or key where this task’s output will be stored.     |
-| `Position`       | object           | ❌        | `{X:0,Y:0}` | Visual coordinates for DAG rendering.                                |
+| Key              | Type     | Required  | Default     | Description                                                           |
+| ---------------- | -------  | --------- | ------------| --------------------------------------------------------------------- |
+| `Name`           | string   | ✅        | ""          | Unique identifier for the task.                                       |
+| `Description`    | string   | ❌        | `null`      | Optional documentation.                                               |
+| `Type`           | string   | ✅        | ""          | Identifier or configuration describing how the task runs.             |
+| `Execution`      | object   | ✅        | `{}`        | Configuration settings related to execution behavior (see below).     |
+| `FlowControl`    | object   | ❌        | `{}`        | Configuration settings for flow control and dependencies (see below). |
+| `ErrorHandling`  | object   | ❌        | `null`      | Task-specific error handling, same format as global `ErrorHandling`.  |
+| `ManualApproval` | object   | ❌        | `null`      | Details for manual human approval (see below).                        |
+| `Output`         | string   | ❌        | ""          | Name of variable or key where this task’s output will be stored.      |
+| `Position`       | object   | ❌        | `{X:0,Y:0}` | Visual coordinates for DAG rendering.                                 |
 
+### Execution Object
+The Execution object defines the configuration settings related to execution behavior.
+
+```jsonc
+"Execution": {
+  "Operation": "read",
+  "Specification": { ... },
+  "Parameters": { ... },
+  "Agent": { ... },
+  "TimeoutMilliseconds": 30000
+}
+```
+
+| Key	                |Type	    | Required	| Default	| Description                                                |
+| ------------------- | ------- | --------- | --------| ---------------------------------------------------------- |
+| Operation	          | string	| ✅	       | ""	     | The operation to be performed by the task.                 |
+| Specification	      | object	| ❌	       | `{}`	   | Arbitrary key-value pairs for task-specific configuration. |
+| Parameters	        | object	| ❌	       | `{}`	   | Arbitrary key-value pairs passed to the task executor.     |
+| Agent	              | object	| ❌	       | `null`	 | Configuration for the agent executing the task.            |
+| TimeoutMilliseconds	| integer	| ❌	       | `null`	 | Maximum runtime for this task in milliseconds.             |
+
+### FlowControl Object
+The FlowControl object defines the configuration settings for flow control and dependencies.
+
+```jsonc
+"FlowControl": {
+  "Dependencies": ["TaskA"],
+  "RunOnFailureOf": ["TaskB"],
+  "ExecutionCondition": { ... },
+  "ConditionalBranches": [ ... ]
+}
+```
+
+| Key	                | Type	   | Required	  | Default	| Description                                                      |
+| ------------------- | -------- | ---------- | --------| ---------------------------------------------------------------- |
+| Dependencies	      | string[] | ❌	       | `[]`	  | Names of tasks that must finish before this one starts.          |
+| RunOnFailureOf	    | string[] | ❌	       | `[]`	  | Names of tasks that trigger this task upon their failure.        |
+| ExecutionCondition  | object	 | ❌	       | `null`	| Condition that must be met for this task to execute (see below). |
+| ConditionalBranches	| object[] | ❌	       | `[]`	  | Conditional branches for dynamic task execution (see below).     |
+
+### Condition Object
+The Condition object defines an expression that must evaluate to true for the task to execute.
+
+```jsonc
+"ExecutionCondition": {
+  "Expression": "$[Variables['IsEnabled'] == true]",
+  "Description": "Check if the task is enabled"
+}
+```
+
+| Key	        | Type	 | Required | Description                              |
+| ----------- | ------ | -------- | ---------------------------------------- |
+| Expression  | string | ✅	     | Logical expression to evaluate.          |
+| Description	| string | ❌	     | Optional description of the condition.   |
+
+### ConditionalBranch Object
+The ConditionalBranch object defines a branch that executes a specific task based on a condition.
+
+```jsonc
+"ConditionalBranches": [
+  {
+    "Expression": "$[Variables['Condition'] == 'A']",
+    "Description": "Branch A",
+    "TargetTaskName": "TaskA"
+  }
+]
+```
+
+| Key	           | Type	  | Required | Description                                         |
+| -------------- | ------ | -------- | --------------------------------------------------- |
+| Expression     | string | ✅	     | Logical expression to evaluate.                      |
+| Description	   | string | ❌	     | Optional description of the branch.                  |
+| TargetTaskName | string | ✅	     | Name of the task to execute if the condition is met. |
 
 ### ManualApproval Object
 
@@ -172,18 +243,14 @@ Defines an optional human-in-the-loop step.
 ```jsonc
 "ManualApproval": {
   "Enabled": true,
-  "Approvers": ["user@example.com"],
-  "Instructions": "Review the data",
-  "DefaultAction": "abort"
+  "Comment": "Review the data",
 }
 ```
 
-| Key             | Type          | Default | Description                                                        |
-| --------------- | ------------- | ------- | ------------------------------------------------------------------ |
-| `Enabled`       | boolean       | false   | If true, the task waits for human approval before continuing.      |
-| `Approvers`     | `array<string>` | `[]`    | Authorized users or groups who can approve.                        |
-| `Instructions`  | string        | ""      | Guidance for approvers.                                            |
-| `DefaultAction` | string        | "abort" | Action if approval is not granted in time (`"abort"` or `"skip"`). |
+| Key        | Type          | Default | Description                                                        |
+| -----------| ------------- | ------- | ------------------------------------------------------------------ |
+| `Enabled`  | boolean       | false   | If true, the task waits for human approval before continuing.      |
+| `Comment`  | string        | ""      | Guidance for approvers.                                            |
 
 ### Position Object
 
@@ -193,10 +260,10 @@ Used purely for visualization.
 "Position": { "X": 100, "Y": 50 }
 ```
 
-| Key | Type   | Description                           |
-| --- | ------ | ------------------------------------- |
-| X   | number | Horizontal coordinate (finite number) |
-| Y   | number | Vertical coordinate (finite number)   |
+| Key | Type    | Description                           |
+| --- | ------  | ------------------------------------- |
+| X   | integer | Horizontal coordinate (finite number) |
+| Y   | integer | Vertical coordinate (finite number)   |
 
 ## Execution Semantics
 
@@ -211,20 +278,20 @@ Used purely for visualization.
 
 ```json
 {
-  "Schema": "https://schema.flowsynx.io/workflows/v1.0.0/schema.json",
+  "Schema": "https://schema.flowsynx.io/workflows/v1.2.1/schema.camel.json",
   "Workflow": {
     "Name": "DataProcessingWorkflow",
     "Description": "Loading data from Amazon S3, convert it to CSV and then store it on Local FileSystem",
     "Configuration": {
       "DegreeOfParallelism": 4,
-      "Timeout": 600000,
+      "TimeoutMilliseconds": 600000,
       "ErrorHandling": {
         "Strategy": "Retry",
         "RetryPolicy": {
           "MaxRetries": 5,
           "BackoffStrategy": "Exponential",
-          "InitialDelay": 2000,
-          "MaxDelay": 30000,
+          "InitialDelayMilliseconds": 2000,
+          "MaxDelayMilliseconds": 30000,
           "BackoffCoefficient": 2.5
         }
       }
@@ -232,48 +299,52 @@ Used purely for visualization.
     "Tasks": [
       {
         "Name": "AmazonFilesList",
-        "Type": {
-          "plugin": "FlowSynx.Cloud.Amazon.S3",
-          "version": "1.1.0",
-          "Ssecifications": {
+        "Type": "FlowSynx.Cloud.Amazon.S3:1.1.0",
+        "Execution": {
+          "Operation": "list",
+          "Specification": {
             "AccessKey": "AKIAEXAMPLE123456",
             "SecretKey": "abc123secretkeyexample",
             "Region": "us-east-1",
             "Bucket": "my-flowsynx-bucket",
             "SessionToken": "FQoGZXIvYXdzEJr..."
+          },
+          "Parameters": {
+            "Path": "documents/report.json",
+            "Recurse": true,
+            "CaseSensitive": false,
+            "MaxResults": 10
           }
-        },
-        "Parameters": {
-          "Operation": "list",
-          "Path": "documents/report.json",
-          "Recurse": true,
-          "CaseSensitive": false,
-          "MaxResults": 10
         },
         "Position": { "X": 100, "Y": 50 }
       },
       {
         "Name": "ToCSV",
-        "Type": {
-          "plugin": "FlowSynx.Data.Csv",
-          "version": "1.2.0"
-        },
-        "Dependencies": ["AmazonFilesList"],
-        "Parameters": { 
+        "Type": "FlowSynx.Data.Csv:1.2.0",
+        "Execution": {
           "Operation": "read",
-          "Delimiter": ","
+          "Parameters": { 
+            "Delimiter": ","
+          }
+        },
+        "FlowControl": {
+          "Dependencies": ["AmazonFilesList"]
         },
         "Position": { "X": 300, "Y": 50 }
       },
       {
         "Name": "SaveData",
-        "Type": "",
-        "Dependencies": ["ToCSV"],
-        "Parameters": { 
+        "Type": "FlowSynx.Storage.Local:1.1.0",
+        "Execution": {
           "Operation": "write",
-          "path": "result.txt",
-          "Data": "$[Outputs('ToCSV')]",
-          "overwrite": true
+          "Parameters": { 
+            "path": "result.txt",
+            "Data": "$[Outputs('ToCSV')]",
+            "overwrite": true
+          }
+        },
+        "FlowControl": {
+          "Dependencies": ["ToCSV"]
         },
         "Position": { "X": 500, "Y": 50 }
       }

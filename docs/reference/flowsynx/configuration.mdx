@@ -494,13 +494,16 @@ It enables a fully decoupled plugin ecosystem where new functionality can be add
 
 ```json
 "PluginRegistry": {
-  "Url": "https://plugins.flowsynx.io/"
+  "Urls": [
+    "http://localhost:7236",
+    "https://plugins.flowsynx.io"
+  ]
 }
 ```
 
-| Key | Type   | Description                                                                                                                          |
-| --- | ------ | ------------------------------------------------------------------------------------------------------------------------------------ |
-| Url | string | **Base URL** of the FlowSynx plugin registry service. This is the root endpoint from which plugins and their metadata are retrieved. |
+| Key  | Type     | Description                                                                                                                           |
+| ---- | -------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Urls | string[] | **Base URL** of the FlowSynx plugin registry services. This is the root endpoint from which plugins and their metadata are retrieved. |
 
 #### Behavior
 - **Discovery**: The application queries the specified registry URL to list available plugins, versions, and metadata such as author, description, and compatibility information.
@@ -681,7 +684,10 @@ It enables a fully decoupled plugin ecosystem where new functionality can be add
       }
     },
     "PluginRegistry": {
-      "Url": "https://plugins.flowsynx.io/"
+      "Urls": [
+        "http://localhost:7236",
+        "https://plugins.flowsynx.io"
+      ]
     }
   }
 }

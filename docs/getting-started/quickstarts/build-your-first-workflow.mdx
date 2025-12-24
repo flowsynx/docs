@@ -72,14 +72,14 @@ curl -X POST http://localhost:6262/workflows -H "Content-Type: application/json"
   "tasks": [
     {
       "name": "write_hello",
-      "type": { 
-        "plugin": "FlowSynx.Storage.Local",
-        "version": "1.0.0"
-      },
-      "parameters": {
-        "path": "/app/data/hello.txt",
-        "data": "Hello, FlowSynx!",
-        "overwrite": true
+      "type": "FlowSynx.Storage.Local:1.1.0",
+      "execution": {
+        "operation": "write",
+        "parameters": {
+          "path": "/app/data/test.txt",
+          "data": "Hello, FlowSynx!",
+          "overwrite": false
+        }
       }
     }
   ]
@@ -104,52 +104,54 @@ curl -X POST http://localhost:6262/workflows -H "Content-Type: application/json"
   "tasks": [
     {
       "name": "get_csv",
-      "type": {
-        "plugin": "FlowSynx.Web.HttpRequest",
-        "version": "1.1.1"
-      },
-      "parameters": {
-        "operation": "GET",
-        "url": "https://github.com/flowsynx/samples/blob/master/data/datablist/customers-100.csv"
+      "type": "FlowSynx.Web.HttpRequest:1.1.1",
+      "execution": {
+        "operation": "get",
+        "parameters": {
+          "url": "https://github.com/flowsynx/samples/blob/master/data/datablist/customers-100.csv"
+        }
       }
     },
     {
       "name": "read_csv"",
-      "type": { 
-        "plugin": "FlowSynx.Data.Csv",
-        "version": "1.2.3"
-      },
-      "dependencies": ["get_csv"],
-      "parameters": {
+      "type": "FlowSynx.Data.Csv:1.2.3",
+      "execution": {
         "operation": "read",
-        "delimiter": ",",
-        "data": "$[Outputs('get_csv')]"
+        "parameters": {
+          "delimiter": ",",
+          "data": "$[Outputs('get_csv')]"
+        }
+      },
+      "flowcontrol": {
+        "dependencies": ["get_csv"]
       }
     },
     {
       "name": "zip_compress_csv",
-      "type": {
-        "plugin": "FlowSynx.Compression.Zip",
-        "version": "1.0.0"
-      },
-      "dependencies": ["read_csv"],
-      "parameters": {
+      "type": "FlowSynx.Compression.Zip:1.0.0",
+      "execution": {
         "operation": "compress",
-        "data": "$[Outputs('read_csv')]"
+        "parameters": {
+          "data": "$[Outputs('read_csv')]"
+        }
+      },
+      "flowcontrol": {
+        "dependencies": ["read_csv"]
       }
     },
     {
       "name": "write_output",
-      "type": { 
-        "plugin": "FlowSynx.Storage.Local",
-        "version": "1.0.0"
-      },
-      "dependencies": ["zip_compress_csv"],
-      "parameters": {
+      "type": "FlowSynx.Storage.Local:1.1.0",
+      "execution": {
         "operation": "write",
-        "path": "/app/data/result.zip",
-        "data": "$[Outputs('zip_compress_csv')]",
-        "overwrite": true
+        "parameters": {
+          "path": "/app/data/result.zip",
+          "data": "$[Outputs('zip_compress_csv')]",
+          "overwrite": true
+        }
+      },
+      "flowcontrol": {
+        "dependencies": ["zip_compress_csv"]
       }
     }
   ]
@@ -182,13 +184,12 @@ curl -X POST http://localhost:6262/workflows -H "Content-Type: application/json"
   "tasks": [
     {
       "name": "get_csv",
-      "type": {
-        "plugin": "FlowSynx.Web.HttpRequest",
-        "version": "1.1.1"
-      },
-      "parameters": {
-        "operation": "GET",
-        "url": "https://github.com/flowsynx/samples/blob/master/data/datablist/customers-100.csv"
+      "type": "FlowSynx.Web.HttpRequest:1.1.1",
+      "execution" {
+        "operation": "get",
+        "parameters": {
+          "url": "https://github.com/flowsynx/samples/blob/master/data/datablist/customers-100.csv"
+        }
       },
       "errorHandling": {
         "strategy": "Retry",
@@ -203,41 +204,44 @@ curl -X POST http://localhost:6262/workflows -H "Content-Type: application/json"
     },
     {
       "name": "read_csv"",
-      "type": { 
-        "plugin": "FlowSynx.Data.Csv",
-        "version": "1.2.3"
-      },
-      "dependencies": ["get_csv"],
-      "parameters": {
+      "type": "FlowSynx.Data.Csv:1.2.3",
+      "execution" {
         "operation": "read",
-        "delimiter": ",",
-        "data": "$[Outputs('get_csv')]"
+        "parameters": {
+          "delimiter": ",",
+          "data": "$[Outputs('get_csv')]"
+        }
+      },
+      "flowcontrol" {
+        "dependencies": ["get_csv"],
       }
     },
     {
       "name": "zip_compress_csv",
-      "type": {
-        "plugin": "FlowSynx.Compression.Zip",
-        "version": "1.0.0"
-      },
-      "dependencies": ["read_csv"],
-      "parameters": {
+      "type": "FlowSynx.Compression.Zip:1.0.0",
+      "execution" {
         "operation": "compress",
-        "data": "$[Outputs('read_csv')]"
+        "parameters": {
+          "data": "$[Outputs('read_csv')]"
+        }
+      },
+      "flowcontrol" {
+        "dependencies": ["read_csv"],
       }
     },
     {
       "name": "write_output",
-      "type": { 
-        "plugin": "FlowSynx.Storage.Local",
-        "version": "1.0.0"
-      },
-      "dependencies": ["zip_compress_csv"],
-      "parameters": {
+      "type": "FlowSynx.Storage.Local:1.1.0",
+      "execution" {
         "operation": "write",
-        "path": "/app/data/result.zip",
-        "data": "$[Outputs('zip_compress_csv')]",
-        "overwrite": true
+        "parameters": {
+          "path": "/app/data/result.zip",
+          "data": "$[Outputs('zip_compress_csv')]",
+          "overwrite": true
+        }
+      },
+      "flowcontrol" {
+        "dependencies": ["zip_compress_csv"],
       }
     }
   ]
@@ -273,13 +277,12 @@ curl -X POST http://localhost:6262/workflows -H "Content-Type: application/json"
   "tasks": [
     {
       "name": $[Variables('taskA')]",
-      "type": {
-        "plugin": "FlowSynx.Web.HttpRequest",
-        "version": "1.1.1"
-      },
-      "parameters": {
-        "operation": "GET",
-        "url": "$[Variables('url')]"
+      "type": "FlowSynx.Web.HttpRequest:1.1.1",
+      "execution" {
+        "operation": "get",
+        "parameters": {
+          "url": "$[Variables('url')]"
+        }
       },
       "errorHandling": {
         "strategy": "Retry",
@@ -294,41 +297,44 @@ curl -X POST http://localhost:6262/workflows -H "Content-Type: application/json"
     },
     {
       "name":  "$[Variables('taskB')]",
-      "type": { 
-        "plugin": "FlowSynx.Data.Csv",
-        "version": "1.2.3"
-      },
-      "dependencies": ["$[Variables('taskA')]"],
-      "parameters": {
+      "type": "FlowSynx.Data.Csv:1.2.3",
+      "execution" {
         "operation": "read",
-        "delimiter": "$[Variables('delimiter')]",
-        "data": "$[Outputs(Variables('taskA'))]"
+        "parameters": {
+          "delimiter": "$[Variables('delimiter')]",
+          "data": "$[Outputs(Variables('taskA'))]"
+        }
+      },
+      "flowcontrol" {
+        "dependencies": ["$[Variables('taskA')]"],
       }
     },
     {
       "name": "$[Variables('taskC')]",
-      "type": {
-        "plugin": "FlowSynx.Compression.Zip",
-        "version": "1.0.0"
-      },
-      "dependencies": ["$[Variables('taskB')]"],
-      "parameters": {
+      "type": "FlowSynx.Compression.Zip:1.0.0",
+      "execution" {
         "operation": "compress",
-        "data": "$[Outputs(Variables('taskB'))]"
+        "parameters": {
+          "data": "$[Outputs(Variables('taskB'))]"
+        }
+      },
+      "flowcontrol" {
+        "dependencies": ["$[Variables('taskB')]"],
       }
     },
     {
       "name": "$[Variables('taskD')]",
-      "type": { 
-        "plugin": "FlowSynx.Storage.Local",
-        "version": "1.0.0"
-      },
-      "dependencies": ["$[Variables('taskC')]"],
-      "parameters": {
+      "type": "FlowSynx.Storage.Local:1.1.0",
+      "execution" {
         "operation": "write",
-        "path": "/app/data/result.zip",
-        "data": "$[Outputs(Variables('taskC'))]",
-        "overwrite": true
+        "parameters": {
+          "path": "/app/data/result.zip",
+          "data": "$[Outputs(Variables('taskC'))]",
+          "overwrite": true
+        }
+      },
+      "flowcontrol" {
+        "dependencies": ["$[Variables('taskC')]"],
       }
     }
   ]

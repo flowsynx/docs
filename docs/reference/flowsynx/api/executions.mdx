@@ -1,5 +1,5 @@
 ---
-sidebar_position: 8
+sidebar_position: 7
 title: Workflow Execution
 description: The FlowSynx Workflow Execution API provides endpoints for executing workflows, monitoring their progress, viewing execution logs, inspecting task-level details, and managing execution approvals or cancellations.
 ---
@@ -9,19 +9,48 @@ description: The FlowSynx Workflow Execution API provides endpoints for executin
 The FlowSynx Workflow Execution API provides endpoints for running workflows, tracking their execution status, retrieving execution logs, and managing approvals. It uses RESTful principles and supports both **Basic Authentication** and **Bearer Token Authentication**.
 
 ## Authentication & Authorization
-### Required:
-- **Authentication**: Yes (Bearer or Basic Auth)
-- **Authorization**: Yes (Must have `admin` or `workflow` role)
+#### Supported Modes:
+- **No Authentication** (optional / configurable)
+- **Basic Authentication**
+- **Bearer Token Authentication**
+- **Authorization:**
+  - Required **unless No Authentication is enabled**
+  - Roles: `admin` or `executions`
 
-### 1. Basic Auth
+:::warning
+Security note: **No Authentication** should only be enabled for development, internal networks, or behind a trusted gateway.
+:::
+
+### 1. No Authentication
+When **No Authentication** is enabled, requests are accepted without credentials.
+
+```bash
+curl http://localhost:6262/workflows/{workflowId}/executions
+```
+
+- **Authentication:** ❌ Not required
+- **Authorization:**  ❌ Not required
+- **Recommended for:**
+  - Local development
+  - Internal services
+  - Reverse-proxy–protected deployments
+
+### 2. Basic Auth
+
 ```bash
 curl -u username:password http://localhost:6262/workflows/{workflowId}/executions
 ```
 
-### 2. Bearer Token
+- **Authentication:** ✅ Required
+- **Authorization:**  ✅ Required (`admin` or `executions` role)
+
+### 3. Bearer Token
 ```bash
 curl -H "Authorization: Bearer <your_token>" http://localhost:6262/workflows/{workflowId}/executions
 ```
+
+- **Authentication:** ✅ Required
+- **Authorization:**  ✅ Required (`admin` or `executions` role)
 
 ## API Endpoints
 

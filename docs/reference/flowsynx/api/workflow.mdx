@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+sidebar_position: 6
 title: Workflow
 description: The FlowSynx Workflow API provides endpoints for managing workflows. You can list, create, update, retrieve, and delete workflows via secured RESTful calls.
 ---
@@ -10,20 +10,48 @@ The FlowSynx Workflow API provides endpoints for managing workflows. You can lis
 It uses RESTful principles and supports both **Basic Authentication** and **Bearer Token Authentication**.
 
 ## Authentication & Authorization
-### Required:
-- **Authentication**: Yes (Bearer or Basic Auth)
-- **Authorization**: Yes (Must have `admin` or `workflow` role)
+#### Supported Modes:
+- **No Authentication** (optional / configurable)
+- **Basic Authentication**
+- **Bearer Token Authentication**
+- **Authorization:**
+  - Required **unless No Authentication is enabled**
+  - Roles: `admin` or `workflows`
 
-### 1. Basic Auth
+:::warning
+Security note: **No Authentication** should only be enabled for development, internal networks, or behind a trusted gateway.
+:::
+
+### 1. No Authentication
+When **No Authentication** is enabled, requests are accepted without credentials.
+
+```bash
+curl http://localhost:6262/workflows
+```
+
+- **Authentication:** ❌ Not required
+- **Authorization:**  ❌ Not required
+- **Recommended for:**
+  - Local development
+  - Internal services
+  - Reverse-proxy–protected deployments
+
+### 2. Basic Auth
 
 ```bash
 curl -u username:password http://localhost:6262/workflows
 ```
 
-### 2.Bearer Token
+- **Authentication:** ✅ Required
+- **Authorization:**  ✅ Required (`admin` or `workflows` role)
+
+### 3. Bearer Token
 ```bash
 curl -H "Authorization: Bearer <your_token>" http://localhost:6262/workflows
 ```
+
+- **Authentication:** ✅ Required
+- **Authorization:**  ✅ Required (`admin` or `workflows` role)
 
 ## API Endpoints
 ### List All Workflows
@@ -111,7 +139,7 @@ curl -X GET http://localhost:6262/workflows/5b329d40-b383-4226-a068-0848df3f8ed2
 - **Method**: `POST`
 - **Endpoint**: `/plugins/Add`
 - **Body Required**: `Yes`
-- **Description***: Creates a new workflow using the provided JSON definition.
+- **Description**: Creates a new workflow using the provided JSON definition.
 
 #### Request Body
 ```json

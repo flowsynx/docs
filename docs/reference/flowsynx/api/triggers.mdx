@@ -1,5 +1,5 @@
 ---
-sidebar_position: 9
+sidebar_position: 8
 title: Workflow Triggers
 description: The FlowSynx Workflow Trigger API provides endpoints for managing workflow triggers. You can list, create, update, retrieve, and delete triggers for workflows via secured RESTful calls.
 ---
@@ -11,20 +11,48 @@ You can list, create, update, retrieve, and delete triggers for workflows via se
 It uses RESTful principles and supports both **Basic Authentication** and **Bearer Token Authentication**.
 
 ## Authentication & Authorization
-### Required:
-- **Authentication**: Yes (Bearer or Basic Auth)
-- **Authorization**: Yes (Must have `admin` or `workflow` role)
+#### Supported Modes:
+- **No Authentication** (optional / configurable)
+- **Basic Authentication**
+- **Bearer Token Authentication**
+- **Authorization:**
+  - Required **unless No Authentication is enabled**
+  - Roles: `admin` or `triggers`
 
-### 1. Basic Auth
+:::warning
+Security note: **No Authentication** should only be enabled for development, internal networks, or behind a trusted gateway.
+:::
+
+### 1. No Authentication
+When **No Authentication** is enabled, requests are accepted without credentials.
+
+```bash
+curl http://localhost:6262/workflows/{workflowId}/triggers
+```
+
+- **Authentication:** ❌ Not required
+- **Authorization:**  ❌ Not required
+- **Recommended for:**
+  - Local development
+  - Internal services
+  - Reverse-proxy–protected deployments
+
+### 2. Basic Auth
 
 ```bash
 curl -u username:password http://localhost:6262/workflows/{workflowId}/triggers
 ```
 
-### 2. Bearer Token
+- **Authentication:** ✅ Required
+- **Authorization:**  ✅ Required (`admin` or `triggers` role)
+
+### 3. Bearer Token
 ```bash
 curl -H "Authorization: Bearer <your_token>" http://localhost:6262/workflows/{workflowId}/triggers
 ```
+
+- **Authentication:** ✅ Required
+- **Authorization:**  ✅ Required (`admin` or `triggers` role)
 
 ## Trigger Types & Status
 

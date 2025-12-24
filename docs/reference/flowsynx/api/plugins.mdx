@@ -11,20 +11,48 @@ listing, installing, retrieving details, updating, and removing plugins.
 It uses RESTful principles and supports both **Basic Authentication** and **Bearer Token Authentication**.
 
 ## Authentication & Authorization
-### Required:
-- **Authentication**: Yes (Bearer or Basic Auth)
-- **Authorization**: Yes (Must have `admin` or `plugins` role)
+#### Supported Modes:
+- **No Authentication** (optional / configurable)
+- **Basic Authentication**
+- **Bearer Token Authentication**
+- **Authorization:**
+  - Required **unless No Authentication is enabled**
+  - Roles: `admin` or `plugins`
 
-### 1. Basic Auth
+:::warning
+Security note: **No Authentication** should only be enabled for development, internal networks, or behind a trusted gateway.
+:::
+
+### 1. No Authentication
+When **No Authentication** is enabled, requests are accepted without credentials.
+
+```bash
+curl http://localhost:6262/plugins
+```
+
+- **Authentication:** ❌ Not required
+- **Authorization:**  ❌ Not required
+- **Recommended for:**
+  - Local development
+  - Internal services
+  - Reverse-proxy–protected deployments
+
+### 2. Basic Auth
 
 ```bash
 curl -u username:password http://localhost:6262/plugins
 ```
 
-### 2.Bearer Token
+- **Authentication:** ✅ Required
+- **Authorization:**  ✅ Required (`admin` or `plugins` role)
+
+### 3. Bearer Token
 ```bash
 curl -H "Authorization: Bearer <your_token>" http://localhost:6262/plugins
 ```
+
+- **Authentication:** ✅ Required
+- **Authorization:**  ✅ Required (`admin` or `plugins` role)
 
 ## API Endpoints
 ### List Installed Plugins
@@ -87,10 +115,17 @@ You can use the **page** and **pageSize** query parameters to retrieve specific 
 #### Request Body
 ```json
 {
-  "Type": "FlowSynx.Execution.ExternalProcess",
-  "Version": "1.0.0"
+  "Type": "FlowSynx.Execution.ExternalProcess:1.0.0"
 }
 ```
+
+The `Type` field uses a structured, versioned string format to uniquely identify an execution definition. 
+It follows the pattern `<Namespace>.<Name>:<Version>`, where the namespace groups related execution types, 
+the name identifies the specific execution implementation, and the version specifies the exact revision 
+of that implementation. In the example `FlowSynx.Execution.ExternalProcess:1.0.0`, `FlowSynx.Execution` 
+represents the logical grouping, `ExternalProcess` is the execution type identifier, and `1.0.0` is the 
+semantic version, allowing precise resolution, compatibility control, and safe evolution of execution 
+definitions over time.
 
 #### `curl` Example
 ```bash
@@ -98,8 +133,7 @@ curl -X POST http://localhost:6262/plugins \
   -H "Authorization: Bearer <your_token>" \
   -H "Content-Type: application/json" \
   -d '{
-        "Type": "FlowSynx.Execution.ExternalProcess",
-        "Version": "1.0.0"
+        "Type": "FlowSynx.Execution.ExternalProcess:1.0.0"
       }'
 ```
 
@@ -155,10 +189,18 @@ curl -X GET http://localhost:6262/plugins/6c60c794-99b9-47e8-aa34-18a14cdc4583 \
 #### Request Body
 ```json
 {
-  "Type": "FlowSynx.Execution.ExternalProcess",
-  "Version": "1.0.0"
+  "Type": "FlowSynx.Execution.ExternalProcess:1.0.0->1.1.0"
 }
 ```
+
+The `Type` field uses a version-mapping string format to describe both the **source** and **target** versions 
+of an execution definition. It follows the pattern `<Namespace>.<Name>:<FromVersion>-><ToVersion>`, where the 
+namespace groups related execution types, the name identifies the execution implementation, and the version 
+range specifies an update path. In the example `FlowSynx.Execution.ExternalProcess:1.0.0->1.1.0`, `FlowSynx.Execution.ExternalProcess` 
+identifies the execution type, `1.0.0` represents the currently referenced version, and `1.1.0` indicates the 
+target version to which it should be updated, enabling explicit, controlled version transitions while preserving 
+clarity and traceability in execution definitions.
+
 
 #### `curl` Example
 ```bash
@@ -166,8 +208,7 @@ curl -X PUT http:/localhost:6262/plugins \
   -H "Authorization: Bearer <your_token>" \
   -H "Content-Type: application/json" \
   -d '{
-        "Type": "FlowSynx.Execution.ExternalProcess",
-        "Version": "1.0.0"
+        "Type": "FlowSynx.Execution.ExternalProcess:1.0.0->1.1.0"
       }'
 ```
 
@@ -191,8 +232,7 @@ curl -X PUT http:/localhost:6262/plugins \
 #### Request Body
 ```json
 {
-  "Type": "FlowSynx.Execution.ExternalProcess",
-  "Version": "1.0.0"
+  "Type": "FlowSynx.Execution.ExternalProcess:1.0.0"
 }
 ```
 
@@ -202,8 +242,7 @@ curl -X DELETE http://localhost:6262/plugins \
   -H "Authorization: Bearer <your_token>" \
   -H "Content-Type: application/json" \
   -d '{
-        "Type": "FlowSynx.Execution.ExternalProcess",
-        "Version": "1.0.0"
+        "Type": "FlowSynx.Execution.ExternalProcess:1.0.0"
       }'
 ```
 

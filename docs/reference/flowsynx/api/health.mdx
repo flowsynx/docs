@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 title: Health
 description: The Health Check API in FlowSynx provides a simple way to verify whether the service is running and operational. It is commonly used for automated uptime monitoring, container orchestration probes (like Kubernetes liveness/readiness), or deployment verification.
 ---
@@ -11,7 +11,10 @@ It is commonly used for automated uptime monitoring, container orchestration pro
 or deployment verification.
 
 ## Authentication & Authorization
+
+:::note
 The `/health` endpoint is public (no authentication and authentication required).
+:::
 
 ## Configuration Requirement
 This endpoint is conditionally available based on system configuration.
@@ -48,11 +51,6 @@ curl -X GET http://localhost:6262/health
 {
   "Status": "Healthy",
   "HealthChecks": [
-    {
-      "Status": "Healthy",
-      "Component": "Configuration service",
-      "Description": "Configuration service is available"
-    },
     {
       "Status": "Healthy",
       "Component": "Plugins service",

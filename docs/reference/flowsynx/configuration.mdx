@@ -143,13 +143,28 @@ This key drives the EncryptionService implementation, which uses AES-256 in CBC 
 ```json
 "Authentication": {
   "Enabled": false,
-  "Basic": { ... },
-  "JwtProviders": [ ... ],
+  "Basic": { 
+    "Enabled": true,
+    "Users": [ ... ]
+   },
+  "JwtProviders": [ 
+    {
+      "Name": "Keycloak",
+      "Authority": "...",
+      "Issuer": "...",
+      "Audience": "...",
+      "Secret": "1p3blNtpjl...",
+      "RequireHttps": false,
+      "RoleClaimNames": [ "roles", "realm_access", "resource_access" ]
+    }
+   ],
   "DefaultScheme": "Basic"
 }
 ```
 
-> When Enabled is set to false, the FlowSynx engine runs without the authentication service, and all requests are processed without security.
+:::warning
+When Enabled is set to false, the FlowSynx engine runs without the authentication service, and all requests are processed without security.
+:::
 
 ##### Basic Authentication
 
@@ -172,6 +187,10 @@ Example user:
 - **password**: Plaintext password (use strong hashes in production).
 - **roles**: Array of role names.
 
+:::note
+Basic Authentication is only evaluated when Basic.Enabled is set to `true` and DefaultScheme is set to `Basic`.
+:::
+
 ---
 
 ##### JWT Providers
@@ -193,6 +212,19 @@ Example user:
 |----------------|--------|------------------------------------------------------------|
 | `DefaultScheme`| string | Authentication scheme to use by default (e.g., `"Keycloak"`).|
 
+#### Behavior Summary
+
+| Enabled | DefaultScheme  | Authentication | Authorization   |
+| ------- | -------------- | -------------- | --------------- |
+| false   | —              | ❌ Disabled    | ❌ Disabled    |
+| true    | Basic          | ✅ Basic Auth  | ✅ Roles       |
+| true    | Keycloak, etc. | ✅ JWT         | ✅ Roles       |
+
+:::info **Recommended Usage**
+- **None** → Local development, internal services, reverse-proxy protected environments
+- **Basic** → Simple deployments, testing, embedded systems
+- **Jwt** → Production, SSO, enterprise environments (Keycloak, Azure AD)
+:::
 
 ## 2. System Configuration
 Contains operational settings for the FlowSynx engine runtime.

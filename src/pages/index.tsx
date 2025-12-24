@@ -14,10 +14,10 @@ function HomepageHeader() {
       <div className="container">
         <div className="row">
           <div className="col col--12 text--left">
-            <Heading as="h3" className="hero__title">
+            <Heading as="h3" className="hero-title">
             Unified Compositional Substrate for Orchestrating Intelligent Information Flow
             </Heading>
-            <p className="hero__subtitle">{siteConfig.tagline}</p>
+            <p className="hero-subtitle">{siteConfig.tagline}</p>
             <div className='{styles.buttons} text--left padding-top--lg'>
               <Link className="button button--quickstart button--lg margin-right--md margin-bottom--md"
                 to="/docs/getting-started">

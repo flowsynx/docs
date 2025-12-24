@@ -17,12 +17,12 @@
   --ifm-code-font-size: 90%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --ifm-hero-bg-start: #022e2e;
-  --ifm-hero-bg-mid:   #005e5e;
-  --ifm-hero-bg-end:   #008b8b;
-  --ifm-hero-accent:   #004646;
-  --ifm-hero-text:     #ffffff;
-  --ifm-hero-subtext:  rgba(255, 255, 255, 0.9);
-  --ifm-hero-border:   rgba(255, 255, 255, 0.2);
+  --ifm-hero-bg-mid: #005e5e;
+  --ifm-hero-bg-end: #008b8b;
+  --ifm-hero-accent: #004646;
+  --ifm-hero-title-text: #ffffff;
+  --ifm-hero-subtext: rgba(255, 255, 255, 0.9);
+  --ifm-hero-border: rgba(255, 255, 255, 0.2);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -38,12 +38,12 @@
   --ifm-code-font-size: 90%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --ifm-hero-bg-start: #121212;
-  --ifm-hero-bg-mid:   #121212;
-  --ifm-hero-bg-end:   #121212;
-  --ifm-hero-accent:   #90a4ae;
-  --ifm-hero-text:     #ffffff;
-  --ifm-hero-subtext:  rgba(255, 255, 255, 0.85);
-  --ifm-hero-border:   rgba(255, 255, 255, 0.2);
+  --ifm-hero-bg-mid: #121212;
+  --ifm-hero-bg-end: #121212;
+  --ifm-hero-accent: #90a4ae;
+  --ifm-hero-title-text: #ffffff;
+  --ifm-hero-subtext: rgba(255, 255, 255, 0.85);
+  --ifm-hero-border: rgba(255, 255, 255, 0.2);
 }
 
 /* Firefox */
@@ -112,7 +112,7 @@
   position: relative;
   overflow: hidden;
   padding: 3rem 1rem 1rem 1rem;
-  color: var(--ifm-hero-text);
+  color: var( --ifm-hero-title-text);
   background: linear-gradient(
     135deg,
     var(--ifm-hero-bg-start),
@@ -138,18 +138,22 @@
   }
 }
 
-/* Hero Title */
 .hero__title {
+  color: var( --ifm-color-primary);
+}
+
+/* Hero Title */
+.hero-title {
   font-size: 3.4rem;
   font-weight: 900;
   letter-spacing: 1px;
-  color: var(--ifm-hero-text);
+  color: var( --ifm-hero-title-text);
   margin: 0;
   z-index: 2;
 }
 
 /* Hero Subtitle */
-.hero__subtitle {
+.hero-subtitle {
   font-size: 1.4rem;
   font-weight: 500;
   margin-top: 1rem;
@@ -167,7 +171,7 @@
   height: 200%;
   background: radial-gradient(
     circle,
-    color-mix(in srgb, var(--ifm-hero-text) 20%, transparent) 1%,
+    color-mix(in srgb, var( --ifm-hero-title-text) 20%, transparent) 1%,
     transparent 1%
   ) repeat;
   background-size: 60px 60px;
@@ -215,16 +219,6 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.connector-section{
-  border-radius: 0;
-  box-shadow: var(--ifm-global-shadow-lw);
-}
-
-.stream-section{
-  border-radius: 0;
-  box-shadow: var(--ifm-global-shadow-lw);
 }
 
 .join-discord-button {
@@ -419,20 +413,20 @@
 .hero-button--secondary {
   background-color: transparent !important;
   border: 1px solid var(--ifm-hero-border);
-  color: var(--ifm-hero-text) !important;
+  color: var( --ifm-hero-title-text) !important;
   border-radius: 50rem;
   padding: 0.9rem 2rem;
 }
 
 .hero-button--secondary:hover {
-  background: var(--ifm-hero-text) !important;
-  color: #333 !important;
-  border: 1px solid #ffffff;
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: var( --ifm-hero-title-text) !important;
+  border: 1px solid var(--ifm-hero-border);
   border-radius: 50rem;
 }
 
 .button--quickstart {
-  background: var(--ifm-hero-text) !important;
+  background: var( --ifm-hero-title-text) !important;
   color: #333 !important;
   border: 1px solid #ffffff;
   border-radius: 50rem;
@@ -440,7 +434,7 @@
 }
 
 .button--quickstart:hover {
-  background: var(--ifm-hero-text) !important;
+  background: var( --ifm-hero-title-text) !important;
   color: #333 !important;
   border: 1px solid #ffffff;
   border-radius: 50rem;

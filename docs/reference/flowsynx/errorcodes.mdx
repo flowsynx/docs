@@ -5,74 +5,73 @@ description: Comprehensive reference for all FlowSynx system error codes, catego
 ---
 
 # FlowSynx Error Codes
-This page lists all **FlowSynx system error codes** grouped by category.  
-Each error code follows the format:  
-**[FSX ####]** where `####` identifies the category and error number.
 
-## Application Error Codes
+This page lists all **FlowSynx system error codes** grouped by subsystem.  
+Each error code follows the format:
+
+**[FSX ####]** — where `####` identifies the category and specific error.
+
+---
+
+## Application Error Codes (1000–1099)
+
 - **[FSX 1001]** `--start` argument is required.
 - **[FSX 1002]** Application endpoint is invalid or unreachable.
 - **[FSX 1003]** Plugins location not found.
 - **[FSX 1004]** Unable to determine or load the FlowSynx version.
-- **[FSX 1005]** Error occurred while processing Workflow triggers.
+- **[FSX 1005]** Error occurred while processing application triggers.
 - **[FSX 1006]** Application health check failed.
 - **[FSX 1007]** Failed to configure the application server.
-- **[FSX 1008]** Failed to initialize OpenAPI documentation or services.
+- **[FSX 1008]** Failed to initialize OpenAPI services.
 
-## Serialization Error Codes
+## Serialization Error Codes (1300–1399)
+
 - **[FSX 1301]** Failed to serialize object data.
 - **[FSX 1302]** Input data for deserialization is empty.
 - **[FSX 1303]** Attempted to serialize an empty object or structure.
 
-## Validation Error Codes
+## Validation Error Codes (1400–1499)
+
 - **[FSX 1401]** One or more input fields failed validation.
 
-## Security Error Codes
+## Security Error Codes (1500–1599)
+
 - **[FSX 1501]** Unable to retrieve user ID from the current context.
-- **[FSX 1502]** Unable to retrieve the user name.
+- **[FSX 1502]** Unable to retrieve user name.
 - **[FSX 1503]** Authentication check failed.
 - **[FSX 1504]** Unable to retrieve user roles.
 - **[FSX 1505]** Duplicate basic authentication names found.
-- **[FSX 1506]** Security subsystem initialization failed.
+- **[FSX 1506]** Security subsystem initialization or configuration failed.
 - **[FSX 1550]** Authentication is required to access this resource.
-- **[FSX 1506]** Security configuration scheme is invalid.
 
-## Database Error Codes
+## Database Error Codes (1600–1699)
+
 - **[FSX 1601]** Failed to connect to the database.
 - **[FSX 1602]** Error occurred during database creation.
 - **[FSX 1603]** Failed to seed initial database data.
 - **[FSX 1604]** Error while saving data to the database.
 - **[FSX 1605]** Error while deleting data from the database.
 - **[FSX 1606]** Error while building database model.
-- **[FSX 1607]** Database transaction failed or rolled back.
-- **[FSX 2801]** Database provider is not supported.
+- **[FSX 1607]** Database transaction failed or was rolled back.
 
-## Logging Error Codes
+## Logging Error Codes (2000–2099)
+
 - **[FSX 2001]** Failed to retrieve the logs list.
-- **[FSX 2002]** Failed to retrieve specific log entry.
+- **[FSX 2002]** Failed to retrieve a specific log entry.
 - **[FSX 2003]** Failed to add a log entry.
 - **[FSX 2004]** Logger instance creation failed.
 - **[FSX 2005]** Invalid property found in log template.
+- **[FSX 2006]** Logger configuration has an invalid provider name.
 
-## Auditing Error Codes
+## Auditing Error Codes (2100–2199)
+
 - **[FSX 2101]** Error applying audit data or state.
 - **[FSX 2102]** Failed to retrieve audit records.
-- **[FSX 2103]** Specific audit record could not be retrieved.
+- **[FSX 2103]** Failed to retrieve a specific audit record.
 - **[FSX 2104]** Audit record not found.
 
-## Plugin Configuration Error Codes
-- **[FSX 2201]** General plugin configuration error.
-- **[FSX 2202]** Plugin configuration not found.
-- **[FSX 2203]** Plugin configuration already exists.
-- **[FSX 2204]** Failed to list plugin configurations.
-- **[FSX 2205]** Failed to retrieve plugin configuration.
-- **[FSX 2206]** Error checking if plugin configuration exists.
-- **[FSX 2207]** Failed to add new plugin configuration.
-- **[FSX 2208]** Failed to update plugin configuration.
-- **[FSX 2209]** Failed to delete plugin configuration.
-- **[FSX 2210]** Plugin registry plugin versions not found.
+## Plugin Error Codes (2300–2399)
 
-## Plugin Error Codes
 - **[FSX 2301]** Plugin not found.
 - **[FSX 2302]** Plugin type definition not found.
 - **[FSX 2303]** Plugin specifications are invalid.
@@ -91,8 +90,13 @@ Each error code follows the format:
 - **[FSX 2316]** Failed to load plugin assembly.
 - **[FSX 2317]** Plugin checksum validation failed.
 - **[FSX 2318]** Plugin is incompatible with the current system version.
+- **[FSX 2319]** Plugin type must have a value.
+- **[FSX 2320]** Plugin type configuration must have a value.
+- **[FSX 2321]** Plugin type input is invalid.
+- **[FSX 2322]** Plugin registry plugin versions not found.
 
-## Workflow Error Codes
+## Workflow Error Codes (2400–2499)
+
 - **[FSX 2401]** Workflow not found.
 - **[FSX 2402]** Workflow definition must not be empty.
 - **[FSX 2403]** Workflow name is required.
@@ -104,27 +108,68 @@ Each error code follows the format:
 - **[FSX 2410]** Failed to add new workflow.
 - **[FSX 2411]** Failed to update workflow.
 - **[FSX 2412]** Failed to delete workflow.
+- **[FSX 2413]** Failed to retrieve workflow execution list.
+- **[FSX 2414]** Failed to retrieve workflow execution details.
+- **[FSX 2415]** Workflow execution existence check failed.
+- **[FSX 2416]** Failed to add workflow execution.
+- **[FSX 2417]** Failed to update workflow execution.
+- **[FSX 2418]** Failed to delete workflow execution.
+- **[FSX 2436]** Workflow execution not found.
+- **[FSX 2437]** Workflow task execution not found.
+- **[FSX 2419]** Failed to retrieve workflow task executions list.
+- **[FSX 2420]** Failed to retrieve workflow task execution.
+- **[FSX 2421]** Failed to add workflow task execution.
+- **[FSX 2422]** Failed to update workflow task execution.
+- **[FSX 2423]** Failed to delete workflow task execution.
+- **[FSX 2433]** Workflow task execution was canceled.
+- **[FSX 2424]** Failed to retrieve workflow triggers list.
+- **[FSX 2425]** Failed to retrieve active workflow triggers.
+- **[FSX 2426]** Failed to retrieve workflow trigger.
+- **[FSX 2427]** Failed to add workflow trigger.
+- **[FSX 2428]** Failed to update workflow trigger.
+- **[FSX 2429]** Failed to delete workflow trigger.
+- **[FSX 2438]** Workflow trigger not found.
+- **[FSX 2439]** Workflow is not paused.
+- **[FSX 2440]** Workflow approval not found.
+- **[FSX 2441]** Workflow already approved or rejected.
+- **[FSX 2442]** Workflow execution was rejected.
+- **[FSX 2430]** Workflow failed due to dependency task failure.
+- **[FSX 2431]** Workflow execution failed.
+- **[FSX 2432]** Workflow execution initialization failed.
+- **[FSX 2434]** Workflow execution was canceled.
+- **[FSX 2435]** Workflow cancellation registry error.
 - **[FSX 2443]** Workflow schema validation failed.
 - **[FSX 2444]** Workflow schema fetch failed.
-- **[FSX 2445]** Workflow schema invalid URL.
-- **[FSX 2446]** Workflow schema invalid payload.
+- **[FSX 2445]** Workflow schema URL is invalid.
+- **[FSX 2446]** Workflow schema payload is invalid.
 
-## Expression Parser Error Codes
-- **[FSX 2601]** Output not found for expression parser result.
+## Expression Parser Error Codes (2600–2699)
 
-## Secret Error Codes
-- **[FSX 2701]** Secret configuration invalid provider name.
+- **[FSX 2601]** Required key not found in expression parser output.
 
-## AI Error Codes
-- **[FSX 3001]** AI configuration invalid provider name.
+## Secret Error Codes (2700–2799)
 
-## Notification Error Codes
-- **[FSX 3101]** Notification configuration invalid provider name.
+- **[FSX 2701]** Secret configuration has an invalid provider name.
+
+## Database Provider Error Codes (2800–2899)
+
+- **[FSX 2801]** Database provider is not supported.
+
+## AI Error Codes (3000–3099)
+
+- **[FSX 3001]** AI configuration has an invalid provider name.
+- **[FSX 3002]** AI agent execution failed.
+
+## Notification Error Codes (3100–3199)
+
+- **[FSX 3101]** Notification configuration has an invalid provider name.
 
 ## Unknown Error
-- **[FSX 9999]** UnknownError — An unknown or unexpected error occurred.
+
+- **[FSX 9999]** Unknown error — an unexpected or unhandled error occurred.
 
 :::info
-- These error codes are used throughout the FlowSynx system for consistent error handling and logging.  
-- Each category aligns with a subsystem (Application, Plugin, Workflow, Security, etc.).
+- Error codes are stable API contracts and should not be reused.
+- Each range maps to a FlowSynx subsystem for easier diagnostics.
+- Plugin and Workflow error codes are intentionally detailed due to operational complexity.
 :::

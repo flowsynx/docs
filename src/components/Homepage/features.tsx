@@ -243,7 +243,7 @@ const FeatureList: FeatureItem[] = [
   {
     title: 'Unified Error Codes & Response Integration',
     icon: 'fluent:puzzle-cube-16-filled',
-    slug: '',
+    slug: '/docs/reference/flowsynx/errorcodes',
     description: (
       <>
         FlowSynx introduces a standardized error code system in the format <b>[FSX ####]</b>, uniquely identifying error categories. This structure 

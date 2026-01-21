@@ -3,19 +3,19 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'FlowSynx',
+  title: 'GenoFlow',
   tagline: 'Seamlessly unify data and compositional substrate across legacy, cloud, and modern systems using plugin-driven, declarative DAGs—delivering secure, reliable, auditable, and fully controllable automation for the hybrid enterprise.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://flowsynx.io',
+  url: 'https://genoflow.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'flowsynx', // Usually your GitHub org/user name.
+  organizationName: 'genoflow', // Usually your GitHub org/user name.
   projectName: 'website', // Usually your repo name.
   
   onBrokenLinks: 'throw',
@@ -84,9 +84,9 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/OpenGraph.jpg',
     navbar: {
-      title: 'FlowSynx',
+      title: 'GenoFlow',
       logo: {
-      alt: 'FlowSynx Logo',
+      alt: 'GenoFlow Logo',
       src: 'img/logo.svg',
       },
       items: [
@@ -97,12 +97,12 @@ const config: Config = {
         label: 'Docs',
       },
       {
-        to: 'https://schema.flowsynx.io', 
+        to: 'https://schema.genoflow.io', 
         label: 'Schemas', 
         position: 'left'
       },
       {
-        to: 'https://plugins.flowsynx.io', 
+        to: 'https://plugins.genoflow.io', 
         label: 'Plugins', 
         position: 'left'
       },
@@ -122,13 +122,13 @@ const config: Config = {
         position: 'right'
       },
       {
-        to: 'https://discord.flowsynx.io/',
+        to: 'https://discord.genoflow.io/',
         position: 'right',
         label: 'Join our Discord',
         className: 'button button--primary button--md join-discord-button'
       },
       {
-        href: 'https://github.com/flowsynx/flowsynx',
+        href: 'https://github.com/genoflow/genoflow',
         position: 'right',
         className: 'header-github-link',
         'aria-label': 'GitHub repository',
@@ -155,7 +155,7 @@ const config: Config = {
         },
         {
           label: 'Schemas',
-          href: 'https://schema.flowsynx.io',
+          href: 'https://schema.genoflow.io',
         },
         ],
       },
@@ -164,23 +164,23 @@ const config: Config = {
         items: [
         {
           label: 'GitHub',
-          href: 'https://github.com/flowsynx/flowsynx',
+          href: 'https://github.com/genoflow/genoflow',
         },
         {
           label: 'Discord',
-          href: 'https://discord.flowsynx.io',
+          href: 'https://discord.genoflow.io',
         },
         {
           label: 'Youtube',
-          href: 'https://www.youtube.com/@flowsynx',
+          href: 'https://www.youtube.com/@genoflow-io',
         },
         {
           label: 'Linkedin',
-          href: 'https://www.linkedin.com/company/flowsynx',
+          href: 'https://www.linkedin.com/company/genoflow',
         },
         {
           label: 'X',
-          href: 'https://x.com/flowsynxio',
+          href: 'https://x.com/genoflow',
         },
         ],
       },
@@ -195,12 +195,12 @@ const config: Config = {
       },
       ],
       logo: {
-        alt: 'FlowSynx Logo',
+        alt: 'GenoFlow Logo',
         src: 'img/logo.svg',
         href: '/',
         width: 96,
       },
-      copyright: `Copyright © ${new Date().getFullYear()} - FlowSynx - All rights reserved.<br />
+      copyright: `Copyright © ${new Date().getFullYear()} - GenoFlow - All rights reserved.<br />
       Built with <a href="https://docusaurus.io/" target="_blank">Docusaurus</a>. Hosted at <a href="https://pages.github.com/" target="_blank">Github Pages</a>.`
     },
     algolia: {
@@ -210,7 +210,7 @@ const config: Config = {
       // Public API key: it is safe to commit it
       apiKey: 'bfa75134aabeff74b771bad3406ddc6a',
 
-      indexName: 'flowsynx',
+      indexName: 'genofow',
 
       // Optional: see doc section below
       contextualSearch: true,

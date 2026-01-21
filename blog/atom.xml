@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://flowsynx.io/blog</id>
-    <title>FlowSynx Blog</title>
+    <id>https://genoflow.io/blog</id>
+    <title>GenoFlow Blog</title>
     <updated>2025-12-24T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://flowsynx.io/blog"/>
-    <subtitle>FlowSynx Blog</subtitle>
-    <icon>https://flowsynx.io/img/favicon.ico</icon>
+    <link rel="alternate" href="https://genoflow.io/blog"/>
+    <subtitle>GenoFlow Blog</subtitle>
+    <icon>https://genoflow.io/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[Why Workflow Automation Matters in 2026]]></title>
-        <id>https://flowsynx.io/blog/why-workflow-automation-matters-in-2026</id>
-        <link href="https://flowsynx.io/blog/why-workflow-automation-matters-in-2026"/>
+        <id>https://genoflow.io/blog/why-workflow-automation-matters-in-2026</id>
+        <link href="https://genoflow.io/blog/why-workflow-automation-matters-in-2026"/>
         <updated>2025-12-24T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[A big-picture look at modern workflow orchestration requirements across industries and how FlowSynx fits.]]></summary>
         <content type="html"><![CDATA[<p>In 2026, the way businesses operate is changing faster than ever. Across industries—from healthcare to finance, from manufacturing to tech—organizations are juggling increasingly complex processes, massive amounts of data, and high expectations for speed, accuracy, and adaptability. Enter <!-- --><strong>workflow automation</strong>, the engine that helps businesses keep everything running smoothly without missing a beat.<!-- --></p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-modern-challenge-complexity-everywhere">The Modern Challenge: Complexity Everywhere<!-- --><a href="https://flowsynx.io/blog/why-workflow-automation-matters-in-2026#the-modern-challenge-complexity-everywhere" class="hash-link" aria-label="Direct link to The Modern Challenge: Complexity Everywhere" title="Direct link to The Modern Challenge: Complexity Everywhere" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-modern-challenge-complexity-everywhere">The Modern Challenge: Complexity Everywhere<!-- --><a href="https://genoflow.io/blog/why-workflow-automation-matters-in-2026#the-modern-challenge-complexity-everywhere" class="hash-link" aria-label="Direct link to The Modern Challenge: Complexity Everywhere" title="Direct link to The Modern Challenge: Complexity Everywhere" translate="no">​</a></h2>
 <!-- --><p>Today, workflows aren’t just linear sequences of tasks. They’re dynamic, interconnected networks that involve multiple teams, departments, and even external partners. A single process can touch dozens of systems: emails, databases, cloud services, legacy software, and modern APIs. Managing all of this manually is not only inefficient—it’s risky. Mistakes cost money, slow down operations, and create stress for teams.</p>
 <!-- --><p>The demand for <!-- --><strong>intelligent orchestration</strong> is no longer optional. Businesses need solutions that can:<!-- --></p>
 <!-- --><ul>
@@ -23,10 +23,10 @@
 <!-- --><li class=""><strong>Provide visibility</strong> so teams know exactly what’s happening, when, and why.<!-- --></li>
 <!-- --><li class=""><strong>Ensure compliance</strong> and traceability without slowing things down.<!-- --></li>
 <!-- --></ul>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="workflow-automation-more-than-just-robots">Workflow Automation: More Than Just “Robots”<!-- --><a href="https://flowsynx.io/blog/why-workflow-automation-matters-in-2026#workflow-automation-more-than-just-robots" class="hash-link" aria-label="Direct link to Workflow Automation: More Than Just “Robots”" title="Direct link to Workflow Automation: More Than Just “Robots”" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="workflow-automation-more-than-just-robots">Workflow Automation: More Than Just “Robots”<!-- --><a href="https://genoflow.io/blog/why-workflow-automation-matters-in-2026#workflow-automation-more-than-just-robots" class="hash-link" aria-label="Direct link to Workflow Automation: More Than Just “Robots”" title="Direct link to Workflow Automation: More Than Just “Robots”" translate="no">​</a></h2>
 <!-- --><p>When people hear “automation,” they often think of robots replacing humans. But modern workflow automation isn’t about replacement—it’s about <!-- --><strong>amplification</strong>. Automation handles repetitive, error-prone tasks so human teams can focus on strategy, creativity, and decision-making.<!-- --></p>
 <!-- --><p>Consider an e-commerce company processing thousands of orders daily. Workflow automation can ensure orders are automatically routed to the right warehouse, payments are verified, shipping labels are generated, and customer notifications are sent—all without a single missed step. That’s efficiency, accuracy, and reliability rolled into one.</p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="enter-flowsynx-orchestration-for-the-modern-enterprise">Enter FlowSynx: Orchestration for the Modern Enterprise<!-- --><a href="https://flowsynx.io/blog/why-workflow-automation-matters-in-2026#enter-flowsynx-orchestration-for-the-modern-enterprise" class="hash-link" aria-label="Direct link to Enter FlowSynx: Orchestration for the Modern Enterprise" title="Direct link to Enter FlowSynx: Orchestration for the Modern Enterprise" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="enter-flowsynx-orchestration-for-the-modern-enterprise">Enter FlowSynx: Orchestration for the Modern Enterprise<!-- --><a href="https://genoflow.io/blog/why-workflow-automation-matters-in-2026#enter-flowsynx-orchestration-for-the-modern-enterprise" class="hash-link" aria-label="Direct link to Enter FlowSynx: Orchestration for the Modern Enterprise" title="Direct link to Enter FlowSynx: Orchestration for the Modern Enterprise" translate="no">​</a></h2>
 <!-- --><p>This is where <!-- --><strong><a href="http://flowsynx.io/" target="_blank" rel="noopener noreferrer" class="">FlowSynx</a></strong> comes in. Designed with today’s complexity in mind, FlowSynx provides a centralized platform to design, monitor, and optimize workflows across an organization.<!-- --></p>
 <!-- --><p>Key benefits include:</p>
 <!-- --><ul>
@@ -36,7 +36,7 @@
 <!-- --><li class=""><strong>Scalability:</strong> From small teams to enterprise-wide deployments, FlowSynx grows with your organization.<!-- --></li>
 <!-- --></ul>
 <!-- --><p>In short, FlowSynx is not just a tool—it’s a <!-- --><strong>strategic partner</strong> for businesses that want to thrive in 2026 and beyond.<!-- --></p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="why-now">Why Now?<!-- --><a href="https://flowsynx.io/blog/why-workflow-automation-matters-in-2026#why-now" class="hash-link" aria-label="Direct link to Why Now?" title="Direct link to Why Now?" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="why-now">Why Now?<!-- --><a href="https://genoflow.io/blog/why-workflow-automation-matters-in-2026#why-now" class="hash-link" aria-label="Direct link to Why Now?" title="Direct link to Why Now?" translate="no">​</a></h2>
 <!-- --><p>The pace of change in 2026 demands smarter processes. Companies that embrace workflow automation now are positioned to:</p>
 <!-- --><ul>
 <!-- --><li class="">Reduce operational friction and bottlenecks.</li>
@@ -55,14 +55,14 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[FlowSynx v1.3.0 is now available]]></title>
-        <id>https://flowsynx.io/blog/flowsynx-v1.3.0-is-now-available</id>
-        <link href="https://flowsynx.io/blog/flowsynx-v1.3.0-is-now-available"/>
+        <id>https://genoflow.io/blog/flowsynx-v1.3.0-is-now-available</id>
+        <link href="https://genoflow.io/blog/flowsynx-v1.3.0-is-now-available"/>
         <updated>2025-12-20T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[FlowSynx v1.3.0 is officially released!]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flowsynx-v130-is-officially-released">FlowSynx v1.3.0 is officially released!<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.3.0-is-now-available#flowsynx-v130-is-officially-released" class="hash-link" aria-label="Direct link to FlowSynx v1.3.0 is officially released!" title="Direct link to FlowSynx v1.3.0 is officially released!" translate="no">​</a></h2>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flowsynx-v130-is-officially-released">FlowSynx v1.3.0 is officially released!<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.3.0-is-now-available#flowsynx-v130-is-officially-released" class="hash-link" aria-label="Direct link to FlowSynx v1.3.0 is officially released!" title="Direct link to FlowSynx v1.3.0 is officially released!" translate="no">​</a></h2>
 <!-- --><p>We're excited to roll out version 1.3.0 of FlowSynx — our lightweight, secure, and plugin-driven workflow engine.</p>
 <!-- --><p>This is the v1.3.0 release of FlowSynx</p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-changed">What's Changed<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.3.0-is-now-available#whats-changed" class="hash-link" aria-label="Direct link to What's Changed" title="Direct link to What's Changed" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-changed">What's Changed<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.3.0-is-now-available#whats-changed" class="hash-link" aria-label="Direct link to What's Changed" title="Direct link to What's Changed" translate="no">​</a></h2>
 <!-- --><ul>
 <!-- --><li class="">Fix issue 767 by <!-- --><a href="https://github.com/hesenhuseynov" target="_blank" rel="noopener noreferrer" class=""><strong>@hesenhuseynov</strong></a> in <!-- --><a href="https://github.com/flowsynx/flowsynx/pull/769" target="_blank" rel="noopener noreferrer" class="">#769</a></li>
 <!-- --><li class="">Use InvalidOperationException for workflow retry validation (#766) by <!-- --><a href="https://github.com/mohin-io" target="_blank" rel="noopener noreferrer" class=""><strong>@mohin-io</strong></a> in <!-- --><a href="https://github.com/flowsynx/flowsynx/pull/770" target="_blank" rel="noopener noreferrer" class="">#770</a></li>
@@ -72,17 +72,17 @@
 <!-- --><li class="">Fix logging to include exceptions in WorkflowExecutionService by <!-- --><a href="https://github.com/mohin-io" target="_blank" rel="noopener noreferrer" class=""><strong>@mohin-io</strong></a> in <!-- --><a href="https://github.com/flowsynx/flowsynx/pull/786" target="_blank" rel="noopener noreferrer" class="">#786</a></li>
 <!-- --><li class="">Refactor ParsedPluginType.ToString for clarity by <!-- --><a href="https://github.com/mohin-io" target="_blank" rel="noopener noreferrer" class=""><strong>@mohin-io</strong></a> in <!-- --><a href="https://github.com/flowsynx/flowsynx/pull/787" target="_blank" rel="noopener noreferrer" class="">#787</a></li>
 <!-- --></ul>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-contributors">New Contributors<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.3.0-is-now-available#new-contributors" class="hash-link" aria-label="Direct link to New Contributors" title="Direct link to New Contributors" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-contributors">New Contributors<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.3.0-is-now-available#new-contributors" class="hash-link" aria-label="Direct link to New Contributors" title="Direct link to New Contributors" translate="no">​</a></h2>
 <!-- --><ul>
 <!-- --><li class=""><a href="https://github.com/hesenhuseynov" target="_blank" rel="noopener noreferrer" class=""><strong>@hesenhuseynov</strong></a> made their first contribution in <!-- --><a href="https://github.com/flowsynx/flowsynx/pull/769" target="_blank" rel="noopener noreferrer" class="">#769</a></li>
 <!-- --><li class=""><a href="https://github.com/abdulrahmanelnory1" target="_blank" rel="noopener noreferrer" class=""><strong>@abdulrahmanelnory1</strong></a> made their first contribution in <!-- --><a href="https://github.com/flowsynx/flowsynx/pull/778" target="_blank" rel="noopener noreferrer" class="">#778</a></li>
 <!-- --><li class=""><a href="https://github.com/niteshsinghal85" target="_blank" rel="noopener noreferrer" class=""><strong>@niteshsinghal85</strong></a> made their first contribution in <!-- --><a href="https://github.com/flowsynx/flowsynx/pull/780" target="_blank" rel="noopener noreferrer" class="">#780</a></li>
 <!-- --></ul>
 <!-- --><p><strong>Full Changelog</strong>: <!-- --><a href="https://github.com/flowsynx/flowsynx/compare/v1.2.5...v1.3.0" target="_blank" rel="noopener noreferrer" class=""><strong>v1.2.5...v1.3.0</strong></a></p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="available-now-via">Available now via<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.3.0-is-now-available#available-now-via" class="hash-link" aria-label="Direct link to Available now via" title="Direct link to Available now via" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="available-now-via">Available now via<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.3.0-is-now-available#available-now-via" class="hash-link" aria-label="Direct link to Available now via" title="Direct link to Available now via" translate="no">​</a></h2>
 <!-- --><a class="button button--primary button--outline button--lg" href="https://github.com/flowsynx/flowsynx/releases/tag/v1.3.0" target="_blank"><i class="fab fa-github"></i> GitHub<!-- --></a>
 <!-- --><a class="button button--primary button--outline button--lg" href="https://hub.docker.com/r/flowsynx/flowsynx/tags?name=1.3.0" target="_blank">Docker</a>
-<!-- --><h4>To begin, please visit the <!-- --><a href="https://flowsynx.io/docs/getting-started">Getting Started</a> page.<!-- --></h4>]]></content>
+<!-- --><h4>To begin, please visit the <!-- --><a href="https://genoflow.io/docs/getting-started">Getting Started</a> page.<!-- --></h4>]]></content>
         <author>
             <name>Maintainers</name>
         </author>
@@ -92,8 +92,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Why We Built FlowSynx — The Story Behind the FlowSynx]]></title>
-        <id>https://flowsynx.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx</id>
-        <link href="https://flowsynx.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx"/>
+        <id>https://genoflow.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx</id>
+        <link href="https://genoflow.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx"/>
         <updated>2025-11-30T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[A narrative origin story about FlowSynx — why it exists, the problems it set out to solve, and the vision behind its declarative, plugin-driven orchestration engine.]]></summary>
         <content type="html"><![CDATA[<p>The story of FlowSynx didn’t start in a boardroom or with a grand architectural blueprint.<!-- --><br>
@@ -103,7 +103,7 @@
 <!-- -->Data lived in silos, workflows were stitched together with brittle scripts, and every new integration required fresh glue code, tribal knowledge, and a silent prayer that nothing in production would break.<!-- --></p>
 <!-- --><p>We believed there had to be a better way.</p>
 <!-- --><hr>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-pain-that-started-it-all">The Pain That Started It All<!-- --><a href="https://flowsynx.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#the-pain-that-started-it-all" class="hash-link" aria-label="Direct link to The Pain That Started It All" title="Direct link to The Pain That Started It All" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-pain-that-started-it-all">The Pain That Started It All<!-- --><a href="https://genoflow.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#the-pain-that-started-it-all" class="hash-link" aria-label="Direct link to The Pain That Started It All" title="Direct link to The Pain That Started It All" translate="no">​</a></h2>
 <!-- --><p>The challenges we’re solving are the same ones limiting teams everywhere:</p>
 <!-- --><ul>
 <!-- --><li class=""><strong>Legacy systems that weren’t going anywhere</strong></li>
@@ -123,7 +123,7 @@
 <!-- --><p>Enterprise reality is not that tidy.</p>
 <!-- --><p>We needed something <!-- --><strong>declarative, unified, extensible, and cross-platform</strong>—a system that respected the messiness instead of ignoring it.<!-- --></p>
 <!-- --><p>That realization sparked the idea behind FlowSynx.</p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-vision-intelligent-information-flow-for-the-hybrid-enterprise">The Vision: Intelligent Information Flow for the Hybrid Enterprise<!-- --><a href="https://flowsynx.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#the-vision-intelligent-information-flow-for-the-hybrid-enterprise" class="hash-link" aria-label="Direct link to The Vision: Intelligent Information Flow for the Hybrid Enterprise" title="Direct link to The Vision: Intelligent Information Flow for the Hybrid Enterprise" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-vision-intelligent-information-flow-for-the-hybrid-enterprise">The Vision: Intelligent Information Flow for the Hybrid Enterprise<!-- --><a href="https://genoflow.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#the-vision-intelligent-information-flow-for-the-hybrid-enterprise" class="hash-link" aria-label="Direct link to The Vision: Intelligent Information Flow for the Hybrid Enterprise" title="Direct link to The Vision: Intelligent Information Flow for the Hybrid Enterprise" translate="no">​</a></h2>
 <!-- --><p>We wanted to build a platform that could:</p>
 <!-- --><blockquote>
 <!-- --><p><strong>Seamlessly unify data and orchestrate workflows across legacy, cloud, and modern systems—<!-- --><br>
@@ -143,10 +143,10 @@
 <!-- --><li class="">the <!-- --><strong>safety</strong> of enterprise-grade controls<!-- --></li>
 <!-- --></ul>
 <!-- --><p>This wasn’t just a tool—it needed to be a philosophy of unification.</p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-core-philosophy-a-micro-kernel-for-automation">The Core Philosophy: A Micro-Kernel for Automation<!-- --><a href="https://flowsynx.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#the-core-philosophy-a-micro-kernel-for-automation" class="hash-link" aria-label="Direct link to The Core Philosophy: A Micro-Kernel for Automation" title="Direct link to The Core Philosophy: A Micro-Kernel for Automation" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-core-philosophy-a-micro-kernel-for-automation">The Core Philosophy: A Micro-Kernel for Automation<!-- --><a href="https://genoflow.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#the-core-philosophy-a-micro-kernel-for-automation" class="hash-link" aria-label="Direct link to The Core Philosophy: A Micro-Kernel for Automation" title="Direct link to The Core Philosophy: A Micro-Kernel for Automation" translate="no">​</a></h2>
 <!-- --><p>At the heart of FlowSynx is its <!-- --><strong>modular micro-kernel design</strong>, where all functionality—tasks, integrations, identities, triggers, transformations—is delivered through plugins.<!-- --></p>
 <!-- --><p>This gives FlowSynx its defining qualities:</p>
-<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="plugin-based-extensibility">Plugin-Based Extensibility<!-- --><a href="https://flowsynx.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#plugin-based-extensibility" class="hash-link" aria-label="Direct link to Plugin-Based Extensibility" title="Direct link to Plugin-Based Extensibility" translate="no">​</a></h3>
+<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="plugin-based-extensibility">Plugin-Based Extensibility<!-- --><a href="https://genoflow.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#plugin-based-extensibility" class="hash-link" aria-label="Direct link to Plugin-Based Extensibility" title="Direct link to Plugin-Based Extensibility" translate="no">​</a></h3>
 <!-- --><p>Every functional component is a plugin:</p>
 <!-- --><ul>
 <!-- --><li class="">task definitions</li>
@@ -158,7 +158,7 @@
 <!-- --><li class="">custom business logic</li>
 <!-- --></ul>
 <!-- --><p>Plugins can be developed, loaded, updated, or replaced without downtime, making FlowSynx endlessly adaptable and future-proof.</p>
-<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cross-platform-execution">Cross-Platform Execution<!-- --><a href="https://flowsynx.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#cross-platform-execution" class="hash-link" aria-label="Direct link to Cross-Platform Execution" title="Direct link to Cross-Platform Execution" translate="no">​</a></h3>
+<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cross-platform-execution">Cross-Platform Execution<!-- --><a href="https://genoflow.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#cross-platform-execution" class="hash-link" aria-label="Direct link to Cross-Platform Execution" title="Direct link to Cross-Platform Execution" translate="no">​</a></h3>
 <!-- --><p>FlowSynx runs on:</p>
 <!-- --><ul>
 <!-- --><li class="">Windows</li>
@@ -169,7 +169,7 @@
 <!-- --><li class="">hybrid on-prem/cloud setups</li>
 <!-- --></ul>
 <!-- --><p>Perfect for DevOps pipelines, distributed environments, and multi-tenant architectures.</p>
-<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="declarative-dag-workflows">Declarative DAG Workflows<!-- --><a href="https://flowsynx.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#declarative-dag-workflows" class="hash-link" aria-label="Direct link to Declarative DAG Workflows" title="Direct link to Declarative DAG Workflows" translate="no">​</a></h3>
+<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="declarative-dag-workflows">Declarative DAG Workflows<!-- --><a href="https://genoflow.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#declarative-dag-workflows" class="hash-link" aria-label="Direct link to Declarative DAG Workflows" title="Direct link to Declarative DAG Workflows" translate="no">​</a></h3>
 <!-- --><p>Workflows are defined as JSON or DSL-based <!-- --><strong>Directed Acyclic Graphs</strong> supporting:<!-- --></p>
 <!-- --><ul>
 <!-- --><li class="">parallel execution</li>
@@ -182,11 +182,11 @@
 <!-- --></ul>
 <!-- --><p>No more opaque scripts.<!-- --><br>
 <!-- -->Just readable, reusable, declarative logic.<!-- --></p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="solving-the-hard-problems-others-overlook">Solving the Hard Problems Others Overlook<!-- --><a href="https://flowsynx.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#solving-the-hard-problems-others-overlook" class="hash-link" aria-label="Direct link to Solving the Hard Problems Others Overlook" title="Direct link to Solving the Hard Problems Others Overlook" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="solving-the-hard-problems-others-overlook">Solving the Hard Problems Others Overlook<!-- --><a href="https://genoflow.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#solving-the-hard-problems-others-overlook" class="hash-link" aria-label="Direct link to Solving the Hard Problems Others Overlook" title="Direct link to Solving the Hard Problems Others Overlook" translate="no">​</a></h2>
 <!-- --><p>FlowSynx evolved to solve problems that traditional workflow engines often ignore.</p>
-<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="schema-based-validation">Schema-Based Validation<!-- --><a href="https://flowsynx.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#schema-based-validation" class="hash-link" aria-label="Direct link to Schema-Based Validation" title="Direct link to Schema-Based Validation" translate="no">​</a></h3>
+<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="schema-based-validation">Schema-Based Validation<!-- --><a href="https://genoflow.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#schema-based-validation" class="hash-link" aria-label="Direct link to Schema-Based Validation" title="Direct link to Schema-Based Validation" translate="no">​</a></h3>
 <!-- --><p>Before execution, workflows and plugin configurations can be validated via JSON Schema—ensuring correctness, consistency, and predictable behavior across environments.</p>
-<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="unified-data-abstraction-layer-udal">Unified Data Abstraction Layer (UDAL)<!-- --><a href="https://flowsynx.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#unified-data-abstraction-layer-udal" class="hash-link" aria-label="Direct link to Unified Data Abstraction Layer (UDAL)" title="Direct link to Unified Data Abstraction Layer (UDAL)" translate="no">​</a></h3>
+<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="unified-data-abstraction-layer-udal">Unified Data Abstraction Layer (UDAL)<!-- --><a href="https://genoflow.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#unified-data-abstraction-layer-udal" class="hash-link" aria-label="Direct link to Unified Data Abstraction Layer (UDAL)" title="Direct link to Unified Data Abstraction Layer (UDAL)" translate="no">​</a></h3>
 <!-- --><p>A single, coherent interface for data across any source:</p>
 <!-- --><ul>
 <!-- --><li class="">APIs</li>
@@ -196,27 +196,27 @@
 <!-- --></ul>
 <!-- --><p>No more source-specific hacks.<!-- --><br>
 <!-- -->Just unified, secure, consistent access.<!-- --></p>
-<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="source-agnostic-processing">Source-Agnostic Processing<!-- --><a href="https://flowsynx.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#source-agnostic-processing" class="hash-link" aria-label="Direct link to Source-Agnostic Processing" title="Direct link to Source-Agnostic Processing" translate="no">​</a></h3>
+<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="source-agnostic-processing">Source-Agnostic Processing<!-- --><a href="https://genoflow.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#source-agnostic-processing" class="hash-link" aria-label="Direct link to Source-Agnostic Processing" title="Direct link to Source-Agnostic Processing" translate="no">​</a></h3>
 <!-- --><p>Once data is represented through UDAL, plugins like CSV processors, compression utilities, or transformations all behave uniformly—regardless of origin.</p>
-<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="conditional-flow-control">Conditional Flow Control<!-- --><a href="https://flowsynx.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#conditional-flow-control" class="hash-link" aria-label="Direct link to Conditional Flow Control" title="Direct link to Conditional Flow Control" translate="no">​</a></h3>
+<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="conditional-flow-control">Conditional Flow Control<!-- --><a href="https://genoflow.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#conditional-flow-control" class="hash-link" aria-label="Direct link to Conditional Flow Control" title="Direct link to Conditional Flow Control" translate="no">​</a></h3>
 <!-- --><p>Dynamic runtime decisions allow workflows to adapt intelligently to context, results, or environment.</p>
-<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="expression-evaluation">Expression Evaluation<!-- --><a href="https://flowsynx.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#expression-evaluation" class="hash-link" aria-label="Direct link to Expression Evaluation" title="Direct link to Expression Evaluation" translate="no">​</a></h3>
+<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="expression-evaluation">Expression Evaluation<!-- --><a href="https://genoflow.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#expression-evaluation" class="hash-link" aria-label="Direct link to Expression Evaluation" title="Direct link to Expression Evaluation" translate="no">​</a></h3>
 <!-- --><p>Runtime expressions allow values to be computed, paths generated, conditions evaluated, and automation to behave like a living system rather than a static script.</p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-experience-around-the-engine">The Experience Around the Engine<!-- --><a href="https://flowsynx.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#the-experience-around-the-engine" class="hash-link" aria-label="Direct link to The Experience Around the Engine" title="Direct link to The Experience Around the Engine" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-experience-around-the-engine">The Experience Around the Engine<!-- --><a href="https://genoflow.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#the-experience-around-the-engine" class="hash-link" aria-label="Direct link to The Experience Around the Engine" title="Direct link to The Experience Around the Engine" translate="no">​</a></h2>
 <!-- --><p>FlowSynx was never just a headless orchestration engine.<!-- --><br>
 <!-- -->We built an ecosystem around it.<!-- --></p>
-<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="command-line-interface-cli">Command-Line Interface (CLI)<!-- --><a href="https://flowsynx.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#command-line-interface-cli" class="hash-link" aria-label="Direct link to Command-Line Interface (CLI)" title="Direct link to Command-Line Interface (CLI)" translate="no">​</a></h3>
+<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="command-line-interface-cli">Command-Line Interface (CLI)<!-- --><a href="https://genoflow.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#command-line-interface-cli" class="hash-link" aria-label="Direct link to Command-Line Interface (CLI)" title="Direct link to Command-Line Interface (CLI)" translate="no">​</a></h3>
 <!-- --><p>For power users, DevOps pipelines, and debugging scenarios.</p>
-<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="software-development-kit-sdk">Software Development Kit (SDK)<!-- --><a href="https://flowsynx.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#software-development-kit-sdk" class="hash-link" aria-label="Direct link to Software Development Kit (SDK)" title="Direct link to Software Development Kit (SDK)" translate="no">​</a></h3>
+<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="software-development-kit-sdk">Software Development Kit (SDK)<!-- --><a href="https://genoflow.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#software-development-kit-sdk" class="hash-link" aria-label="Direct link to Software Development Kit (SDK)" title="Direct link to Software Development Kit (SDK)" translate="no">​</a></h3>
 <!-- --><p>A .NET-first SDK with clean architecture principles, enabling programmatic control, workflow creation, plugin hosting, and dynamic orchestration.</p>
-<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="rest-api">REST API<!-- --><a href="https://flowsynx.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#rest-api" class="hash-link" aria-label="Direct link to REST API" title="Direct link to REST API" translate="no">​</a></h3>
+<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="rest-api">REST API<!-- --><a href="https://genoflow.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#rest-api" class="hash-link" aria-label="Direct link to REST API" title="Direct link to REST API" translate="no">​</a></h3>
 <!-- --><p>A secure, versioned, OpenAPI-documented REST layer for:</p>
 <!-- --><ul>
 <!-- --><li class="">remote control</li>
 <!-- --><li class="">integrations</li>
 <!-- --><li class="">cross-platform access</li>
 <!-- --></ul>
-<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="flowsynx-console-web-ui">FlowSynx Console Web-UI<!-- --><a href="https://flowsynx.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#flowsynx-console-web-ui" class="hash-link" aria-label="Direct link to FlowSynx Console Web-UI" title="Direct link to FlowSynx Console Web-UI" translate="no">​</a></h3>
+<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="flowsynx-console-web-ui">FlowSynx Console Web-UI<!-- --><a href="https://genoflow.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#flowsynx-console-web-ui" class="hash-link" aria-label="Direct link to FlowSynx Console Web-UI" title="Direct link to FlowSynx Console Web-UI" translate="no">​</a></h3>
 <!-- --><p>A modern web interface with:</p>
 <!-- --><ul>
 <!-- --><li class="">drag-and-drop workflow design</li>
@@ -226,15 +226,15 @@
 <!-- --><li class="">execution monitoring</li>
 <!-- --></ul>
 <!-- --><p>Bridging the gap between technical and non-technical users.</p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-enterprise-dna-security-observability-and-control">The Enterprise DNA: Security, Observability, and Control<!-- --><a href="https://flowsynx.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#the-enterprise-dna-security-observability-and-control" class="hash-link" aria-label="Direct link to The Enterprise DNA: Security, Observability, and Control" title="Direct link to The Enterprise DNA: Security, Observability, and Control" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-enterprise-dna-security-observability-and-control">The Enterprise DNA: Security, Observability, and Control<!-- --><a href="https://genoflow.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#the-enterprise-dna-security-observability-and-control" class="hash-link" aria-label="Direct link to The Enterprise DNA: Security, Observability, and Control" title="Direct link to The Enterprise DNA: Security, Observability, and Control" translate="no">​</a></h2>
 <!-- --><p>From day one, FlowSynx was designed for organizations where security and reliability were non-negotiable.</p>
-<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="authentication--security">Authentication &amp; Security<!-- --><a href="https://flowsynx.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#authentication--security" class="hash-link" aria-label="Direct link to Authentication &amp; Security" title="Direct link to Authentication &amp; Security" translate="no">​</a></h3>
+<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="authentication--security">Authentication &amp; Security<!-- --><a href="https://genoflow.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#authentication--security" class="hash-link" aria-label="Direct link to Authentication &amp; Security" title="Direct link to Authentication &amp; Security" translate="no">​</a></h3>
 <!-- --><p>With support for:</p>
 <!-- --><ul>
 <!-- --><li class="">Basic authentication</li>
 <!-- --><li class="">Token-based authentication</li>
 <!-- --></ul>
-<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="secret-management">Secret Management<!-- --><a href="https://flowsynx.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#secret-management" class="hash-link" aria-label="Direct link to Secret Management" title="Direct link to Secret Management" translate="no">​</a></h3>
+<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="secret-management">Secret Management<!-- --><a href="https://genoflow.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#secret-management" class="hash-link" aria-label="Direct link to Secret Management" title="Direct link to Secret Management" translate="no">​</a></h3>
 <!-- --><p>A unified interface for:</p>
 <!-- --><ul>
 <!-- --><li class="">Infisical</li>
@@ -243,21 +243,21 @@
 <!-- --><li class="">AWS Secrets Manager<!-- --><br>
 <!-- -->… and more.<!-- --></li>
 <!-- --></ul>
-<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="logging-monitoring--auditing">Logging, Monitoring &amp; Auditing<!-- --><a href="https://flowsynx.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#logging-monitoring--auditing" class="hash-link" aria-label="Direct link to Logging, Monitoring &amp; Auditing" title="Direct link to Logging, Monitoring &amp; Auditing" translate="no">​</a></h3>
+<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="logging-monitoring--auditing">Logging, Monitoring &amp; Auditing<!-- --><a href="https://genoflow.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#logging-monitoring--auditing" class="hash-link" aria-label="Direct link to Logging, Monitoring &amp; Auditing" title="Direct link to Logging, Monitoring &amp; Auditing" translate="no">​</a></h3>
 <!-- --><p>Structured logs, execution history, audit trails, and unified error handling with standardized error codes like: [FSX ####]</p>
 <!-- --><p>Because enterprise automation must be transparent and trustworthy.</p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="built-for-every-scale-every-environment">Built for Every Scale, Every Environment<!-- --><a href="https://flowsynx.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#built-for-every-scale-every-environment" class="hash-link" aria-label="Direct link to Built for Every Scale, Every Environment" title="Direct link to Built for Every Scale, Every Environment" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="built-for-every-scale-every-environment">Built for Every Scale, Every Environment<!-- --><a href="https://genoflow.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#built-for-every-scale-every-environment" class="hash-link" aria-label="Direct link to Built for Every Scale, Every Environment" title="Direct link to Built for Every Scale, Every Environment" translate="no">​</a></h2>
 <!-- --><p>FlowSynx supports:</p>
-<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="standalone-mode">Standalone Mode<!-- --><a href="https://flowsynx.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#standalone-mode" class="hash-link" aria-label="Direct link to Standalone Mode" title="Direct link to Standalone Mode" translate="no">​</a></h3>
+<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="standalone-mode">Standalone Mode<!-- --><a href="https://genoflow.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#standalone-mode" class="hash-link" aria-label="Direct link to Standalone Mode" title="Direct link to Standalone Mode" translate="no">​</a></h3>
 <!-- --><p>Run locally for a single user or as a lightweight background service.</p>
-<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="distributed-orchestration">Distributed Orchestration<!-- --><a href="https://flowsynx.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#distributed-orchestration" class="hash-link" aria-label="Direct link to Distributed Orchestration" title="Direct link to Distributed Orchestration" translate="no">​</a></h3>
+<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="distributed-orchestration">Distributed Orchestration<!-- --><a href="https://genoflow.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#distributed-orchestration" class="hash-link" aria-label="Direct link to Distributed Orchestration" title="Direct link to Distributed Orchestration" translate="no">​</a></h3>
 <!-- --><p>Scale horizontally for:</p>
 <!-- --><ul>
 <!-- --><li class="">multi-tenant workloads</li>
 <!-- --><li class="">large pipelines</li>
 <!-- --><li class="">hybrid cloud topologies</li>
 <!-- --></ul>
-<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="trigger-based-execution">Trigger-Based Execution<!-- --><a href="https://flowsynx.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#trigger-based-execution" class="hash-link" aria-label="Direct link to Trigger-Based Execution" title="Direct link to Trigger-Based Execution" translate="no">​</a></h3>
+<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="trigger-based-execution">Trigger-Based Execution<!-- --><a href="https://genoflow.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#trigger-based-execution" class="hash-link" aria-label="Direct link to Trigger-Based Execution" title="Direct link to Trigger-Based Execution" translate="no">​</a></h3>
 <!-- --><p>Start workflows automatically on:</p>
 <!-- --><ul>
 <!-- --><li class="">file uploads</li>
@@ -265,11 +265,11 @@
 <!-- --><li class="">schedules</li>
 <!-- --><li class="">external events</li>
 <!-- --></ul>
-<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="human-in-the-loop-approval">Human-in-the-Loop Approval<!-- --><a href="https://flowsynx.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#human-in-the-loop-approval" class="hash-link" aria-label="Direct link to Human-in-the-Loop Approval" title="Direct link to Human-in-the-Loop Approval" translate="no">​</a></h3>
+<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="human-in-the-loop-approval">Human-in-the-Loop Approval<!-- --><a href="https://genoflow.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#human-in-the-loop-approval" class="hash-link" aria-label="Direct link to Human-in-the-Loop Approval" title="Direct link to Human-in-the-Loop Approval" translate="no">​</a></h3>
 <!-- --><p>Embed human decisions inside automated workflows—ideal for compliance, validation, or manual review.</p>
-<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="flexible-error-handling">Flexible Error Handling<!-- --><a href="https://flowsynx.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#flexible-error-handling" class="hash-link" aria-label="Direct link to Flexible Error Handling" title="Direct link to Flexible Error Handling" translate="no">​</a></h3>
+<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="flexible-error-handling">Flexible Error Handling<!-- --><a href="https://genoflow.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#flexible-error-handling" class="hash-link" aria-label="Direct link to Flexible Error Handling" title="Direct link to Flexible Error Handling" translate="no">​</a></h3>
 <!-- --><p>Retry, Skip, Abort—configurable with sophisticated backoff strategies.</p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="so-why-did-we-build-flowsynx">So Why Did We Build FlowSynx?<!-- --><a href="https://flowsynx.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#so-why-did-we-build-flowsynx" class="hash-link" aria-label="Direct link to So Why Did We Build FlowSynx?" title="Direct link to So Why Did We Build FlowSynx?" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="so-why-did-we-build-flowsynx">So Why Did We Build FlowSynx?<!-- --><a href="https://genoflow.io/blog/why-we-built-flowSynx-the-story-behind-the-flowsynx#so-why-did-we-build-flowsynx" class="hash-link" aria-label="Direct link to So Why Did We Build FlowSynx?" title="Direct link to So Why Did We Build FlowSynx?" translate="no">​</a></h2>
 <!-- --><p>Because the modern enterprise deserves better than patchwork automation.</p>
 <!-- --><p>Because workflows should be expressed, not hardcoded.<!-- --><br>
 <!-- -->Because data should flow intelligently, not through fragile scripts.<!-- --><br>
@@ -297,14 +297,14 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[FlowSynx v1.2.5 is now available]]></title>
-        <id>https://flowsynx.io/blog/flowsynx-v1.2.5-is-now-available</id>
-        <link href="https://flowsynx.io/blog/flowsynx-v1.2.5-is-now-available"/>
+        <id>https://genoflow.io/blog/flowsynx-v1.2.5-is-now-available</id>
+        <link href="https://genoflow.io/blog/flowsynx-v1.2.5-is-now-available"/>
         <updated>2025-11-29T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[FlowSynx v1.2.5 is officially released!]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flowsynx-v125-is-officially-released">FlowSynx v1.2.5 is officially released!<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.5-is-now-available#flowsynx-v125-is-officially-released" class="hash-link" aria-label="Direct link to FlowSynx v1.2.5 is officially released!" title="Direct link to FlowSynx v1.2.5 is officially released!" translate="no">​</a></h2>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flowsynx-v125-is-officially-released">FlowSynx v1.2.5 is officially released!<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.2.5-is-now-available#flowsynx-v125-is-officially-released" class="hash-link" aria-label="Direct link to FlowSynx v1.2.5 is officially released!" title="Direct link to FlowSynx v1.2.5 is officially released!" translate="no">​</a></h2>
 <!-- --><p>We're excited to roll out version 1.2.5 of FlowSynx — our lightweight, secure, and plugin-driven workflow engine.</p>
 <!-- --><p>This is the v1.2.5 release of FlowSynx</p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-changed">What's Changed<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.5-is-now-available#whats-changed" class="hash-link" aria-label="Direct link to What's Changed" title="Direct link to What's Changed" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-changed">What's Changed<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.2.5-is-now-available#whats-changed" class="hash-link" aria-label="Direct link to What's Changed" title="Direct link to What's Changed" translate="no">​</a></h2>
 <!-- --><ul>
 <!-- --><li class="">Fix IsBinaryFile binary detection (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/702" target="_blank" rel="noopener noreferrer" class="">#702</a>) by <!-- --><a href="https://github.com/mohin-io" target="_blank" rel="noopener noreferrer" class=""><strong>@mohin-io</strong></a> in <!-- --><a href="https://github.com/flowsynx/flowsynx/pull/716" target="_blank" rel="noopener noreferrer" class="">#716</a></li>
 <!-- --><li class="">Fix structured exception logging in LogsListHandler by <!-- --><a href="https://github.com/djzh23" target="_blank" rel="noopener noreferrer" class=""><strong>@djzh23</strong></a> in <!-- --><a href="https://github.com/flowsynx/flowsynx/pull/728" target="_blank" rel="noopener noreferrer" class="">#728</a></li>
@@ -317,16 +317,16 @@
 <!-- --><li class="">Use structured logging in AddPluginConfigHandler by <!-- --><a href="https://github.com/mohin-io" target="_blank" rel="noopener noreferrer" class=""><strong>@mohin-io</strong></a> in <!-- --><a href="https://github.com/flowsynx/flowsynx/pull/751" target="_blank" rel="noopener noreferrer" class="">#751</a></li>
 <!-- --><li class="">Improve logging in UpdatePluginConfigHandler by <!-- --><a href="https://github.com/mohin-io" target="_blank" rel="noopener noreferrer" class=""><strong>@mohin-io</strong></a> in <!-- --><a href="https://github.com/flowsynx/flowsynx/pull/759" target="_blank" rel="noopener noreferrer" class="">#759</a></li>
 <!-- --></ul>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-contributors">New Contributors<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.5-is-now-available#new-contributors" class="hash-link" aria-label="Direct link to New Contributors" title="Direct link to New Contributors" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-contributors">New Contributors<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.2.5-is-now-available#new-contributors" class="hash-link" aria-label="Direct link to New Contributors" title="Direct link to New Contributors" translate="no">​</a></h2>
 <!-- --><ul>
 <!-- --><li class=""><a href="https://github.com/djzh23" target="_blank" rel="noopener noreferrer" class=""><strong>@djzh23</strong></a> made their first contribution in <!-- --><a href="https://github.com/flowsynx/flowsynx/pull/728" target="_blank" rel="noopener noreferrer" class="">#728</a></li>
 <!-- --><li class=""><a href="https://github.com/ksuraev" target="_blank" rel="noopener noreferrer" class=""><strong>@ksuraev</strong></a> made their first contribution in <!-- --><a href="https://github.com/flowsynx/flowsynx/pull/752" target="_blank" rel="noopener noreferrer" class="">#752</a></li>
 <!-- --></ul>
 <!-- --><p><strong>Full Changelog</strong>: <!-- --><a href="https://github.com/flowsynx/flowsynx/compare/v1.2.4...v1.2.5" target="_blank" rel="noopener noreferrer" class="">https://github.com/flowsynx/flowsynx/compare/v1.2.4...v1.2.5</a></p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="available-now-via">Available now via<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.5-is-now-available#available-now-via" class="hash-link" aria-label="Direct link to Available now via" title="Direct link to Available now via" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="available-now-via">Available now via<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.2.5-is-now-available#available-now-via" class="hash-link" aria-label="Direct link to Available now via" title="Direct link to Available now via" translate="no">​</a></h2>
 <!-- --><a class="button button--primary button--outline button--lg" href="https://github.com/flowsynx/flowsynx/releases/tag/v1.2.5" target="_blank"><i class="fab fa-github"></i> GitHub<!-- --></a>
 <!-- --><a class="button button--primary button--outline button--lg" href="https://hub.docker.com/r/flowsynx/flowsynx/tags?name=1.2.5" target="_blank">Docker</a>
-<!-- --><h4>To begin, please visit the <!-- --><a href="https://flowsynx.io/docs/getting-started">Getting Started</a> page.<!-- --></h4>]]></content>
+<!-- --><h4>To begin, please visit the <!-- --><a href="https://genoflow.io/docs/getting-started">Getting Started</a> page.<!-- --></h4>]]></content>
         <author>
             <name>Maintainers</name>
         </author>
@@ -336,8 +336,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Designing for Infinite Flexibility: Plugin-Based Extensibility in FlowSynx]]></title>
-        <id>https://flowsynx.io/blog/designing-for-infinite-flexibility-plugin-Based-extensibility-in-flowSynx</id>
-        <link href="https://flowsynx.io/blog/designing-for-infinite-flexibility-plugin-Based-extensibility-in-flowSynx"/>
+        <id>https://genoflow.io/blog/designing-for-infinite-flexibility-plugin-Based-extensibility-in-flowSynx</id>
+        <link href="https://genoflow.io/blog/designing-for-infinite-flexibility-plugin-Based-extensibility-in-flowSynx"/>
         <updated>2025-11-17T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Modern automation systems need adaptability. New protocols emerge, organizations revise internal workflows, and integration points evolve.]]></summary>
         <content type="html"><![CDATA[<p>Modern automation systems need adaptability. New protocols emerge, organizations revise internal workflows, and integration points evolve.
@@ -354,7 +354,7 @@ A rigid system quickly becomes obsolete---but a plugin-driven system grows organ
 <!-- --></ul>
 <!-- --><p>This single unifying model unlocks a composable, maintainable, and developer-friendly ecosystem. Let's break down how FlowSynx implements
 this extensibility layer and why the plugin architecture is central to the platform.</p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="a-unified-plugin-model">A Unified Plugin Model<!-- --><a href="https://flowsynx.io/blog/designing-for-infinite-flexibility-plugin-Based-extensibility-in-flowSynx#a-unified-plugin-model" class="hash-link" aria-label="Direct link to A Unified Plugin Model" title="Direct link to A Unified Plugin Model" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="a-unified-plugin-model">A Unified Plugin Model<!-- --><a href="https://genoflow.io/blog/designing-for-infinite-flexibility-plugin-Based-extensibility-in-flowSynx#a-unified-plugin-model" class="hash-link" aria-label="Direct link to A Unified Plugin Model" title="Direct link to A Unified Plugin Model" translate="no">​</a></h2>
 <!-- --><p>At the heart of FlowSynx lies the <!-- --><code>IPlugin</code> interface---a carefully crafted contract that all plugins must follow:<!-- --></p>
 <!-- --><div class="language-csharp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-csharp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">public interface IPlugin</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">{</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    PluginMetadata Metadata { get; }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    PluginSpecifications? Specifications { get; set; }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    Type SpecificationsType { get; }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    IReadOnlyCollection&lt;string&gt; SupportedOperations { get; }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    Task Initialize(IPluginLogger logger);</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    Task&lt;object?&gt; ExecuteAsync(PluginParameters parameters, CancellationToken cancellationToken);</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre></div></div>
 <!-- --><p>This interface serves as the foundational abstraction for all types of extensions FlowSynx supports. By enforcing a unified structure, IPlugin ensures that every plugin behaves predictably within the workflow engine, regardless of its internal complexity or domain.</p>
@@ -382,10 +382,10 @@ this extensibility layer and why the plugin architecture is central to the platf
 <!-- --></ul>
 <!-- --><p>Through this interface, FlowSynx achieves consistent plugin behavior while maintaining maximum flexibility. Whether the developer is building an image processor, an SFTP uploader, a database connector, or a custom AI inference module, the workflow engine interacts with all plugins in a uniform, predictable manner. This consistency simplifies workflow orchestration, monitoring, and error handling, and encourages developers to create plugins that integrate seamlessly into the FlowSynx ecosystem.</p>
 <!-- --><p>Additionally, the interface design anticipates future expansion, allowing new plugin types, specialized operations, and richer specifications without changing the workflow engine or existing plugins. In short, IPlugin is the cornerstone of FlowSynx's modular, extensible, and scalable architecture.</p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="metadata-identity-versioning-and-governance">Metadata: Identity, Versioning, and Governance<!-- --><a href="https://flowsynx.io/blog/designing-for-infinite-flexibility-plugin-Based-extensibility-in-flowSynx#metadata-identity-versioning-and-governance" class="hash-link" aria-label="Direct link to Metadata: Identity, Versioning, and Governance" title="Direct link to Metadata: Identity, Versioning, and Governance" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="metadata-identity-versioning-and-governance">Metadata: Identity, Versioning, and Governance<!-- --><a href="https://genoflow.io/blog/designing-for-infinite-flexibility-plugin-Based-extensibility-in-flowSynx#metadata-identity-versioning-and-governance" class="hash-link" aria-label="Direct link to Metadata: Identity, Versioning, and Governance" title="Direct link to Metadata: Identity, Versioning, and Governance" translate="no">​</a></h2>
 <!-- --><p>A plugin is more than just executable logic—it’s a structured package with identity, traceability, authorship, and governance requirements. This ensures that plugins can be discovered, validated, and safely integrated into the system. The <!-- --><strong>PluginMetadata</strong> class centralizes all of this information.<!-- --></p>
 <!-- --><div class="language-csharp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-csharp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">public class PluginMetadata</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">{</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    public required Guid Id { get; set; }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    public required string Name { get; set; }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    public required Version Version { get; set; }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    public required string CompanyName { get; set; }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    public string? Description { get; set; }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    public List&lt;string&gt; Authors { get; set; } = new List&lt;string&gt;();</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    public string? License { get; set; }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    public string? LicenseUrl { get; set; }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    public string? Icon { get; set; }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    public string? ProjectUrl { get; set; }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    public string? Copyright { get; set; }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    public List&lt;string&gt; Tags { get; set; } = new List&lt;string&gt;();</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    public string? RepositoryUrl { get; set; }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    public string? ReadMe { get; set; }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    public required PluginCategory Category { get; set; }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    public string Type =&gt; $"{CompanyName}.{Category.ToString()}.{Name}";</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    public required Version MinimumFlowSynxVersion { get; set; }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    public Version? TargetFlowSynxVersion { get; set; }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre></div></div>
-<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="key-responsibilities">Key responsibilities<!-- --><a href="https://flowsynx.io/blog/designing-for-infinite-flexibility-plugin-Based-extensibility-in-flowSynx#key-responsibilities" class="hash-link" aria-label="Direct link to Key responsibilities" title="Direct link to Key responsibilities" translate="no">​</a></h3>
+<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="key-responsibilities">Key responsibilities<!-- --><a href="https://genoflow.io/blog/designing-for-infinite-flexibility-plugin-Based-extensibility-in-flowSynx#key-responsibilities" class="hash-link" aria-label="Direct link to Key responsibilities" title="Direct link to Key responsibilities" translate="no">​</a></h3>
 <!-- --><p><code>PluginMetadata</code> provides several critical responsibilities for robust plugin management:<!-- --></p>
 <!-- --><ul>
 <!-- --><li class="">
@@ -421,10 +421,10 @@ This ensures plugins declare and enforce compatibility with host systems, preven
 <!-- -->The <!-- --><code>Name</code> and <!-- --><code>CompanyName</code> properties are strictly validated to ensure consistent and safe identifiers across the ecosystem, preventing accidental or malicious naming issues and maintaining stable type generation.<!-- --></p>
 <!-- --></li>
 <!-- --></ul>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="specifications-plugin-configuration">Specifications: Plugin Configuration<!-- --><a href="https://flowsynx.io/blog/designing-for-infinite-flexibility-plugin-Based-extensibility-in-flowSynx#specifications-plugin-configuration" class="hash-link" aria-label="Direct link to Specifications: Plugin Configuration" title="Direct link to Specifications: Plugin Configuration" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="specifications-plugin-configuration">Specifications: Plugin Configuration<!-- --><a href="https://genoflow.io/blog/designing-for-infinite-flexibility-plugin-Based-extensibility-in-flowSynx#specifications-plugin-configuration" class="hash-link" aria-label="Direct link to Specifications: Plugin Configuration" title="Direct link to Specifications: Plugin Configuration" translate="no">​</a></h2>
 <!-- --><p><code>PluginSpecifications</code> provides a flexible configuration model:<!-- --></p>
 <!-- --><div class="language-csharp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-csharp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">public class PluginSpecifications : Dictionary&lt;string, object?&gt;, ICloneable</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">{</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    ...</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre></div></div>
-<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="key-features">Key Features<!-- --><a href="https://flowsynx.io/blog/designing-for-infinite-flexibility-plugin-Based-extensibility-in-flowSynx#key-features" class="hash-link" aria-label="Direct link to Key Features" title="Direct link to Key Features" translate="no">​</a></h3>
+<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="key-features">Key Features<!-- --><a href="https://genoflow.io/blog/designing-for-infinite-flexibility-plugin-Based-extensibility-in-flowSynx#key-features" class="hash-link" aria-label="Direct link to Key Features" title="Direct link to Key Features" translate="no">​</a></h3>
 <!-- --><ul>
 <!-- --><li class="">
 <!-- --><p><strong>Dynamic Configuration</strong><br>
@@ -439,21 +439,21 @@ This ensures plugins declare and enforce compatibility with host systems, preven
 <!-- -->Implements ICloneable to create shallow copies for workflow execution snapshots. Allows safe modification of plugin settings without affecting the original configuration.<!-- --></p>
 <!-- --></li>
 <!-- --></ul>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="plugin-parameters-execution-inputs">Plugin Parameters: Execution Inputs<!-- --><a href="https://flowsynx.io/blog/designing-for-infinite-flexibility-plugin-Based-extensibility-in-flowSynx#plugin-parameters-execution-inputs" class="hash-link" aria-label="Direct link to Plugin Parameters: Execution Inputs" title="Direct link to Plugin Parameters: Execution Inputs" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="plugin-parameters-execution-inputs">Plugin Parameters: Execution Inputs<!-- --><a href="https://genoflow.io/blog/designing-for-infinite-flexibility-plugin-Based-extensibility-in-flowSynx#plugin-parameters-execution-inputs" class="hash-link" aria-label="Direct link to Plugin Parameters: Execution Inputs" title="Direct link to Plugin Parameters: Execution Inputs" translate="no">​</a></h2>
 <!-- --><p>Execution-time parameters follow the same dictionary-based model:</p>
 <!-- --><div class="language-csharp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-csharp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">public class PluginParameters : Dictionary&lt;string, object?&gt;, ICloneable</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">{</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    ...</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre></div></div>
 <!-- --><p>These represent runtime inputs passed to <!-- --><code>ExecuteAsync</code>, enabling flexible workflows that can adapt to external data and context.<!-- --></p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="initialization--execution-pipeline">Initialization &amp; Execution Pipeline<!-- --><a href="https://flowsynx.io/blog/designing-for-infinite-flexibility-plugin-Based-extensibility-in-flowSynx#initialization--execution-pipeline" class="hash-link" aria-label="Direct link to Initialization &amp; Execution Pipeline" title="Direct link to Initialization &amp; Execution Pipeline" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="initialization--execution-pipeline">Initialization &amp; Execution Pipeline<!-- --><a href="https://genoflow.io/blog/designing-for-infinite-flexibility-plugin-Based-extensibility-in-flowSynx#initialization--execution-pipeline" class="hash-link" aria-label="Direct link to Initialization &amp; Execution Pipeline" title="Direct link to Initialization &amp; Execution Pipeline" translate="no">​</a></h2>
 <!-- --><p>Every plugin follows two lifecycle phases:</p>
-<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="initialization">Initialization<!-- --><a href="https://flowsynx.io/blog/designing-for-infinite-flexibility-plugin-Based-extensibility-in-flowSynx#initialization" class="hash-link" aria-label="Direct link to Initialization" title="Direct link to Initialization" translate="no">​</a></h3>
+<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="initialization">Initialization<!-- --><a href="https://genoflow.io/blog/designing-for-infinite-flexibility-plugin-Based-extensibility-in-flowSynx#initialization" class="hash-link" aria-label="Direct link to Initialization" title="Direct link to Initialization" translate="no">​</a></h3>
 <!-- --><p>Used for warm-ups, validation, and preparing internal states.</p>
-<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="execution">Execution<!-- --><a href="https://flowsynx.io/blog/designing-for-infinite-flexibility-plugin-Based-extensibility-in-flowSynx#execution" class="hash-link" aria-label="Direct link to Execution" title="Direct link to Execution" translate="no">​</a></h3>
+<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="execution">Execution<!-- --><a href="https://genoflow.io/blog/designing-for-infinite-flexibility-plugin-Based-extensibility-in-flowSynx#execution" class="hash-link" aria-label="Direct link to Execution" title="Direct link to Execution" translate="no">​</a></h3>
 <!-- --><p>The workflow engine invokes <!-- --><code>ExecuteAsync</code>, allowing the plugin to behave however it needs to---returning objects, performing actions, or
 throwing exceptions handled by FlowSynx.<!-- --></p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="supported-operations">Supported Operations<!-- --><a href="https://flowsynx.io/blog/designing-for-infinite-flexibility-plugin-Based-extensibility-in-flowSynx#supported-operations" class="hash-link" aria-label="Direct link to Supported Operations" title="Direct link to Supported Operations" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="supported-operations">Supported Operations<!-- --><a href="https://genoflow.io/blog/designing-for-infinite-flexibility-plugin-Based-extensibility-in-flowSynx#supported-operations" class="hash-link" aria-label="Direct link to Supported Operations" title="Direct link to Supported Operations" translate="no">​</a></h2>
 <!-- --><div class="language-csharp codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-csharp codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">IReadOnlyCollection&lt;string&gt; SupportedOperations { get; }</span><br></span></code></pre></div></div>
 <!-- --><p>A plugin can expose multiple sub-features (e.g., <!-- --><code>query</code>, <!-- --><code>insert</code>, <!-- --><code>delete</code> for a database plugin), making plugins versatile and reducing duplication.<!-- --></p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="why-a-plugin-centric-architecture">Why a Plugin-Centric Architecture?<!-- --><a href="https://flowsynx.io/blog/designing-for-infinite-flexibility-plugin-Based-extensibility-in-flowSynx#why-a-plugin-centric-architecture" class="hash-link" aria-label="Direct link to Why a Plugin-Centric Architecture?" title="Direct link to Why a Plugin-Centric Architecture?" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="why-a-plugin-centric-architecture">Why a Plugin-Centric Architecture?<!-- --><a href="https://genoflow.io/blog/designing-for-infinite-flexibility-plugin-Based-extensibility-in-flowSynx#why-a-plugin-centric-architecture" class="hash-link" aria-label="Direct link to Why a Plugin-Centric Architecture?" title="Direct link to Why a Plugin-Centric Architecture?" translate="no">​</a></h2>
 <!-- --><p>Advantages include:</p>
 <!-- --><ul>
 <!-- --><li class="">
@@ -494,7 +494,7 @@ throwing exceptions handled by FlowSynx.<!-- --></p>
 <!-- --></li>
 <!-- --></ul>
 <!-- --><p>FlowSynx becomes an ecosystem—not just a workflow engine—capable of evolving dynamically with the needs of its users while maintaining stability, security, and enterprise-grade flexibility.</p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="summary">Summary<!-- --><a href="https://flowsynx.io/blog/designing-for-infinite-flexibility-plugin-Based-extensibility-in-flowSynx#summary" class="hash-link" aria-label="Direct link to Summary" title="Direct link to Summary" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="summary">Summary<!-- --><a href="https://genoflow.io/blog/designing-for-infinite-flexibility-plugin-Based-extensibility-in-flowSynx#summary" class="hash-link" aria-label="Direct link to Summary" title="Direct link to Summary" translate="no">​</a></h2>
 <!-- --><p>FlowSynx's plugin-based architecture provides:</p>
 <!-- --><ul>
 <!-- --><li class="">predictable execution</li>
@@ -516,8 +516,8 @@ throwing exceptions handled by FlowSynx.<!-- --></p>
     </entry>
     <entry>
         <title type="html"><![CDATA[Introducing FlowSynx - The Open Automated Fabric]]></title>
-        <id>https://flowsynx.io/blog/introducing-flowSynx-the-open-automated-fabric</id>
-        <link href="https://flowsynx.io/blog/introducing-flowSynx-the-open-automated-fabric"/>
+        <id>https://genoflow.io/blog/introducing-flowSynx-the-open-automated-fabric</id>
+        <link href="https://genoflow.io/blog/introducing-flowSynx-the-open-automated-fabric"/>
         <updated>2025-11-16T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[A new foundation for intelligent, connected workflows]]></summary>
         <content type="html"><![CDATA[<p><strong>A new foundation for intelligent, connected workflows</strong></p>
@@ -528,11 +528,11 @@ throwing exceptions handled by FlowSynx.<!-- --></p>
 <!-- --><li class="">Adopt automation platforms that are easy to start with but often rigid, limited, or difficult to extend.</li>
 <!-- --></ul>
 <!-- --><p>FlowSynx was created to bridge this gap—offering a more open, flexible, and future-proof approach to designing and running automations.</p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-is-flowsynx">What Is FlowSynx?<!-- --><a href="https://flowsynx.io/blog/introducing-flowSynx-the-open-automated-fabric#what-is-flowsynx" class="hash-link" aria-label="Direct link to What Is FlowSynx?" title="Direct link to What Is FlowSynx?" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-is-flowsynx">What Is FlowSynx?<!-- --><a href="https://genoflow.io/blog/introducing-flowSynx-the-open-automated-fabric#what-is-flowsynx" class="hash-link" aria-label="Direct link to What Is FlowSynx?" title="Direct link to What Is FlowSynx?" translate="no">​</a></h2>
 <!-- --><p>FlowSynx is an open automated fabric that orchestrates how systems, data, and actions flow across an organization. It provides a visual, intuitive way to build workflows while being powered by a strong architectural core based on DAGs (Directed Acyclic Graphs).</p>
 <!-- --><p>In everyday terms:<!-- --><br>
 <!-- -->FlowSynx helps teams coordinate tasks across different systems in a reliable, transparent, and scalable way.<!-- --></p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="why-we-call-it-a-fabric">Why We Call It a “Fabric”<!-- --><a href="https://flowsynx.io/blog/introducing-flowSynx-the-open-automated-fabric#why-we-call-it-a-fabric" class="hash-link" aria-label="Direct link to Why We Call It a “Fabric”" title="Direct link to Why We Call It a “Fabric”" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="why-we-call-it-a-fabric">Why We Call It a “Fabric”<!-- --><a href="https://genoflow.io/blog/introducing-flowSynx-the-open-automated-fabric#why-we-call-it-a-fabric" class="hash-link" aria-label="Direct link to Why We Call It a “Fabric”" title="Direct link to Why We Call It a “Fabric”" translate="no">​</a></h2>
 <!-- --><p>We use the word fabric intentionally. FlowSynx is designed to:</p>
 <!-- --><ul>
 <!-- --><li class="">Weave together diverse tools and platforms</li>
@@ -541,7 +541,7 @@ throwing exceptions handled by FlowSynx.<!-- --></p>
 <!-- --><li class="">Remain open, extensible, and transparent</li>
 <!-- --></ul>
 <!-- --><p>Instead of forcing processes into predefined patterns, FlowSynx acts as the connective layer that matches how your business actually operates.</p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="a-visual-experience-backed-by-strong-architecture">A Visual Experience Backed by Strong Architecture<!-- --><a href="https://flowsynx.io/blog/introducing-flowSynx-the-open-automated-fabric#a-visual-experience-backed-by-strong-architecture" class="hash-link" aria-label="Direct link to A Visual Experience Backed by Strong Architecture" title="Direct link to A Visual Experience Backed by Strong Architecture" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="a-visual-experience-backed-by-strong-architecture">A Visual Experience Backed by Strong Architecture<!-- --><a href="https://genoflow.io/blog/introducing-flowSynx-the-open-automated-fabric#a-visual-experience-backed-by-strong-architecture" class="hash-link" aria-label="Direct link to A Visual Experience Backed by Strong Architecture" title="Direct link to A Visual Experience Backed by Strong Architecture" translate="no">​</a></h2>
 <!-- --><p>FlowSynx offers a highly approachable way to design workflows, enabling teams to assemble automated processes through visual tools and clear, logical steps.</p>
 <!-- --><p>Behind the scenes, every workflow is represented as a DAG—a proven model used in scientific computing, data engineering, and mission-critical automation. This provides:</p>
 <!-- --><ul>
@@ -552,7 +552,7 @@ throwing exceptions handled by FlowSynx.<!-- --></p>
 <!-- --><li class="">Built-in auditing and visibility</li>
 <!-- --></ul>
 <!-- --><p>This architecture ensures that even complex, multi-system processes run reliably and can be evolved over time.</p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="for-product-managers-turning-ideas-into-reality-faster">For Product Managers: Turning Ideas into Reality Faster<!-- --><a href="https://flowsynx.io/blog/introducing-flowSynx-the-open-automated-fabric#for-product-managers-turning-ideas-into-reality-faster" class="hash-link" aria-label="Direct link to For Product Managers: Turning Ideas into Reality Faster" title="Direct link to For Product Managers: Turning Ideas into Reality Faster" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="for-product-managers-turning-ideas-into-reality-faster">For Product Managers: Turning Ideas into Reality Faster<!-- --><a href="https://genoflow.io/blog/introducing-flowSynx-the-open-automated-fabric#for-product-managers-turning-ideas-into-reality-faster" class="hash-link" aria-label="Direct link to For Product Managers: Turning Ideas into Reality Faster" title="Direct link to For Product Managers: Turning Ideas into Reality Faster" translate="no">​</a></h2>
 <!-- --><p>FlowSynx supports product teams by accelerating the journey from concept to execution.</p>
 <!-- --><ul>
 <!-- --><li class="">Launch cross-system onboarding sequences</li>
@@ -561,7 +561,7 @@ throwing exceptions handled by FlowSynx.<!-- --></p>
 <!-- --><li class="">Validate and iterate on workflow ideas quickly</li>
 <!-- --></ul>
 <!-- --><p>Because FlowSynx handles the orchestration layer, product teams can focus on outcomes, not implementation details.</p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="for-general-tech-teams-a-unifying-automation-layer">For General Tech Teams: A Unifying Automation Layer<!-- --><a href="https://flowsynx.io/blog/introducing-flowSynx-the-open-automated-fabric#for-general-tech-teams-a-unifying-automation-layer" class="hash-link" aria-label="Direct link to For General Tech Teams: A Unifying Automation Layer" title="Direct link to For General Tech Teams: A Unifying Automation Layer" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="for-general-tech-teams-a-unifying-automation-layer">For General Tech Teams: A Unifying Automation Layer<!-- --><a href="https://genoflow.io/blog/introducing-flowSynx-the-open-automated-fabric#for-general-tech-teams-a-unifying-automation-layer" class="hash-link" aria-label="Direct link to For General Tech Teams: A Unifying Automation Layer" title="Direct link to For General Tech Teams: A Unifying Automation Layer" translate="no">​</a></h2>
 <!-- --><p>Technical teams often spend significant time stitching systems together, maintaining scripts, and troubleshooting fragile integrations. FlowSynx brings consistency and clarity to this effort.</p>
 <!-- --><ul>
 <!-- --><li class="">A single platform to design and manage workflow logic</li>
@@ -571,7 +571,7 @@ throwing exceptions handled by FlowSynx.<!-- --></p>
 <!-- --><li class="">Ability to integrate custom logic and external services seamlessly</li>
 <!-- --></ul>
 <!-- --><p>FlowSynx becomes the backbone that ensures operational processes remain resilient even as systems change.</p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="built-for-the-future-ai-extensibility-and-deployment-freedom">Built for the Future: AI, Extensibility, and Deployment Freedom<!-- --><a href="https://flowsynx.io/blog/introducing-flowSynx-the-open-automated-fabric#built-for-the-future-ai-extensibility-and-deployment-freedom" class="hash-link" aria-label="Direct link to Built for the Future: AI, Extensibility, and Deployment Freedom" title="Direct link to Built for the Future: AI, Extensibility, and Deployment Freedom" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="built-for-the-future-ai-extensibility-and-deployment-freedom">Built for the Future: AI, Extensibility, and Deployment Freedom<!-- --><a href="https://genoflow.io/blog/introducing-flowSynx-the-open-automated-fabric#built-for-the-future-ai-extensibility-and-deployment-freedom" class="hash-link" aria-label="Direct link to Built for the Future: AI, Extensibility, and Deployment Freedom" title="Direct link to Built for the Future: AI, Extensibility, and Deployment Freedom" translate="no">​</a></h2>
 <!-- --><p>Modern organizations are rapidly embracing AI, distributed systems, and hybrid environments. FlowSynx is designed for this emerging landscape:</p>
 <!-- --><ul>
 <!-- --><li class=""><strong>AI-ready orchestration</strong> for intelligent decision steps<!-- --></li>
@@ -580,7 +580,7 @@ throwing exceptions handled by FlowSynx.<!-- --></p>
 <!-- --><li class=""><strong>Full transparency and auditing</strong> for governance and compliance<!-- --></li>
 <!-- --></ul>
 <!-- --><p>As workflows evolve to include more intelligent automation, FlowSynx provides the structure needed to execute them safely and consistently.</p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-vision-behind-flowsynx">The Vision Behind FlowSynx<!-- --><a href="https://flowsynx.io/blog/introducing-flowSynx-the-open-automated-fabric#the-vision-behind-flowsynx" class="hash-link" aria-label="Direct link to The Vision Behind FlowSynx" title="Direct link to The Vision Behind FlowSynx" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-vision-behind-flowsynx">The Vision Behind FlowSynx<!-- --><a href="https://genoflow.io/blog/introducing-flowSynx-the-open-automated-fabric#the-vision-behind-flowsynx" class="hash-link" aria-label="Direct link to The Vision Behind FlowSynx" title="Direct link to The Vision Behind FlowSynx" translate="no">​</a></h2>
 <!-- --><p>FlowSynx represents a shift in how automation platforms are built:
 open, adaptable, transparent, and ready for long-term ownership.</p>
 <!-- --><p>Our mission is simple:
@@ -595,14 +595,14 @@ open, adaptable, transparent, and ready for long-term ownership.</p>
     </entry>
     <entry>
         <title type="html"><![CDATA[FlowSynx v1.2.4 is now available]]></title>
-        <id>https://flowsynx.io/blog/flowsynx-v1.2.4-is-now-available</id>
-        <link href="https://flowsynx.io/blog/flowsynx-v1.2.4-is-now-available"/>
+        <id>https://genoflow.io/blog/flowsynx-v1.2.4-is-now-available</id>
+        <link href="https://genoflow.io/blog/flowsynx-v1.2.4-is-now-available"/>
         <updated>2025-11-15T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[FlowSynx v1.2.4 is officially released!]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flowsynx-v124-is-officially-released">FlowSynx v1.2.4 is officially released!<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.4-is-now-available#flowsynx-v124-is-officially-released" class="hash-link" aria-label="Direct link to FlowSynx v1.2.4 is officially released!" title="Direct link to FlowSynx v1.2.4 is officially released!" translate="no">​</a></h2>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flowsynx-v124-is-officially-released">FlowSynx v1.2.4 is officially released!<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.2.4-is-now-available#flowsynx-v124-is-officially-released" class="hash-link" aria-label="Direct link to FlowSynx v1.2.4 is officially released!" title="Direct link to FlowSynx v1.2.4 is officially released!" translate="no">​</a></h2>
 <!-- --><p>We're excited to roll out version 1.2.4 of FlowSynx — our lightweight, secure, and plugin-driven workflow engine.</p>
 <!-- --><p>This is the v1.2.4 release of flowsynx</p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="features">Features<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.4-is-now-available#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="features">Features<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.2.4-is-now-available#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features" translate="no">​</a></h2>
 <!-- --><ul>
 <!-- --><li class="">Add AI-driven workflow generation and optimization (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/691" target="_blank" rel="noopener noreferrer" class="">#691</a>)<!-- --></li>
 <!-- --><li class="">Add support for conditional and arithmetic parsing (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/692" target="_blank" rel="noopener noreferrer" class="">#692</a>)<!-- --></li>
@@ -611,7 +611,7 @@ open, adaptable, transparent, and ready for long-term ownership.</p>
 <!-- --><li class="">Introduced <!-- --><code>WebhookNotificationProvider</code> to enable sending notifications via webhooks (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/712" target="_blank" rel="noopener noreferrer" class="">#712</a>)<!-- --></li>
 <!-- --><li class="">Add DisabledAuthenticationProvider for disabled auth mode (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/713" target="_blank" rel="noopener noreferrer" class="">#713</a>)<!-- --></li>
 <!-- --></ul>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixes">Fixes<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.4-is-now-available#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixes">Fixes<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.2.4-is-now-available#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes" translate="no">​</a></h2>
 <!-- --><ul>
 <!-- --><li class="">Issue: Remove exception throwing from property getter (<!-- --><a href="https://github.com/flowsynx/flowsynx/pull/672" target="_blank" rel="noopener noreferrer" class="">#672</a>)<!-- --></li>
 <!-- --><li class="">Simplify workflow execution logic and refactor code (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/686" target="_blank" rel="noopener noreferrer" class="">#686</a>)<!-- --></li>
@@ -628,16 +628,16 @@ open, adaptable, transparent, and ready for long-term ownership.</p>
 <!-- --><li class="">Refactor manual approval to use a unified Comment field (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/711" target="_blank" rel="noopener noreferrer" class="">#711</a>)<!-- --></li>
 <!-- --><li class="">Refactored <!-- --><code>AuthenticationConfiguration</code> to improve modularity and flexibility (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/714" target="_blank" rel="noopener noreferrer" class="">#714</a>)<!-- --></li>
 <!-- --></ul>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-contributors">New Contributors<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.4-is-now-available#new-contributors" class="hash-link" aria-label="Direct link to New Contributors" title="Direct link to New Contributors" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-contributors">New Contributors<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.2.4-is-now-available#new-contributors" class="hash-link" aria-label="Direct link to New Contributors" title="Direct link to New Contributors" translate="no">​</a></h2>
 <!-- --><p><a href="https://github.com/Icebice" target="_blank" rel="noopener noreferrer" class="">@Icebice</a> made their first contribution in (<!-- --><a href="https://github.com/flowsynx/flowsynx/pull/689" target="_blank" rel="noopener noreferrer" class="">#689</a>)<!-- --></p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="acknowledgements">Acknowledgements<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.4-is-now-available#acknowledgements" class="hash-link" aria-label="Direct link to Acknowledgements" title="Direct link to Acknowledgements" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="acknowledgements">Acknowledgements<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.2.4-is-now-available#acknowledgements" class="hash-link" aria-label="Direct link to Acknowledgements" title="Direct link to Acknowledgements" translate="no">​</a></h2>
 <!-- --><p>Big thanks to our contributors in this release:
 <!-- --><a href="https://github.com/Sakeeb91" target="_blank" rel="noopener noreferrer" class="">@Sakeeb91</a> <!-- --><a href="https://github.com/mohin-io" target="_blank" rel="noopener noreferrer" class="">@arch92</a> <!-- --><a href="https://github.com/ziagham" target="_blank" rel="noopener noreferrer" class="">@ziagham</a></p>
 <!-- --><p>Every commit, review, and suggestion helped shape this version.</p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="available-now-via">Available now via<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.4-is-now-available#available-now-via" class="hash-link" aria-label="Direct link to Available now via" title="Direct link to Available now via" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="available-now-via">Available now via<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.2.4-is-now-available#available-now-via" class="hash-link" aria-label="Direct link to Available now via" title="Direct link to Available now via" translate="no">​</a></h2>
 <!-- --><a class="button button--primary button--outline button--lg" href="https://github.com/flowsynx/flowsynx/releases/tag/v1.2.4" target="_blank"><i class="fab fa-github"></i> GitHub<!-- --></a>
 <!-- --><a class="button button--primary button--outline button--lg" href="https://hub.docker.com/r/flowsynx/flowsynx/tags?name=1.2.4" target="_blank">Docker</a>
-<!-- --><h4>To begin, please visit the <!-- --><a href="https://flowsynx.io/docs/getting-started">Getting Started</a> page.<!-- --></h4>]]></content>
+<!-- --><h4>To begin, please visit the <!-- --><a href="https://genoflow.io/docs/getting-started">Getting Started</a> page.<!-- --></h4>]]></content>
         <author>
             <name>Maintainers</name>
         </author>
@@ -648,20 +648,20 @@ open, adaptable, transparent, and ready for long-term ownership.</p>
     </entry>
     <entry>
         <title type="html"><![CDATA[FlowSynx v1.2.3 is now available]]></title>
-        <id>https://flowsynx.io/blog/flowsynx-v1.2.3-is-now-available</id>
-        <link href="https://flowsynx.io/blog/flowsynx-v1.2.3-is-now-available"/>
+        <id>https://genoflow.io/blog/flowsynx-v1.2.3-is-now-available</id>
+        <link href="https://genoflow.io/blog/flowsynx-v1.2.3-is-now-available"/>
         <updated>2025-11-08T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[FlowSynx v1.2.3 is officially released!]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flowsynx-v123-is-officially-released">FlowSynx v1.2.3 is officially released!<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.3-is-now-available#flowsynx-v123-is-officially-released" class="hash-link" aria-label="Direct link to FlowSynx v1.2.3 is officially released!" title="Direct link to FlowSynx v1.2.3 is officially released!" translate="no">​</a></h2>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flowsynx-v123-is-officially-released">FlowSynx v1.2.3 is officially released!<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.2.3-is-now-available#flowsynx-v123-is-officially-released" class="hash-link" aria-label="Direct link to FlowSynx v1.2.3 is officially released!" title="Direct link to FlowSynx v1.2.3 is officially released!" translate="no">​</a></h2>
 <!-- --><p>We're excited to roll out version 1.2.3 of FlowSynx — our lightweight, secure, and plugin-driven workflow engine.</p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="features">Features<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.3-is-now-available#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="features">Features<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.2.3-is-now-available#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features" translate="no">​</a></h2>
 <!-- --><ul>
 <!-- --><li class="">Add Infisical for Configuration Management (<!-- --><a href="https://github.com/flowsynx/flowsynx/pull/615" target="_blank" rel="noopener noreferrer" class="">#615</a>)<!-- --></li>
 <!-- --><li class="">Add Azure Key Vault secret provider implementation (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/635" target="_blank" rel="noopener noreferrer" class="">#635</a>)<!-- --></li>
 <!-- --><li class="">Add HashiCorp Vault secret provider implementation (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/636" target="_blank" rel="noopener noreferrer" class="">636</a>)<!-- --></li>
 <!-- --><li class="">Add AWS Secrets Manager integration (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/637" target="_blank" rel="noopener noreferrer" class="">637</a>)<!-- --></li>
 <!-- --></ul>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixes">Fixes<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.3-is-now-available#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixes">Fixes<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.2.3-is-now-available#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes" translate="no">​</a></h2>
 <!-- --><ul>
 <!-- --><li class="">Refactor: Reduce Cognitive Complexity (<!-- --><a href="https://github.com/flowsynx/flowsynx/pull/589" target="_blank" rel="noopener noreferrer" class="">#589</a>, <!-- --><a href="https://github.com/flowsynx/flowsynx/pull/590" target="_blank" rel="noopener noreferrer" class="">#590</a>, <!-- --><a href="https://github.com/flowsynx/flowsynx/pull/599" target="_blank" rel="noopener noreferrer" class="">#599</a>, <!-- --><a href="https://github.com/flowsynx/flowsynx/pull/601" target="_blank" rel="noopener noreferrer" class="">#601</a>, <!-- --><a href="https://github.com/flowsynx/flowsynx/pull/604" target="_blank" rel="noopener noreferrer" class="">#604</a>)<!-- --></li>
 <!-- --><li class="">Rename parameter rateLimitPolicy to rateLimitPolicyName in Endpoints (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/606" target="_blank" rel="noopener noreferrer" class="">#606</a>, <!-- --><a href="https://github.com/flowsynx/flowsynx/issues/607" target="_blank" rel="noopener noreferrer" class="">#607</a>, <!-- --><a href="https://github.com/flowsynx/flowsynx/issues/608" target="_blank" rel="noopener noreferrer" class="">#608</a>, <!-- --><a href="https://github.com/flowsynx/flowsynx/issues/609" target="_blank" rel="noopener noreferrer" class="">#609</a>, <!-- --><a href="https://github.com/flowsynx/flowsynx/issues/610" target="_blank" rel="noopener noreferrer" class="">#610</a>, <!-- --><a href="https://github.com/flowsynx/flowsynx/issues/611" target="_blank" rel="noopener noreferrer" class="">#611</a>, <!-- --><a href="https://github.com/flowsynx/flowsynx/issues/612" target="_blank" rel="noopener noreferrer" class="">#612</a>)<!-- --></li>
@@ -671,14 +671,14 @@ open, adaptable, transparent, and ready for long-term ownership.</p>
 <!-- --><li class="">Refactor service configuration and add DatabaseProvider (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/676" target="_blank" rel="noopener noreferrer" class="">#676</a>)<!-- --></li>
 <!-- --><li class="">Refactor ConsoleLogger for disposal and thread safety (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/650" target="_blank" rel="noopener noreferrer" class="">#650</a>)<!-- --></li>
 <!-- --></ul>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="acknowledgements">Acknowledgements<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.3-is-now-available#acknowledgements" class="hash-link" aria-label="Direct link to Acknowledgements" title="Direct link to Acknowledgements" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="acknowledgements">Acknowledgements<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.2.3-is-now-available#acknowledgements" class="hash-link" aria-label="Direct link to Acknowledgements" title="Direct link to Acknowledgements" translate="no">​</a></h2>
 <!-- --><p>Big thanks to our contributors in this release:<!-- --><br>
 <!-- --><a href="https://github.com/Sakeeb91" target="_blank" rel="noopener noreferrer" class="">@Sakeeb91</a> <!-- --><a href="https://github.com/mohin-io" target="_blank" rel="noopener noreferrer" class="">@arch92</a> <!-- --><a href="https://github.com/AB-404" target="_blank" rel="noopener noreferrer" class="">@AB-404</a> <!-- --><a href="https://github.com/napalskies" target="_blank" rel="noopener noreferrer" class="">@napalskies</a> <!-- --><a href="https://github.com/cnaples79" target="_blank" rel="noopener noreferrer" class="">@cnaples79</a> <!-- --><a href="https://github.com/lerrxws" target="_blank" rel="noopener noreferrer" class="">@lerrxws</a> <!-- --><a href="https://github.com/rezaziagham" target="_blank" rel="noopener noreferrer" class="">@rezaziagham</a></p>
 <!-- --><p>Every commit, review, and suggestion helped shape this version.</p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="available-now-via">Available now via<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.3-is-now-available#available-now-via" class="hash-link" aria-label="Direct link to Available now via" title="Direct link to Available now via" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="available-now-via">Available now via<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.2.3-is-now-available#available-now-via" class="hash-link" aria-label="Direct link to Available now via" title="Direct link to Available now via" translate="no">​</a></h2>
 <!-- --><a class="button button--primary button--outline button--lg" href="https://github.com/flowsynx/flowsynx/releases/tag/v1.2.3" target="_blank"><i class="fab fa-github"></i> GitHub<!-- --></a>
 <!-- --><a class="button button--primary button--outline button--lg" href="https://hub.docker.com/r/flowsynx/flowsynx/tags?name=1.2.3" target="_blank">Docker</a>
-<!-- --><h4>To begin, please visit the <!-- --><a href="https://flowsynx.io/docs/getting-started">Getting Started</a> page.<!-- --></h4>]]></content>
+<!-- --><h4>To begin, please visit the <!-- --><a href="https://genoflow.io/docs/getting-started">Getting Started</a> page.<!-- --></h4>]]></content>
         <author>
             <name>Maintainers</name>
         </author>
@@ -689,18 +689,18 @@ open, adaptable, transparent, and ready for long-term ownership.</p>
     </entry>
     <entry>
         <title type="html"><![CDATA[FlowSynx v1.2.2 is now available]]></title>
-        <id>https://flowsynx.io/blog/flowsynx-v1.2.2-is-now-available</id>
-        <link href="https://flowsynx.io/blog/flowsynx-v1.2.2-is-now-available"/>
+        <id>https://genoflow.io/blog/flowsynx-v1.2.2-is-now-available</id>
+        <link href="https://genoflow.io/blog/flowsynx-v1.2.2-is-now-available"/>
         <updated>2025-10-26T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[FlowSynx v1.2.2 is officially released!]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flowsynx-v122-is-officially-released">FlowSynx v1.2.2 is officially released!<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.2-is-now-available#flowsynx-v122-is-officially-released" class="hash-link" aria-label="Direct link to FlowSynx v1.2.2 is officially released!" title="Direct link to FlowSynx v1.2.2 is officially released!" translate="no">​</a></h2>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flowsynx-v122-is-officially-released">FlowSynx v1.2.2 is officially released!<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.2.2-is-now-available#flowsynx-v122-is-officially-released" class="hash-link" aria-label="Direct link to FlowSynx v1.2.2 is officially released!" title="Direct link to FlowSynx v1.2.2 is officially released!" translate="no">​</a></h2>
 <!-- --><p>We're excited to roll out version 1.2.2 of FlowSynx — our lightweight, secure, and plugin-driven workflow engine.</p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="features">Features<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.2-is-now-available#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="features">Features<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.2.2-is-now-available#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features" translate="no">​</a></h2>
 <!-- --><ul>
 <!-- --><li class="">Add Workflow Schema Validation Support (<!-- --><a href="https://github.com/flowsynx/flowsynx/pull/516" target="_blank" rel="noopener noreferrer" class="">#516</a>)<!-- --></li>
 <!-- --><li class="">Support Fully Recursive Expression Resolution in ExpressionParser (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/575" target="_blank" rel="noopener noreferrer" class="">#575</a>)<!-- --></li>
 <!-- --></ul>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixes">Fixes<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.2-is-now-available#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixes">Fixes<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.2.2-is-now-available#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes" translate="no">​</a></h2>
 <!-- --><ul>
 <!-- --><li class="">Refactor repeated GUID validation into shared extension (<!-- --><a href="https://github.com/flowsynx/flowsynx/pull/537" target="_blank" rel="noopener noreferrer" class="">#537</a>)<!-- --></li>
 <!-- --><li class="">Add code of conduct documentation (<!-- --><a href="https://github.com/flowsynx/flowsynx/pull/538" target="_blank" rel="noopener noreferrer" class="">#538</a>)<!-- --></li>
@@ -715,11 +715,11 @@ open, adaptable, transparent, and ready for long-term ownership.</p>
 <!-- --><li class="">Increase log retrieval limit from 250 to 512 (<!-- --><a href="https://github.com/flowsynx/flowsynx/pull/579" target="_blank" rel="noopener noreferrer" class="">#579</a>)<!-- --></li>
 <!-- --><li class="">Pass a timeout to limit the execution time (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/581" target="_blank" rel="noopener noreferrer" class="">#581</a>)<!-- --></li>
 <!-- --></ul>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="acknowledgements">Acknowledgements<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.2-is-now-available#acknowledgements" class="hash-link" aria-label="Direct link to Acknowledgements" title="Direct link to Acknowledgements" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="acknowledgements">Acknowledgements<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.2.2-is-now-available#acknowledgements" class="hash-link" aria-label="Direct link to Acknowledgements" title="Direct link to Acknowledgements" translate="no">​</a></h2>
 <!-- --><p>Big thanks to our contributors in this release:
 <!-- --><a href="https://github.com/Sakeeb91" target="_blank" rel="noopener noreferrer" class="">@Sakeeb91</a> <!-- --><a href="https://github.com/arch92" target="_blank" rel="noopener noreferrer" class="">@arch92</a> <!-- --><a href="https://github.com/rezaziagham" target="_blank" rel="noopener noreferrer" class="">@rezaziagham</a><br>
 <!-- -->Every commit, review, and suggestion helped shape this version.<!-- --></p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="available-now-via">Available now via<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.2-is-now-available#available-now-via" class="hash-link" aria-label="Direct link to Available now via" title="Direct link to Available now via" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="available-now-via">Available now via<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.2.2-is-now-available#available-now-via" class="hash-link" aria-label="Direct link to Available now via" title="Direct link to Available now via" translate="no">​</a></h2>
 <!-- --><a class="button button--primary button--outline button--lg" href="https://github.com/flowsynx/flowsynx/releases/tag/v1.2.2" target="_blank"><i class="fab fa-github"></i> GitHub<!-- --></a>
 <!-- --><a class="button button--primary button--outline button--lg" href="https://hub.docker.com/r/flowsynx/flowsynx/tags?name=1.2.2" target="_blank">Docker</a>]]></content>
         <author>
@@ -732,18 +732,18 @@ open, adaptable, transparent, and ready for long-term ownership.</p>
     </entry>
     <entry>
         <title type="html"><![CDATA[FlowSynx v1.2.1 is now available]]></title>
-        <id>https://flowsynx.io/blog/flowsynx-v1.2.1-is-now-available</id>
-        <link href="https://flowsynx.io/blog/flowsynx-v1.2.1-is-now-available"/>
+        <id>https://genoflow.io/blog/flowsynx-v1.2.1-is-now-available</id>
+        <link href="https://genoflow.io/blog/flowsynx-v1.2.1-is-now-available"/>
         <updated>2025-10-17T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[FlowSynx v1.2.1 is officially released!]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flowsynx-v121-is-officially-released">FlowSynx v1.2.1 is officially released!<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.1-is-now-available#flowsynx-v121-is-officially-released" class="hash-link" aria-label="Direct link to FlowSynx v1.2.1 is officially released!" title="Direct link to FlowSynx v1.2.1 is officially released!" translate="no">​</a></h2>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flowsynx-v121-is-officially-released">FlowSynx v1.2.1 is officially released!<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.2.1-is-now-available#flowsynx-v121-is-officially-released" class="hash-link" aria-label="Direct link to FlowSynx v1.2.1 is officially released!" title="Direct link to FlowSynx v1.2.1 is officially released!" translate="no">​</a></h2>
 <!-- --><p>We're excited to roll out version 1.2.1 of FlowSynx — our lightweight, secure, and plugin-driven workflow engine.</p>
-<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="features">Features<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.1-is-now-available#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features" translate="no">​</a></h3>
+<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="features">Features<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.2.1-is-now-available#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features" translate="no">​</a></h3>
 <!-- --><ul>
 <!-- --><li class="">Introduce paginated result support (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/508" target="_blank" rel="noopener noreferrer" class="">508</a>)<!-- --></li>
 <!-- --><li class="">Enhance database initialization and configurations (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/494" target="_blank" rel="noopener noreferrer" class="">494</a>)<!-- --></li>
 <!-- --></ul>
-<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixes">Fixes<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.1-is-now-available#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes" translate="no">​</a></h3>
+<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixes">Fixes<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.2.1-is-now-available#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes" translate="no">​</a></h3>
 <!-- --><ul>
 <!-- --><li class="">Rename ApprovedAt field to DecidedAt in WorkflowApprovalEntity (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/469" target="_blank" rel="noopener noreferrer" class="">469</a>)<!-- --></li>
 <!-- --><li class="">Fix culture-sensitive ToLower() method (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/479" target="_blank" rel="noopener noreferrer" class="">479</a>, <!-- --><a href="https://github.com/flowsynx/flowsynx/issues/497" target="_blank" rel="noopener noreferrer" class="">497</a>, <!-- --><a href="https://github.com/flowsynx/flowsynx/issues/512" target="_blank" rel="noopener noreferrer" class="">512</a>)<!-- --></li>
@@ -753,7 +753,7 @@ open, adaptable, transparent, and ready for long-term ownership.</p>
 <!-- --><li class="">Use RandomNumberGenerator in jitter backoff (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/505" target="_blank" rel="noopener noreferrer" class="">505</a>)<!-- --></li>
 <!-- --><li class="">Clean up ManualApprovalService dead code (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/509" target="_blank" rel="noopener noreferrer" class="">509</a>)<!-- --></li>
 <!-- --></ul>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="available-now-via">Available now via<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.1-is-now-available#available-now-via" class="hash-link" aria-label="Direct link to Available now via" title="Direct link to Available now via" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="available-now-via">Available now via<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.2.1-is-now-available#available-now-via" class="hash-link" aria-label="Direct link to Available now via" title="Direct link to Available now via" translate="no">​</a></h2>
 <!-- --><a class="button button--primary button--outline button--lg" href="https://github.com/flowsynx/flowsynx/releases/tag/v1.2.1" target="_blank"><i class="fab fa-github"></i> GitHub<!-- --></a>
 <!-- --><a class="button button--primary button--outline button--lg" href="https://hub.docker.com/r/flowsynx/flowsynx/tags?name=1.2.1" target="_blank">Docker</a>]]></content>
         <author>
@@ -766,23 +766,23 @@ open, adaptable, transparent, and ready for long-term ownership.</p>
     </entry>
     <entry>
         <title type="html"><![CDATA[FlowSynx v1.2.0 is now available]]></title>
-        <id>https://flowsynx.io/blog/flowsynx-v1.2.0-is-now-available</id>
-        <link href="https://flowsynx.io/blog/flowsynx-v1.2.0-is-now-available"/>
+        <id>https://genoflow.io/blog/flowsynx-v1.2.0-is-now-available</id>
+        <link href="https://genoflow.io/blog/flowsynx-v1.2.0-is-now-available"/>
         <updated>2025-10-08T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[FlowSynx v1.2.0 is officially released!]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flowsynx-v120-is-officially-released">FlowSynx v1.2.0 is officially released!<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.0-is-now-available#flowsynx-v120-is-officially-released" class="hash-link" aria-label="Direct link to FlowSynx v1.2.0 is officially released!" title="Direct link to FlowSynx v1.2.0 is officially released!" translate="no">​</a></h2>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="flowsynx-v120-is-officially-released">FlowSynx v1.2.0 is officially released!<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.2.0-is-now-available#flowsynx-v120-is-officially-released" class="hash-link" aria-label="Direct link to FlowSynx v1.2.0 is officially released!" title="Direct link to FlowSynx v1.2.0 is officially released!" translate="no">​</a></h2>
 <!-- --><p>We're excited to roll out version 1.2.0 of FlowSynx — our lightweight, secure, and plugin-driven workflow engine.</p>
-<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="features">Features<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.0-is-now-available#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features" translate="no">​</a></h3>
+<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="features">Features<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.2.0-is-now-available#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features" translate="no">​</a></h3>
 <!-- --><ul>
 <!-- --><li class="">Add a new workflow trigger type based on an HTTP request condition (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/448" target="_blank" rel="noopener noreferrer" class="">#448</a>)<!-- --></li>
 <!-- --></ul>
-<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixes">Fixes<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.0-is-now-available#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes" translate="no">​</a></h3>
+<!-- --><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixes">Fixes<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.2.0-is-now-available#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes" translate="no">​</a></h3>
 <!-- --><ul>
 <!-- --><li class="">Rename WorkflowTimeBasedTriggerProcessor class (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/458" target="_blank" rel="noopener noreferrer" class="">#458</a>)<!-- --></li>
 <!-- --><li class="">Enhance JSON handling in ExpressionParser (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/446" target="_blank" rel="noopener noreferrer" class="">#446</a>)<!-- --></li>
 <!-- --><li class="">Update FlowSynx.PluginCore to version 1.3.4 (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/445" target="_blank" rel="noopener noreferrer" class="">#445</a>)<!-- --></li>
 <!-- --></ul>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="available-now-via">Available now via<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.2.0-is-now-available#available-now-via" class="hash-link" aria-label="Direct link to Available now via" title="Direct link to Available now via" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="available-now-via">Available now via<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.2.0-is-now-available#available-now-via" class="hash-link" aria-label="Direct link to Available now via" title="Direct link to Available now via" translate="no">​</a></h2>
 <!-- --><a class="button button--primary button--outline button--lg" href="https://github.com/flowsynx/flowsynx/releases/tag/v1.2.0" target="_blank"><i class="fab fa-github"></i> GitHub<!-- --></a>
 <!-- --><a class="button button--primary button--outline button--lg" href="https://hub.docker.com/r/flowsynx/flowsynx/tags?name=1.2.0" target="_blank">Docker</a>]]></content>
         <author>
@@ -795,13 +795,13 @@ open, adaptable, transparent, and ready for long-term ownership.</p>
     </entry>
     <entry>
         <title type="html"><![CDATA[FlowSynx v1.1.4 is now available]]></title>
-        <id>https://flowsynx.io/blog/flowsynx-v1.1.4-is-now-available</id>
-        <link href="https://flowsynx.io/blog/flowsynx-v1.1.4-is-now-available"/>
+        <id>https://genoflow.io/blog/flowsynx-v1.1.4-is-now-available</id>
+        <link href="https://genoflow.io/blog/flowsynx-v1.1.4-is-now-available"/>
         <updated>2025-09-25T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[FlowSynx v1.1.4 is officially released!]]></summary>
         <content type="html"><![CDATA[<p>FlowSynx v1.1.4 is officially released!</p>
 <!-- --><p>We're excited to roll out version 1.1.4 of FlowSynx — our lightweight, secure, and plugin-driven workflow engine.</p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixes">Fixes<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.1.4-is-now-available#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixes">Fixes<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.1.4-is-now-available#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes" translate="no">​</a></h2>
 <!-- --><ul>
 <!-- --><li class="">Enhance DatabaseConfiguration and refactor the connection string (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/444" target="_blank" rel="noopener noreferrer" class="">#444</a>)<!-- --></li>
 <!-- --><li class="">Enhance error handling defaults and resolution logic (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/443" target="_blank" rel="noopener noreferrer" class="">#443</a>)<!-- --></li>
@@ -817,13 +817,13 @@ open, adaptable, transparent, and ready for long-term ownership.</p>
     </entry>
     <entry>
         <title type="html"><![CDATA[FlowSynx v1.1.3 is now available]]></title>
-        <id>https://flowsynx.io/blog/flowsynx-v1.1.3-is-now-available</id>
-        <link href="https://flowsynx.io/blog/flowsynx-v1.1.3-is-now-available"/>
+        <id>https://genoflow.io/blog/flowsynx-v1.1.3-is-now-available</id>
+        <link href="https://genoflow.io/blog/flowsynx-v1.1.3-is-now-available"/>
         <updated>2025-09-11T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[FlowSynx v1.1.3 is officially released!]]></summary>
         <content type="html"><![CDATA[<p>FlowSynx v1.1.3 is officially released!</p>
 <!-- --><p>We're excited to roll out version 1.1.3 of FlowSynx — our lightweight, secure, and plugin-driven workflow engine.</p>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="features">Features<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.1.3-is-now-available#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="features">Features<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.1.3-is-now-available#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features" translate="no">​</a></h2>
 <!-- --><ul>
 <!-- --><li class="">Add workflow metrics summary feature via API</li>
 <!-- --><li class="">Add user-specific event publishing for task updates</li>
@@ -848,7 +848,7 @@ open, adaptable, transparent, and ready for long-term ownership.</p>
 <!-- --><li class="">Add Cors policy feature (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/416" target="_blank" rel="noopener noreferrer" class="">#416</a>)<!-- --></li>
 <!-- --><li class="">Add ability to return version in required as argument (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/414" target="_blank" rel="noopener noreferrer" class="">#414</a>)<!-- --></li>
 <!-- --></ul>
-<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="other-changes">Other Changes<!-- --><a href="https://flowsynx.io/blog/flowsynx-v1.1.3-is-now-available#other-changes" class="hash-link" aria-label="Direct link to Other Changes" title="Direct link to Other Changes" translate="no">​</a></h2>
+<!-- --><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="other-changes">Other Changes<!-- --><a href="https://genoflow.io/blog/flowsynx-v1.1.3-is-now-available#other-changes" class="hash-link" aria-label="Direct link to Other Changes" title="Direct link to Other Changes" translate="no">​</a></h2>
 <!-- --><ul>
 <!-- --><li class="">Order logs by descending TimeStamp in LoggerService</li>
 <!-- --><li class="">Delete the code related to SignalR hub and clean-up code (<!-- --><a href="https://github.com/flowsynx/flowsynx/issues/434" target="_blank" rel="noopener noreferrer" class="">#434</a>)<!-- --></li>
@@ -878,8 +878,8 @@ open, adaptable, transparent, and ready for long-term ownership.</p>
     </entry>
     <entry>
         <title type="html"><![CDATA[FlowSynx v1.1.2 is now available]]></title>
-        <id>https://flowsynx.io/blog/flowsynx-v1.1.2-is-now-available</id>
-        <link href="https://flowsynx.io/blog/flowsynx-v1.1.2-is-now-available"/>
+        <id>https://genoflow.io/blog/flowsynx-v1.1.2-is-now-available</id>
+        <link href="https://genoflow.io/blog/flowsynx-v1.1.2-is-now-available"/>
         <updated>2025-07-27T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[FlowSynx v1.1.2 is officially released!]]></summary>
         <content type="html"><![CDATA[<p>FlowSynx v1.1.2 is officially released!</p>
@@ -896,8 +896,8 @@ open, adaptable, transparent, and ready for long-term ownership.</p>
     </entry>
     <entry>
         <title type="html"><![CDATA[Introducing the FlowSynx blog]]></title>
-        <id>https://flowsynx.io/blog/introducing-the-flowsynx-blog</id>
-        <link href="https://flowsynx.io/blog/introducing-the-flowsynx-blog"/>
+        <id>https://genoflow.io/blog/introducing-the-flowsynx-blog</id>
+        <link href="https://genoflow.io/blog/introducing-the-flowsynx-blog"/>
         <updated>2024-05-11T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Welcome to the FlowSynx blog!]]></summary>
         <content type="html"><![CDATA[<p><strong>Welcome to the FlowSynx blog!</strong></p>

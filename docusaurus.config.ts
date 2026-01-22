@@ -87,7 +87,7 @@ const config: Config = {
       title: 'GenoFlow',
       logo: {
       alt: 'GenoFlow Logo',
-      src: 'img/logo.svg',
+      src: 'img/logo.png',
       },
       items: [
       {
@@ -196,7 +196,7 @@ const config: Config = {
       ],
       logo: {
         alt: 'GenoFlow Logo',
-        src: 'img/logo.svg',
+        src: 'img/logo.png',
         href: '/',
         width: 96,
       },

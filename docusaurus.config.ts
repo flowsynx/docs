@@ -3,20 +3,20 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'GenoFlow',
+  title: 'FlowSynx',
   tagline: 'Seamlessly unify data and compositional substrate across legacy, cloud, and modern systems using plugin-driven, declarative DAGs—delivering secure, reliable, auditable, and fully controllable automation for the hybrid enterprise.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://genoflow.io',
+  url: 'https://flowsynx.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'genoflow', // Usually your GitHub org/user name.
-  projectName: 'website', // Usually your repo name.
+  organizationName: 'flowsynx', // Usually your GitHub org/user name.
+  projectName: 'docs', // Usually your repo name.
   
   onBrokenLinks: 'throw',
   markdown: {
@@ -84,10 +84,10 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/OpenGraph.jpg',
     navbar: {
-      title: 'GenoFlow',
+      title: 'FlowSynx',
       logo: {
-      alt: 'GenoFlow Logo',
-      src: 'img/logo.png',
+      alt: 'FlowSynx Logo',
+      src: 'img/logo.svg',
       },
       items: [
       {
@@ -95,16 +95,6 @@ const config: Config = {
         sidebarId: 'docSidebar',
         position: 'left',
         label: 'Docs',
-      },
-      {
-        to: 'https://schema.genoflow.io', 
-        label: 'Schemas', 
-        position: 'left'
-      },
-      {
-        to: 'https://plugins.genoflow.io', 
-        label: 'Plugins', 
-        position: 'left'
       },
       {
         to: '/blog', 
@@ -122,13 +112,13 @@ const config: Config = {
         position: 'right'
       },
       {
-        to: 'https://discord.genoflow.io/',
+        to: 'https://discord.flowsynx.io/',
         position: 'right',
         label: 'Join our Discord',
         className: 'button button--primary button--md join-discord-button'
       },
       {
-        href: 'https://github.com/genoflow/genoflow',
+        href: 'https://github.com/flowsynx/flowsynx',
         position: 'right',
         className: 'header-github-link',
         'aria-label': 'GitHub repository',
@@ -152,11 +142,7 @@ const config: Config = {
         {
           label: 'Quick Starts',
           to: '/docs/getting-started/quickstarts/flowsynx-in-5-minutes',
-        },
-        {
-          label: 'Schemas',
-          href: 'https://schema.genoflow.io',
-        },
+        }
         ],
       },
       {
@@ -164,23 +150,23 @@ const config: Config = {
         items: [
         {
           label: 'GitHub',
-          href: 'https://github.com/genoflow/genoflow',
+          href: 'https://github.com/flowsynx/flowsynx',
         },
         {
           label: 'Discord',
-          href: 'https://discord.genoflow.io',
+          href: 'https://discord.flowsynx.io',
         },
         {
           label: 'Youtube',
-          href: 'https://www.youtube.com/@genoflow-io',
+          href: 'https://www.youtube.com/@flowsynx-io',
         },
         {
           label: 'Linkedin',
-          href: 'https://www.linkedin.com/company/genoflow',
+          href: 'https://www.linkedin.com/company/flowsynx',
         },
         {
           label: 'X',
-          href: 'https://x.com/genoflow',
+          href: 'https://x.com/flowsynx_io',
         },
         ],
       },
@@ -195,12 +181,12 @@ const config: Config = {
       },
       ],
       logo: {
-        alt: 'GenoFlow Logo',
-        src: 'img/logo.png',
+        alt: 'FlowSynx Logo',
+        src: 'img/logo.svg',
         href: '/',
         width: 96,
       },
-      copyright: `Copyright © ${new Date().getFullYear()} - GenoFlow - All rights reserved.<br />
+      copyright: `Copyright © ${new Date().getFullYear()} - FlowSynx - All rights reserved.<br />
       Built with <a href="https://docusaurus.io/" target="_blank">Docusaurus</a>. Hosted at <a href="https://pages.github.com/" target="_blank">Github Pages</a>.`
     },
     algolia: {
